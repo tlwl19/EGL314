@@ -10,13 +10,13 @@ def import_photo():
 
     # if user did not input any text
     if len(choice) == 0:
-        path = os.path.abspath('images') + '\\' + 'cat.png'
+        path = os.path.abspath('images') + '\\' + 'cat.jpg'
         file = path.replace('\\','/')
         myImage = Image.open(file)
         myImage.show()
     # if user input ball, cat or dog
     else:
-        path = os.path.abspath('images') +'\\' + var.get() + '.png'
+        path = os.path.abspath('images') +'\\' + var.get() + '.jpg'
         file = path.replace('\\','/')
         print("file path is {}".format(file))
         myImage = Image.open(file)
