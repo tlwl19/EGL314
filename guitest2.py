@@ -4,9 +4,9 @@ from datetime import *
 from PIL import Image
 import os
 
-global label, files, bg, bgs
+#global label, files, bg, bgs
 def import_photo():
-    global label, files, bg, myImage
+    #global label, files, bg, myImage
     print("Importing Photo...")
 
     testAQs = date(2020, 1, 20)
