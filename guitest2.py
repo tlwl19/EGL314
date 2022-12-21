@@ -160,17 +160,17 @@ label1.place(x = 0, y = 0)
 # Create Dropdown menu
 drop = OptionMenu(main , clicked , *options )
 drop.pack()
-drop.config(bg="#ffe4f2", fg="BLACK", activebackground="#e54ed0", activeforeground="WHITE")
+drop.config(bg="#ffe4f2", fg="BLACK", height=3 , width=15 , activebackground="#e54ed0", activeforeground="WHITE")
 drop["menu"].config(bg="#e54ed0", fg="WHITE", activebackground="#ffe4f2", activeforeground="BLACK")
 
 # Create Dropdown menu
 drops = OptionMenu(main , clickeds , *optionss )
 drops.pack()
-drops.config(bg="#9f45b0", fg="WHITE", activebackground="#44008b", activeforeground="WHITE")
+drops.config(bg="#9f45b0", fg="WHITE", height=3 , width=2, activebackground="#44008b", activeforeground="WHITE")
 drops["menu"].config(bg="#44008b", fg="WHITE", activebackground="#9f45b0", activeforeground="WHITE")
   
 # Create button, it will change label text
-button = Button(main , text = "Enter" , command = import_photo , bg="#00076f", fg="WHITE", activebackground="WHITE", activeforeground="BLACK").pack()
+button = Button(main , text = "Enter" , command = import_photo , bg="#00076f", fg="WHITE", height=2 , width=8,  activebackground="WHITE", activeforeground="BLACK").pack()
   
 # Create Label
 label = Label(main , text = " ")
