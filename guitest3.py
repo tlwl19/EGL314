@@ -1,11 +1,13 @@
 from tkinter import *
 from tkcalendar import Calendar
 from datetime import *
-from PIL import Image
+from PIL import Image, ImageTk
 import os
 
+global img, o
 #global label, files, bg, bgs
 def import_photo():
+    global o, img
     #global label, files, bg, myImage
     print("Importing Photo...")
 
@@ -57,68 +59,80 @@ def import_photo():
         if test2 >= testGs and test2 <= testGe:
             #label.config(text = clicked.get() + " " + str(clickeds.get()) + " Gemini")
             label.config(text = "gemini")
+            o = "gemini"
             print(test2)
             print(testGs)
             print(testGs)
         elif test2 >= testTs and test2 <= testTe:
             label.config(text = "taurus")
+            o = "taurus"
             print(test2)
             print(testTs)
             print(testTe)
         elif test2 >= testAs and test2 <= testAe:
             label.config(text = "aries")
+            o = "aries"
             print(test2)
             print(testAs)
             print(testAe)
         elif test2 >= testPs and test2 <= testPe:
             label.config(text = "pisces")
+            o = "pisces"
             print(test2)
             print(testPs)
             print(testPe)
         elif test2 >= testAQs and test2 <= testAQe:
             label.config(text = "aquarius")
+            o = "aquarius"
             print(test2)
             print(testAQs)
             print(testAQe)
         elif test2 >= testCNs and test2 <= testCNe:
             label.config(text = "cancer")
+            o = "cancer"
             print(test2)
             print(testCNs)
             print(testCNe)
         elif test2 >= testLOs and test2 <= testLOe:
             label.config(text = "leo")
+            o = "leo"
             print(test2)
             print(testLOs)
             print(testLOe)
         elif test2 >= testVs and test2 <= testVe:
             label.config(text = "virgo")
+            o = "virgo"
             print(test2)
             print(testVs)
             print(testVe)
         elif test2 >= testLBs and test2 <= testLBe:
             label.config(text = "libra")
+            o = "libra"
             print(test2)
             print(testLBs)
             print(testLBe)
         elif test2 >= testSCs and test2 <= testSCe:
             label.config(text = "scorpio")
+            o = "scorpio"
             print(test2)
             print(testSCs)
             print(testSCe)
         elif test2 >= testSGs and test2 <= testSGe:
             label.config(text = "sagittarius")
+            o = "sagittarius"
             print(test2)
             print(testSGs)
             print(testSGe)
         else:
             label.config(text = "capricorn")
+            o = "capricorn"
             print(test2)
             print(testCPs)
             print(testCPe)
         choice = label.cget("text")
         print(choice)
 
-        path = os.path.abspath('images') +'\\' + label.cget("text") + '.jpg'
+        path = os.path.abspath('images') +'\\' + choice + '.jpg'
         files = path.replace('\\','/')
         print("file path is {}".format(files))
         ##image1 = Image.open(files)
@@ -126,6 +140,7 @@ def import_photo():
         ##label1.config(image=test)
         #bgs = PhotoImage(files)
         #bg = label1.config(image = str(files))
+        return files
         myImage = Image.open(files)
         myImage.show()
     else:
@@ -153,28 +168,40 @@ whos = options[who.month-1]
 clicked.set(whos)
 clickeds.set(who.day)
   
-#label1 = Label(main, image = "")
+main.geometry("1100x450")
+
+""" #label1 = Label(main, image = "")
 label1 = Label(image="")
-label1.place(x = 0, y = 0)
+label1.place(x = 0, y = 0) """
 
 # Create Dropdown menu
 drop = OptionMenu(main , clicked , *options )
-drop.pack()
-drop.config(bg="#ffe4f2", fg="BLACK", height=3 , width=15 , activebackground="#e54ed0", activeforeground="WHITE")
+drop.grid(row=0, column=0)
+drop.config(bg="#ffe4f2", fg="BLACK", height="6" , width="20" , activebackground="#e54ed0", activeforeground="WHITE")
 drop["menu"].config(bg="#e54ed0", fg="WHITE", activebackground="#ffe4f2", activeforeground="BLACK")
 
 # Create Dropdown menu
 drops = OptionMenu(main , clickeds , *optionss )
-drops.pack()
-drops.config(bg="#9f45b0", fg="WHITE", height=3 , width=2, activebackground="#44008b", activeforeground="WHITE")
+drops.grid(row=1, column=0)
+drops.config(bg="#9f45b0", fg="WHITE", height="4" , width="20", activebackground="#44008b", activeforeground="WHITE")
 drops["menu"].config(bg="#44008b", fg="WHITE", activebackground="#9f45b0", activeforeground="WHITE")
-  
+
 # Create button, it will change label text
-button = Button(main , text = "Enter" , command = import_photo , bg="#00076f", fg="WHITE", height=2 , width=8,  activebackground="WHITE", activeforeground="BLACK").pack()
-  
+button = Button(main , text = "Enter" , command = import_photo , bg="#00076f", fg="WHITE", height="2" , width="20",  activebackground="WHITE", activeforeground="BLACK")
+button.grid(row=2, column=0)
+
 # Create Label
-label = Label(main , text = " ")
-label.pack()
+label = Label(main , text = "")
+label.grid(row=3, column=0)
+
+path = import_photo()
+print(path)
+# Create an object of tkinter ImageTk
+img = ImageTk.PhotoImage(Image.open(path))
+
+# Create a Label Widget to display the text or Image
+photo = Label(main, image = img)
+photo.grid(row=0, column=1, rowspan=4)
 
 """ # Add Calendar
 cal = Calendar(main, selectmode = 'day', month = 5, day = 22)
