@@ -4,10 +4,10 @@ from datetime import *
 from PIL import Image, ImageTk
 import os
 
-global img, o
+global img, o, photo, final
 #global label, files, bg, bgs
 def import_photo():
-    global o, img
+    global o, img, photo, final
     #global label, files, bg, myImage
     print("Importing Photo...")
 
@@ -132,17 +132,18 @@ def import_photo():
         choice = label.cget("text")
         print(choice)
 
-        path = os.path.abspath('images') +'\\' + choice + '.jpg'
+        path = os.path.abspath('images') +'\\' + o + '.jpg'
         files = path.replace('\\','/')
         print("file path is {}".format(files))
+
         ##image1 = Image.open(files)
         ##test = PhotoImage(image1)
         ##label1.config(image=test)
         #bgs = PhotoImage(files)
         #bg = label1.config(image = str(files))
         return files
-        myImage = Image.open(files)
-        myImage.show()
+        #myImage = Image.open(files)
+        #myImage.show()
     else:
         label.config(text = "Please input a valid DoB")
 
@@ -200,7 +201,7 @@ print(path)
 img = ImageTk.PhotoImage(Image.open(path))
 
 # Create a Label Widget to display the text or Image
-photo = Label(main, image = img)
+photo = Label(main, image=img)
 photo.grid(row=0, column=1, rowspan=4)
 
 """ # Add Calendar
