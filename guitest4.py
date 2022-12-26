@@ -1,15 +1,18 @@
-from tkinter import *
-from tkcalendar import Calendar
+#Import the required library
+from tkinter import*
 from datetime import *
 from PIL import Image, ImageTk
 import os
 
-#global label, files, bg, bgs
-def import_photo():
-    global o, img, final, photo
-    #global label, files, bg, myImage
-    print("Importing Photo...")
+#Create an instance of tkinter frame
+main= Tk()
 
+#Define geometry of the window
+main.geometry("1200x650")
+main.title("Gallery")
+
+#Define a Function to change to Image
+def change_img():
     testAQs = date(2020, 1, 20)
     testAQe = date(2020, 2, 18)
     testPs = date(2020, 2, 19)
@@ -57,67 +60,67 @@ def import_photo():
     if test3 == True:
         if test2 >= testGs and test2 <= testGe:
             #label.config(text = clicked.get() + " " + str(clickeds.get()) + " Gemini")
-            label.config(text = "gemini")
+            #label.config(text = "gemini")
             o = "gemini"
             print(test2)
             print(testGs)
             print(testGs)
         elif test2 >= testTs and test2 <= testTe:
-            label.config(text = "taurus")
+            #label.config(text = "taurus")
             o = "taurus"
             print(test2)
             print(testTs)
             print(testTe)
         elif test2 >= testAs and test2 <= testAe:
-            label.config(text = "aries")
+            #label.config(text = "aries")
             o = "aries"
             print(test2)
             print(testAs)
             print(testAe)
         elif test2 >= testPs and test2 <= testPe:
-            label.config(text = "pisces")
+            #label.config(text = "pisces")
             o = "pisces"
             print(test2)
             print(testPs)
             print(testPe)
         elif test2 >= testAQs and test2 <= testAQe:
-            label.config(text = "aquarius")
+            #label.config(text = "aquarius")
             o = "aquarius"
             print(test2)
             print(testAQs)
             print(testAQe)
         elif test2 >= testCNs and test2 <= testCNe:
-            label.config(text = "cancer")
+            #label.config(text = "cancer")
             o = "cancer"
             print(test2)
             print(testCNs)
             print(testCNe)
         elif test2 >= testLOs and test2 <= testLOe:
-            label.config(text = "leo")
+            #label.config(text = "leo")
             o = "leo"
             print(test2)
             print(testLOs)
             print(testLOe)
         elif test2 >= testVs and test2 <= testVe:
-            label.config(text = "virgo")
+            #label.config(text = "virgo")
             o = "virgo"
             print(test2)
             print(testVs)
             print(testVe)
         elif test2 >= testLBs and test2 <= testLBe:
-            label.config(text = "libra")
+            #label.config(text = "libra")
             o = "libra"
             print(test2)
             print(testLBs)
             print(testLBe)
         elif test2 >= testSCs and test2 <= testSCe:
-            label.config(text = "scorpio")
+            #label.config(text = "scorpio")
             o = "scorpio"
             print(test2)
             print(testSCs)
             print(testSCe)
         elif test2 >= testSGs and test2 <= testSGe:
-            label.config(text = "sagittarius")
+            #label.config(text = "sagittarius")
             o = "sagittarius"
             print(test2)
             print(testSGs)
@@ -128,31 +131,15 @@ def import_photo():
             print(test2)
             print(testCPs)
             print(testCPe)
-        #choice = label.cget("text")
-        #print(choice)
 
         path = os.path.abspath('images') +'\\' + o + '.jpg'
         files = path.replace('\\','/')
-        print("file path is {}".format(files))
-        img1 = PhotoImage(Image.open(files))
-        #imgarray.append(img1)
-        #label.configure(image=img1)
-        #label.image=img1
-        ##image1 = Image.open(files)
-        ##test = PhotoImage(image1)
-        ##label1.config(image=test)
-        #bgs = PhotoImage(files)
-        #bg = label1.config(image = str(files))
-        return files
-        #myImage = Image.open(files)
-        #myImage.show()
+        img2=ImageTk.PhotoImage(Image.open(files))
+        label.configure(image=img2)
+        label.image=img2
     else:
-        label.config(text = "Please input a valid DoB")
+        label.configure(text = "Please input a valid DoB", image='', font=('50px'))
 
-
-# Main GUI Windows
-main = Tk()
-main.title('Tutorial 3 Sample')
 # Dropdown menu options
 options = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 optionss = []
@@ -171,60 +158,34 @@ who = date.today()
 whos = options[who.month-1]
 clicked.set(whos)
 clickeds.set(who.day)
-  
-main.geometry("1100x450")
-
-""" #label1 = Label(main, image = "")
-label1 = Label(image="")
-label1.place(x = 0, y = 0) """
 
 # Create Dropdown menu
 drop = OptionMenu(main , clicked , *options )
-drop.grid(row=0, column=0)
+drop.grid(row=0, column=0, padx=30, pady=55, ipady=15)
 drop.config(bg="#ffe4f2", fg="BLACK", height="6" , width="20" , activebackground="#e54ed0", activeforeground="WHITE")
 drop["menu"].config(bg="#e54ed0", fg="WHITE", activebackground="#ffe4f2", activeforeground="BLACK")
 
 # Create Dropdown menu
 drops = OptionMenu(main , clickeds , *optionss )
-drops.grid(row=1, column=0)
+drops.grid(row=1, column=0, padx=30, pady=55, ipady=15)
 drops.config(bg="#9f45b0", fg="WHITE", height="4" , width="20", activebackground="#44008b", activeforeground="WHITE")
 drops["menu"].config(bg="#44008b", fg="WHITE", activebackground="#9f45b0", activeforeground="WHITE")
 
-# Create button, it will change label text
-button = Button(main , text = "Enter" , command = import_photo , bg="#00076f", fg="WHITE", height="2" , width="20",  activebackground="WHITE", activeforeground="BLACK")
+#paths = change_img()
+#Convert To PhotoImage
+paths = os.path.abspath('images') +'\\' + 'capricorn' + '.jpg'
+file = paths.replace('\\','/')
+img1= ImageTk.PhotoImage(Image.open(file))
+
+#Create a Label widget
+label= Label(main, image='', text="Enter your DoB", font=('50px'))
+label.grid(row=0, column=1, rowspan=3)
+
+#Create a Button to handle the update Image event
+button= Button(main, text= "Enter", font= ('Helvetica 13 bold'), command= change_img,  bg="#00076f", fg="WHITE")
 button.grid(row=2, column=0)
 
-# Create Label
-#label = Label(main , text = "")
-#label.grid(row=3, column=0)
-
-paths = import_photo()
-# Create an object of tkinter ImageTk
-img = ImageTk.PhotoImage(Image.open(paths))
-# Create a Label Widget to display the text or Image
-label = Label(main, image = img, text=" ")
-label.grid(row=0, column=1, rowspan=4)
-
-""" # Add Calendar
-cal = Calendar(main, selectmode = 'day', month = 5, day = 22)
- 
-cal.pack(pady = 20)
- 
-def grad_date():
-    test = cal.get_date()
-    if (test > '05/21' and test < '06/21') :
-        date.config(text = cal.get_date() + ' is gemini ')
-        date.config(text = test)
-    else:
-        date.config(text = cal.get_date() + ' is others ')
-        date.config(text = test)
- 
-# Add Button and Label
-Button(main, text = "Get Date",
-       command = grad_date).pack(pady = 20)
- 
-date = Label(main, text = "")
-date.pack(pady = 20) """
-
-main.bind("<Return>", import_photo)
+#result = Label(main , text = "Press Enter", font='30px', bg='black', fg='white')
+#result.grid(row=3, column=0, pady=20)
+main.bind("<Return>", change_img)
 main.mainloop()
