@@ -8,8 +8,8 @@ import os
 main= Tk()
 
 #Define geometry of the window
-main.geometry("1200x650")
-main.title("Gallery")
+main.geometry("1300x750")
+#main.title("Gallery")
 
 #Define a Function to change to Image
 def change_img():
@@ -62,71 +62,83 @@ def change_img():
             #label.config(text = clicked.get() + " " + str(clickeds.get()) + " Gemini")
             #label.config(text = "gemini")
             o = "gemini"
+            label2.config(text='21 May to 20 June')
             print(test2)
             print(testGs)
             print(testGs)
         elif test2 >= testTs and test2 <= testTe:
             #label.config(text = "taurus")
+            label2.config(text='20 April to 20 May')
             o = "taurus"
             print(test2)
             print(testTs)
             print(testTe)
         elif test2 >= testAs and test2 <= testAe:
             #label.config(text = "aries")
+            label2.config(text='21 March to 21 April')
             o = "aries"
             print(test2)
             print(testAs)
             print(testAe)
         elif test2 >= testPs and test2 <= testPe:
             #label.config(text = "pisces")
+            label2.config(text='19 Febuary to 20 March')
             o = "pisces"
             print(test2)
             print(testPs)
             print(testPe)
         elif test2 >= testAQs and test2 <= testAQe:
             #label.config(text = "aquarius")
+            label2.config(text='20 January to 18 Febuary')
             o = "aquarius"
             print(test2)
             print(testAQs)
             print(testAQe)
         elif test2 >= testCNs and test2 <= testCNe:
             #label.config(text = "cancer")
+            label2.config(text='21 June to 22 July')
             o = "cancer"
             print(test2)
             print(testCNs)
             print(testCNe)
         elif test2 >= testLOs and test2 <= testLOe:
             #label.config(text = "leo")
+            label2.config(text='23 July to 22 Augest')
             o = "leo"
             print(test2)
             print(testLOs)
             print(testLOe)
         elif test2 >= testVs and test2 <= testVe:
             #label.config(text = "virgo")
+            label2.config(text='23 Augest to 22 September')
             o = "virgo"
             print(test2)
             print(testVs)
             print(testVe)
         elif test2 >= testLBs and test2 <= testLBe:
             #label.config(text = "libra")
+            label2.config(text='23 September to 22 October')
             o = "libra"
             print(test2)
             print(testLBs)
             print(testLBe)
         elif test2 >= testSCs and test2 <= testSCe:
             #label.config(text = "scorpio")
+            label2.config(text='23 October to 21 November')
             o = "scorpio"
             print(test2)
             print(testSCs)
             print(testSCe)
         elif test2 >= testSGs and test2 <= testSGe:
             #label.config(text = "sagittarius")
+            label2.config(text='22 November to 21 December')
             o = "sagittarius"
             print(test2)
             print(testSGs)
             print(testSGe)
         else:
             #label.config(text = "capricorn")
+            label2.config(text='22 December to 19 January')
             o = "capricorn"
             print(test2)
             print(testCPs)
@@ -139,6 +151,7 @@ def change_img():
         label.image=img2
     else:
         label.configure(text = "Please input a valid DoB", image='', font=('50px'))
+        label2.config(text='')
 
 # Dropdown menu options
 options = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -173,17 +186,20 @@ drops["menu"].config(bg="#44008b", fg="WHITE", activebackground="#9f45b0", activ
 
 #paths = change_img()
 #Convert To PhotoImage
-paths = os.path.abspath('images') +'\\' + 'capricorn' + '.jpg'
+""" paths = os.path.abspath('images') +'\\' + 'capricorn' + '.jpg'
 file = paths.replace('\\','/')
-img1= ImageTk.PhotoImage(Image.open(file))
+img1= ImageTk.PhotoImage(Image.open(file)) """
 
 #Create a Label widget
-label= Label(main, image='', text="Enter your DoB", font=('50px'))
+label= Label(main, image='', text="Kindly, Input your DoB and Press the 'Enter' button", font=('100px'))
 label.grid(row=0, column=1, rowspan=3)
 
 #Create a Button to handle the update Image event
 button= Button(main, text= "Enter", font= ('Helvetica 13 bold'), command= change_img,  bg="#00076f", fg="WHITE")
 button.grid(row=2, column=0)
+
+label2 = Label(main, text = " ", font='20px')
+label2.grid(row=3, column=1)
 
 #result = Label(main , text = "Press Enter", font='30px', bg='black', fg='white')
 #result.grid(row=3, column=0, pady=20)
