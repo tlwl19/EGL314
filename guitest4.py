@@ -147,7 +147,7 @@ def change_img():
         path = os.path.abspath('images') +'\\' + o + '.jpg'
         files = path.replace('\\','/')
         img2=ImageTk.PhotoImage(Image.open(files))
-        label.configure(image=img2)
+        label.configure(image=img2, width=900, height=500)
         label.image=img2
     else:
         label.configure(text = "Please input a valid DoB", image='', font=('50px'))
@@ -191,7 +191,7 @@ file = paths.replace('\\','/')
 img1= ImageTk.PhotoImage(Image.open(file)) """
 
 #Create a Label widget
-label= Label(main, image='', text="Kindly, Input your DoB and Press the 'Enter' button", font=('100px'))
+label= Label(main, image='', text="Kindly, Input your DoB and Press the 'Enter' button", font=('100px'), bg='white')
 label.grid(row=0, column=1, rowspan=3)
 
 #Create a Button to handle the update Image event
