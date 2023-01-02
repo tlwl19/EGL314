@@ -37,7 +37,7 @@ def click(c):
     if c == number:
         for r in range(inputrow):
             for c in range(inputcolumn):
-                button[c][r].config(bg='#3DED97') #Show green colour
+                button[c][r].config(bg='#7fff00') #Show green colour
         score = score+1
         scoreresults.config(text=str(score))
     else:
