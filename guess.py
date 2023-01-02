@@ -13,7 +13,7 @@ def startgame():
     for r in range(inputrow):
         for c in range(inputcolumn):
             button[c][r].config(bg='#b0c8ed', fg="white") #Show blue colour
-    scoreresults.config(text=str(score))
+    scoreresults.config(text=str(score))  #It will show 0 when press "Start game"
             
 
 #The function is for reset game
@@ -23,13 +23,14 @@ def restartgame():
     for r in range(inputrow):
         for c in range(inputcolumn):
             button[c][r].config(bg='#a58fbe', fg="white") #Show purple colour
-    scoreresults.config(text=str(score))
+    scoreresults.config(text=str(score))  #It will show 0 when press "Reset game"
 
 
 def guess():
     global number
     number = random.randint(0,11)
     print(horoscope[number])
+
 
 def click(c):
     global number, score
