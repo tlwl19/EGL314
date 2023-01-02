@@ -186,7 +186,7 @@ def change_img():
         label.configure(text = "Please input a valid DoB", image='', font=('50px'))
         label2.config(text='')
 
-def game(no):
+def game():
     randomx = random.randint(1,3)
     if randomx == 1:
         #send rock pic 
@@ -253,17 +253,14 @@ frame1 = Frame(main)
 frame1.grid(row=3, column=1)
 frame1.grid_forget()
 
-label3 = Button(frame1, text = "ROCK", font='20px', command=game(1))
+label3 = Button(frame1, text = "ROCK", font='20px', command=game)
 label3.grid(row=0, column=0)
 
-label4 = Button(frame1, text = "SCISSORS", font='20px', command=game(2))
+label4 = Button(frame1, text = "SCISSORS", font='20px', command=game)
 label4.grid(row=0, column=1)
 
-label5 = Button(frame1, text = "PAPER", font='20px', command=game(3))
+label5 = Button(frame1, text = "PAPER", font='20px', command=game)
 label5.grid(row=0, column=2)
-
-label6 = Label(frame1, text = "", font='20px')
-label6.grid(row=0, column=3)
 
 #result = Label(main , text = "Press Enter", font='30px', bg='black', fg='white')
 #result.grid(row=3, column=0, pady=20)
