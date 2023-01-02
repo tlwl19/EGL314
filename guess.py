@@ -1,5 +1,7 @@
 from tkinter import *   #import tkinter library
 import random
+import os 
+from PIL import Image, ImageTk
 
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
@@ -8,8 +10,9 @@ global score, number
 
 #The function is for start game
 def startgame():
-    global score
+    global score, prevent
     score = 0
+    prevent = []
     for r in range(inputrow):
         for c in range(inputcolumn):
             button[c][r].config(bg='#b0c8ed', fg="white") #Show blue colour
@@ -18,8 +21,9 @@ def startgame():
 
 #The function is for reset game
 def restartgame():
-    global score
+    global score, prevent
     score = 0
+    prevent = []
     for r in range(inputrow):
         for c in range(inputcolumn):
             button[c][r].config(bg='#a58fbe', fg="white") #Show purple colour
@@ -27,32 +31,43 @@ def restartgame():
 
 
 def guess():
-    global number
+    global number, prevent
     number = random.randint(0,11)
-    print(horoscope[number])
+    prevent = []
+    for r in range(inputrow):
+        for c in range(inputcolumn):
+            button[c][r].config(bg='#b0c8ed', fg="white")
+    print(horoscope[number])#edit this line onw and send the pic over
+    path = os.path.abspath('horoscope pics') +'\\' + horoscope[number] + '.jpeg'
+    files = path.replace('\\','/')
+    myImage = Image.open(files)
+    myImage.show()
 
 
 def click(c):
-    global number, score
-    prevent = []
+    global number, score, prevent
     if c == number:
         prevent.append(0)
-        if len(prevent) >= 1:
-            scoreresults.config(text='GAME OVER')
+        if len(prevent) > 1:
+            scoreresults.config(text=str(score))
         else:
             for r in range(inputrow):
                 for c in range(inputcolumn):
                     button[c][r].config(bg='#7fff00') #Show green colour
             score = score+1
             scoreresults.config(text=str(score))
+    elif button[0][0].cget('bg') == '#7fff00':
+        scoreresults.config(text=str(score))
     else:
         for r in range(inputrow):
             for c in range(inputcolumn):
                 button[c][r].config(bg='#FF0800') #Show red colour
         score = score-1
+        scoreresults.config(text=str(score))
+        print(score)
         if score <= 0:
             scoreresults.config(text='0')
-            if score < -3:
+            if score < -2:
                 scoreresults.config(text='GAME OVER')
                 prevent.append(0)
                 for r in range(inputrow):
