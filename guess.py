@@ -12,7 +12,7 @@ def startgame():
     score = 0
     for r in range(inputrow):
             for c in range(inputcolumn):
-                button[c][r].config(bg='blue', fg="white")
+                button[c][r].config(bg='#b0c8ed', fg="white")
 
 #The function is for reset game
 def restartgame():
@@ -20,7 +20,7 @@ def restartgame():
     score = 0
     for r in range(inputrow):
             for c in range(inputcolumn):
-                button[c][r].config(bg='purple', fg="white")
+                button[c][r].config(bg='#a58fbe', fg="white")
 
 #The function is for the scores 
 """ def results():
@@ -90,7 +90,7 @@ frame3.grid(row=1, column=2)
 startbtn = Button(frame3, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
 startbtn.grid(row=0, column=2)
 
-resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20), command=restartgame)
+resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20), bg='pink', command=restartgame)
 resetbtn.grid(row=1, column=2)
 
 scorename = Label(frame3, text="Score", font=('Arial', 25)) 
