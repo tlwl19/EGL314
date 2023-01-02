@@ -12,7 +12,7 @@ def startgame():
     score = 0
     for r in range(inputrow):
             for c in range(inputcolumn):
-                button[c][r].config(bg='#b0c8ed', fg="white")
+                button[c][r].config(bg='#b0c8ed', fg="white") #Show blue colour
 
 #The function is for reset game
 def restartgame():
@@ -20,7 +20,7 @@ def restartgame():
     score = 0
     for r in range(inputrow):
             for c in range(inputcolumn):
-                button[c][r].config(bg='#a58fbe', fg="white")
+                button[c][r].config(bg='#a58fbe', fg="white") #Show purple colour
 
 #The function is for the scores 
 """ def results():
@@ -37,13 +37,13 @@ def click(c):
     if c == number:
         for r in range(inputrow):
             for c in range(inputcolumn):
-                button[c][r].config(bg='green')
+                button[c][r].config(bg='#3DED97') #Show green colour
         score = score+1
         scoreresults.config(text=str(score))
     else:
         for r in range(inputrow):
             for c in range(inputcolumn):
-                button[c][r].config(bg='red')
+                button[c][r].config(bg='#FF0800') #Show red colour
         score = score-1
         if score <= 0:
             scoreresults.config(text='0')
