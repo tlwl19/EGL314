@@ -6,62 +6,88 @@ from PIL import Image, ImageTk
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
 
-global score, number
-
+global score, number, prevent
+number = 15
 #The function is for start game
 def startgame():
-    global score, prevent
+    global score, prevent, number
     score = 0
     prevent = []
-    for r in range(inputrow):
-        for c in range(inputcolumn):
-            button[c][r].config(bg='#b0c8ed', fg="white") #Show blue colour
-    scoreresults.config(text=str(score),font=('Arial',20))  #It will show 0 when press "Start game"
-            
-
+    if number == 15:
+        for r in range(inputrow):
+            for c in range(inputcolumn):
+                button[c][r].config(bg='#b0c8ed', fg="white") #Show blue colour
+        scoreresults.config(text=str(score),font=('Arial',20))  #It will show 0 when press "Start game"
+        number = 12 #to signal that userr has press start game btn n to ensure that when user click on the 3x4 grids bef guess btn, it will show press guess btn
+        
 #The function is for reset game
 def restartgame():
-    global score, prevent
+    global score, prevent, number
     score = 0
     prevent = []
-    for r in range(inputrow):
-        for c in range(inputcolumn):
-            button[c][r].config(bg='#a58fbe', fg="white") #Show purple colour
-    scoreresults.config(text="Press Start Game to Start",font=('Arial',12))  #It will show 0 when press "Reset game"
+    if number == 13 or number == 14:
+        for r in range(inputrow):
+            for c in range(inputcolumn):
+                button[c][r].config(bg='#a58fbe', fg="white") #Show purple colour
+        scoreresults.config(text="Press Start Game to Start",font=('Arial',12))  #It will show 0 when press "Reset game"
+        number = 15
 
 
 def guess():
     global number, prevent
-    number = random.randint(0,11)
+    #number = 13
+    
     prevent = []
-    if button[0][0].cget('bg') != '#b0c8ed':
+    #if button[0][0].cget('bg') != '#b0c8ed':
+        #scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
+    if button[0][0].cget('bg') == '#7fff00' or button[0][0].cget('bg') == '#FF0800' or button[0][0].cget('bg') == '#b0c8ed':
+        if button[0][0].cget('bg') != '#FF0800':
+            number = random.randint(0,11) #generate a random no. 
+            for r in range(inputrow):
+                for c in range(inputcolumn):
+                    button[c][r].config(bg='#b0c8ed', fg="white")
+            print(horoscope[number])#edit this line onw and send the pic over
+            path = os.path.abspath('horoscope pics') +'\\' + horoscope[number] + '.jpeg'
+            files = path.replace('\\','/')
+            myImage = Image.open(files)
+            myImage.show()
+        else:
+            scoreresults.config(text="Try Again", font=('Arial',15))
+    elif button[0][0].cget('bg') == '#a58fbe':
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
-    else:
-        for r in range(inputrow):
-            for c in range(inputcolumn):
-                button[c][r].config(bg='#b0c8ed', fg="white")
-        print(horoscope[number])#edit this line onw and send the pic over
-        path = os.path.abspath('horoscope pics') +'\\' + horoscope[number] + '.jpeg'
-        files = path.replace('\\','/')
-        myImage = Image.open(files)
-        myImage.show()
+        number = 15
+    elif number == 13:
+        scoreresults.config(text="Press Reset Game to Reset", font=('Arial',10))
+    else: 
+        scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
 
 
 def click(c):
     global number, score, prevent
-    if button[0][0].cget('bg') == 'white' or button[0][0].cget('bg') == '#a58fbe' :
+    if button[0][0].cget('bg') == 'white':
+        if number == 15:
+            scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
+        else:
+            scoreresults.config(text="Press Reset Game to Reset", font=('Arial',10))
+    elif button[0][0].cget('bg') == '#a58fbe' :
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
+    elif number == 12:
+        scoreresults.config(text="Press Guess to Start Guessing", font=('Arial',10))
     else :
         if c == number:
             prevent.append(0)
             if len(prevent) > 1:
+                number = 13
                 scoreresults.config(text=str(score), font=('Arial',20))
             else:
                 for r in range(inputrow):
                     for c in range(inputcolumn):
                         button[c][r].config(bg='#7fff00') #Show green colour
                 score = score+1
-                scoreresults.config(text=str(score), font=('Arial',20))
+                if score <= 0:
+                    scoreresults.config(text='+1', font=('Arial',20))
+                else:
+                    scoreresults.config(text=str(score), font=('Arial',20))
         elif button[0][0].cget('bg') == '#7fff00':
             scoreresults.config(text=str(score), font=('Arial',20))
         else:
@@ -72,9 +98,10 @@ def click(c):
             scoreresults.config(text=str(score), font=('Arial',20))
             print(score)
             if score <= 0:
-                scoreresults.config(text='0')
+                scoreresults.config(text='Try Again', font=('Arial',15))
                 if score < -2:
                     scoreresults.config(text='GAME OVER', font=('Arial',20))
+                    number = 13
                     prevent.append(0)
                     for r in range(inputrow):
                         for c in range(inputcolumn):
