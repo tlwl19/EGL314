@@ -64,24 +64,29 @@ def change_img():
             path = os.path.abspath('images') +'\\1.jpg'
             files = path.replace('\\','/')
             #send pic here to servo
+            label2.config(text='')
         elif randomno == 2:
             path = os.path.abspath('images') +'\\2.jpg'
             files = path.replace('\\','/')
             #send pic here to servo
+            label2.config(text='')
         elif randomno == 3:
             path = os.path.abspath('images') +'\\3.jpg'
             files = path.replace('\\','/')
             #send pic here to servo
+            label2.config(text='')
         elif randomno == 4:
             path = os.path.abspath('images') +'\\4.jpg'
             files = path.replace('\\','/')
+            label2.config(text='Would you like to play a game with me?')
             #send pic here to servo
         else:
             path = os.path.abspath('images') +'\\5.jpg'
             files = path.replace('\\','/')
+            label2.config(text='Would you like to play a game with me?')
             #send pic here to servo
 
-        if test2 >= testGs and test2 <= testGe:
+        """ if test2 >= testGs and test2 <= testGe:
             #label.config(text = clicked.get() + " " + str(clickeds.get()) + " Gemini")
             #label.config(text = "gemini")
             o = "gemini"
@@ -169,7 +174,7 @@ def change_img():
 
         path = os.path.abspath('images') +'\\' + o + '.jpg'
         files = path.replace('\\','/')
-        """ img2=ImageTk.PhotoImage(Image.open(files))
+        img2=ImageTk.PhotoImage(Image.open(files))
         label.configure(image=img2, width=900, height=500)
         label.image=img2 """
     else:
