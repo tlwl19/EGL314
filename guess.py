@@ -8,8 +8,9 @@ global score, number
 
 #The function is for start game
 def startgame():
-    global score
+    global score, prevent
     score = 0
+    prevent = []
     for r in range(inputrow):
         for c in range(inputcolumn):
             button[c][r].config(bg='#b0c8ed', fg="white") #Show blue colour
@@ -18,8 +19,9 @@ def startgame():
 
 #The function is for reset game
 def restartgame():
-    global score
+    global score, prevent
     score = 0
+    prevent = []
     for r in range(inputrow):
         for c in range(inputcolumn):
             button[c][r].config(bg='#a58fbe', fg="white") #Show purple colour
@@ -32,13 +34,13 @@ def guess():
     print(horoscope[number])
 
 def click(c):
-    global number, score
-    prevent = []
+    global number, score, prevent
     if c == number:
         prevent.append(0)
-        if len(prevent) >= 1:
-            scoreresults.config(text='GAME OVER')
+        if len(prevent) > 1:
+            scoreresults.config(text=str(score))
         else:
+            prevent = [0]
             for r in range(inputrow):
                 for c in range(inputcolumn):
                     button[c][r].config(bg='#7fff00') #Show green colour
@@ -49,6 +51,7 @@ def click(c):
             for c in range(inputcolumn):
                 button[c][r].config(bg='#FF0800') #Show red colour
         score = score-1
+        print(score)
         if score <= 0:
             scoreresults.config(text='0')
             if score < -3:
