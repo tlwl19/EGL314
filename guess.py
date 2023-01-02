@@ -11,34 +11,19 @@ def startgame():
     global score
     score = 0
     for r in range(inputrow):
-<<<<<<< HEAD
         for c in range(inputcolumn):
             button[c][r].config(bg='#b0c8ed', fg="white")
     scoreresults.config(text=str(score))
             
-=======
-            for c in range(inputcolumn):
-                button[c][r].config(bg='#b0c8ed', fg="white") #Show blue colour
->>>>>>> f0115ec8e41139a984e4c563a10f30e2faef3da0
 
 #The function is for reset game
 def restartgame():
     global score
     score = 0
     for r in range(inputrow):
-<<<<<<< HEAD
         for c in range(inputcolumn):
             button[c][r].config(bg='#a58fbe', fg="white")
     scoreresults.config(text=str(score))
-=======
-            for c in range(inputcolumn):
-                button[c][r].config(bg='#a58fbe', fg="white") #Show purple colour
->>>>>>> f0115ec8e41139a984e4c563a10f30e2faef3da0
-
-#The function is for the scores 
-""" def results():
-    score = score + 1
-    scoreresults.config(text=score) """
 
 def guess():
     global number
@@ -49,23 +34,15 @@ def click(c):
     global number, score
     prevent = []
     if c == number:
-<<<<<<< HEAD
         prevent.append(0)
         if len(prevent) >= 1:
             scoreresults.config(text='GAME OVER')
         else:
             for r in range(inputrow):
                 for c in range(inputcolumn):
-                    button[c][r].config(bg='green')
+                    button[c][r].config(bg='#3DED97')
             score = score+1
             scoreresults.config(text=str(score))
-=======
-        for r in range(inputrow):
-            for c in range(inputcolumn):
-                button[c][r].config(bg='#3DED97') #Show green colour
-        score = score+1
-        scoreresults.config(text=str(score))
->>>>>>> f0115ec8e41139a984e4c563a10f30e2faef3da0
     else:
         for r in range(inputrow):
             for c in range(inputcolumn):
