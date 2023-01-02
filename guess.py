@@ -21,7 +21,7 @@ inputcolumn = 4
 button = [[r for r in range(inputrow)] for c in range(inputcolumn)]
 for r in range(inputrow):
     for c in range(inputcolumn):
-        button[r][c] = Button(frame1, text="Gemini", font=('Arial',5))
-        button[r][c].grid(row=r, column=c)
+        button[r][r] = Button(frame1, text="Gemini", font=('Arial',5))
+        button[r][r].grid(row=r, column=c)
 
 main.mainloop()  #for the window to stay
