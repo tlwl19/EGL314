@@ -34,11 +34,15 @@ def click(c):
     global number, score
     prevent = []
     if c == number:
-        for r in range(inputrow):
-            for c in range(inputcolumn):
-                button[c][r].config(bg='#7fff00') #Show green colour
-        score = score+1
-        scoreresults.config(text=str(score))
+        prevent.append(0)
+        if len(prevent) >= 1:
+            scoreresults.config(text='GAME OVER')
+        else:
+            for r in range(inputrow):
+                for c in range(inputcolumn):
+                    button[c][r].config(bg='#7fff00') #Show green colour
+            score = score+1
+            scoreresults.config(text=str(score))
     else:
         for r in range(inputrow):
             for c in range(inputcolumn):
