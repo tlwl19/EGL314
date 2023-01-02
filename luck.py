@@ -64,6 +64,16 @@ def change_img():
 def game():
     frame1.grid_forget()
     randoms = random.randint(1,3)
+    if randoms == 1:
+        o = "paper"
+    elif randoms == 2:
+        o = "scissors"
+    else:
+        o = "stone"
+    path = os.path.abspath('scissors paper stone pics') +'\\' + o + '.jpeg'
+    files = path.replace('\\','/')
+    myImage = Image.open(files) #edit here onw to send the pic
+    myImage.show()
         
 
 # Dropdown menu options
@@ -119,13 +129,21 @@ paths = os.path.abspath('scissors paper stone pics') +'\\paper.jpeg'
 file = paths.replace('\\','/')
 img1= ImageTk.PhotoImage(Image.open(file))
 
-label3 = Button(frame1, img = img1, font='20px', command=game)
+paths = os.path.abspath('scissors paper stone pics') +'\\scissors.jpeg'
+file = paths.replace('\\','/')
+img2= ImageTk.PhotoImage(Image.open(file))
+
+paths = os.path.abspath('scissors paper stone pics') +'\\stone.jpeg'
+file = paths.replace('\\','/')
+img3= ImageTk.PhotoImage(Image.open(file))
+
+label3 = Button(frame1, image = img1, font='20px', command=game)
 label3.grid(row=1, column=0)
 
-label4 = Button(frame1, text = "SCISSORS", font='20px', command=game)
+label4 = Button(frame1, image = img2, font='20px', command=game)
 label4.grid(row=1, column=1)
 
-label5 = Button(frame1, text = "PAPER", font='20px', command=game)
+label5 = Button(frame1, image = img3, font='20px', command=game)
 label5.grid(row=1, column=2)
 
 label6 = Label(frame1, text='', font='20px')
