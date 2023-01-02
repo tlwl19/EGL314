@@ -65,19 +65,19 @@ def change_img():
             files = path.replace('\\','/')
             #send pic here to servo
         elif randomno == 2:
-            path = os.path.abspath('images') +'\\1.jpg'
+            path = os.path.abspath('images') +'\\2.jpg'
             files = path.replace('\\','/')
             #send pic here to servo
         elif randomno == 3:
-            path = os.path.abspath('images') +'\\1.jpg'
+            path = os.path.abspath('images') +'\\3.jpg'
             files = path.replace('\\','/')
             #send pic here to servo
         elif randomno == 4:
-            path = os.path.abspath('images') +'\\1.jpg'
+            path = os.path.abspath('images') +'\\4.jpg'
             files = path.replace('\\','/')
             #send pic here to servo
         else:
-            path = os.path.abspath('images') +'\\1.jpg'
+            path = os.path.abspath('images') +'\\5.jpg'
             files = path.replace('\\','/')
             #send pic here to servo
 
