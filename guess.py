@@ -4,9 +4,9 @@ import random
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
 
-#score = 0 #create a global score variable
 global score, number
-#The function is for reset and start game
+
+#The function is for start game
 def startgame():
     global score
     score = 0
@@ -14,6 +14,7 @@ def startgame():
             for c in range(inputcolumn):
                 button[c][r].config(bg='blue', fg="white")
 
+#The function is for reset game
 def restartgame():
     global score
     score = 0
