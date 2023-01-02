@@ -42,5 +42,8 @@ startbtn.grid(row=0, column=2)
 resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20))
 resetbtn.grid(row=1, column=2)
 
+scorename = Label(frame3, text="Score", font=('Arial', 25)) 
+scorename.grid(row=2, column=2)
+
 
 main.mainloop()  #for the window to stay
