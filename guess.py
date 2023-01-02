@@ -1,5 +1,7 @@
 from tkinter import *   #import tkinter library
 import random
+import os 
+from PIL import Image, ImageTk
 
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
@@ -35,7 +37,11 @@ def guess():
     for r in range(inputrow):
         for c in range(inputcolumn):
             button[c][r].config(bg='#b0c8ed', fg="white")
-    print(horoscope[number])
+    print(horoscope[number])#edit this line onw and send the pic over
+    path = os.path.abspath('horoscope pics') +'\\' + horoscope[number] + '.jpeg'
+    files = path.replace('\\','/')
+    myImage = Image.open(files)
+    myImage.show()
 
 def click(c):
     global number, score, prevent
