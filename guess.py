@@ -87,7 +87,7 @@ guessbtn.grid(row=0, column=1)
 frame3 = Frame(main)
 frame3.grid(row=1, column=2)
 
-startbtn = Button(frame3, text="START GAME", font=('Arial', 20), command=startgame)
+startbtn = Button(frame3, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
 startbtn.grid(row=0, column=2)
 
 resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20), command=restartgame)
