@@ -22,13 +22,8 @@ def change_img():
                     test3 = False
                 else: 
                     test3 = True
-                    #test2 = date(2020, i, clickeds.get())
             else:
-            #test2 = str(clickeds.get()) + "/" + i
-            #test2 = datetime.date(2019, clickeds.get(), i)
                 test3 = True
-                #test2 = date(2020, i, clickeds.get())
-            #test2 = date.strftime(str(clickeds.get()), '%d/%m', str(i))
     if test3 == True:
         label.config(text="Kindly, Input your DoB and Press the 'Enter' button")
         randomno = random.randint(1, 5)
@@ -120,7 +115,11 @@ frame1.grid_forget()
 label2 = Label(frame1, text = "", font='20px')
 label2.grid(row=0, columnspan=3)
 
-label3 = Button(frame1, text = "ROCK", font='20px', command=game)
+paths = os.path.abspath('scissors paper stone pics') +'\\paper.jpeg'
+file = paths.replace('\\','/')
+img1= ImageTk.PhotoImage(Image.open(file))
+
+label3 = Button(frame1, img = img1, font='20px', command=game)
 label3.grid(row=1, column=0)
 
 label4 = Button(frame1, text = "SCISSORS", font='20px', command=game)
