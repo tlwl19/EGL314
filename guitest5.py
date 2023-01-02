@@ -3,6 +3,7 @@ from tkinter import*
 from datetime import *
 from PIL import Image, ImageTk
 import os
+import random
 
 #Create an instance of tkinter frame
 main= Tk()
@@ -58,87 +59,109 @@ def change_img():
                 test2 = date(2020, i, clickeds.get())
             #test2 = date.strftime(str(clickeds.get()), '%d/%m', str(i))
     if test3 == True:
+        randomno = random.randint(1, 5)
+        if randomno == 1:
+            path = os.path.abspath('images') +'\\1.jpg'
+            files = path.replace('\\','/')
+            #send pic here to servo
+        elif randomno == 2:
+            path = os.path.abspath('images') +'\\1.jpg'
+            files = path.replace('\\','/')
+            #send pic here to servo
+        elif randomno == 3:
+            path = os.path.abspath('images') +'\\1.jpg'
+            files = path.replace('\\','/')
+            #send pic here to servo
+        elif randomno == 4:
+            path = os.path.abspath('images') +'\\1.jpg'
+            files = path.replace('\\','/')
+            #send pic here to servo
+        else:
+            path = os.path.abspath('images') +'\\1.jpg'
+            files = path.replace('\\','/')
+            #send pic here to servo
+
         if test2 >= testGs and test2 <= testGe:
             #label.config(text = clicked.get() + " " + str(clickeds.get()) + " Gemini")
             #label.config(text = "gemini")
             o = "gemini"
-            label2.config(text='21 May to 20 June')
+            label2.config(text='21 May to 20 June' + str(randomno))
             print(test2)
             print(testGs)
             print(testGs)
         elif test2 >= testTs and test2 <= testTe:
             #label.config(text = "taurus")
-            label2.config(text='20 April to 20 May')
+            label2.config(text='20 April to 20 May' + str(randomno))
             o = "taurus"
             print(test2)
             print(testTs)
             print(testTe)
         elif test2 >= testAs and test2 <= testAe:
             #label.config(text = "aries")
-            label2.config(text='21 March to 21 April')
+            label2.config(text='21 March to 21 April' + str(randomno))
             o = "aries"
             print(test2)
             print(testAs)
             print(testAe)
         elif test2 >= testPs and test2 <= testPe:
             #label.config(text = "pisces")
-            label2.config(text='19 Febuary to 20 March')
+            label2.config(text='19 Febuary to 20 March' + str(randomno))
             o = "pisces"
             print(test2)
             print(testPs)
             print(testPe)
         elif test2 >= testAQs and test2 <= testAQe:
             #label.config(text = "aquarius")
-            label2.config(text='20 January to 18 Febuary')
+            label2.config(text='20 January to 18 Febuary'+ str(randomno))
             o = "aquarius"
             print(test2)
             print(testAQs)
             print(testAQe)
         elif test2 >= testCNs and test2 <= testCNe:
             #label.config(text = "cancer")
-            label2.config(text='21 June to 22 July')
+            label2.config(text='21 June to 22 July'+ str(randomno))
             o = "cancer"
             print(test2)
             print(testCNs)
             print(testCNe)
         elif test2 >= testLOs and test2 <= testLOe:
             #label.config(text = "leo")
-            label2.config(text='23 July to 22 Augest')
+            label2.config(text='23 July to 22 Augest'+ str(randomno))
             o = "leo"
             print(test2)
             print(testLOs)
             print(testLOe)
         elif test2 >= testVs and test2 <= testVe:
             #label.config(text = "virgo")
-            label2.config(text='23 Augest to 22 September')
+            label2.config(text='23 Augest to 22 September'+ str(randomno))
             o = "virgo"
             print(test2)
             print(testVs)
             print(testVe)
         elif test2 >= testLBs and test2 <= testLBe:
             #label.config(text = "libra")
-            label2.config(text='23 September to 22 October')
+            label2.config(text='23 September to 22 October'+ str(randomno))
             o = "libra"
             print(test2)
             print(testLBs)
             print(testLBe)
         elif test2 >= testSCs and test2 <= testSCe:
             #label.config(text = "scorpio")
-            label2.config(text='23 October to 21 November')
+            label2.config(text='23 October to 21 November'+ str(randomno))
             o = "scorpio"
             print(test2)
             print(testSCs)
             print(testSCe)
         elif test2 >= testSGs and test2 <= testSGe:
             #label.config(text = "sagittarius")
-            label2.config(text='22 November to 21 December')
+            label2.config(text='22 November to 21 December'+ str(randomno))
             o = "sagittarius"
             print(test2)
             print(testSGs)
             print(testSGe)
         else:
             #label.config(text = "capricorn")
-            label2.config(text='22 December to 19 January')
+            label2.config(text='22 December to 19 January'+ str(randomno))
             o = "capricorn"
             print(test2)
             print(testCPs)
@@ -146,9 +169,9 @@ def change_img():
 
         path = os.path.abspath('images') +'\\' + o + '.jpg'
         files = path.replace('\\','/')
-        img2=ImageTk.PhotoImage(Image.open(files))
+        """ img2=ImageTk.PhotoImage(Image.open(files))
         label.configure(image=img2, width=900, height=500)
-        label.image=img2
+        label.image=img2 """
     else:
         label.configure(text = "Please input a valid DoB", image='', font=('50px'))
         label2.config(text='')
@@ -192,14 +215,14 @@ img1= ImageTk.PhotoImage(Image.open(file)) """
 
 #Create a Label widget
 label= Label(main, image='', text="Kindly, Input your DoB and Press the 'Enter' button", font=('100px'), bg='white')
-label.grid(row=0, column=1, rowspan=3)
+label.grid(row=0, column=1)
 
 #Create a Button to handle the update Image event
 button= Button(main, text= "Enter", font= ('Helvetica 13 bold'), command= change_img,  bg="#00076f", fg="WHITE")
-button.grid(row=2, column=0)
+button.grid(row=1, column=1)
 
 label2 = Label(main, text = " ", font='20px')
-label2.grid(row=3, column=1)
+label2.grid(row=2, column=1)
 
 #result = Label(main , text = "Press Enter", font='30px', bg='black', fg='white')
 #result.grid(row=3, column=0, pady=20)
