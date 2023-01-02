@@ -29,8 +29,12 @@ def restartgame():
 
 
 def guess():
-    global number
+    global number, prevent
     number = random.randint(0,11)
+    prevent = []
+    for r in range(inputrow):
+        for c in range(inputcolumn):
+            button[c][r].config(bg='#b0c8ed', fg="white")
     print(horoscope[number])
 
 def click(c):
@@ -40,21 +44,23 @@ def click(c):
         if len(prevent) > 1:
             scoreresults.config(text=str(score))
         else:
-            prevent = [0]
             for r in range(inputrow):
                 for c in range(inputcolumn):
                     button[c][r].config(bg='#7fff00') #Show green colour
             score = score+1
             scoreresults.config(text=str(score))
+    elif button[0][0].cget('bg') == '#7fff00':
+        scoreresults.config(text=str(score))
     else:
         for r in range(inputrow):
             for c in range(inputcolumn):
                 button[c][r].config(bg='#FF0800') #Show red colour
         score = score-1
+        scoreresults.config(text=str(score))
         print(score)
         if score <= 0:
             scoreresults.config(text='0')
-            if score < -3:
+            if score < -2:
                 scoreresults.config(text='GAME OVER')
                 prevent.append(0)
                 for r in range(inputrow):
