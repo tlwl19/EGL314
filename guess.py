@@ -4,24 +4,48 @@ import random
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
 
-score = 0 #create a global score variable
-
+#score = 0 #create a global score variable
+global score, number
 #The function is for reset and start game
-def game():
-    for r in range(inputrow):
-        for c in range(inputcolumn):
-            button[c][r].config(bg='white')
+def game(x):
+    global score
+    score = 0
+    if x == 1:
+        for r in range(inputrow):
+            for c in range(inputcolumn):
+                button[c][r].config(bg='white')
+    elif x == 0:
+        for r in range(inputrow):
+            for c in range(inputcolumn):
+                button[c][r].config(bg='white')
 
 #The function is for the scores 
-def results():
+""" def results():
     score = score + 1
-    scoreresults.config(text=score)
+    scoreresults.config(text=score) """
+
+def guess():
+    global number
+    number = random.randint(0,11)
+    print(horoscope[number])
+
+def click(c):
+    global number, score
+    if c == number:
+        for r in range(inputrow):
+            for c in range(inputcolumn):
+                button[c][r].config(bg='green')
+        score = score+1
+        scoreresults.config(text=str(score))
+    else:
+        for r in range(inputrow):
+            for c in range(inputcolumn):
+                button[c][r].config(bg='red')
 
 #The function is for guess btn to take from random generator
 def guess():
     n = random.randint(0,11) #number indicating the horoscope
     print(n) #have to change it to print image
-
 
 #Header for the game
 headername = Label(text="Guess the Horoscope", font=('Arial', 30)) 
@@ -39,7 +63,7 @@ horoscope = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Sc
 button = [[r for r in range(inputrow)] for c in range(inputcolumn)]
 for r in range(inputrow):
     for c in range(inputcolumn):
-        button[c][r] = Button(frame1, text=horoscope[counter], font=('Arial',15), height=5, width=10, bg='white') #button[c][r] start from column first instead of row 
+        button[c][r] = Button(frame1, text=horoscope[counter], font=('Arial',15), height=5, width=10, bg='white', command=lambda r=counter :click(r)) #button[c][r] start from column first instead of row 
         button[c][r].grid(row=r, column=c) 
         counter = counter+1
 
@@ -48,7 +72,7 @@ for r in range(inputrow):
 frame2 = Frame(main)
 frame2.grid(row=1, column=1)
 
-guessbtn = Button(frame2, text="GUESS!!", font=('Arial',20))
+guessbtn = Button(frame2, text="GUESS!!", font=('Arial',20), command=guess)
 guessbtn.grid(row=0, column=1)
 
 
@@ -56,10 +80,10 @@ guessbtn.grid(row=0, column=1)
 frame3 = Frame(main)
 frame3.grid(row=1, column=2)
 
-startbtn = Button(frame3, text="START GAME", font=('Arial', 20), command=game)
+startbtn = Button(frame3, text="START GAME", font=('Arial', 20), command=game(1))
 startbtn.grid(row=0, column=2)
 
-resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20), command=game)
+resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20), command=game(0))
 resetbtn.grid(row=1, column=2)
 
 scorename = Label(frame3, text="Score", font=('Arial', 25)) 
