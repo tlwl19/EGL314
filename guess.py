@@ -4,23 +4,25 @@ import random
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
 
-#score = 0 #create a global score variable
 global score, number
-#The function is for reset and start game
+
+#The function is for start game
 def startgame():
     global score
     score = 0
     for r in range(inputrow):
         for c in range(inputcolumn):
-            button[c][r].config(bg='blue', fg="white")
+            button[c][r].config(bg='#b0c8ed', fg="white")
     scoreresults.config(text=str(score))
+            
 
+#The function is for reset game
 def restartgame():
     global score
     score = 0
     for r in range(inputrow):
         for c in range(inputcolumn):
-            button[c][r].config(bg='purple', fg="white")
+            button[c][r].config(bg='#a58fbe', fg="white")
     scoreresults.config(text=str(score))
 
 #The function is for the scores 
@@ -94,10 +96,10 @@ guessbtn.grid(row=0, column=1)
 frame3 = Frame(main)
 frame3.grid(row=1, column=2)
 
-startbtn = Button(frame3, text="START GAME", font=('Arial', 20), command=startgame)
+startbtn = Button(frame3, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
 startbtn.grid(row=0, column=2)
 
-resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20), command=restartgame)
+resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20), bg='pink', command=restartgame)
 resetbtn.grid(row=1, column=2)
 
 scorename = Label(frame3, text="Score", font=('Arial', 25)) 
