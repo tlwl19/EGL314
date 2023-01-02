@@ -8,11 +8,14 @@ main.title("Guess the Horoscope") #Title will be shown on the GUI window
 score = 0 #create a global score variable
 
 def game():
-    button.config(bg='white')
+    for r in range(inputrow):
+        for c in range(inputcolumn):
+            button[c][r].config(bg='white')
     #scoreresults == 0
 
 def results():
     score = score + 1
+    scoreresults.config(text=score)
 
 #seed(1)
 #def guess():
@@ -62,7 +65,7 @@ resetbtn.grid(row=1, column=2)
 scorename = Label(frame3, text="Score", font=('Arial', 25)) 
 scorename.grid(row=2, column=2)
 
-scoreresults = Label(frame3, text="0", font=('Arial', 20), command=results)
+scoreresults = Label(frame3, text="0", font=('Arial', 20))
 scoreresults.grid(row=3, column=2)
 
 
