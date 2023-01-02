@@ -5,10 +5,10 @@ from tkinter import *   #import tkinter library
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
 
-#def startgame():
+score = 0 #create a score variable
 
-
-def resetgame():
+def game():
+    button.config(bg="white")
     scoreresults == 0
 
 #seed(1)
@@ -50,10 +50,10 @@ guessbtn.grid(row=0, column=1)
 frame3 = Frame(main)
 frame3.grid(row=1, column=2)
 
-startbtn = Button(frame3, text="START GAME", font=('Arial', 20))
+startbtn = Button(frame3, text="START GAME", font=('Arial', 20), command=game)
 startbtn.grid(row=0, column=2)
 
-resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20), command=resetgame)
+resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20), command=game)
 resetbtn.grid(row=1, column=2)
 
 scorename = Label(frame3, text="Score", font=('Arial', 25)) 
