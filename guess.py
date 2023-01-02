@@ -5,11 +5,14 @@ from tkinter import *   #import tkinter library
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
 
-score = 0 #create a score variable
+score = 0 #create a global score variable
 
 def game():
-    button.config(bg="white")
-    scoreresults == 0
+    button.config(bg='white')
+    #scoreresults == 0
+
+def results():
+    score = score + 1
 
 #seed(1)
 #def guess():
@@ -33,7 +36,7 @@ horoscope = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Sc
 button = [[r for r in range(inputrow)] for c in range(inputcolumn)]
 for r in range(inputrow):
     for c in range(inputcolumn):
-        button[c][r] = Button(frame1, text=horoscope[counter], font=('Arial',15), height=5, width=10) #button[c][r] start from column first instead of row 
+        button[c][r] = Button(frame1, text=horoscope[counter], font=('Arial',15), height=5, width=10, bg='white') #button[c][r] start from column first instead of row 
         button[c][r].grid(row=r, column=c) 
         counter = counter+1
 
@@ -59,7 +62,7 @@ resetbtn.grid(row=1, column=2)
 scorename = Label(frame3, text="Score", font=('Arial', 25)) 
 scorename.grid(row=2, column=2)
 
-scoreresults = Label(frame3, text="0", font=('Arial', 20))
+scoreresults = Label(frame3, text="0", font=('Arial', 20), command=results)
 scoreresults.grid(row=3, column=2)
 
 
