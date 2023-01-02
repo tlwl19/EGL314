@@ -17,13 +17,10 @@ def results():
     score = score + 1
     scoreresults.config(text=score)
 
-#seed(1)
-#def guess():
-#    for in range(10):
-#        value = random()
-#       print(value)
-#n = random.randint(0,11) #number indicating the horoscope
-#print(n) #have to change it to print image
+#The function is for guess btn to take from random generator
+def guess():
+    n = random.randint(0,11) #number indicating the horoscope
+    print(n) #have to change it to print image
 
 
 #Header for the game
