@@ -16,7 +16,7 @@ def startgame():
     for r in range(inputrow):
         for c in range(inputcolumn):
             button[c][r].config(bg='#b0c8ed', fg="white") #Show blue colour
-    scoreresults.config(text=str(score))  #It will show 0 when press "Start game"
+    scoreresults.config(text=str(score),font=('Arial',20))  #It will show 0 when press "Start game"
             
 
 #The function is for reset game
@@ -27,52 +27,58 @@ def restartgame():
     for r in range(inputrow):
         for c in range(inputcolumn):
             button[c][r].config(bg='#a58fbe', fg="white") #Show purple colour
-    scoreresults.config(text=str(score))  #It will show 0 when press "Reset game"
+    scoreresults.config(text="Press Start Game to Start",font=('Arial',12))  #It will show 0 when press "Reset game"
 
 
 def guess():
     global number, prevent
     number = random.randint(0,11)
     prevent = []
-    for r in range(inputrow):
-        for c in range(inputcolumn):
-            button[c][r].config(bg='#b0c8ed', fg="white")
-    print(horoscope[number])#edit this line onw and send the pic over
-    path = os.path.abspath('horoscope pics') +'\\' + horoscope[number] + '.jpeg'
-    files = path.replace('\\','/')
-    myImage = Image.open(files)
-    myImage.show()
+    if button[0][0].cget('bg') != '#b0c8ed':
+        scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
+    else:
+        for r in range(inputrow):
+            for c in range(inputcolumn):
+                button[c][r].config(bg='#b0c8ed', fg="white")
+        print(horoscope[number])#edit this line onw and send the pic over
+        path = os.path.abspath('horoscope pics') +'\\' + horoscope[number] + '.jpeg'
+        files = path.replace('\\','/')
+        myImage = Image.open(files)
+        myImage.show()
 
 
 def click(c):
     global number, score, prevent
-    if c == number:
-        prevent.append(0)
-        if len(prevent) > 1:
-            scoreresults.config(text=str(score))
+    if button[0][0].cget('bg') == 'white' or button[0][0].cget('bg') == '#a58fbe' :
+        scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
+    else :
+        if c == number:
+            prevent.append(0)
+            if len(prevent) > 1:
+                scoreresults.config(text=str(score), font=('Arial',20))
+            else:
+                for r in range(inputrow):
+                    for c in range(inputcolumn):
+                        button[c][r].config(bg='#7fff00') #Show green colour
+                score = score+1
+                scoreresults.config(text=str(score), font=('Arial',20))
+        elif button[0][0].cget('bg') == '#7fff00':
+            scoreresults.config(text=str(score), font=('Arial',20))
         else:
             for r in range(inputrow):
                 for c in range(inputcolumn):
-                    button[c][r].config(bg='#7fff00') #Show green colour
-            score = score+1
-            scoreresults.config(text=str(score))
-    elif button[0][0].cget('bg') == '#7fff00':
-        scoreresults.config(text=str(score))
-    else:
-        for r in range(inputrow):
-            for c in range(inputcolumn):
-                button[c][r].config(bg='#FF0800') #Show red colour
-        score = score-1
-        scoreresults.config(text=str(score))
-        print(score)
-        if score <= 0:
-            scoreresults.config(text='0')
-            if score < -2:
-                scoreresults.config(text='GAME OVER')
-                prevent.append(0)
-                for r in range(inputrow):
-                    for c in range(inputcolumn):
-                        button[c][r].config(bg='white', fg='black')
+                    button[c][r].config(bg='#FF0800') #Show red colour
+            score = score-1
+            scoreresults.config(text=str(score), font=('Arial',20))
+            print(score)
+            if score <= 0:
+                scoreresults.config(text='0')
+                if score < -2:
+                    scoreresults.config(text='GAME OVER', font=('Arial',20))
+                    prevent.append(0)
+                    for r in range(inputrow):
+                        for c in range(inputcolumn):
+                            button[c][r].config(bg='white', fg='black')
 
 
 #Header for the game
@@ -119,7 +125,5 @@ scorename.grid(row=2, column=2)
 
 scoreresults = Label(frame3, text="0", font=('Arial', 20))
 scoreresults.grid(row=3, column=2)
-
-
 
 main.mainloop()  #for the window to stay
