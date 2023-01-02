@@ -1,7 +1,21 @@
 from tkinter import *   #import tkinter library
+#from random import seed
+#from random import randint #maybe
 
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
+
+#def startgame():
+
+
+def resetgame():
+    scoreresults == 0
+
+#seed(1)
+#def guess():
+#    for in range(10):
+#        value = random()
+#       print(value)
 
 #Header for the game
 headername = Label(text="Guess the Horoscope", font=('Arial', 30)) 
@@ -39,7 +53,7 @@ frame3.grid(row=1, column=2)
 startbtn = Button(frame3, text="START GAME", font=('Arial', 20))
 startbtn.grid(row=0, column=2)
 
-resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20))
+resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20), command=resetgame)
 resetbtn.grid(row=1, column=2)
 
 scorename = Label(frame3, text="Score", font=('Arial', 25)) 
