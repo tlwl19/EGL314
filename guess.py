@@ -23,7 +23,7 @@ horoscope = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Sc
 button = [[r for r in range(inputrow)] for c in range(inputcolumn)]
 for r in range(inputrow):
     for c in range(inputcolumn):
-        button[c][r] = Button(frame1, text=horoscope[counter], font=('Arial',5)) #button[c][r] start from column first instead of row 
+        button[c][r] = Button(frame1, text=horoscope[counter], font=('Arial',5), height=10, width=10) #button[c][r] start from column first instead of row 
         button[c][r].grid(row=r, column=c) #cause i think c is out of range of r thats y cant 
         counter = counter+1
 
