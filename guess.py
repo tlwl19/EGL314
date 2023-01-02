@@ -18,10 +18,12 @@ frame3.grid(row=0, column=2)
 inputrow = 3
 inputcolumn = 4
 
+horoscope = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"]
+
 button = [[r for r in range(inputrow)] for c in range(inputcolumn)]
 for r in range(inputrow):
     for c in range(inputcolumn):
-        button[r][r] = Button(frame1, text="Gemini", font=('Arial',5))
+        button[r][r] = Button(frame1, text=horoscope[inputrow + inputcolumn], font=('Arial',5))
         button[r][r].grid(row=r, column=c)
 
 main.mainloop()  #for the window to stay
