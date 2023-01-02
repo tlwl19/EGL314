@@ -1,6 +1,4 @@
 from tkinter import *   #import tkinter library
-#from random import seed
-#from random import randint #maybe
 import random
 
 main = Tk()   #Create a main window
@@ -8,11 +6,13 @@ main.title("Guess the Horoscope") #Title will be shown on the GUI window
 
 score = 0 #create a global score variable
 
+#The function is for reset and start game
 def game():
     for r in range(inputrow):
         for c in range(inputcolumn):
             button[c][r].config(bg='white')
 
+#The function is for the scores 
 def results():
     score = score + 1
     scoreresults.config(text=score)
@@ -22,8 +22,8 @@ def results():
 #    for in range(10):
 #        value = random()
 #       print(value)
-n = random.randint(0,11) #number indicating the horoscope
-print(n) #have to change it to print image
+#n = random.randint(0,11) #number indicating the horoscope
+#print(n) #have to change it to print image
 
 
 #Header for the game
