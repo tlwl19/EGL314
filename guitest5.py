@@ -65,25 +65,30 @@ def change_img():
             files = path.replace('\\','/')
             #send pic here to servo
             label2.config(text='')
+            frame1.grid_forget()
         elif randomno == 2:
             path = os.path.abspath('images') +'\\2.jpg'
             files = path.replace('\\','/')
             #send pic here to servo
             label2.config(text='')
+            frame1.grid_forget()
         elif randomno == 3:
             path = os.path.abspath('images') +'\\3.jpg'
             files = path.replace('\\','/')
             #send pic here to servo
             label2.config(text='')
+            frame1.grid_forget()
         elif randomno == 4:
             path = os.path.abspath('images') +'\\4.jpg'
             files = path.replace('\\','/')
             label2.config(text='Would you like to play a game with me?')
+            frame1.grid(row=3, column=1)
             #send pic here to servo
         else:
             path = os.path.abspath('images') +'\\5.jpg'
             files = path.replace('\\','/')
             label2.config(text='Would you like to play a game with me?')
+            frame1.grid(row=3, column=1)
             #send pic here to servo
 
         """ if test2 >= testGs and test2 <= testGe:
@@ -181,6 +186,21 @@ def change_img():
         label.configure(text = "Please input a valid DoB", image='', font=('50px'))
         label2.config(text='')
 
+def game(no):
+    randomx = random.randint(1,3)
+    if randomx == 1:
+        #send rock pic 
+        path = os.path.abspath('images') +'\\rock.jpg'
+        files = path.replace('\\','/')
+    elif randomx == 2:
+        path = os.path.abspath('images') +'\\sci.jpg'
+        files = path.replace('\\','/')
+        #send sci pic
+    else:
+        path = os.path.abspath('images') +'\\paper.jpg'
+        files = path.replace('\\','/')
+        #send paper pic
+   
 # Dropdown menu options
 options = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 optionss = []
@@ -228,6 +248,22 @@ button.grid(row=1, column=1)
 
 label2 = Label(main, text = " ", font='20px')
 label2.grid(row=2, column=1)
+
+frame1 = Frame(main)
+frame1.grid(row=3, column=1)
+frame1.grid_forget()
+
+label3 = Button(frame1, text = "ROCK", font='20px', command=game(1))
+label3.grid(row=0, column=0)
+
+label4 = Button(frame1, text = "SCISSORS", font='20px', command=game(2))
+label4.grid(row=0, column=1)
+
+label5 = Button(frame1, text = "PAPER", font='20px', command=game(3))
+label5.grid(row=0, column=2)
+
+label6 = Label(frame1, text = "", font='20px')
+label6.grid(row=0, column=3)
 
 #result = Label(main , text = "Press Enter", font='30px', bg='black', fg='white')
 #result.grid(row=3, column=0, pady=20)
