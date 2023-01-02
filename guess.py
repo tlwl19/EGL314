@@ -7,17 +7,19 @@ main.title("Guess the Horoscope") #Title will be shown on the GUI window
 #score = 0 #create a global score variable
 global score, number
 #The function is for reset and start game
-def game(x):
+def startgame():
     global score
     score = 0
-    if x == 1:
-        for r in range(inputrow):
+    for r in range(inputrow):
             for c in range(inputcolumn):
-                button[c][r].config(bg='white')
-    elif x == 0:
-        for r in range(inputrow):
+                button[c][r].config(bg='blue', fg="white")
+
+def restartgame():
+    global score
+    score = 0
+    for r in range(inputrow):
             for c in range(inputcolumn):
-                button[c][r].config(bg='white')
+                button[c][r].config(bg='purple', fg="white")
 
 #The function is for the scores 
 """ def results():
@@ -41,11 +43,15 @@ def click(c):
         for r in range(inputrow):
             for c in range(inputcolumn):
                 button[c][r].config(bg='red')
+        score = score-1
+        if score <= 0:
+            scoreresults.config(text='0')
+            if score < -3:
+                scoreresults.config(text='GAME OVER')
+                for r in range(inputrow):
+                    for c in range(inputcolumn):
+                        button[c][r].config(bg='white', fg='black')
 
-#The function is for guess btn to take from random generator
-def guess():
-    n = random.randint(0,11) #number indicating the horoscope
-    print(n) #have to change it to print image
 
 #Header for the game
 headername = Label(text="Guess the Horoscope", font=('Arial', 30)) 
@@ -80,10 +86,10 @@ guessbtn.grid(row=0, column=1)
 frame3 = Frame(main)
 frame3.grid(row=1, column=2)
 
-startbtn = Button(frame3, text="START GAME", font=('Arial', 20), command=game(1))
+startbtn = Button(frame3, text="START GAME", font=('Arial', 20), command=startgame)
 startbtn.grid(row=0, column=2)
 
-resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20), command=game(0))
+resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20), command=restartgame)
 resetbtn.grid(row=1, column=2)
 
 scorename = Label(frame3, text="Score", font=('Arial', 25)) 
