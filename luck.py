@@ -30,6 +30,9 @@ def change_img():
         if randomno == 1:
             path = os.path.abspath('percentage pics') + '\\zero.jpeg' #edit 1 to the name of 0% pic
             files = path.replace('\\','/')
+            #the 2 lines below for pop up img 
+            myImage = Image.open(files)
+            myImage.show()
             #send pic here to servo
             label2.config(text='')
             frame1.grid_forget()
