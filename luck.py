@@ -9,7 +9,7 @@ import random
 main= Tk()
 
 #Define geometry of the window
-main.geometry("600x300")
+main.geometry("800x300")
 
 def change_img():
     for i in range(len(options)) :
