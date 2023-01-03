@@ -151,6 +151,7 @@ def button(c):
                 btn10.config(bg='#7fff00')
                 btn11.config(bg='#7fff00') 
                 score = score+1
+                number = 13
                 if score <= 0:
                     scoreresults.config(text='+1', font=('Arial',20))
                 else:
