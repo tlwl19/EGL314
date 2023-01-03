@@ -16,8 +16,8 @@ greyImage = ImageOps.grayscale(myImage)
 #greyImage.show()
 
 ## Limiting to 8 shades of greyscale colour
-#greyQuantize = greyImage.quantize(8)
-#greyQuantize.show()
+greyQuantize = greyImage.quantize(8)
+greyQuantize.show()
 
 ## resize to 32 x 32 pixels
 smallImage = greyImage.resize((32,32), Image.BILINEAR)
