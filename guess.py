@@ -1,8 +1,9 @@
 from tkinter import *   #import tkinter library
 import random
 import os 
-from PIL import Image, ImageTk
-from PIL import student_pub
+from PIL import Image, ImageTk, ImageOps
+#from student_pub import *
+
 
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
