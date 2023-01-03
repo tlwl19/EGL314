@@ -2,10 +2,30 @@ from tkinter import *   #import tkinter library
 import random
 import os 
 from PIL import Image, ImageTk, ImageOps
-#from student_pub import *
+import cartoon
+
+def button(m):
+    global choice
+    choice = m
+    print("Choice is", choice)
+    show_Image(choice)
+
+def show_Image(choice):
+    global imageLabel
+
+    path = "img/" + str(choice) + ".png"
+    myImage = Image.open(path)
+    myImage = myImage.resize((250, 250))
+    loadImage = ImageTk.PhotoImage(myImage)
+    imageLabel.image = loadImage
+    imageLabel.config(image = loadImage, width = 250, height = 250)
+
+#sending to cartoon.py
+cartoon.pixelised(path = path)
 
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
+
 
 global score, number, prevent
 number = 15
@@ -110,22 +130,56 @@ def click(c):
 headername = Label(text="Guess the Horoscope", font=('Arial', 30)) 
 headername.grid(row=0, columnspan=3)
 
+#Variable Declaration
+choice = 0
+
 #First frame is created for the 3x4 grid
 frame1 = Frame(main)
 frame1.grid(row=1, column=0)
 
+imageFrame = Frame(main)
+imageFrame.grid(row=0, column=1)
+
 inputrow = 3    #indicate the number of rows
 inputcolumn = 4 #indicate the number of cols
-counter = 0
-horoscope = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"]
+#counter = 0
+#horoscope = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"]
 
-button = [[r for r in range(inputrow)] for c in range(inputcolumn)]
+#button = [[r for r in range(inputrow)] for c in range(inputcolumn)]
 for r in range(inputrow):
     for c in range(inputcolumn):
-        button[c][r] = Button(frame1, text=horoscope[counter], font=('Arial',15), height=5, width=10, bg='white', command=lambda r=counter :click(r)) #button[c][r] start from column first instead of row 
-        button[c][r].grid(row=r, column=c) 
-        counter = counter+1
+        # Button Section
+        btn0 = Button(frame1, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=0:button(m))
+        btn1 = Button(frame1, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=1:button(m))
+        btn2 = Button(frame1, text = "Cancer", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=2:button(m))
+        btn3 = Button(frame1, text = "Capricorn", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=3:button(m))
+        btn4 = Button(frame1, text = "Gemini", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=4:button(m))
+        btn5 = Button(frame1, text = "Leo", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=5:button(m))
+        btn6 = Button(frame1, text = "Libra", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=6:button(m))
+        btn7 = Button(frame1, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=7:button(m))
+        btn8 = Button(frame1, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=8:button(m))
+        btn9 = Button(frame1, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=9:button(m))
+        btn10 = Button(frame1, text = "Tarus", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=10:button(m))
+        btn11 = Button(frame1, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=11:button(m))
 
+btn0.grid(row=0, column=0)
+btn1.grid(row=0, column=1)
+btn2.grid(row=0, column=2)
+btn3.grid(row=0, column=3)
+btn4.grid(row=1, column=0)
+btn5.grid(row=1, column=1)
+btn6.grid(row=1, column=2)
+btn7.grid(row=1, column=3)
+btn8.grid(row=2, column=0)
+btn9.grid(row=2, column=1)
+btn10.grid(row=2, column=2)
+btn11.grid(row=2, column=3)
+
+# Image Window
+imageLabel = Label(imageFrame, bg = 'white', width = 30, height = 15)
+imageLabel.grid(row=0, column=0)
+imagePixel = Label (imageFrame, bg = 'grey', width = 30, height = 15)
+imagePixel.grid(row=0, column=1)
 
 #Second frame is created for the button "GUESS!"
 frame2 = Frame(main)
