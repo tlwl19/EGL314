@@ -4,11 +4,11 @@ import os
 from PIL import Image, ImageTk, ImageOps
 import cartoon
 
-def button(m):
+""" def button(m):
     global choice
     choice = m
     print("Choice is", choice)
-    show_Image(choice)
+    show_Image(choice) """
 
 def show_Image(choice):
     path2 = "img/" + str(choice) + ".png"
@@ -20,8 +20,13 @@ def show_Image(choice):
     cartoon.pixelised(path = path2)
     myImage = Image.open("cartoon.png")
 
-global score, number, prevent
-number = 15
+#global score, number, prevent
+#number = 15
+
+#number = 15 is to signal that user need to press start game btn/game havent start
+#number = 12 is to signal that user pressed start game btn/game started
+#number = 13/14 is to signal that user need to press restart game/game havent restart
+
 #The function is for start game
 def startgame():
     global score, prevent, number
@@ -73,9 +78,9 @@ def restartgame():
 def guess():
     global number, prevent
     
-    prevent = []  #WHAT IS prevent[]
+    prevent = []  #WHAT IS prevent[] see line 126
     if btn0.cget('bg') == '#7fff00' or btn0.cget('bg') == '#FF0800' or btn0.cget('bg') == '#b0c8ed':
-        if btn0.cget('bg') != '#FF0800':
+        if btn0.cget('bg') != '#FF0800': #red color #7fff00 is green
             number = random.randint(0,11) #generate a random no. 
             #for r in range(inputrow):
                 #for c in range(inputcolumn):
@@ -92,6 +97,8 @@ def guess():
             btn9.config(bg='#b0c8ed', fg="white") 
             btn10.config(bg='#b0c8ed', fg="white")
             btn11.config(bg='#b0c8ed', fg="white") 
+            print(number)
+            show_Image(number)
             #print(horoscope[number])#edit this line onw and send the pic over
             #path = os.path.abspath('horoscope pics') +'\\' + horoscope[number] + '.png'
             #files = path.replace('\\','/')
@@ -108,7 +115,7 @@ def guess():
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
 
 
-def click(c):
+def button(c):
     global number, score, prevent
     if btn0.cget('bg') == 'white':
         if number == 15:
@@ -121,7 +128,7 @@ def click(c):
         scoreresults.config(text="Press Guess to Start Guessing", font=('Arial',10))
     else :
         if c == number:
-            prevent.append(0)
+            prevent.append(0) #prevent[] is to stop the counter from adding score+1 if user click more than once on the correct horoscope btn
             if len(prevent) > 1:
                 number = 13
                 scoreresults.config(text=str(score), font=('Arial',20))
@@ -167,12 +174,13 @@ def click(c):
             score = score-1
             scoreresults.config(text=str(score), font=('Arial',20))
             print(score)
+            #can add number = 13 to restart game
             if score <= 0:
                 scoreresults.config(text='Try Again', font=('Arial',15))
                 if score < -2:
                     scoreresults.config(text='GAME OVER', font=('Arial',20))
                     number = 13
-                    prevent.append(0)
+                    #prevent.append(0)
                     #for r in range(inputrow):
                         #for c in range(inputcolumn):
                             #frame1.config(bg='white', fg='black')
@@ -199,6 +207,8 @@ headername.grid(row=0, columnspan=3)
 
 #Variable Declaration
 choice = 0
+score = 0
+number = 15
 
 #First frame is created for the 3x4 grid
 frame1 = Frame(main)
@@ -261,7 +271,7 @@ resetbtn.grid(row=1, column=2)
 scorename = Label(frame3, text="Score", font=('Arial', 25)) 
 scorename.grid(row=2, column=2)
 
-scoreresults = Label(frame3, text="0", font=('Arial', 20))
+scoreresults = Label(frame3, text=str(score), font=('Arial', 20))
 scoreresults.grid(row=3, column=2)
 
 main.mainloop()  #for the window to stay
