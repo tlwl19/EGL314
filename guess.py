@@ -2,7 +2,7 @@ from tkinter import *   #import tkinter library
 import random
 import os 
 from PIL import Image, ImageTk, ImageOps
-#from student_pub import *
+from student_pub import *
 
 
 main = Tk()   #Create a main window
