@@ -2,9 +2,13 @@
 # Huats Club 2022 for the Pixel-Tint Project
 from PIL import Image, ImageOps
 from student_pub import *
+import os
+
+path = os.path.abspath('horoscope pics') + '\\Aries.png' #edit 2 to the name of 25% pic
+files = path.replace('\\','/')
 
 ## open image file
-myImage = Image.open('horoscope pics')
+myImage = Image.open(files)
 myImage.show()
 
 ## greyscale image file
