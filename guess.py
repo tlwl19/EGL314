@@ -4,12 +4,6 @@ import os
 from PIL import Image, ImageTk, ImageOps
 import cartoon
 
-""" def button(m):
-    global choice
-    choice = m
-    print("Choice is", choice)
-    show_Image(choice) """
-
 def show_Image(choice):
     path2 = "img/" + str(choice) + ".png"
     myImage = Image.open(path2)
@@ -35,20 +29,18 @@ def startgame():
     score = 0
     prevent = []
     if number == 15:
-        #for r in range(inputrow):
-            #for c in range(inputcolumn):
         btn0.config(bg='#b0c8ed', fg="white") #Show blue colour
-        btn1.config(bg='#b0c8ed', fg="white") #Show blue colour
-        btn2.config(bg='#b0c8ed', fg="white") #Show blue colour
-        btn3.config(bg='#b0c8ed', fg="white") #Show blue colour
-        btn4.config(bg='#b0c8ed', fg="white") #Show blue colour
-        btn5.config(bg='#b0c8ed', fg="white") #Show blue colour
-        btn6.config(bg='#b0c8ed', fg="white") #Show blue colour
-        btn7.config(bg='#b0c8ed', fg="white") #Show blue colour
-        btn8.config(bg='#b0c8ed', fg="white") #Show blue colour
-        btn9.config(bg='#b0c8ed', fg="white") #Show blue colour
-        btn10.config(bg='#b0c8ed', fg="white") #Show blue colour
-        btn11.config(bg='#b0c8ed', fg="white") #Show blue colour
+        btn1.config(bg='#b0c8ed', fg="white") 
+        btn2.config(bg='#b0c8ed', fg="white")
+        btn3.config(bg='#b0c8ed', fg="white") 
+        btn4.config(bg='#b0c8ed', fg="white") 
+        btn5.config(bg='#b0c8ed', fg="white") 
+        btn6.config(bg='#b0c8ed', fg="white") 
+        btn7.config(bg='#b0c8ed', fg="white") 
+        btn8.config(bg='#b0c8ed', fg="white") 
+        btn9.config(bg='#b0c8ed', fg="white") 
+        btn10.config(bg='#b0c8ed', fg="white") 
+        btn11.config(bg='#b0c8ed', fg="white") 
         scoreresults.config(text=str(score),font=('Arial',20))  #It will show 0 when press "Start game"
         number = 12 #to signal that userr has press start game btn n to ensure that when user click on the 3x4 grids bef guess btn, it will show press guess btn
         
@@ -57,11 +49,8 @@ def restartgame():
     global score, prevent, number
     score = 0
     prevent = []
-    if number == 13 or number == 14:
-        #for r in range(inputrow):
-            #for c in range(inputcolumn):
-                #frame1.config(bg='#a58fbe', fg="white") #Show purple colour
-        btn0.config(bg='#a58fbe', fg="white")
+    if number == 13 or number == 14: 
+        btn0.config(bg='#a58fbe', fg="white")  #Show purple colour
         btn1.config(bg='#a58fbe', fg="white") 
         btn2.config(bg='#a58fbe', fg="white") 
         btn3.config(bg='#a58fbe', fg="white") 
@@ -80,13 +69,11 @@ def restartgame():
 def guess():
     global number, prevent
     
-    prevent = []  #WHAT IS prevent[] see line 126
+    prevent = []  
+                        #green                          #red                            #blue
     if btn0.cget('bg') == '#7fff00' or btn0.cget('bg') == '#FF0800' or btn0.cget('bg') == '#b0c8ed':
-        if btn0.cget('bg') != '#FF0800': #red color #7fff00 is green
+        if btn0.cget('bg') != '#FF0800': #red color 
             number = random.randint(0,11) #generate a random no. 
-            #for r in range(inputrow):
-                #for c in range(inputcolumn):
-                    #frame1.config(bg='#b0c8ed', fg="white") #show blue color
             btn0.config(bg='#b0c8ed', fg="white")
             btn1.config(bg='#b0c8ed', fg="white") 
             btn2.config(bg='#b0c8ed', fg="white") 
@@ -100,12 +87,7 @@ def guess():
             btn10.config(bg='#b0c8ed', fg="white")
             btn11.config(bg='#b0c8ed', fg="white") 
             print(number)
-            show_Image(number)
-            #print(horoscope[number])#edit this line onw and send the pic over
-            #path = os.path.abspath('horoscope pics') +'\\' + horoscope[number] + '.png'
-            #files = path.replace('\\','/')
-            #myImage = Image.open(files)
-            #myImage.show()
+            show_Image(number) #send to polariser the number
         else:
             scoreresults.config(text="Try Again", font=('Arial',15))
     elif btn0.cget('bg') == '#a58fbe': #purple color
@@ -135,10 +117,7 @@ def button(c):
                 number = 13
                 scoreresults.config(text=str(score), font=('Arial',20))
             else:
-                #for r in range(inputrow):
-                    #for c in range(inputcolumn):
-                        #frame1.config(bg='#7fff00') #Show green colour
-                btn0.config(bg='#7fff00')
+                btn0.config(bg='#7fff00') #shoe green colour
                 btn1.config(bg='#7fff00') 
                 btn2.config(bg='#7fff00') 
                 btn3.config(bg='#7fff00') 
