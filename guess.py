@@ -7,7 +7,7 @@ from PIL import Image, ImageTk, ImageOps
 
 =======
 from PIL import Image, ImageTk, imageOps
-from student_pub import *
+#from student_pub import *
 >>>>>>> 8c435c019a9d82e646e0121fdad7bbba9ae8a17a
 
 main = Tk()   #Create a main window
