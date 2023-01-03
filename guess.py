@@ -35,11 +35,8 @@ def restartgame():
 
 def guess():
     global number, prevent
-    #number = 13
     
-    prevent = []
-    #if button[0][0].cget('bg') != '#b0c8ed':
-        #scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
+    prevent = []  #WHAT IS prevent[]
     if button[0][0].cget('bg') == '#7fff00' or button[0][0].cget('bg') == '#FF0800' or button[0][0].cget('bg') == '#b0c8ed':
         if button[0][0].cget('bg') != '#FF0800':
             number = random.randint(0,11) #generate a random no. 
