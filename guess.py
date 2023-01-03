@@ -117,7 +117,7 @@ def button(c):
                 number = 13
                 scoreresults.config(text=str(score), font=('Arial',20))
             else:
-                btn0.config(bg='#7fff00') #shoe green colour
+                btn0.config(bg='#7fff00') #show green colour
                 btn1.config(bg='#7fff00') 
                 btn2.config(bg='#7fff00') 
                 btn3.config(bg='#7fff00') 
@@ -138,10 +138,7 @@ def button(c):
         elif btn0.cget('bg') == '#7fff00':
             scoreresults.config(text=str(score), font=('Arial',20))
         else:
-            #for r in range(inputrow):
-                #for c in range(inputcolumn):
-                    #frame1.config(bg='#FF0800') #Show red colour
-            btn0.config(bg='#FF0800')
+            btn0.config(bg='#FF0800')  #Show red colour
             btn1.config(bg='#FF0800')
             btn2.config(bg='#FF0800')
             btn3.config(bg='#FF0800')
@@ -162,10 +159,6 @@ def button(c):
                 if score < -2:
                     scoreresults.config(text='GAME OVER', font=('Arial',20))
                     number = 13
-                    #prevent.append(0)
-                    #for r in range(inputrow):
-                        #for c in range(inputcolumn):
-                            #frame1.config(bg='white', fg='black')
                     btn0.config(bg='white', fg='black')
                     btn1.config(bg='white', fg='black')
                     btn2.config(bg='white', fg='black')
@@ -188,7 +181,6 @@ headername = Label(text="Guess the Horoscope", font=('Arial', 30))
 headername.grid(row=0, columnspan=3)
 
 #Variable Declaration
-choice = 0
 score = 0
 number = 15
 
