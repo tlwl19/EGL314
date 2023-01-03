@@ -23,9 +23,11 @@ def show_Image(choice):
 #global score, number, prevent
 #number = 15
 
-#number = 15 is to signal that user need to press start game btn/game havent start
-#number = 12 is to signal that user pressed start game btn/game started
-#number = 13/14 is to signal that user need to press restart game/game havent restart
+##number = 15 is to signal that user need to press start game btn/game havent start
+##number = 12 is to signal that user pressed start game btn/game started
+##number = 13/14 is to signal that user need to press restart game/game havent restart
+##number = 12 is to signal that user need to press guess btn after start game btn is pressed
+##prevent[] is to stop the counter from adding score+1 if user click more than once on the correct horoscope btn
 
 #The function is for start game
 def startgame():
@@ -106,7 +108,7 @@ def guess():
             #myImage.show()
         else:
             scoreresults.config(text="Try Again", font=('Arial',15))
-    elif btn0.cget('bg') == '#a58fbe':
+    elif btn0.cget('bg') == '#a58fbe': #purple color
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
         number = 15
     elif number == 13:
@@ -122,7 +124,7 @@ def button(c):
             scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
         else:
             scoreresults.config(text="Press Reset Game to Reset", font=('Arial',10))
-    elif btn0.cget('bg') == '#a58fbe' :
+    elif btn0.cget('bg') == '#a58fbe' : #purple color
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
     elif number == 12:
         scoreresults.config(text="Press Guess to Start Guessing", font=('Arial',10))
