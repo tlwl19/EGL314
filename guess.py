@@ -19,11 +19,6 @@ def show_Image(choice):
     #path2 refers to variable
     cartoon.pixelised(path = path2)
     myImage = Image.open("cartoon.png")
-    
-
-main = Tk()   #Create a main window
-main.title("Guess the Horoscope") #Title will be shown on the GUI window
-
 
 global score, number, prevent
 number = 15
@@ -33,9 +28,20 @@ def startgame():
     score = 0
     prevent = []
     if number == 15:
-        for r in range(inputrow):
-            for c in range(inputcolumn):
-                button[c][r].config(bg='#b0c8ed', fg="white") #Show blue colour
+        #for r in range(inputrow):
+            #for c in range(inputcolumn):
+        btn0.config(bg='#b0c8ed', fg="white") #Show blue colour
+        btn1.config(bg='#b0c8ed', fg="white") #Show blue colour
+        btn2.config(bg='#b0c8ed', fg="white") #Show blue colour
+        btn3.config(bg='#b0c8ed', fg="white") #Show blue colour
+        btn4.config(bg='#b0c8ed', fg="white") #Show blue colour
+        btn5.config(bg='#b0c8ed', fg="white") #Show blue colour
+        btn6.config(bg='#b0c8ed', fg="white") #Show blue colour
+        btn7.config(bg='#b0c8ed', fg="white") #Show blue colour
+        btn8.config(bg='#b0c8ed', fg="white") #Show blue colour
+        btn9.config(bg='#b0c8ed', fg="white") #Show blue colour
+        btn10.config(bg='#b0c8ed', fg="white") #Show blue colour
+        btn11.config(bg='#b0c8ed', fg="white") #Show blue colour
         scoreresults.config(text=str(score),font=('Arial',20))  #It will show 0 when press "Start game"
         number = 12 #to signal that userr has press start game btn n to ensure that when user click on the 3x4 grids bef guess btn, it will show press guess btn
         
@@ -45,9 +51,21 @@ def restartgame():
     score = 0
     prevent = []
     if number == 13 or number == 14:
-        for r in range(inputrow):
-            for c in range(inputcolumn):
-                button[c][r].config(bg='#a58fbe', fg="white") #Show purple colour
+        #for r in range(inputrow):
+            #for c in range(inputcolumn):
+                #frame1.config(bg='#a58fbe', fg="white") #Show purple colour
+        btn0.config(bg='#a58fbe', fg="white")
+        btn1.config(bg='#a58fbe', fg="white") 
+        btn2.config(bg='#a58fbe', fg="white") 
+        btn3.config(bg='#a58fbe', fg="white") 
+        btn4.config(bg='#a58fbe', fg="white") 
+        btn5.config(bg='#a58fbe', fg="white") 
+        btn6.config(bg='#a58fbe', fg="white") 
+        btn7.config(bg='#a58fbe', fg="white") 
+        btn8.config(bg='#a58fbe', fg="white") 
+        btn9.config(bg='#a58fbe', fg="white") 
+        btn10.config(bg='#a58fbe', fg="white")
+        btn11.config(bg='#a58fbe', fg="white") 
         scoreresults.config(text="Press Start Game to Start",font=('Arial',12))  #It will show 0 when press "Reset game"
         number = 15
 
@@ -59,9 +77,21 @@ def guess():
     if btn0.cget('bg') == '#7fff00' or btn0.cget('bg') == '#FF0800' or btn0.cget('bg') == '#b0c8ed':
         if btn0.cget('bg') != '#FF0800':
             number = random.randint(0,11) #generate a random no. 
-            for r in range(inputrow):
-                for c in range(inputcolumn):
-                    button[c][r].config(bg='#b0c8ed', fg="white")
+            #for r in range(inputrow):
+                #for c in range(inputcolumn):
+                    #frame1.config(bg='#b0c8ed', fg="white") #show blue color
+            btn0.config(bg='#b0c8ed', fg="white")
+            btn1.config(bg='#b0c8ed', fg="white") 
+            btn2.config(bg='#b0c8ed', fg="white") 
+            btn3.config(bg='#b0c8ed', fg="white") 
+            btn4.config(bg='#b0c8ed', fg="white") 
+            btn5.config(bg='#b0c8ed', fg="white") 
+            btn6.config(bg='#b0c8ed', fg="white") 
+            btn7.config(bg='#b0c8ed', fg="white") 
+            btn8.config(bg='#b0c8ed', fg="white") 
+            btn9.config(bg='#b0c8ed', fg="white") 
+            btn10.config(bg='#b0c8ed', fg="white")
+            btn11.config(bg='#b0c8ed', fg="white") 
             #print(horoscope[number])#edit this line onw and send the pic over
             #path = os.path.abspath('horoscope pics') +'\\' + horoscope[number] + '.png'
             #files = path.replace('\\','/')
@@ -96,9 +126,21 @@ def click(c):
                 number = 13
                 scoreresults.config(text=str(score), font=('Arial',20))
             else:
-                for r in range(inputrow):
-                    for c in range(inputcolumn):
-                        button[c][r].config(bg='#7fff00') #Show green colour
+                #for r in range(inputrow):
+                    #for c in range(inputcolumn):
+                        #frame1.config(bg='#7fff00') #Show green colour
+                btn0.config(bg='#7fff00')
+                btn1.config(bg='#7fff00') 
+                btn2.config(bg='#7fff00') 
+                btn3.config(bg='#7fff00') 
+                btn4.config(bg='#7fff00') 
+                btn5.config(bg='#7fff00') 
+                btn6.config(bg='#7fff00') 
+                btn7.config(bg='#7fff00') 
+                btn8.config(bg='#7fff00') 
+                btn9.config(bg='#7fff00') 
+                btn10.config(bg='#7fff00')
+                btn11.config(bg='#7fff00') 
                 score = score+1
                 if score <= 0:
                     scoreresults.config(text='+1', font=('Arial',20))
@@ -107,9 +149,21 @@ def click(c):
         elif btn0.cget('bg') == '#7fff00':
             scoreresults.config(text=str(score), font=('Arial',20))
         else:
-            for r in range(inputrow):
-                for c in range(inputcolumn):
-                    button[c][r].config(bg='#FF0800') #Show red colour
+            #for r in range(inputrow):
+                #for c in range(inputcolumn):
+                    #frame1.config(bg='#FF0800') #Show red colour
+            btn0.config(bg='#FF0800')
+            btn1.config(bg='#FF0800')
+            btn2.config(bg='#FF0800')
+            btn3.config(bg='#FF0800')
+            btn4.config(bg='#FF0800')
+            btn5.config(bg='#FF0800')
+            btn6.config(bg='#FF0800')
+            btn7.config(bg='#FF0800')
+            btn8.config(bg='#FF0800')
+            btn9.config(bg='#FF0800')
+            btn10.config(bg='#FF0800')
+            btn11.config(bg='#FF0800')
             score = score-1
             scoreresults.config(text=str(score), font=('Arial',20))
             print(score)
@@ -119,9 +173,24 @@ def click(c):
                     scoreresults.config(text='GAME OVER', font=('Arial',20))
                     number = 13
                     prevent.append(0)
-                    for r in range(inputrow):
-                        for c in range(inputcolumn):
-                            button[c][r].config(bg='white', fg='black')
+                    #for r in range(inputrow):
+                        #for c in range(inputcolumn):
+                            #frame1.config(bg='white', fg='black')
+                    btn0.config(bg='white', fg='black')
+                    btn1.config(bg='white', fg='black')
+                    btn2.config(bg='white', fg='black')
+                    btn3.config(bg='white', fg='black')
+                    btn4.config(bg='white', fg='black')
+                    btn5.config(bg='white', fg='black')
+                    btn6.config(bg='white', fg='black')
+                    btn7.config(bg='white', fg='black')
+                    btn8.config(bg='white', fg='black')
+                    btn9.config(bg='white', fg='black')
+                    btn10.config(bg='white', fg='black')
+                    btn11.config(bg='white', fg='black')
+
+main = Tk()   #Create a main window
+main.title("Guess the Horoscope") #Title will be shown on the GUI window
 
 
 #Header for the game
@@ -144,18 +213,18 @@ inputcolumn = 4 #indicate the number of cols
 for r in range(inputrow):
     for c in range(inputcolumn):
         # Button Section
-        btn0 = Button(frame1, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=0:button(m))
-        btn1 = Button(frame1, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=1:button(m))
-        btn2 = Button(frame1, text = "Cancer", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=2:button(m))
-        btn3 = Button(frame1, text = "Capricorn", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=3:button(m))
-        btn4 = Button(frame1, text = "Gemini", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=4:button(m))
-        btn5 = Button(frame1, text = "Leo", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=5:button(m))
-        btn6 = Button(frame1, text = "Libra", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=6:button(m))
-        btn7 = Button(frame1, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=7:button(m))
-        btn8 = Button(frame1, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=8:button(m))
-        btn9 = Button(frame1, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=9:button(m))
-        btn10 = Button(frame1, text = "Tarus", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=10:button(m))
-        btn11 = Button(frame1, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', command=lambda m=11:button(m))
+        btn0 = Button(frame1, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=0:button(m))
+        btn1 = Button(frame1, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=1:button(m))
+        btn2 = Button(frame1, text = "Cancer", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=2:button(m))
+        btn3 = Button(frame1, text = "Capricorn", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=3:button(m))
+        btn4 = Button(frame1, text = "Gemini", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=4:button(m))
+        btn5 = Button(frame1, text = "Leo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=5:button(m))
+        btn6 = Button(frame1, text = "Libra", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=6:button(m))
+        btn7 = Button(frame1, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=7:button(m))
+        btn8 = Button(frame1, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=8:button(m))
+        btn9 = Button(frame1, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=9:button(m))
+        btn10 = Button(frame1, text = "Tarus", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=10:button(m))
+        btn11 = Button(frame1, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=11:button(m))
 
 btn0.grid(row=0, column=0)
 btn1.grid(row=0, column=1)
