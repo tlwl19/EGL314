@@ -1,7 +1,7 @@
 from tkinter import *   #import tkinter library
 import random
 import os 
-from PIL import Image, ImageTk, ImageOps
+from PIL import ImageTk, Image, ImageOps
 import cartoon
 
 def button(m):
@@ -11,17 +11,28 @@ def button(m):
     show_Image(choice)
 
 def show_Image(choice):
-    global imageLabel
+    global imageLabel, imagePixel
 
-    path = "img/" + str(choice) + ".png"
-    myImage = Image.open(path)
+    path2 = "img/" + str(choice) + ".png"
+    myImage = Image.open(path2)
     myImage = myImage.resize((250, 250))
     loadImage = ImageTk.PhotoImage(myImage)
     imageLabel.image = loadImage
     imageLabel.config(image = loadImage, width = 250, height = 250)
 
-#sending to cartoon.py
-cartoon.pixelised(path = path)
+    #sending to cartoon.py
+    #first path refers to input for img
+    #path2 refers to variable
+    cartoon.pixelised(path = path2)
+    myImage = Image.open("cartoon.png")
+    myImage = myImage.resize((250, 250))
+    loadImage = ImageTk.PhotoImage(myImage)
+    imagePixel.image = loadImage
+    imagePixel.config(image = loadImage, width = 250, height = 250)
+    
+
+
+    
 
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
