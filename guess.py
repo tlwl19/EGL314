@@ -2,6 +2,7 @@ from tkinter import *   #import tkinter library
 import random
 import os 
 from PIL import Image, ImageTk
+from PIL import student_pub
 
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
@@ -44,7 +45,7 @@ def guess():
                 for c in range(inputcolumn):
                     button[c][r].config(bg='#b0c8ed', fg="white")
             print(horoscope[number])#edit this line onw and send the pic over
-            path = os.path.abspath('horoscope pics') +'\\' + horoscope[number] + '.jpeg'
+            path = os.path.abspath('horoscope pics') +'\\' + horoscope[number] + '.png'
             files = path.replace('\\','/')
             myImage = Image.open(files)
             myImage.show()
