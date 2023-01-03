@@ -56,8 +56,8 @@ def guess():
     global number, prevent
     
     prevent = []  #WHAT IS prevent[]
-    if button[0][0].cget('bg') == '#7fff00' or button[0][0].cget('bg') == '#FF0800' or button[0][0].cget('bg') == '#b0c8ed':
-        if button[0][0].cget('bg') != '#FF0800':
+    if btn0.cget('bg') == '#7fff00' or btn0.cget('bg') == '#FF0800' or btn0.cget('bg') == '#b0c8ed':
+        if btn0.cget('bg') != '#FF0800':
             number = random.randint(0,11) #generate a random no. 
             for r in range(inputrow):
                 for c in range(inputcolumn):
@@ -69,7 +69,7 @@ def guess():
             #myImage.show()
         else:
             scoreresults.config(text="Try Again", font=('Arial',15))
-    elif button[0][0].cget('bg') == '#a58fbe':
+    elif btn0.cget('bg') == '#a58fbe':
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
         number = 15
     elif number == 13:
@@ -80,12 +80,12 @@ def guess():
 
 def click(c):
     global number, score, prevent
-    if button[0][0].cget('bg') == 'white':
+    if btn0.cget('bg') == 'white':
         if number == 15:
             scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
         else:
             scoreresults.config(text="Press Reset Game to Reset", font=('Arial',10))
-    elif button[0][0].cget('bg') == '#a58fbe' :
+    elif btn0.cget('bg') == '#a58fbe' :
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
     elif number == 12:
         scoreresults.config(text="Press Guess to Start Guessing", font=('Arial',10))
@@ -104,7 +104,7 @@ def click(c):
                     scoreresults.config(text='+1', font=('Arial',20))
                 else:
                     scoreresults.config(text=str(score), font=('Arial',20))
-        elif button[0][0].cget('bg') == '#7fff00':
+        elif btn0.cget('bg') == '#7fff00':
             scoreresults.config(text=str(score), font=('Arial',20))
         else:
             for r in range(inputrow):
