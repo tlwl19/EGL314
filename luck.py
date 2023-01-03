@@ -28,34 +28,39 @@ def change_img():
         label.config(text="Kindly, Input your DoB and Press the 'Enter' button")
         randomno = random.randint(1, 5)
         if randomno == 1:
-            path = os.path.abspath('percentage pics') + '\\0.jpeg' #edit 1 to the name of 0% pic
+            path = os.path.abspath('percentage pics') + '\\zero.jpeg' #edit 1 to the name of 0% pic
             files = path.replace('\\','/')
             #send pic here to servo
             label2.config(text='')
             frame1.grid_forget()
+            print(path)
         elif randomno == 2:
-            path = os.path.abspath('percentage pics') + '\\25.jpeg' #edit 2 to the name of 25% pic
+            path = os.path.abspath('percentage pics') + '\\twentyfive.jpeg' #edit 2 to the name of 25% pic
             files = path.replace('\\','/')
             #send pic here to servo
             label2.config(text='')
             frame1.grid_forget()
+            print(path)
         elif randomno == 3:
-            path = os.path.abspath('percentage pics') + '\\50.jpeg' #edit 3 to the name of 50% pic
+            path = os.path.abspath('percentage pics') + '\\fifty.jpeg' #edit 3 to the name of 50% pic
             files = path.replace('\\','/')
             #send pic here to servo
             label2.config(text='')
             frame1.grid_forget()
+            print(path)
         elif randomno == 4:
-            path = os.path.abspath('percentage pics') + '\\75.jpeg' #edit 4 to the name of 75% pic
+            path = os.path.abspath('percentage pics') + '\\seventyfive.jpeg' #edit 4 to the name of 75% pic
             files = path.replace('\\','/')
             label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
             frame1.grid(row=4, column=1)
+            print(path)
             #send pic here to servo
         else:
-            path = os.path.abspath('percentage pics') + '\\100.jpeg' #edit 5 to the name of 100% pic
+            path = os.path.abspath('percentage pics') + '\\hundred.jpeg' #edit 5 to the name of 100% pic
             files = path.replace('\\','/')
             label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
             frame1.grid(row=4, column=1)
+            print(path)
             #send pic here to servo
     else:
         label.config(text = "Please input a valid DoB", image='', font=('50px'))
