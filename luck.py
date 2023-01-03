@@ -1,15 +1,36 @@
 #Import the required library
 from tkinter import*
 from datetime import *
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ImageOps
 import os
 import random
+import cartoon
 
 #Create an instance of tkinter frame
 main= Tk()
 
 #Define geometry of the window
 main.geometry("800x300")
+
+def show_Image(choice):
+    global imageLabel, imagePixel
+
+    path2 = "scissors paper stone pics/" + str(choice) + ".png"
+    myImage = Image.open(path2)
+    myImage = myImage.resize((250, 250))
+    loadImage = ImageTk.PhotoImage(myImage)
+    imageLabel.image = loadImage
+    imageLabel.config(image = loadImage, width = 250, height = 250)
+
+    #sending to cartoon.py
+    #first path refers to input for img
+    #path2 refers to variable
+    cartoon.pixelised(path = path2)
+    myImage = Image.open("kawaii.png")
+    myImage = myImage.resize((250, 250))
+    loadImage = ImageTk.PhotoImage(myImage)
+    imagePixel.image = loadImage
+    imagePixel.config(image = loadImage, width = 250, height = 250)
 
 def change_img():
     for i in range(len(options)) :
@@ -28,7 +49,7 @@ def change_img():
         label.config(text="Kindly, Input your DoB and Press the 'Enter' button")
         randomno = random.randint(1, 5)
         if randomno == 1:
-            path = os.path.abspath('percentage pics') + '\\zero.png' #edit 1 to the name of 0% pic
+            path = os.path.abspath('percentage pics') + '\\0.png' #edit 1 to the name of 0% pic
             files = path.replace('\\','/')
             #the 2 lines below for pop up img 
             myImage = Image.open(files)
@@ -37,7 +58,7 @@ def change_img():
             label2.config(text='')
             frame1.grid_forget()
         elif randomno == 2:
-            path = os.path.abspath('percentage pics') + '\\twentyfive.png' #edit 2 to the name of 25% pic
+            path = os.path.abspath('percentage pics') + '\\25.png' #edit 2 to the name of 25% pic
             files = path.replace('\\','/')
             #the 2 lines below for pop up img 
             myImage = Image.open(files)
@@ -46,7 +67,7 @@ def change_img():
             label2.config(text='')
             frame1.grid_forget()
         elif randomno == 3:
-            path = os.path.abspath('percentage pics') + '\\fifty.png' #edit 3 to the name of 50% pic
+            path = os.path.abspath('percentage pics') + '\\50.png' #edit 3 to the name of 50% pic
             files = path.replace('\\','/')
             #the 2 lines below for pop up img 
             myImage = Image.open(files)
@@ -55,7 +76,7 @@ def change_img():
             label2.config(text='')
             frame1.grid_forget()
         elif randomno == 4:
-            path = os.path.abspath('percentage pics') + '\\seventyfive.png' #edit 4 to the name of 75% pic
+            path = os.path.abspath('percentage pics') + '\\75.png' #edit 4 to the name of 75% pic
             files = path.replace('\\','/')
             #the 2 lines below for pop up img 
             myImage = Image.open(files)
@@ -64,7 +85,7 @@ def change_img():
             frame1.grid(row=4, column=1)
             #send pic here to servo
         else:
-            path = os.path.abspath('percentage pics') + '\\hundred.png' #edit 5 to the name of 100% pic
+            path = os.path.abspath('percentage pics') + '\\100.png' #edit 5 to the name of 100% pic
             files = path.replace('\\','/')
             #the 2 lines below for pop up img 
             myImage = Image.open(files)
@@ -139,6 +160,19 @@ frame1.grid_forget()
 
 label2 = Label(frame1, text = "", font='20px')
 label2.grid(row=0, columnspan=3)
+
+#heree
+frame1 = Frame(main)
+frame1.grid(row=1, column=0)
+
+imageFrame = Frame(main)
+imageFrame.grid(row=0, column=1)
+
+# Image Window
+imageLabel = Label(imageFrame, bg = 'white', width = 30, height = 15)
+imageLabel.grid(row=0, column=0)
+imagePixel = Label (imageFrame, bg = 'grey', width = 30, height = 15)
+imagePixel.grid(row=0, column=1)
 
 paths = os.path.abspath('scissors paper stone pics') +'\\paper.png'
 file = paths.replace('\\','/')

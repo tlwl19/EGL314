@@ -1,7 +1,7 @@
 from tkinter import *   #import tkinter library
 import random
 import os 
-from PIL import ImageTk, Image, ImageOps
+from PIL import Image, ImageTk, ImageOps
 import cartoon
 
 def button(m):
@@ -11,27 +11,14 @@ def button(m):
     show_Image(choice)
 
 def show_Image(choice):
-    global imageLabel, imagePixel
-
     path2 = "img/" + str(choice) + ".png"
     myImage = Image.open(path2)
-    myImage = myImage.resize((250, 250))
-    loadImage = ImageTk.PhotoImage(myImage)
-    imageLabel.image = loadImage
-    imageLabel.config(image = loadImage, width = 250, height = 250)
 
     #sending to cartoon.py
     #first path refers to input for img
     #path2 refers to variable
     cartoon.pixelised(path = path2)
     myImage = Image.open("cartoon.png")
-    myImage = myImage.resize((250, 250))
-    loadImage = ImageTk.PhotoImage(myImage)
-    imagePixel.image = loadImage
-    imagePixel.config(image = loadImage, width = 250, height = 250)
-    
-
-
     
 
 main = Tk()   #Create a main window
@@ -75,11 +62,11 @@ def guess():
             for r in range(inputrow):
                 for c in range(inputcolumn):
                     button[c][r].config(bg='#b0c8ed', fg="white")
-            print(horoscope[number])#edit this line onw and send the pic over
-            path = os.path.abspath('horoscope pics') +'\\' + horoscope[number] + '.png'
-            files = path.replace('\\','/')
-            myImage = Image.open(files)
-            myImage.show()
+            #print(horoscope[number])#edit this line onw and send the pic over
+            #path = os.path.abspath('horoscope pics') +'\\' + horoscope[number] + '.png'
+            #files = path.replace('\\','/')
+            #myImage = Image.open(files)
+            #myImage.show()
         else:
             scoreresults.config(text="Try Again", font=('Arial',15))
     elif button[0][0].cget('bg') == '#a58fbe':
@@ -153,10 +140,7 @@ imageFrame.grid(row=0, column=1)
 
 inputrow = 3    #indicate the number of rows
 inputcolumn = 4 #indicate the number of cols
-#counter = 0
-#horoscope = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"]
 
-#button = [[r for r in range(inputrow)] for c in range(inputcolumn)]
 for r in range(inputrow):
     for c in range(inputcolumn):
         # Button Section
@@ -186,11 +170,6 @@ btn9.grid(row=2, column=1)
 btn10.grid(row=2, column=2)
 btn11.grid(row=2, column=3)
 
-# Image Window
-imageLabel = Label(imageFrame, bg = 'white', width = 30, height = 15)
-imageLabel.grid(row=0, column=0)
-imagePixel = Label (imageFrame, bg = 'grey', width = 30, height = 15)
-imagePixel.grid(row=0, column=1)
 
 #Second frame is created for the button "GUESS!"
 frame2 = Frame(main)
