@@ -26,9 +26,10 @@ def show_Image(choice):
 #The function is for start game
 def startgame():
     global score, prevent, number
-    score = 0
+    #score = 0
     prevent = []
     if number == 15: # before starting the game
+        score = 0
         btn0.config(bg='#b0c8ed', fg="white") #Show blue colour
         btn1.config(bg='#b0c8ed', fg="white") 
         btn2.config(bg='#b0c8ed', fg="white")
@@ -48,7 +49,7 @@ def startgame():
 #The function is for reset game
 def restartgame():
     global score, prevent, number
-    score = 0
+    #score = 0
     prevent = []
     if number == 13 or number == 14: 
         btn0.config(bg='#a58fbe', fg="white")  #Show purple colour
@@ -131,8 +132,8 @@ def button(c):
     else :
         if c == numberx:
             #prevent.append(0) #prevent[] is to stop the counter from adding score+1 if user click more than once on the correct horoscope btn
-            if len(prevent) > 1:
-                if score > 1:
+            if prevent == [2]:
+                if score >= 1:
                     scoreresults.config(text=str(score), font=('Arial',20))
                 else:
                     number = 13
@@ -152,7 +153,8 @@ def button(c):
                 btn11.config(bg='#7fff00') 
                 score = score+1
                 number = 13
-                prevent.append(0)
+                prevent = [2]
+                print(prevent)
                 if score >= 4:
                     scoreresults.config(text='YOU WIN', font=('Arial',20))
                     youwin.grid(row=4, column=2)
@@ -170,7 +172,7 @@ def button(c):
                     btn10.config(bg='white', fg='black')
                     btn11.config(bg='white', fg='black')
                 elif score <= 0:
-                    scoreresults.config(text='+1', font=('Arial',20))
+                    scoreresults.config(text=str(score), font=('Arial',20))
                 else:
                     scoreresults.config(text=str(score), font=('Arial',20))
         elif btn0.cget('bg') == '#7fff00':
@@ -194,7 +196,7 @@ def button(c):
             print(score)
             #can add number = 13 to restart game
             if score <= 0:
-                scoreresults.config(text='Try Again', font=('Arial',15))
+                scoreresults.config(text=str(score), font=('Arial',15))
                 if score < -2:
                     scoreresults.config(text='GAME OVER', font=('Arial',20))
                     number = 13
@@ -223,6 +225,7 @@ headername.grid(row=0, columnspan=3)
 score = 0
 number = 15
 numberxlist = []
+prevent = [0]
 
 #First frame is created for the 3x4 grid
 frame1 = Frame(main)
