@@ -76,7 +76,7 @@ def guess():
                         #green                          #red                            #blue
     if btn0.cget('bg') == '#7fff00' or btn0.cget('bg') == '#FF0800' or btn0.cget('bg') == '#b0c8ed':
         if btn0.cget('bg') != '#FF0800': #red color 
-            #number = random.randint(0,11) #generate a random no. 
+            number = random.randint(0,11) #generate a random no. 
             #number = list(range(0,11))
             #random.shuffle(number)
 
@@ -93,7 +93,7 @@ def guess():
             btn10.config(bg='#b0c8ed', fg="white")
             btn11.config(bg='#b0c8ed', fg="white") 
             #print(list(range(0, 12)))
-            #print(number)
+            print(number)
             show_Image(number) #send to polariser the number
         else:
             scoreresults.config(text="Try Again", font=('Arial',15))
