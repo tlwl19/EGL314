@@ -28,7 +28,7 @@ def startgame():
     global score, prevent, number
     score = 0
     prevent = []
-    if number == 15:
+    if number == 15: # before starting the game
         btn0.config(bg='#b0c8ed', fg="white") #Show blue colour
         btn1.config(bg='#b0c8ed', fg="white") 
         btn2.config(bg='#b0c8ed', fg="white")
@@ -42,7 +42,7 @@ def startgame():
         btn10.config(bg='#b0c8ed', fg="white") 
         btn11.config(bg='#b0c8ed', fg="white") 
         scoreresults.config(text=str(score),font=('Arial',20))  #It will show 0 when press "Start game"
-        number = 12 #to signal that userr has press start game btn n to ensure that when user click on the 3x4 grids bef guess btn, it will show press guess btn
+        number = 12 #to signal that user has pressed the start game btn n to ensure that when user click on the 3x4 grids bef guess btn, it will show press guess btn
         
 #The function is for reset game
 def restartgame():
@@ -93,7 +93,7 @@ def guess():
     elif btn0.cget('bg') == '#a58fbe': #purple color
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
         number = 15
-    elif number == 13:
+    elif number == 13: # restart
         scoreresults.config(text="Press Reset Game to Reset", font=('Arial',10))
     else: 
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
@@ -207,7 +207,7 @@ for r in range(inputrow):
         btn7 = Button(frame1, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=7:button(m))
         btn8 = Button(frame1, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=8:button(m))
         btn9 = Button(frame1, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=9:button(m))
-        btn10 = Button(frame1, text = "Tarus", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=10:button(m))
+        btn10 = Button(frame1, text = "Taurus", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=10:button(m))
         btn11 = Button(frame1, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=11:button(m))
 
 btn0.grid(row=0, column=0)
