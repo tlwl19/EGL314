@@ -4,33 +4,19 @@ from datetime import *
 from PIL import Image, ImageTk, ImageOps
 import os
 import random
-import cartoon
+import cartoonluck
 
-#Create an instance of tkinter frame
-main= Tk()
+def show_Image(choice1):
 
-#Define geometry of the window
-main.geometry("800x300")
-
-def show_Image(choice):
-    global imageLabel, imagePixel
-
-    path2 = "scissors paper stone pics/" + str(choice) + ".png"
-    myImage = Image.open(path2)
-    myImage = myImage.resize((250, 250))
-    loadImage = ImageTk.PhotoImage(myImage)
-    imageLabel.image = loadImage
-    imageLabel.config(image = loadImage, width = 250, height = 250)
+    lucky = "percentage pics/" + str(choice1) + ".png"
+    myImage = Image.open(lucky)
 
     #sending to cartoon.py
     #first path refers to input for img
     #path2 refers to variable
-    cartoon.pixelised(path = path2)
+    cartoonluck.pixelised(path = lucky)
     myImage = Image.open("kawaii.png")
-    myImage = myImage.resize((250, 250))
-    loadImage = ImageTk.PhotoImage(myImage)
-    imagePixel.image = loadImage
-    imagePixel.config(image = loadImage, width = 250, height = 250)
+
 
 def change_img():
     for i in range(len(options)) :
@@ -110,7 +96,12 @@ def game():
     files = path.replace('\\','/')
     myImage = Image.open(files) #edit here onw to send the pic
     myImage.show()
-        
+
+#Create an instance of tkinter frame
+main= Tk()
+
+#Define geometry of the window
+main.geometry("800x300")      
 
 # Dropdown menu options
 options = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -160,19 +151,6 @@ frame1.grid_forget()
 
 label2 = Label(frame1, text = "", font='20px')
 label2.grid(row=0, columnspan=3)
-
-#heree
-frame1 = Frame(main)
-frame1.grid(row=1, column=0)
-
-imageFrame = Frame(main)
-imageFrame.grid(row=0, column=1)
-
-# Image Window
-imageLabel = Label(imageFrame, bg = 'white', width = 30, height = 15)
-imageLabel.grid(row=0, column=0)
-imagePixel = Label (imageFrame, bg = 'grey', width = 30, height = 15)
-imagePixel.grid(row=0, column=1)
 
 paths = os.path.abspath('scissors paper stone pics') +'\\paper.png'
 file = paths.replace('\\','/')

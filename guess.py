@@ -5,7 +5,7 @@ from PIL import Image, ImageTk, ImageOps
 import cartoon
 
 def show_Image(choice):
-    path2 = "img/" + str(choice) + ".png"
+    path2 = "horo/" + str(choice) + ".png"
     myImage = Image.open(path2)
 
     #sending to cartoon.py
