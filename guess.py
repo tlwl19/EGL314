@@ -143,7 +143,7 @@ def button(c):
                 score = score+1
                 number = 13
                 prevent.append(0)
-                if score >= 2:
+                if score >= 4:
                     scoreresults.config(text='YOU WIN', font=('Arial',20))
                     youwin.grid(row=4, column=2)
                     number = 13
