@@ -84,7 +84,7 @@ def guess():
                 else:
                     numberxlist[0] = numberx
                     print(numberx)
-                    #show_Image(numberx) #send to polariser the number
+                    show_Image(numberx) #send to polariser the number
             else:
                 numberxlist = [numberx]
                 print(numberxlist[0])
