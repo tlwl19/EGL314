@@ -14,7 +14,7 @@ def show_Image(choice1):
     #sending to cartoon.py
     #first path refers to input for img
     #path2 refers to variable
-    cartoonluck.pixelised(path = lucky)
+    cartoonluck.pixelised(pathway = lucky)
     myImage = Image.open("kawaii.png")
 
 

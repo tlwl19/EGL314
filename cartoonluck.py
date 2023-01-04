@@ -4,10 +4,10 @@ from PIL import Image, ImageOps
 from student_pub import *
 import os
 
-def pixelised(path):
+def pixelised(pathway):
 
     ## open image file
-    myImage = Image.open(path)
+    myImage = Image.open(pathway)
     #myImage.show()
 
     ## greyscale image file
