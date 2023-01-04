@@ -43,7 +43,8 @@ def startgame():
         btn11.config(bg='#b0c8ed', fg="white") 
         scoreresults.config(text=str(score),font=('Arial',20))  #It will show 0 when press "Start game"
         number = 12 #to signal that user has pressed the start game btn n to ensure that when user click on the 3x4 grids bef guess btn, it will show press guess btn
-        
+        youwin.grid_forget()
+
 #The function is for reset game
 def restartgame():
     global score, prevent, number
@@ -64,11 +65,12 @@ def restartgame():
         btn11.config(bg='#a58fbe', fg="white") 
         scoreresults.config(text="Press Start Game to Start",font=('Arial',12))  #It will show 0 when press "Reset game"
         number = 15
+        youwin.grid_forget()
 
 
 def guess():
     global number, prevent
-    
+    youwin.grid_forget()
     prevent = []  
                         #green                          #red                            #blue
     if btn0.cget('bg') == '#7fff00' or btn0.cget('bg') == '#FF0800' or btn0.cget('bg') == '#b0c8ed':
@@ -101,6 +103,7 @@ def guess():
 
 def button(c):
     global number, score, prevent
+    youwin.grid_forget()
     if btn0.cget('bg') == 'white':
         if number == 15:
             scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
@@ -112,10 +115,13 @@ def button(c):
         scoreresults.config(text="Press Guess to Start Guessing", font=('Arial',10))
     else :
         if c == number:
-            prevent.append(0) #prevent[] is to stop the counter from adding score+1 if user click more than once on the correct horoscope btn
+            #prevent.append(0) #prevent[] is to stop the counter from adding score+1 if user click more than once on the correct horoscope btn
             if len(prevent) > 1:
-                number = 13
-                scoreresults.config(text=str(score), font=('Arial',20))
+                if score > 1:
+                    scoreresults.config(text=str(score), font=('Arial',20))
+                else:
+                    number = 13
+                    scoreresults.config(text=str(score), font=('Arial',20))
             else:
                 btn0.config(bg='#7fff00') #show green colour
                 btn1.config(bg='#7fff00') 
@@ -131,11 +137,29 @@ def button(c):
                 btn11.config(bg='#7fff00') 
                 score = score+1
                 number = 13
-                if score <= 0:
+                prevent.append(0)
+                if score >= 2:
+                    scoreresults.config(text='YOU WIN', font=('Arial',20))
+                    youwin.grid(row=4, column=2)
+                    number = 13
+                    btn0.config(bg='white', fg='black')
+                    btn1.config(bg='white', fg='black')
+                    btn2.config(bg='white', fg='black')
+                    btn3.config(bg='white', fg='black')
+                    btn4.config(bg='white', fg='black')
+                    btn5.config(bg='white', fg='black')
+                    btn6.config(bg='white', fg='black')
+                    btn7.config(bg='white', fg='black')
+                    btn8.config(bg='white', fg='black')
+                    btn9.config(bg='white', fg='black')
+                    btn10.config(bg='white', fg='black')
+                    btn11.config(bg='white', fg='black')
+                elif score <= 0:
                     scoreresults.config(text='+1', font=('Arial',20))
                 else:
                     scoreresults.config(text=str(score), font=('Arial',20))
         elif btn0.cget('bg') == '#7fff00':
+            prevent.append(0)
             scoreresults.config(text=str(score), font=('Arial',20))
         else:
             btn0.config(bg='#FF0800')  #Show red colour
@@ -247,5 +271,9 @@ scorename.grid(row=2, column=2)
 
 scoreresults = Label(frame3, text=str(score), font=('Arial', 20))
 scoreresults.grid(row=3, column=2)
+
+youwin = Label(frame3, text="Press Reset Game to Reset", font=('Arial', 12))
+youwin.grid(row=4, column=2)
+youwin.grid_forget()
 
 main.mainloop()  #for the window to stay
