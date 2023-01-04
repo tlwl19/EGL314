@@ -69,17 +69,27 @@ def restartgame():
 
 
 def guess():
-    global number, prevent
+    global number, prevent, numberx, numberxlist
     youwin.grid_forget()
     prevent = []  
     #number = list(range(0,11))
                         #green                          #red                            #blue
     if btn0.cget('bg') == '#7fff00' or btn0.cget('bg') == '#FF0800' or btn0.cget('bg') == '#b0c8ed':
         if btn0.cget('bg') != '#FF0800': #red color 
-            number = random.randint(0,11) #generate a random no. 
+            numberx = random.randint(0,11) #generate a random no.
+            if len(numberxlist) >= 1:
+                while numberx == numberxlist[0]:
+                    numberx = random.randint(0,11)
+                else:
+                    numberxlist[0] = numberx
+                    print(numberx)
+                    #show_Image(numberx) #send to polariser the number
+            else:
+                numberxlist = [numberx]
+                print(numberxlist[0])
             #number = list(range(0,11))
             #random.shuffle(number)
-
+            number = 0
             btn0.config(bg='#b0c8ed', fg="white")
             btn1.config(bg='#b0c8ed', fg="white") 
             btn2.config(bg='#b0c8ed', fg="white") 
@@ -93,8 +103,8 @@ def guess():
             btn10.config(bg='#b0c8ed', fg="white")
             btn11.config(bg='#b0c8ed', fg="white") 
             #print(list(range(0, 12)))
-            print(number)
-            show_Image(number) #send to polariser the number
+            #print(numberx[0])
+            #show_Image(numberx[0]) #send to polariser the number
         else:
             scoreresults.config(text="Try Again", font=('Arial',15))
     elif btn0.cget('bg') == '#a58fbe': #purple color
@@ -107,7 +117,7 @@ def guess():
 
 
 def button(c):
-    global number, score, prevent
+    global number, score, prevent, numberx
     youwin.grid_forget()
     if btn0.cget('bg') == 'white':
         if number == 15:
@@ -119,7 +129,7 @@ def button(c):
     elif number == 12:
         scoreresults.config(text="Press Guess to Start Guessing", font=('Arial',10))
     else :
-        if c == number:
+        if c == numberx:
             #prevent.append(0) #prevent[] is to stop the counter from adding score+1 if user click more than once on the correct horoscope btn
             if len(prevent) > 1:
                 if score > 1:
@@ -212,6 +222,7 @@ headername.grid(row=0, columnspan=3)
 #Variable Declaration
 score = 0
 number = 15
+numberxlist = []
 
 #First frame is created for the 3x4 grid
 frame1 = Frame(main)
