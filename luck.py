@@ -8,8 +8,12 @@ import cartoonluck
 
 def show_Image(choice1):
 
-    lucky = "percentage pics/" + str(choice1) + ".png"
-    myImage = Image.open(lucky)
+    if type(choice1) == int:
+        lucky = "percentage pics/" + str(choice1) + ".png"
+        myImage = Image.open(lucky)
+    else:
+        lucky = "scissors paper stone pics/" + choice1 + ".png"
+        myImage = Image.open(lucky)
 
     #sending to cartoon.py
     #first path refers to input for img
@@ -33,8 +37,24 @@ def change_img():
                 test3 = True
     if test3 == True:
         label.config(text="Kindly, Input your DoB and Press the 'Enter' button")
-        randomno = random.randint(1, 5)
-        if randomno == 1:
+        randomno = random.randint(0, 4)
+        randomnolist = [0,25,50,75,100]
+        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100:
+            label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
+            frame1.grid(row=4, column=1)
+            show_Image(randomnolist[randomno])
+            print(randomnolist[randomno])
+        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25:
+            label2.config(text='')
+            frame1.grid_forget()
+            show_Image(randomnolist[randomno])#insert genie pic name
+            print(randomnolist[randomno])
+        else:
+            label2.config(text='')
+            frame1.grid_forget()
+            show_Image(randomnolist[randomno])
+            print(randomnolist[randomno])
+        """ if randomno == 1:
             path = os.path.abspath('percentage pics') + '\\0.png' #edit 1 to the name of 0% pic
             files = path.replace('\\','/')
             #the 2 lines below for pop up img 
@@ -78,7 +98,7 @@ def change_img():
             myImage.show()
             label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
             frame1.grid(row=4, column=1)
-            #send pic here to servo
+            #send pic here to servo """
     else:
         label.config(text = "Please input a valid DoB", image='', font=('50px'))
         #label2.config(text='')
@@ -92,10 +112,11 @@ def game():
         o = "scissors"
     else:
         o = "stone"
-    path = os.path.abspath('scissors paper stone pics') +'\\' + o + '.png'
+    show_Image(o)
+    """ path = os.path.abspath('scissors paper stone pics') +'\\' + o + '.png'
     files = path.replace('\\','/')
     myImage = Image.open(files) #edit here onw to send the pic
-    myImage.show()
+    myImage.show() """
 
 #Create an instance of tkinter frame
 main= Tk()
