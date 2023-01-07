@@ -54,57 +54,11 @@ def change_img():
             frame1.grid_forget()
             show_Image(randomnolist[randomno])
             print(randomnolist[randomno])
-        """ if randomno == 1:
-            path = os.path.abspath('percentage pics') + '\\0.png' #edit 1 to the name of 0% pic
-            files = path.replace('\\','/')
-            #the 2 lines below for pop up img 
-            myImage = Image.open(files)
-            myImage.show()
-            #send pic here to servo
-            label2.config(text='')
-            frame1.grid_forget()
-        elif randomno == 2:
-            path = os.path.abspath('percentage pics') + '\\25.png' #edit 2 to the name of 25% pic
-            files = path.replace('\\','/')
-            #the 2 lines below for pop up img 
-            myImage = Image.open(files)
-            myImage.show()
-            #send pic here to servo
-            label2.config(text='')
-            frame1.grid_forget()
-        elif randomno == 3:
-            path = os.path.abspath('percentage pics') + '\\50.png' #edit 3 to the name of 50% pic
-            files = path.replace('\\','/')
-            #the 2 lines below for pop up img 
-            myImage = Image.open(files)
-            myImage.show()
-            #send pic here to servo
-            label2.config(text='')
-            frame1.grid_forget()
-        elif randomno == 4:
-            path = os.path.abspath('percentage pics') + '\\75.png' #edit 4 to the name of 75% pic
-            files = path.replace('\\','/')
-            #the 2 lines below for pop up img 
-            myImage = Image.open(files)
-            myImage.show()
-            label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
-            frame1.grid(row=4, column=1)
-            #send pic here to servo
-        else:
-            path = os.path.abspath('percentage pics') + '\\100.png' #edit 5 to the name of 100% pic
-            files = path.replace('\\','/')
-            #the 2 lines below for pop up img 
-            myImage = Image.open(files)
-            myImage.show()
-            label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
-            frame1.grid(row=4, column=1)
-            #send pic here to servo """
     else:
         label.config(text = "Please input a valid DoB", image='', font=('50px'))
-        #label2.config(text='')
 
 def game():
-    frame1.grid_forget()  #WHAT IS grid_forget()
+    frame1.grid_forget()  
     randoms = random.randint(1,3)
     if randoms == 1:
         o = "paper"
