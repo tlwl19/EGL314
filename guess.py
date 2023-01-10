@@ -30,18 +30,18 @@ def startgame():
     prevent = []
     if number == 15: # before starting the game
         score = 0
-        btn0.config(bg='#b0c8ed', fg="white") #Show blue colour
-        btn1.config(bg='#b0c8ed', fg="white") 
-        btn2.config(bg='#b0c8ed', fg="white")
-        btn3.config(bg='#b0c8ed', fg="white") 
-        btn4.config(bg='#b0c8ed', fg="white") 
-        btn5.config(bg='#b0c8ed', fg="white") 
-        btn6.config(bg='#b0c8ed', fg="white") 
-        btn7.config(bg='#b0c8ed', fg="white") 
-        btn8.config(bg='#b0c8ed', fg="white") 
-        btn9.config(bg='#b0c8ed', fg="white") 
-        btn10.config(bg='#b0c8ed', fg="white") 
-        btn11.config(bg='#b0c8ed', fg="white") 
+        btn0.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) #Show blue colour
+        btn1.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn2.config(bg='#b0c8ed', fg="white", image='', width=10, height=5)
+        btn3.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn4.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn5.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn6.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn7.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn8.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn9.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn10.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn11.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
         scoreresults.config(text=str(score),font=('Arial',20))  #It will show 0 when press "Start game"
         number = 12 #to signal that user has pressed the start game btn n to ensure that when user click on the 3x4 grids bef guess btn, it will show press guess btn
         youwin.grid_forget()
@@ -52,18 +52,49 @@ def restartgame():
     #score = 0
     prevent = []
     if number == 13 or number == 14: 
-        btn0.config(bg='#a58fbe', fg="white")  #Show purple colour
-        btn1.config(bg='#a58fbe', fg="white") 
-        btn2.config(bg='#a58fbe', fg="white") 
-        btn3.config(bg='#a58fbe', fg="white") 
-        btn4.config(bg='#a58fbe', fg="white") 
-        btn5.config(bg='#a58fbe', fg="white") 
-        btn6.config(bg='#a58fbe', fg="white") 
-        btn7.config(bg='#a58fbe', fg="white") 
-        btn8.config(bg='#a58fbe', fg="white") 
-        btn9.config(bg='#a58fbe', fg="white") 
-        btn10.config(bg='#a58fbe', fg="white")
-        btn11.config(bg='#a58fbe', fg="white") 
+        for i in range(0, 12):
+            paths = "horo/" + str(i) + ".png"
+            myImages = Image.open(paths)
+            myImages = myImages.resize((90, 90))
+            loadImages = ImageTk.PhotoImage(myImages)
+            widthy = 114
+            heighty = 126
+            if i == 0:
+                btn0.image = loadImages
+                btn0.config(image = loadImages, width=widthy, height=heighty, bg='white')
+            elif i == 1:
+                btn1.image = loadImages
+                btn1.config(image = loadImages, width=widthy, height=heighty, bg='white')
+            elif i == 2:
+                btn2.image = loadImages
+                btn2.config(image = loadImages, width=widthy, height=heighty, bg='white')
+            elif i == 3:
+                btn3.image = loadImages
+                btn3.config(image = loadImages, width=widthy, height=heighty, bg='white')
+            elif i == 4:
+                btn4.image = loadImages
+                btn4.config(image = loadImages, width=widthy, height=heighty, bg='white')
+            elif i == 5:
+                btn5.image = loadImages
+                btn5.config(image = loadImages, width=widthy, height=heighty, bg='white')
+            elif i == 6:
+                btn6.image = loadImages
+                btn6.config(image = loadImages, width=widthy, height=heighty, bg='white')
+            elif i == 7:
+                btn7.image = loadImages
+                btn7.config(image = loadImages, width=widthy, height=heighty, bg='white')
+            elif i == 8:
+                btn8.image = loadImages
+                btn8.config(image = loadImages, width=widthy, height=heighty, bg='white')
+            elif i == 9:
+                btn9.image = loadImages
+                btn9.config(image = loadImages, width=widthy, height=heighty, bg='white')
+            elif i == 10:
+                btn10.image = loadImages
+                btn10.config(image = loadImages, width=widthy, height=heighty, bg='white')
+            else:
+                btn11.image = loadImages
+                btn11.config(image = loadImages, width=widthy, height=heighty, bg='white')
         scoreresults.config(text="Press Start Game to Start",font=('Arial',12))  #It will show 0 when press "Reset game"
         number = 15
         youwin.grid_forget()
@@ -88,8 +119,6 @@ def guess():
             else:
                 numberxlist = [numberx]
                 print(numberxlist[0])
-            #number = list(range(0,11))
-            #random.shuffle(number)
             number = 0
             btn0.config(bg='#b0c8ed', fg="white")
             btn1.config(bg='#b0c8ed', fg="white") 
@@ -103,9 +132,6 @@ def guess():
             btn9.config(bg='#b0c8ed', fg="white") 
             btn10.config(bg='#b0c8ed', fg="white")
             btn11.config(bg='#b0c8ed', fg="white") 
-            #print(list(range(0, 12)))
-            #print(numberx[0])
-            #show_Image(numberx[0]) #send to polariser the number
         else:
             scoreresults.config(text="Try Again", font=('Arial',15))
     elif btn0.cget('bg') == '#a58fbe': #purple color
@@ -213,6 +239,8 @@ def button(c):
                     btn10.config(bg='white', fg='black')
                     btn11.config(bg='white', fg='black')
 
+
+            
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
 
@@ -266,6 +294,49 @@ btn9.grid(row=2, column=1)
 btn10.grid(row=2, column=2)
 btn11.grid(row=2, column=3)
 
+for i in range(0, 12):
+    path = "horo/" + str(i) + ".png"
+    myImage = Image.open(path)
+    myImage = myImage.resize((100, 100))
+    loadImage = ImageTk.PhotoImage(myImage)
+    widthx = 114
+    heightx = 126
+    if i == 0:
+        btn0.image = loadImage
+        btn0.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 1:
+        btn1.image = loadImage
+        btn1.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 2:
+        btn2.image = loadImage
+        btn2.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 3:
+        btn3.image = loadImage
+        btn3.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 4:
+        btn4.image = loadImage
+        btn4.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 5:
+        btn5.image = loadImage
+        btn5.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 6:
+        btn6.image = loadImage
+        btn6.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 7:
+        btn7.image = loadImage
+        btn7.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 8:
+        btn8.image = loadImage
+        btn8.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 9:
+        btn9.image = loadImage
+        btn9.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 10:
+        btn10.image = loadImage
+        btn10.config(image = loadImage, width=widthx, height=heightx)
+    else:
+        btn11.image = loadImage
+        btn11.config(image = loadImage, width=widthx, height=heightx)
 
 #Second frame is created for the button "GUESS!"
 frame2 = Frame(main)
