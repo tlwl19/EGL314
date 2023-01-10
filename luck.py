@@ -4,22 +4,22 @@ from datetime import *
 from PIL import Image, ImageTk, ImageOps
 import os
 import random
-import cartoonluck
+import cartoon
 
-def show_Image(choice1):
+def show_Image(choice):
 
-    if type(choice1) == int:
-        lucky = "percentage pics/" + str(choice1) + ".png"
+    if type(choice) == int:
+        lucky = "percentage pics/" + str(choice) + ".png"
         myImage = Image.open(lucky)
     else:
-        lucky = "scissors paper stone pics/" + choice1 + ".png"
+        lucky = "scissors paper stone pics/" + choice + ".png"
         myImage = Image.open(lucky)
 
     #sending to cartoon.py
     #first path refers to input for img
     #path2 refers to variable
-    cartoonluck.pixelised(pathway = lucky)
-    myImage = Image.open("kawaii.png")
+    cartoon.pixelised(path = lucky)
+    myImage = Image.open("cartoon.png")
 
 
 def change_img(): 
