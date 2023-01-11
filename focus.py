@@ -2,34 +2,8 @@ from tkinter import *
 
 from datetime import datetime
 
-counter = 66000
+counter = 0
 running = False
-def counter_label(label):
-    def count():
-        if running:
-            global counter
-   
-            # To manage the initial delay.
-            if counter==66000:            
-                display="Starting..."
-            else:
-                tt = datetime.fromtimestamp(counter)
-                string = tt.strftime("00:00:%S")
-                display=string
-   
-            label['text']=display
-   
-            # label.after(arg1, arg2) delays by 
-            # first argument given in milliseconds
-            # and then calls the function given as second argument.
-            # Generally like here we need to call the 
-            # function in which it is present repeatedly.
-            # Delays by 1000ms=1 seconds and call count again.
-            timer.after(1000, count) 
-            counter += 1
-   
-    # Triggering the start of the counter.
-    count() 
 
 # start function of the stopwatch
 def Start(label):
@@ -39,6 +13,8 @@ def Start(label):
     start['state']='disabled'
     stop['state']='normal'
     reset['state']='normal'
+    for i in range (0, 6): 
+        btn[i]['state']='normal'
    
 # Stop function of the stopwatch
 def Stop():
@@ -51,7 +27,7 @@ def Stop():
 # Reset function of the stopwatch
 def Reset(label):
     global counter
-    counter=66600
+    counter=0
    
     # If rest is pressed after pressing stop.
     if running==False:      
@@ -61,7 +37,41 @@ def Reset(label):
     # If reset is pressed while the stopwatch is running.
     else:               
         label['text']='Starting...'
+
+def counter_label(label):
+    def count():
+        if running:
+            global counter
    
+            # To manage the initial delay.
+            """ if counter==0:            
+                display="Starting..."
+            else:
+                tt = datetime.fromtimestamp(counter)
+                string = tt.strftime("00:00:%S")
+                display=string """
+            tt = datetime.fromtimestamp(counter)
+            string = tt.strftime("00:00:%S")
+            display=string
+            label['text']=display
+   
+            # label.after(arg1, arg2) delays by 
+            # first argument given in milliseconds
+            # and then calls the function given as second argument.
+            # Generally like here we need to call the 
+            # function in which it is present repeatedly.
+            # Delays by 1000ms=1 seconds and call count again.
+            timer.after(1000, count) 
+            counter += 1
+            print(counter)
+            if counter > 10:
+                Stop()
+           
+   
+    # Triggering the start of the counter.
+    count()
+
+
 
 main = Tk()
 
@@ -84,6 +94,7 @@ start = Button(main, text='Start', font=('Arial', 10), width=6, command=lambda:S
 start.grid(row=2, column=2)
 stop = Button(main, text='Stop',width=6,state='disabled', command=Stop)
 reset = Button(main, text='Reset',width=6, state='disabled', command=lambda:Reset(timer))
+reset.grid(row=2, column=3)
 
 #Answer btn
 frame1 = Frame(main)
@@ -93,9 +104,8 @@ icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
 btn = [i for i in range(len(icons))]  #defining the number of buttons
 
 for i in range (0, 6):  #Assigning array values into btn 
-    btn[i] = Button(frame1, text=icons[i])
+    btn[i] = Button(frame1, text=icons[i], state='disabled', command=Stop)
     btn[i].grid(row=0, column=i)
-
 
 
 
