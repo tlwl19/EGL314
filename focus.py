@@ -1,47 +1,67 @@
 from tkinter import *
-import time
 
-def submit():
-    try:
-        # the input provided by the user is
-        # stored in here :temp
-        temp = int(hour.get())*3600 + int(minute.get())*60 + int(second.get())
-    except:
-        print("Please input the right value")
-    while temp >-1:
-         
-        # divmod(firstvalue = temp//60, secondvalue = temp%60)
-        mins,secs = divmod(temp,60)
-  
-        # Converting the input entered in mins or secs to hours,
-        # mins ,secs(input = 110 min --> 120*60 = 6600 => 1hr :
-        # 50min: 0sec)
-        hours=0
-        if mins >60:
-             
-            # divmod(firstvalue = temp//60, secondvalue
-            # = temp%60)
-            hours, mins = divmod(mins, 60)
+from datetime import datetime
 
-            # using format () method to store the value up to
-            # two decimal places
-            hour.set("{0:2d}".format(hours))
-            minute.set("{0:2d}".format(mins))
-            second.set("{0:2d}".format(secs))
-    
-            # updating the GUI window after decrementing the
-            # temp value every time
-            root.update()
-            time.sleep(1)
-    
-            # when temp value = 0; then a messagebox pop's up
-            # with a message:"Time's up"
-            if (temp == 0):
-                messagebox.showinfo("Time Countdown", "Time's up ")
-            
-            # after every one sec the value of temp will be decremented
-            # by one
-            temp -= 1
+counter = 66000
+running = False
+def counter_label(label):
+    def count():
+        if running:
+            global counter
+   
+            # To manage the initial delay.
+            if counter==66000:            
+                display="Starting..."
+            else:
+                tt = datetime.fromtimestamp(counter)
+                string = tt.strftime("00:00:%S")
+                display=string
+   
+            label['text']=display
+   
+            # label.after(arg1, arg2) delays by 
+            # first argument given in milliseconds
+            # and then calls the function given as second argument.
+            # Generally like here we need to call the 
+            # function in which it is present repeatedly.
+            # Delays by 1000ms=1 seconds and call count again.
+            timer.after(1000, count) 
+            counter += 1
+   
+    # Triggering the start of the counter.
+    count() 
+
+# start function of the stopwatch
+def Start(label):
+    global running
+    running=True
+    counter_label(label)
+    start['state']='disabled'
+    stop['state']='normal'
+    reset['state']='normal'
+   
+# Stop function of the stopwatch
+def Stop():
+    global running
+    start['state']='normal'
+    stop['state']='disabled'
+    reset['state']='normal'
+    running = False
+
+# Reset function of the stopwatch
+def Reset(label):
+    global counter
+    counter=66600
+   
+    # If rest is pressed after pressing stop.
+    if running==False:      
+        reset['state']='disabled'
+        label['text']='Welcome!'
+   
+    # If reset is pressed while the stopwatch is running.
+    else:               
+        label['text']='Starting...'
+   
 
 main = Tk()
 
@@ -57,36 +77,13 @@ instruction = Label(main, text="1. Press on start game etc...", font=('Arial', 1
 instruction.grid(row=1, columnspan=4)
 
 #Timer
-timer = Label(main, text="timer", font=('Arial', 10))
+timer = Label(main, text='Timer', font=('Arial', 10))
 timer.grid(row=2, column=1)
 
-# Declaration of variables
-hour=StringVar()
-minute=StringVar()
-second=StringVar()
-  
-# setting the default value as 0
-hour.set("00")
-minute.set("00")
-second.set("00")
-  
-# Use of Entry class to take input from the user
-hourEntry= Entry(root, width=3, font=("Arial",18,""),
-                 textvariable=hour)
-hourEntry.place(x=80,y=20)
-  
-minuteEntry= Entry(root, width=3, font=("Arial",18,""),
-                   textvariable=minute)
-minuteEntry.place(x=130,y=20)
-  
-secondEntry= Entry(root, width=3, font=("Arial",18,""),
-                   textvariable=second)
-secondEntry.place(x=180,y=20)
-
-
-#Start Game
-startbtn = Button(main, text="Start Game", font=('Arial', 10))
-startbtn.grid(row=2, column=2)
+start = Button(main, text='Start', font=('Arial', 10), width=6, command=lambda:Start(timer))
+start.grid(row=2, column=2)
+stop = Button(main, text='Stop',width=6,state='disabled', command=Stop)
+reset = Button(main, text='Reset',width=6, state='disabled', command=lambda:Reset(timer))
 
 #Answer btn
 frame1 = Frame(main)
