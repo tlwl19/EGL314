@@ -28,9 +28,9 @@ frame1.grid(row=3, columnspan=4)
 icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
 btn = [i for i in range(len(icons))]  #defining the number of buttons
 
-for i in range (1, 6):  #Assigning array values into btn 
+for i in range (0, 6):  #Assigning array values into btn 
     btn[i] = Button(frame1, text=icons[i])
-    btn[i].grid(row=0, column=i-1)
+    btn[i].grid(row=0, column=i)
 
 
 
