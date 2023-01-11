@@ -26,7 +26,7 @@ frame1 = Frame(main)
 frame1.grid(row=3, columnspan=4)
 
 icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
-btn = [i for i in range(6)]  #defining the number of buttons
+btn = [i for i in range(len(icons))]  #defining the number of buttons
 
 for i in range (1, 6):  #Assigning array values into btn 
     btn[i] = Button(frame1, text=icons[i])
