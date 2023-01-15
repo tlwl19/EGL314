@@ -3,6 +3,7 @@ from datetime import datetime
 import random
 import cartoon
 from PIL import Image, ImageTk
+#from tkinter import tkMessageBox
 
 counter = 0
 running = False
@@ -31,6 +32,9 @@ def click():
         print(numberxlist[0])
     #show_Image(numberx) #send to polariser the number
 
+#def msgbox():
+   #tkMessageBox.showinfo("Say Hello", "Hello World")
+
 # start function of the stopwatch
 def Start(label):
     global running, Lno
@@ -56,6 +60,7 @@ def Stop(m):
     if m == numberxlist[0]:
         Lno = Lno+1
         if Lno > 3:
+            msgbox()
             Lno = 0
     elif m == 10:
         Lno = 0
