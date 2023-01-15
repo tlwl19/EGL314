@@ -41,37 +41,31 @@ def Start(label):
     reset['state']='normal'
     for i in range (0, 6): 
         btn[i]['state']='normal'
-    level['text']='Level '+ str(Lno)
     click()
    
 # Stop function of the stopwatch
 def Stop(m):
     global running, numberxlist, Lno
+    start['state']='disabled'
+    stop['state']='disabled'
+    reset['state']='normal'
+    running = False
+    print('stop')
+    for i in range (0, 6): 
+        btn[i]['state']='disabled'
     if m == numberxlist[0]:
-        start['state']='disabled'
-        stop['state']='disabled'
-        reset['state']='normal'
-        running = False
-        print('stop')
-        for i in range (0, 6): 
-            btn[i]['state']='disabled'
         Lno = Lno+1
+        if Lno > 3:
+            Lno = 0
     elif m == 10:
-        start['state']='disabled'
-        stop['state']='disabled'
-        reset['state']='normal'
-        running = False
-        print('stop')
-        for i in range (0, 6): 
-            btn[i]['state']='disabled'
         Lno = 0
     else:
-        running = True
+        Lno = 0
         print('wrong')
 
 # Reset function of the stopwatch
 def Reset(label):
-    global counter
+    global counter, Lno, icons
     counter=0
    
     # If rest is pressed after pressing stop.
@@ -79,7 +73,19 @@ def Reset(label):
         start['state']='normal'      
         reset['state']='disabled'
         label['text']='Welcome!'
-   
+        level['text']='Level '+ str(Lno)
+        if Lno == 1:
+            icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']
+            for i in range (0, 6):
+                btn[i]['text']=icons[i]
+        elif Lno == 2:
+            icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
+            for i in range (0, 6):
+                btn[i]['text']=icons[i]
+        else:
+            icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']
+            for i in range (0, 6):
+                btn[i]['text']=icons[i]
     # If reset is pressed while the stopwatch is running.
     else:               
         label['text']='Starting...'
