@@ -3,13 +3,14 @@ from datetime import datetime
 import random
 import cartoon
 from PIL import Image, ImageTk
-#from tkinter import tkMessageBox
+from tkinter import messagebox, simpledialog
 
 counter = 0
 running = False
 
 def show_Image(choice):
-    path2 = "icons/" + str(choice) + ".png"
+    global icons
+    path2 = "icons/" + str(icons[choice]) + ".png"
     myImage = Image.open(path2)
 
     #sending to cartoon.py
@@ -30,10 +31,18 @@ def click():
     else:
         numberxlist = [numberx]
         print(numberxlist[0])
-    #show_Image(numberx) #send to polariser the number
+    show_Image(numberx) #send to polariser the number
 
-#def msgbox():
-   #tkMessageBox.showinfo("Say Hello", "Hello World")
+def getname():
+    name = simpledialog.askstring("Test", "What's your Name?:")
+    return name
+
+def correctbox():
+    name = getname()
+    messagebox.showinfo("Congrats {}".format(name)+" !","You're 100% focus!")
+
+def wrongbox():
+    messagebox.showinfo("Try Again!", "You need to improve on your focus!")
 
 # start function of the stopwatch
 def Start(label):
@@ -60,12 +69,13 @@ def Stop(m):
     if m == numberxlist[0]:
         Lno = Lno+1
         if Lno > 3:
-            msgbox()
+            correctbox()
             Lno = 0
     elif m == 10:
         Lno = 0
     else:
         Lno = 0
+        wrongbox()
         print('wrong')
 
 # Reset function of the stopwatch
@@ -169,8 +179,6 @@ btn = [i for i in range(len(icons))]  #defining the number of buttons
 for i in range (0, 6):  #Assigning array values into btn 
     btn[i] = Button(frame1, text=icons[i], state='disabled', command=lambda m=i:Stop(m))
     btn[i].grid(row=0, column=i)
-
-
 
 
 
