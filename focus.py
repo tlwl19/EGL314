@@ -5,8 +5,8 @@ import cartoon
 from PIL import Image, ImageTk
 from tkinter import messagebox, simpledialog
 
-counter = 0
-running = False
+counter = 0   #Time starts from 0
+running = False  #Timer is not running
 
 def show_Image(choice):
     global icons
@@ -22,14 +22,14 @@ def show_Image(choice):
 def click():
     global numberxlist
     numberx = random.randint(0,5) #generate a random no.
-    if len(numberxlist) >= 1:
-        while numberx == numberxlist[0]:
+    if len(numberxlist) >= 1:   #If there is number inside
+        while numberx == numberxlist[0]: #To check if the random int is the same as the previous random generate int
             numberx = random.randint(0,5)
         else:
-            numberxlist[0] = numberx
+            numberxlist[0] = numberx #New random int 
             print(numberx)
     else:
-        numberxlist = [numberx]
+        numberxlist = [numberx]  #To store the first random generator int
         print(numberxlist[0])
     show_Image(numberx) #send to polariser the number
 
@@ -38,55 +38,61 @@ def getname():
     return name
 
 def correctbox():
+    global storetime
     name = getname()
-    messagebox.showinfo("Congrats {}".format(name)+" !","You're 100% focus!")
+    messagebox.showinfo("Congrats {}".format(name)+" !","You're 100% focus! You've completed in {} s".format(storetime)+" !")
 
 def wrongbox():
     messagebox.showinfo("Try Again!", "You need to improve on your focus!")
+
+def timeup():
+    messagebox.showinfo("TIMES UP!!", "TIMESS UPP!!, You need to improve on your concentration")
 
 # start function of the stopwatch
 def Start(label):
     global running, Lno
     running=True
-    counter_label(label)
-    start['state']='disabled'
-    stop['state']='normal'
-    reset['state']='normal'
+    counter_label(label) #To start the timer
+    start['state']='disabled'  #Start btn will be disabled once my start btn is pressed
     for i in range (0, 6): 
-        btn[i]['state']='normal'
-    click()
+        btn[i]['state']='normal' #Selection btn will be enabled
+    click()  #Generate random int and send to the polarizer (show_image)
    
 # Stop function of the stopwatch
 def Stop(m):
-    global running, numberxlist, Lno
-    start['state']='disabled'
-    stop['state']='disabled'
-    reset['state']='normal'
+    global running, numberxlist, Lno, counter, storetime, display
     running = False
     print('stop')
     for i in range (0, 6): 
         btn[i]['state']='disabled'
-    if m == numberxlist[0]:
-        Lno = Lno+1
-        if Lno > 3:
-            correctbox()
+    if m == numberxlist[0]:  #If what i choose is the same as what is being sent, 
+        Lno = Lno+1  #Level increase by 1
+        storetime = storetime + counter-1
+        Reset(timer) #Timer reset to 0
+        if Lno == 4: #Level will stop till level 3
             Lno = 0
-    elif m == 10:
-        Lno = 0
+            Reset(timer)
+            correctbox() #User pop up will appear
+            storetime = 0
+    elif m == 10: #When timer reach 10sec,
+        #ADD IN ANOTHER MSGBOX TO SHOW TIMER IS UP
+        Lno = 0  #Level reset to 0
+        Reset(timer)
+        timeup()
     else:
-        Lno = 0
+        Lno = 0     #When user select wrg btn, level goes back to 0
         wrongbox()
+        Reset(timer)
         print('wrong')
 
 # Reset function of the stopwatch
 def Reset(label):
-    global counter, Lno, icons
+    global counter, Lno, icons, storetime
     counter=0
    
     # If rest is pressed after pressing stop.
-    if running==False:
+    if running==False:  #When timer is not running
         start['state']='normal'      
-        reset['state']='disabled'
         label['text']='Welcome!'
         level['text']='Level '+ str(Lno)
         if Lno == 1:
@@ -101,22 +107,12 @@ def Reset(label):
             icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
-    # If reset is pressed while the stopwatch is running.
-    else:               
-        label['text']='Starting...'
 
 def counter_label(label):
     def count():
         if running:
-            global counter
-   
-            # To manage the initial delay.
-            """ if counter==0:            
-                display="Starting..."
-            else:
-                tt = datetime.fromtimestamp(counter)
-                string = tt.strftime("00:00:%S")
-                display=string """
+            global counter, display
+
             tt = datetime.fromtimestamp(counter)
             string = tt.strftime("00:00:%S")
             display=string
@@ -134,11 +130,8 @@ def counter_label(label):
             if counter > 10:
                 Stop(10)
            
-   
     # Triggering the start of the counter.
     count()
-
-
 
 main = Tk()
 
@@ -147,6 +140,7 @@ main.geometry("1000x300")
 
 numberxlist = []
 Lno = 0
+storetime = 0
 
 #Header for the game
 headername = Label(text="ICONcentrate", font=('Arial', 30)) 
@@ -165,9 +159,7 @@ timer.grid(row=2, column=1)
 
 start = Button(main, text='Start', font=('Arial', 10), width=6, command=lambda:Start(timer))
 start.grid(row=2, column=2)
-stop = Button(main, text='Stop',width=6,state='disabled', command=Stop)
-reset = Button(main, text='Reset',width=6, state='disabled', command=lambda:Reset(timer))
-reset.grid(row=2, column=3)
+
 
 #Answer btn
 frame1 = Frame(main)
@@ -179,8 +171,6 @@ btn = [i for i in range(len(icons))]  #defining the number of buttons
 for i in range (0, 6):  #Assigning array values into btn 
     btn[i] = Button(frame1, text=icons[i], state='disabled', command=lambda m=i:Stop(m))
     btn[i].grid(row=0, column=i)
-
-
 
 
 main.mainloop()
