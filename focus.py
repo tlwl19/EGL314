@@ -154,7 +154,7 @@ level = Label(main, text='Level '+ str(Lno), font=('Arial', 10))
 level.grid(row=2, column=0)
 
 #Timer
-timer = Label(main, text='Timer', font=('Arial', 10))
+timer = Label(main, text='Welcome!', font=('Arial', 10))
 timer.grid(row=2, column=1)
 
 start = Button(main, text='Start', font=('Arial', 10), width=6, command=lambda:Start(timer))
