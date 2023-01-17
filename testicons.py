@@ -7,8 +7,13 @@ from tkinter import messagebox, simpledialog
 
 def show_Image(choice):
     global icons
+<<<<<<< Updated upstream
     icons=['']
     path2 = "food/" + str(icons[choice]) + ".png"
+=======
+    icons=['puma']
+    path2 = "shoe/" + str(icons[choice]) + ".png"
+>>>>>>> Stashed changes
     myImage = Image.open(path2)
 
     #sending to cartoon.py
@@ -19,3 +24,8 @@ def show_Image(choice):
 
 
 show_Image(0)
+
+#rec spiderman ironman fila hawkeye capame blackpanther antman
+#half wintersoldier
+#not hulk
+#cmi thor loki
