@@ -7,13 +7,8 @@ from tkinter import messagebox, simpledialog
 
 def show_Image(choice):
     global icons
-<<<<<<< Updated upstream
-    icons=['']
-    path2 = "food/" + str(icons[choice]) + ".png"
-=======
-    icons=['puma']
-    path2 = "shoe/" + str(icons[choice]) + ".png"
->>>>>>> Stashed changes
+    icons=['nissan']
+    path2 = "car/" + str(icons[choice]) + ".png"
     myImage = Image.open(path2)
 
     #sending to cartoon.py

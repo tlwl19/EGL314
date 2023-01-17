@@ -106,11 +106,11 @@ def Reset(label):
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 2:
-            icons = ['Puma', 'A&W', '', '', '', '']
+            icons = ['Puma', 'A&W', 'Fila', 'BMW', 'Subway', 'Ferrari']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 3:
-            icons = ['Hawkeye', 'Hulk', 'Subway', 'Rolls Royce', '', '']
+            icons = ['Hawkeye', 'Hulk', 'Nissan', 'Rolls Royce', 'Burger King', 'Dominos']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         else:
@@ -165,7 +165,7 @@ middleframe = Frame(main)
 middleframe.grid(row=2, columnspan=6)
 
 #Level
-level = Label(middleframe, text='Level '+ str(Lno), font=('Arial', 15), justify=S)
+level = Label(middleframe, text='Level '+ str(Lno), font=('Arial', 15))
 level.grid(row=0, column=0)
 
 #Timer
