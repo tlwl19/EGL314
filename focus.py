@@ -19,6 +19,11 @@ def show_Image(choice):
     cartoon.pixelised(path = path2)
     myImage = Image.open("cartoon.png")
 
+def getinstruction():
+    messagebox.showinfo("Instructions", "1. Press on 'START' button to begin the game.\n2. Select the correct button corresponding to the image shown on the polariser.\n3. You will proceed on to the next level if you choose the correct button\n4. Game will reset if you choose wrongly")
+
+
+
 def click():
     global numberxlist
     numberx = random.randint(0,5) #generate a random no.
@@ -47,6 +52,7 @@ def wrongbox():
 
 def timeup():
     messagebox.showinfo("TIMES UP!!", "TIMESS UPP!!, You need to improve on your concentration")
+    
 
 # start function of the stopwatch
 def Start(label):
@@ -103,6 +109,10 @@ def Reset(label):
             icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
+        elif Lno == 3:
+            icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
+            for i in range (0, 6):
+                btn[i]['text']=icons[i]
         else:
             icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']
             for i in range (0, 6):
@@ -134,42 +144,47 @@ def counter_label(label):
     count()
 
 main = Tk()
+main.title('ICONCENTRATE')
 
 #Define geometry of the window
-main.geometry("1000x300")     
+#main.geometry("1000x300")     
 
 numberxlist = []
 Lno = 0
 storetime = 0
 
 #Header for the game
-headername = Label(text="ICONcentrate", font=('Arial', 30)) 
-headername.grid(row=0, columnspan=4)
+headername = Label(text="ICONcentrate", font=('Arial', 30), fg='#96DED1') 
+headername.grid(row=0, column=0)
 
 #Instructions
-instruction = Label(main, text="1. Press on start game etc...", font=('Arial', 15), bg='pink')
-instruction.grid(row=1, columnspan=4)
+instrubtn = Button(main, text='Instruction', font=('Arial', 15), bg = '#b0c8ed', fg='white', command=getinstruction)
+instrubtn.grid(row=1, column=0)
 
-level = Label(main, text='Level '+ str(Lno), font=('Arial', 10))
-level.grid(row=2, column=0)
+middleframe = Frame(main)
+middleframe.grid(row=2, columnspan=6)
+
+#Level
+level = Label(middleframe, text='Level '+ str(Lno), font=('Arial', 15), justify=S)
+level.grid(row=0, column=0)
 
 #Timer
-timer = Label(main, text='Welcome!', font=('Arial', 10))
-timer.grid(row=2, column=1)
+timer = Label(middleframe, text='Welcome', font=('Arial', 15))
+timer.grid(row=0, column=1)
 
-start = Button(main, text='Start', font=('Arial', 10), width=6, command=lambda:Start(timer))
-start.grid(row=2, column=2)
+start = Button(middleframe, text='Start', font=('Arial', 15), command=lambda:Start(timer))
+start.grid(row=0, column=2, ipadx=50)
 
 
 #Answer btn
 frame1 = Frame(main)
-frame1.grid(row=3, columnspan=4)
+frame1.grid(row=3, column=0)
 
 icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
 btn = [i for i in range(len(icons))]  #defining the number of buttons
 
 for i in range (0, 6):  #Assigning array values into btn 
-    btn[i] = Button(frame1, text=icons[i], state='disabled', command=lambda m=i:Stop(m))
+    btn[i] = Button(frame1, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m))
     btn[i].grid(row=0, column=i)
 
 
