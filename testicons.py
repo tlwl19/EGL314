@@ -7,8 +7,8 @@ from tkinter import messagebox, simpledialog
 
 def show_Image(choice):
     global icons
-    icons=['facebook']
-    path2 = "icons/" + str(icons[choice]) + ".png"
+    icons=['']
+    path2 = "food/" + str(icons[choice]) + ".png"
     myImage = Image.open(path2)
 
     #sending to cartoon.py
