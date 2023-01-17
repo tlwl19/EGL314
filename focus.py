@@ -102,19 +102,19 @@ def Reset(label):
         label['text']='Welcome!'
         level['text']='Level '+ str(Lno)
         if Lno == 1:
-            icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']
+            icons = ['KFC', 'Jollibee', 'Macs', 'Pizza Hut', 'Mos Burger', 'Texas']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 2:
-            icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
+            icons = ['Puma', 'A&W', '', '', '', '']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 3:
-            icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
+            icons = ['Hawkeye', 'Hulk', 'Subway', 'Rolls Royce', '', '']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         else:
-            icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']
+            icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']  #Level 0
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
 
@@ -180,7 +180,7 @@ start.grid(row=0, column=2, ipadx=50)
 frame1 = Frame(main)
 frame1.grid(row=3, column=0)
 
-icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
+icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']  #Level 0
 btn = [i for i in range(len(icons))]  #defining the number of buttons
 
 for i in range (0, 6):  #Assigning array values into btn 
