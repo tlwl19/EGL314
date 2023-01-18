@@ -550,8 +550,8 @@ descvar = ""
 desc = Label(middleframe, text="What is Wellness?", font=('Arial', 20), border=50) 
 desc.grid(row=0, column=0)
 
-horoscopebtn = Button(modeframe, text="Guess the Horoscope", font=("Courier", 15), width=25, height=2, bg='#b0c8ed', command=guessappear)
-horoscopebtn.grid(row=0, column=0)
+horoscopetitlebtn = Button(modeframe, text="Guess the Horoscope", font=("Courier", 15), width=25, height=2, bg='#b0c8ed', command=guessappear)
+horoscopetitlebtn.grid(row=0, column=0)
 
 luckbtn = Button(modeframe, text="What's Your Luck?", font=("Courier", 15), width=25, height=2, bg='pink', command=luckappear)
 luckbtn.grid(row=0, column=1)
