@@ -6,6 +6,7 @@ import os
 import random
 import cartoon
 
+
 def show_Image(choice):
 
     if type(choice) == int:
@@ -15,9 +16,9 @@ def show_Image(choice):
         lucky = "scissors paper stone pics/" + choice + ".png"
         myImage = Image.open(lucky)
 
-    #sending to cartoon.py
-    #first path refers to input for img
-    #path2 refers to variable
+        #sending to cartoon.py
+        #first path refers to input for img
+        #path2 refers to variable
     cartoon.pixelised(path = lucky)
     myImage = Image.open("cartoon.png")
 
@@ -196,3 +197,4 @@ imageLabel.grid_forget()
 
 main.bind("<Return>", change_img) 
 main.mainloop()
+
