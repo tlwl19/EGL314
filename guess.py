@@ -2,6 +2,7 @@ from tkinter import *   #import tkinter library
 import random
 import os 
 from PIL import Image, ImageTk, ImageOps
+from PIL import ImageDraw
 import cartoon
 
 def show_Image(choice):
@@ -58,7 +59,6 @@ def startgame():
         lbl9.grid_forget()
         lbl10.grid_forget()
         lbl11.grid_forget()
-    
 
 #The function is for reset game
 def restartgame():
@@ -140,7 +140,6 @@ def restartgame():
         btn11.grid(row=4, column=3)
         lbl11.grid(row=5, column=3)
 
-
 def guess():
     global number, prevent, numberx, numberxlist, prevent2
     youwin.grid_forget()
@@ -185,7 +184,6 @@ def guess():
         scoreresults.config(text="Press Reset Game to Reset", font=('Arial',10))
     else: 
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
-
 
 def button(c):
     global number, score, prevent, numberx, prevent2
@@ -347,7 +345,6 @@ btn2.grid(row=0, column=2)
 lbl2.grid(row=1, column=2)
 btn3.grid(row=0, column=3)
 lbl3.grid(row=1, column=3)
-
 btn4.grid(row=2, column=0)
 lbl4.grid(row=3, column=0)
 btn5.grid(row=2, column=1)

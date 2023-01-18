@@ -12,7 +12,6 @@ def luckappear():
     guessframe.grid_forget()
     focusframe.grid_forget()
     luckframe.grid(row=0, column=0)
-    
 
 
 def guessappear():
@@ -677,8 +676,8 @@ prevent = [0]
 prevent2 = 0
 
 #First frame is created for the 3x4 grid
-frame1 = Frame(guessframe)
-frame1.grid(row=1, column=0)
+framehoro = Frame(guessframe)
+framehoro.grid(row=1, column=0)
 
 imageFrame = Frame(guessframe)
 imageFrame.grid(row=0, column=1)
@@ -689,30 +688,30 @@ inputcolumn = 4 #indicate the number of cols
 for r in range(inputrow):
     for c in range(inputcolumn):
         # Button Section
-        btn0 = Button(frame1, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=0:button(m))
-        lbl0 = Label(frame1, text="Aquarius", font=("Arial", 15), fg='black')
-        btn1 = Button(frame1, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=1:button(m))
-        lbl1 = Label(frame1, text="Aries", font=("Arial", 15), fg='black')
-        btn2 = Button(frame1, text = "Cancer", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=2:button(m))
-        lbl2 = Label(frame1, text="Cancer", font=("Arial", 15), fg='black')
-        btn3 = Button(frame1, text = "Capricorn", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=3:button(m))
-        lbl3 = Label(frame1, text="Capricorn", font=("Arial", 15), fg='black')
-        btn4 = Button(frame1, text = "Gemini", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=4:button(m))
-        lbl4 = Label(frame1, text="Gemini", font=("Arial", 15), fg='black')
-        btn5 = Button(frame1, text = "Leo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=5:button(m))
-        lbl5 = Label(frame1, text="Leo", font=("Arial", 15), fg='black')
-        btn6 = Button(frame1, text = "Libra", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=6:button(m))
-        lbl6 = Label(frame1, text="Libra", font=("Arial", 15), fg='black')
-        btn7 = Button(frame1, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=7:button(m))
-        lbl7 = Label(frame1, text="Pisces", font=("Arial", 15),fg='black')
-        btn8 = Button(frame1, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=8:button(m))
-        lbl8 = Label(frame1, text="Sagittarius", font=("Arial", 15), fg='black')
-        btn9 = Button(frame1, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=9:button(m))
-        lbl9 = Label(frame1, text="Scorpio", font=("Arial", 15), fg='black')
-        btn10 = Button(frame1, text = "Taurus", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=10:button(m))
-        lbl10 = Label(frame1, text="Taurus", font=("Arial", 15), fg='black')
-        btn11 = Button(frame1, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=11:button(m))
-        lbl11 = Label(frame1, text="Virgo", font=("Arial", 15), fg='black')
+        btn0 = Button(framehoro, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=0:button(m))
+        lbl0 = Label(framehoro, text="Aquarius", font=("Arial", 15), fg='black')
+        btn1 = Button(framehoro, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=1:button(m))
+        lbl1 = Label(framehoro, text="Aries", font=("Arial", 15), fg='black')
+        btn2 = Button(framehoro, text = "Cancer", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=2:button(m))
+        lbl2 = Label(framehoro, text="Cancer", font=("Arial", 15), fg='black')
+        btn3 = Button(framehoro, text = "Capricorn", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=3:button(m))
+        lbl3 = Label(framehoro, text="Capricorn", font=("Arial", 15), fg='black')
+        btn4 = Button(framehoro, text = "Gemini", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=4:button(m))
+        lbl4 = Label(framehoro, text="Gemini", font=("Arial", 15), fg='black')
+        btn5 = Button(framehoro, text = "Leo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=5:button(m))
+        lbl5 = Label(framehoro, text="Leo", font=("Arial", 15), fg='black')
+        btn6 = Button(framehoro, text = "Libra", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=6:button(m))
+        lbl6 = Label(framehoro, text="Libra", font=("Arial", 15), fg='black')
+        btn7 = Button(framehoro, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=7:button(m))
+        lbl7 = Label(framehoro, text="Pisces", font=("Arial", 15),fg='black')
+        btn8 = Button(framehoro, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=8:button(m))
+        lbl8 = Label(framehoro, text="Sagittarius", font=("Arial", 15), fg='black')
+        btn9 = Button(framehoro, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=9:button(m))
+        lbl9 = Label(framehoro, text="Scorpio", font=("Arial", 15), fg='black')
+        btn10 = Button(framehoro, text = "Taurus", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=10:button(m))
+        lbl10 = Label(framehoro, text="Taurus", font=("Arial", 15), fg='black')
+        btn11 = Button(framehoro, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=11:button(m))
+        lbl11 = Label(framehoro, text="Virgo", font=("Arial", 15), fg='black')
 
 btn0.grid(row=0, column=0)
 lbl0.grid(row=1, column=0)
