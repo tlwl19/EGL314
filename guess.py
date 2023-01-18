@@ -2,6 +2,7 @@ from tkinter import *   #import tkinter library
 import random
 import os 
 from PIL import Image, ImageTk, ImageOps
+from PIL import ImageDraw
 import cartoon
 
 def show_Image(choice):
@@ -304,6 +305,7 @@ for i in range(0, 12):
     if i == 0:
         btn0.image = loadImage
         btn0.config(image = loadImage, width=widthx, height=heightx)
+        btn0 = Tk.Label(main, Text"Aquarius", btn0, compound=0)
     elif i == 1:
         btn1.image = loadImage
         btn1.config(image = loadImage, width=widthx, height=heightx)

@@ -81,7 +81,6 @@ def Stop(m):
             correctbox() #User pop up will appear
             storetime = 0
     elif m == 10: #When timer reach 10sec,
-        #ADD IN ANOTHER MSGBOX TO SHOW TIMER IS UP
         Lno = 0  #Level reset to 0
         Reset(timer)
         timeup()
@@ -137,7 +136,7 @@ def counter_label(label):
             timer.after(1000, count) 
             counter += 1
             #print(counter)
-            if counter > 10:
+            if counter > 20:
                 Stop(10)
            
     # Triggering the start of the counter.
@@ -161,19 +160,19 @@ headername.grid(row=0, column=0)
 instrubtn = Button(main, text='Instruction', font=('Arial', 15), bg = '#b0c8ed', fg='white', command=getinstruction)
 instrubtn.grid(row=1, column=0)
 
-# middleframe = Frame(main)
-# middleframe.grid(row=2, columnspan=6)
+middleframe = Frame(main)
+middleframe.grid(row=2, columnspan=6)
 
 #Level
-level = Label(main, text='Level '+ str(Lno), font=('Arial', 15))
+level = Label(middleframe, text='Level '+ str(Lno), font=('Arial', 15))
 level.grid(row=2, column=0)
 
 #Timer
-timer = Label(main, text='Welcome', font=('Arial', 15))
-timer.grid(row=2, column=0, padx=100)
+timer = Label(middleframe, text='Welcome', font=('Arial', 15))
+timer.grid(row=2, column=1, padx=100)
 
-start = Button(main, text='Start', font=('Arial', 15), command=lambda:Start(timer))
-start.grid(row=2, column=0)
+start = Button(middleframe, text='Start', font=('Arial', 15), command=lambda:Start(timer))
+start.grid(row=2, column=2, ipadx=30)
 
 
 #Answer btn
