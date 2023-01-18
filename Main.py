@@ -27,13 +27,13 @@ def focusappear():
 
 
 ################## LUCK FUNCTION ###################
-def show_Image(choice):
+def show_Image(choice1):
 
-    if type(choice) == int:
-        lucky = "percentage pics/" + str(choice) + ".png"
+    if type(choice1) == int:
+        lucky = "percentage pics/" + str(choice1) + ".png"
         myImage = Image.open(lucky)
     else:
-        lucky = "scissors paper stone pics/" + choice + ".png"
+        lucky = "scissors paper stone pics/" + choice1 + ".png"
         myImage = Image.open(lucky)
 
         #sending to cartoon.py
@@ -116,8 +116,8 @@ def game(m):
 
 
 ################## GUESS FUNCTION ######################
-def show_Image(choice):
-    path2 = "horo/" + str(choice) + ".png"
+def show_Image(choice2):
+    path2 = "horo/" + str(choice2) + ".png"
     myImage = Image.open(path2)
 
     #sending to cartoon.py
@@ -170,7 +170,6 @@ def startgame():
         lbl9.grid_forget()
         lbl10.grid_forget()
         lbl11.grid_forget()
-    
 
 #The function is for reset game
 def restartgame():
@@ -252,7 +251,6 @@ def restartgame():
         btn11.grid(row=4, column=3)
         lbl11.grid(row=5, column=3)
 
-
 def guess():
     global number, prevent, numberx, numberxlist, prevent2
     youwin.grid_forget()
@@ -297,7 +295,6 @@ def guess():
         scoreresults.config(text="Press Reset Game to Reset", font=('Arial',10))
     else: 
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
-
 
 def button(c):
     global number, score, prevent, numberx, prevent2
@@ -401,9 +398,9 @@ def button(c):
 counter = 0   #Time starts from 0
 running = False  #Timer is not running
 
-def show_Image(choice):
+def show_Image(choice3):
     global icons
-    path2 = "icons/" + str(icons[choice]) + ".png"
+    path2 = "icons/" + str(icons[choice3]) + ".png"
     myImage = Image.open(path2)
 
     #sending to cartoon.py
@@ -676,8 +673,8 @@ prevent = [0]
 prevent2 = 0
 
 #First frame is created for the 3x4 grid
-framehoro = Frame(guessframe)
-framehoro.grid(row=1, column=0)
+inguessframe = Frame(guessframe)
+inguessframe.grid(row=1, column=0)
 
 imageFrame = Frame(guessframe)
 imageFrame.grid(row=0, column=1)
@@ -688,30 +685,30 @@ inputcolumn = 4 #indicate the number of cols
 for r in range(inputrow):
     for c in range(inputcolumn):
         # Button Section
-        btn0 = Button(framehoro, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=0:button(m))
-        lbl0 = Label(framehoro, text="Aquarius", font=("Arial", 15), fg='black')
-        btn1 = Button(framehoro, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=1:button(m))
-        lbl1 = Label(framehoro, text="Aries", font=("Arial", 15), fg='black')
-        btn2 = Button(framehoro, text = "Cancer", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=2:button(m))
-        lbl2 = Label(framehoro, text="Cancer", font=("Arial", 15), fg='black')
-        btn3 = Button(framehoro, text = "Capricorn", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=3:button(m))
-        lbl3 = Label(framehoro, text="Capricorn", font=("Arial", 15), fg='black')
-        btn4 = Button(framehoro, text = "Gemini", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=4:button(m))
-        lbl4 = Label(framehoro, text="Gemini", font=("Arial", 15), fg='black')
-        btn5 = Button(framehoro, text = "Leo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=5:button(m))
-        lbl5 = Label(framehoro, text="Leo", font=("Arial", 15), fg='black')
-        btn6 = Button(framehoro, text = "Libra", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=6:button(m))
-        lbl6 = Label(framehoro, text="Libra", font=("Arial", 15), fg='black')
-        btn7 = Button(framehoro, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=7:button(m))
-        lbl7 = Label(framehoro, text="Pisces", font=("Arial", 15),fg='black')
-        btn8 = Button(framehoro, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=8:button(m))
-        lbl8 = Label(framehoro, text="Sagittarius", font=("Arial", 15), fg='black')
-        btn9 = Button(framehoro, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=9:button(m))
-        lbl9 = Label(framehoro, text="Scorpio", font=("Arial", 15), fg='black')
-        btn10 = Button(framehoro, text = "Taurus", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=10:button(m))
-        lbl10 = Label(framehoro, text="Taurus", font=("Arial", 15), fg='black')
-        btn11 = Button(framehoro, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=11:button(m))
-        lbl11 = Label(framehoro, text="Virgo", font=("Arial", 15), fg='black')
+        btn0 = Button(inguessframe, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=0:button(m))
+        lbl0 = Label(inguessframe, text="Aquarius", font=("Arial", 15), fg='black')
+        btn1 = Button(inguessframe, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=1:button(m))
+        lbl1 = Label(inguessframe, text="Aries", font=("Arial", 15), fg='black')
+        btn2 = Button(inguessframe, text = "Cancer", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=2:button(m))
+        lbl2 = Label(inguessframe, text="Cancer", font=("Arial", 15), fg='black')
+        btn3 = Button(inguessframe, text = "Capricorn", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=3:button(m))
+        lbl3 = Label(inguessframe, text="Capricorn", font=("Arial", 15), fg='black')
+        btn4 = Button(inguessframe, text = "Gemini", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=4:button(m))
+        lbl4 = Label(inguessframe, text="Gemini", font=("Arial", 15), fg='black')
+        btn5 = Button(inguessframe, text = "Leo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=5:button(m))
+        lbl5 = Label(inguessframe, text="Leo", font=("Arial", 15), fg='black')
+        btn6 = Button(inguessframe, text = "Libra", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=6:button(m))
+        lbl6 = Label(inguessframe, text="Libra", font=("Arial", 15), fg='black')
+        btn7 = Button(inguessframe, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=7:button(m))
+        lbl7 = Label(inguessframe, text="Pisces", font=("Arial", 15),fg='black')
+        btn8 = Button(inguessframe, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=8:button(m))
+        lbl8 = Label(inguessframe, text="Sagittarius", font=("Arial", 15), fg='black')
+        btn9 = Button(inguessframe, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=9:button(m))
+        lbl9 = Label(inguessframe, text="Scorpio", font=("Arial", 15), fg='black')
+        btn10 = Button(inguessframe, text = "Taurus", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=10:button(m))
+        lbl10 = Label(inguessframe, text="Taurus", font=("Arial", 15), fg='black')
+        btn11 = Button(inguessframe, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=11:button(m))
+        lbl11 = Label(inguessframe, text="Virgo", font=("Arial", 15), fg='black')
 
 btn0.grid(row=0, column=0)
 lbl0.grid(row=1, column=0)
@@ -721,7 +718,6 @@ btn2.grid(row=0, column=2)
 lbl2.grid(row=1, column=2)
 btn3.grid(row=0, column=3)
 lbl3.grid(row=1, column=3)
-
 btn4.grid(row=2, column=0)
 lbl4.grid(row=3, column=0)
 btn5.grid(row=2, column=1)
@@ -785,30 +781,30 @@ for i in range(0, 12):
         btn11.config(image = loadImage, width=widthx, height=heightx)
 
 #Second frame is created for the button "GUESS!"
-frame2 = Frame(guessframe)
-frame2.grid(row=1, column=1)
+inguessframe2 = Frame(guessframe)
+inguessframe2.grid(row=1, column=1)
 
-guessbtn = Button(frame2, text="GUESS!!", font=('Arial',20), command=guess)
+guessbtn = Button(inguessframe2, text="GUESS!!", font=('Arial',20), command=guess)
 guessbtn.grid(row=0, column=1)
 
 
 #Third frame is created for the 'START/RESET/SCORE' 
-frame3 = Frame(guessframe)
-frame3.grid(row=1, column=2)
+inguessframe3 = Frame(guessframe)
+inguessframe3.grid(row=1, column=2)
 
-startbtn = Button(frame3, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
+startbtn = Button(inguessframe3, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
 startbtn.grid(row=0, column=2)
 
-resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20), bg='pink', command=restartgame)
+resetbtn = Button(inguessframe3, text="RESET GAME", font=('Arial', 20), bg='pink', command=restartgame)
 resetbtn.grid(row=1, column=2)
 
-scorename = Label(frame3, text="Score", font=('Arial', 25)) 
+scorename = Label(inguessframe3, text="Score", font=('Arial', 25)) 
 scorename.grid(row=2, column=2)
 
-scoreresults = Label(frame3, text=str(score), font=('Arial', 20))
+scoreresults = Label(inguessframe3, text=str(score), font=('Arial', 20))
 scoreresults.grid(row=3, column=2)
 
-youwin = Label(frame3, text="Press Reset Game to Reset", font=('Arial', 12))
+youwin = Label(inguessframe3, text="Press Reset Game to Reset", font=('Arial', 12))
 youwin.grid(row=4, column=2)
 youwin.grid_forget()
 
