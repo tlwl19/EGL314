@@ -377,10 +377,6 @@ for i in range(0, 12):
     if i == 0:
         btn0.image = loadImage
         btn0.config(image = loadImage, width=widthx, height=heightx)
-<<<<<<< Updated upstream
-        #btn0 = Tk.Label(main, Text"Aquarius", btn0, compound=0)
-=======
->>>>>>> Stashed changes
     elif i == 1:
         btn1.image = loadImage
         btn1.config(image = loadImage, width=widthx, height=heightx)
