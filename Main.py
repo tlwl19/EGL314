@@ -27,7 +27,7 @@ def focusappear():
 
 
 ################## LUCK FUNCTION ###################
-def show_Image(choice1):
+def show_Image_luck(choice1):
 
     if type(choice1) == int:
         lucky = "percentage pics/" + str(choice1) + ".png"
@@ -63,7 +63,7 @@ def change_img():
         if randomnolist[randomno] == 75 or randomnolist[randomno] == 100:
             label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
             frame1.grid(row=4, column=1)
-            show_Image(randomnolist[randomno])
+            show_Image_luck(randomnolist[randomno])
             imageLabel.config(image="", width = 30, height = 15)
             previewtitle.config(text="")
             previewtitle.grid(row=2, column=3)
@@ -72,7 +72,7 @@ def change_img():
         elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25:
             label2.config(text='')
             frame1.grid_forget()
-            show_Image(7)#insert genie pic name
+            show_Image_luck(7)#insert genie pic name
             previewtitle.grid_forget()
             imageLabel.grid_forget()
             print(randomnolist[randomno])
@@ -81,7 +81,7 @@ def change_img():
             frame1.grid_forget()
             previewtitle.grid_forget()
             imageLabel.grid_forget()
-            show_Image(randomnolist[randomno])
+            show_Image_luck(randomnolist[randomno])
             print(randomnolist[randomno])
     else:
         label.config(text = "Please input a valid DoB", image='', font=('50px'))
@@ -111,12 +111,12 @@ def game(m):
         o = "paper"
     else:
         o = "stone"
-    show_Image(o)
+    show_Image_luck(o)
     preview_Image(m)
 
 
 ################## GUESS FUNCTION ######################
-def show_Image(choice2):
+def show_Image_guess(choice2):
     path2 = "horo/" + str(choice2) + ".png"
     myImage = Image.open(path2)
 
@@ -267,7 +267,7 @@ def guess():
                     else:
                         numberxlist.append(numberx)
                         print(numberx)
-                        show_Image(numberx) #send to polariser the number
+                        show_Image_guess(numberx) #send to polariser the number
                 else:
                     numberxlist = [numberx]
                     print(numberxlist[0])
@@ -398,7 +398,7 @@ def button(c):
 counter = 0   #Time starts from 0
 running = False  #Timer is not running
 
-def show_Image(choice3):
+def show_Image_focus(choice3):
     global icons
     path2 = "icons/" + str(icons[choice3]) + ".png"
     myImage = Image.open(path2)
@@ -426,7 +426,7 @@ def click():
     else:
         numberxlist = [numberx]  #To store the first random generator int
         print(numberxlist[0])
-    show_Image(numberx) #send to polariser the number
+    show_Image_focus(numberx) #send to polariser the number
 
 def getname():
     name = simpledialog.askstring("Test", "What's your Name?:")
