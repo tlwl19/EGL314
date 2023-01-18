@@ -47,6 +47,19 @@ def startgame():
         scoreresults.config(text=str(score),font=('Arial',20))  #It will show 0 when press "Start game"
         number = 12 #to signal that user has pressed the start game btn n to ensure that when user click on the 3x4 grids bef guess btn, it will show press guess btn
         youwin.grid_forget()
+        lbl0.grid_forget()
+        lbl1.grid_forget()
+        lbl2.grid_forget()
+        lbl3.grid_forget()
+        lbl4.grid_forget()
+        lbl5.grid_forget()
+        lbl6.grid_forget()
+        lbl7.grid_forget()
+        lbl8.grid_forget()
+        lbl9.grid_forget()
+        lbl10.grid_forget()
+        lbl11.grid_forget()
+    
 
 #The function is for reset game
 def restartgame():
@@ -101,6 +114,32 @@ def restartgame():
         scoreresults.config(text="Press Start Game to Start",font=('Arial',12))  #It will show 0 when press "Reset game"
         number = 15
         youwin.grid_forget()
+        btn0.grid(row=0, column=0)
+        lbl0.grid(row=1, column=0)
+        btn1.grid(row=0, column=1)
+        lbl1.grid(row=1, column=1)
+        btn2.grid(row=0, column=2)
+        lbl2.grid(row=1, column=2)
+        btn3.grid(row=0, column=3)
+        lbl3.grid(row=1, column=3)
+
+        btn4.grid(row=2, column=0)
+        lbl4.grid(row=3, column=0)
+        btn5.grid(row=2, column=1)
+        lbl5.grid(row=3, column=1)
+        btn6.grid(row=2, column=2)
+        lbl6.grid(row=3, column=2)
+        btn7.grid(row=2, column=3)
+        lbl7.grid(row=3, column=3)
+
+        btn8.grid(row=4, column=0)
+        lbl8.grid(row=5, column=0)
+        btn9.grid(row=4, column=1)
+        lbl9.grid(row=5, column=1)
+        btn10.grid(row=4, column=2)
+        lbl10.grid(row=5, column=2)
+        btn11.grid(row=4, column=3)
+        lbl11.grid(row=5, column=3)
 
 
 def guess():
@@ -270,37 +309,63 @@ frame1.grid(row=1, column=0)
 imageFrame = Frame(main)
 imageFrame.grid(row=0, column=1)
 
-inputrow = 3    #indicate the number of rows
+inputrow = 6    #indicate the number of rows
 inputcolumn = 4 #indicate the number of cols
 
 for r in range(inputrow):
     for c in range(inputcolumn):
         # Button Section
         btn0 = Button(frame1, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=0:button(m))
+        lbl0 = Label(frame1, text="Aquarius", font=("Arial", 15), fg='black')
         btn1 = Button(frame1, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=1:button(m))
+        lbl1 = Label(frame1, text="Aries", font=("Arial", 15), fg='black')
         btn2 = Button(frame1, text = "Cancer", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=2:button(m))
+        lbl2 = Label(frame1, text="Cancer", font=("Arial", 15), fg='black')
         btn3 = Button(frame1, text = "Capricorn", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=3:button(m))
+        lbl3 = Label(frame1, text="Capricorn", font=("Arial", 15), fg='black')
         btn4 = Button(frame1, text = "Gemini", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=4:button(m))
+        lbl4 = Label(frame1, text="Gemini", font=("Arial", 15), fg='black')
         btn5 = Button(frame1, text = "Leo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=5:button(m))
+        lbl5 = Label(frame1, text="Leo", font=("Arial", 15), fg='black')
         btn6 = Button(frame1, text = "Libra", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=6:button(m))
+        lbl6 = Label(frame1, text="Libra", font=("Arial", 15), fg='black')
         btn7 = Button(frame1, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=7:button(m))
+        lbl7 = Label(frame1, text="Pisces", font=("Arial", 15),fg='black')
         btn8 = Button(frame1, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=8:button(m))
+        lbl8 = Label(frame1, text="Sagittarius", font=("Arial", 15), fg='black')
         btn9 = Button(frame1, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=9:button(m))
+        lbl9 = Label(frame1, text="Scorpio", font=("Arial", 15), fg='black')
         btn10 = Button(frame1, text = "Taurus", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=10:button(m))
+        lbl10 = Label(frame1, text="Taurus", font=("Arial", 15), fg='black')
         btn11 = Button(frame1, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=11:button(m))
+        lbl11 = Label(frame1, text="Virgo", font=("Arial", 15), fg='black')
 
 btn0.grid(row=0, column=0)
+lbl0.grid(row=1, column=0)
 btn1.grid(row=0, column=1)
+lbl1.grid(row=1, column=1)
 btn2.grid(row=0, column=2)
+lbl2.grid(row=1, column=2)
 btn3.grid(row=0, column=3)
-btn4.grid(row=1, column=0)
-btn5.grid(row=1, column=1)
-btn6.grid(row=1, column=2)
-btn7.grid(row=1, column=3)
-btn8.grid(row=2, column=0)
-btn9.grid(row=2, column=1)
-btn10.grid(row=2, column=2)
-btn11.grid(row=2, column=3)
+lbl3.grid(row=1, column=3)
+
+btn4.grid(row=2, column=0)
+lbl4.grid(row=3, column=0)
+btn5.grid(row=2, column=1)
+lbl5.grid(row=3, column=1)
+btn6.grid(row=2, column=2)
+lbl6.grid(row=3, column=2)
+btn7.grid(row=2, column=3)
+lbl7.grid(row=3, column=3)
+
+btn8.grid(row=4, column=0)
+lbl8.grid(row=5, column=0)
+btn9.grid(row=4, column=1)
+lbl9.grid(row=5, column=1)
+btn10.grid(row=4, column=2)
+lbl10.grid(row=5, column=2)
+btn11.grid(row=4, column=3)
+lbl11.grid(row=5, column=3)
 
 for i in range(0, 12):
     path = "horo/" + str(i) + ".png"
@@ -312,7 +377,10 @@ for i in range(0, 12):
     if i == 0:
         btn0.image = loadImage
         btn0.config(image = loadImage, width=widthx, height=heightx)
+<<<<<<< Updated upstream
         #btn0 = Tk.Label(main, Text"Aquarius", btn0, compound=0)
+=======
+>>>>>>> Stashed changes
     elif i == 1:
         btn1.image = loadImage
         btn1.config(image = loadImage, width=widthx, height=heightx)
