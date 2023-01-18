@@ -102,37 +102,40 @@ def restartgame():
 
 
 def guess():
-    global number, prevent, numberx, numberxlist
+    global number, prevent, numberx, numberxlist, prevent2
     youwin.grid_forget()
     prevent = []  
     #number = list(range(0,11))
                         #green                          #red                            #blue
     if btn0.cget('bg') == '#7fff00' or btn0.cget('bg') == '#FF0800' or btn0.cget('bg') == '#b0c8ed':
-        if btn0.cget('bg') != '#FF0800': #red color 
-            numberx = random.randint(0,11) #generate a random no.
-            if len(numberxlist) >= 1:
-                while numberx == numberxlist[0]:
-                    numberx = random.randint(0,11)
+        if btn0.cget('bg') != '#FF0800': #red color
+            if prevent2 == 0:
+                numberx = random.randint(0,11) #generate a random no.
+                if len(numberxlist) >= 1:
+                    while numberx == numberxlist[0]:
+                        numberx = random.randint(0,11)
+                    else:
+                        numberxlist[0] = numberx
+                        print(numberx)
+                        show_Image(numberx) #send to polariser the number
                 else:
-                    numberxlist[0] = numberx
-                    print(numberx)
-                    show_Image(numberx) #send to polariser the number
-            else:
-                numberxlist = [numberx]
-                print(numberxlist[0])
-            number = 0
-            btn0.config(bg='#b0c8ed', fg="white")
-            btn1.config(bg='#b0c8ed', fg="white") 
-            btn2.config(bg='#b0c8ed', fg="white") 
-            btn3.config(bg='#b0c8ed', fg="white") 
-            btn4.config(bg='#b0c8ed', fg="white") 
-            btn5.config(bg='#b0c8ed', fg="white") 
-            btn6.config(bg='#b0c8ed', fg="white") 
-            btn7.config(bg='#b0c8ed', fg="white") 
-            btn8.config(bg='#b0c8ed', fg="white") 
-            btn9.config(bg='#b0c8ed', fg="white") 
-            btn10.config(bg='#b0c8ed', fg="white")
-            btn11.config(bg='#b0c8ed', fg="white") 
+                    numberxlist = [numberx]
+                    print(numberxlist[0])
+                number = 0
+                btn0.config(bg='#b0c8ed', fg="white")
+                btn1.config(bg='#b0c8ed', fg="white") 
+                btn2.config(bg='#b0c8ed', fg="white") 
+                btn3.config(bg='#b0c8ed', fg="white") 
+                btn4.config(bg='#b0c8ed', fg="white") 
+                btn5.config(bg='#b0c8ed', fg="white") 
+                btn6.config(bg='#b0c8ed', fg="white") 
+                btn7.config(bg='#b0c8ed', fg="white") 
+                btn8.config(bg='#b0c8ed', fg="white") 
+                btn9.config(bg='#b0c8ed', fg="white") 
+                btn10.config(bg='#b0c8ed', fg="white")
+                btn11.config(bg='#b0c8ed', fg="white") 
+                prevent2 = 1
+                print(prevent2)
         else:
             scoreresults.config(text="Try Again", font=('Arial',15))
     elif btn0.cget('bg') == '#a58fbe': #purple color
@@ -145,7 +148,7 @@ def guess():
 
 
 def button(c):
-    global number, score, prevent, numberx
+    global number, score, prevent, numberx, prevent2
     youwin.grid_forget()
     if btn0.cget('bg') == 'white':
         if number == 15:
@@ -181,6 +184,7 @@ def button(c):
                 score = score+1
                 number = 13
                 prevent = [2]
+                prevent2 = 0
                 print(prevent)
                 if score >= 4:
                     scoreresults.config(text='YOU WIN', font=('Arial',20))
@@ -255,6 +259,7 @@ score = 0
 number = 15
 numberxlist = []
 prevent = [0]
+prevent2 = 0
 
 #First frame is created for the 3x4 grid
 frame1 = Frame(main)
