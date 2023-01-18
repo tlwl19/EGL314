@@ -1,7 +1,7 @@
 from tkinter import *
 from datetime import datetime
 import random
-import cartoonluck
+import cartoon
 from PIL import Image, ImageTk
 from tkinter import messagebox, simpledialog
 
@@ -14,7 +14,7 @@ def show_Image(choice):
     #sending to cartoon.py
     #first path refers to input for img
     #path2 refers to variable
-    cartoonluck.pixelised(pathway = path2)
+    cartoon.pixelised(pathway = path2)
     myImage = Image.open("kawaii.png")
 
 

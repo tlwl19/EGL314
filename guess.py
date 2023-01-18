@@ -2,7 +2,6 @@ from tkinter import *   #import tkinter library
 import random
 import os 
 from PIL import Image, ImageTk, ImageOps
-from PIL import ImageDraw
 import cartoon
 
 def show_Image(choice):
