@@ -7,7 +7,7 @@ import random
 import cartoon
 
 
-def show_Image(choice):
+def show_Image_luck(choice):
 
     if type(choice) == int:
         lucky = "percentage pics/" + str(choice) + ".png"
