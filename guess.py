@@ -26,9 +26,10 @@ def show_Image(choice):
 
 #The function is for start game
 def startgame():
-    global score, prevent, number
+    global score, prevent, number, prevent2
     #score = 0
     prevent = []
+    prevent2 = 0
     if number == 15: # before starting the game
         score = 0
         btn0.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) #Show blue colour
@@ -49,9 +50,10 @@ def startgame():
 
 #The function is for reset game
 def restartgame():
-    global score, prevent, number
+    global score, prevent, number, prevent2
     #score = 0
     prevent = []
+    prevent2 = 0
     if number == 13 or number == 14: 
         for i in range(0, 12):
             paths = "horo/" + str(i) + ".png"
@@ -112,10 +114,10 @@ def guess():
             if prevent2 == 0:
                 numberx = random.randint(0,11) #generate a random no.
                 if len(numberxlist) >= 1:
-                    while numberx == numberxlist[0]:
+                    while numberx in numberxlist:
                         numberx = random.randint(0,11)
                     else:
-                        numberxlist[0] = numberx
+                        numberxlist.append(numberx)
                         print(numberx)
                         show_Image(numberx) #send to polariser the number
                 else:
