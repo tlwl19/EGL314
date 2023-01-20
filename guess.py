@@ -160,6 +160,7 @@ def guess():
                 else:
                     numberxlist = [numberx]
                     print(numberxlist[0])
+                    show_Image(numberx) #send to polariser the number
                 number = 0
                 btn0.config(bg='#b0c8ed', fg="white")
                 btn1.config(bg='#b0c8ed', fg="white") 
