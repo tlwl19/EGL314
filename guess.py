@@ -64,7 +64,7 @@ def startgame():
 def restartgame():
     global score, prevent, number, prevent2
     #score = 0
-    prevent = []
+    prevent = []  
     prevent2 = 0
     if number == 13 or number == 14: 
         for i in range(0, 12):
@@ -148,13 +148,13 @@ def guess():
                         #green                          #red                            #blue
     if btn0.cget('bg') == '#7fff00' or btn0.cget('bg') == '#FF0800' or btn0.cget('bg') == '#b0c8ed':
         if btn0.cget('bg') != '#FF0800': #red color
-            if prevent2 == 0:
+            if prevent2 == 0:  #To prevent horoscope from duplicating
                 numberx = random.randint(0,11) #generate a random no.
-                if len(numberxlist) >= 1:
-                    while numberx in numberxlist:
-                        numberx = random.randint(0,11)
+                if len(numberxlist) >= 1: #to check if there is smth in the list
+                    while numberx in numberxlist:  #if hv smth in the list
+                        numberx = random.randint(0,11) #regenerate the numvber that is not the same as the previous
                     else:
-                        numberxlist[0] = numberx
+                        numberxlist.append(numberx)  #else store the random generated number when the list is empty
                         print(numberx)
                         show_Image(numberx) #send to polariser the number
                 else:
