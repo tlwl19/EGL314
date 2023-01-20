@@ -154,7 +154,7 @@ def guess():
                     while numberx in numberxlist:  #if hv smth in the list
                         numberx = random.randint(0,11) #regenerate the numvber that is not the same as the previous
                     else:
-                        numberxlist.append(numberx)  #else store the random generated number when the list is empty
+                        numberxlist[0] = numberx #else store the random generated number when the list is empty
                         print(numberx)
                         show_Image(numberx) #send to polariser the number
                 else:
