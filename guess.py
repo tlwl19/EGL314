@@ -154,7 +154,7 @@ def guess():
                     while numberx in numberxlist:
                         numberx = random.randint(0,11)
                     else:
-                        numberxlist.append(numberx)
+                        numberxlist[0] = numberx
                         print(numberx)
                         show_Image(numberx) #send to polariser the number
                 else:
