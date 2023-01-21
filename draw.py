@@ -1,5 +1,5 @@
 from tkinter import *
-
+from tkinter import ttk
 
 def whitebtn(i, j):
   global colour
