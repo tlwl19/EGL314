@@ -497,7 +497,7 @@ def Reset(label):
         label['text']='Welcome!'
         level['text']='Level '+ str(Lno)
         if Lno == 1:
-            icons = ['KFC', 'Jollibee', 'McDonalds', 'Pizza Hut', 'Mos Burger', 'Texas \nChicken']
+            icons = ['KFC', 'Jollibee', 'McDonalds', 'Pizza Hut', 'Mos Burger', 'Texas Chicken']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 2:
@@ -882,7 +882,7 @@ icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']  #L
 btn = [i for i in range(len(icons))]  #defining the number of buttons
 
 for i in range (0, 6):  #Assigning array values into btn 
-    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m))
+    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m), wraplength=130)
     btn[i].grid(row=0, column=i)
 
 
