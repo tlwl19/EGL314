@@ -152,7 +152,7 @@ def guess():
                 numberx = random.randint(0,11) #generate a random no.
                 if len(numberxlist) >= 1: #to check if there is smth in the list
                     while numberx in numberxlist:  #if hv smth in the list
-                        numberx = random.randint(0,11) #regenerate the numvber that is not the same as the previous
+                        numberx = random.randint(0,11) #regenerate the number that is not the same as the previous
                     else:
                         numberxlist[0] = numberx #else store the random generated number when the list is empty
                         print(numberx)
