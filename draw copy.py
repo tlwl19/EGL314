@@ -34,7 +34,8 @@ def colour_picker(r, c):
       value[r][c] = colour
 
 def sendbtn():
-  print(canvasdraw)
+  global value
+  print(value)
 
 
 def allwht():
@@ -87,24 +88,33 @@ def paint(event):
 
 
 def save_draw_colour(list):
+  global value
   for r in range(32):
     for c in range(32):
       if list[r][c] == 0:
         button[c][r].config(bg='grey99')
+        value[c][r] = 0
       elif list[r][c] == 20: 
         button[c][r].config(bg='grey88')
+        value[c][r] = 20
       elif list[r][c] == 30:
         button[c][r].config(bg='grey77')
+        value[c][r] = 30
       elif list[r][c] == 40: 
         button[c][r].config(bg='grey66')
+        value[c][r] = 40
       elif list[r][c] == 50:
         button[c][r].config(bg='grey44')  
+        value[c][r] = 50
       elif list[r][c] == 60: 
         button[c][r].config(bg='grey33')
+        value[c][r] = 60
       elif list[r][c] == 70:
         button[c][r].config(bg='grey22')
+        value[c][r] = 70
       else: 
         button[c][r].config(bg='grey1')
+        value[c][r] = 90
 
 def savecanvas():
   global list2, list1, value, list4
