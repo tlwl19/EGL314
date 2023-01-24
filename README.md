@@ -23,6 +23,10 @@ Upon clicking on any of the buttons, each game will show up
 
 <br>
 
+---
+
+<br>
+
 # **Getting Started**
 
 ## **Hardware** 
@@ -39,6 +43,9 @@ Upon clicking on any of the buttons, each game will show up
 2. VNC Viewer
 3. Python
 
+<br>
+
+---
 <br>
 
 # **Tutorial**
@@ -77,12 +84,19 @@ main.mainloop()
 
 <br>
 
+---
+
+<br>
+
 # **Creating the Frames**
 
 <br>
 
+---
 
 
+
+<br>
 
 # **Guess the Horoscope**
 
@@ -93,6 +107,10 @@ main.mainloop()
 <br>
 
 *Guess the Horoscope GUI*
+
+<br>
+
+---
 
 <br>
 
@@ -255,6 +273,12 @@ for i in range(0, 12):
         btn11.config(image = loadImage, width=widthx, height=heightx)
 ```
 
+<br>
+
+---
+
+<br>
+
 # **What's Your Luck?**
 
 **What's Your Luck?** is a game where it .......
@@ -288,7 +312,7 @@ clicked.set(whos)  #this refers to month
 clickeds.set(who.day) #this refers to date
 ```
 
-Next, you can include a title for this game, up to your choice. 
+Here, we set the title to 'What's Your Luck?'. You can change the title to your preference.
 
 ```
 lucktitle = Label(luckframe, text="What's Your Luck?", font=('Arial', 30))
@@ -326,6 +350,56 @@ drops["menu"].config(bg="#44008b", fg="WHITE", activebackground="#9f45b0", activ
 
 
 
+
+
+
+<br>
+
+---
+
+<br>
+
+# **Test Your Concentration**
+
+**Test Your Concentration** is a game where it challenges the users' ability to focus and select the correct answer within the given time limit. The game is called 'ICONcentrate', in which it has 4 stages, with the difficulty increasing each round. The program will randomly generate icons for each round, prompting the player to guess the correct icon shown on the polarizer panel.
+
+![Alt text](markdown%20imgs/iconSS.png)
+
+<br>
+
+*Test Your Concentration GUI*
+
+<br>
+
+---
+
+<br>
+
+## **Code**
+
+<br>
+
+Firstly, we set the title to 'ICONcentrate'. You can change the title to your preference.
+
+```
+headername = Label(focusframe, text="ICONcentrate", font=('Arial', 30), fg='#96DED1') 
+headername.grid(row=0, column=0)
+```
+
+Next, we created the **Instructions** button for the game, in which the user would need to click on the button so that a pop-up window would appear and show them the instructions.
+
+```
+instrubtn = Button(focusframe, text='Instructions', font=('Arial', 15), bg = '#b0c8ed', fg='white', command=getinstruction)
+instrubtn.grid(row=1, column=0)
+```
+
+
+
+
+
+<br>
+
+---
 
 <br>
 
