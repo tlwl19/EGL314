@@ -417,7 +417,7 @@ def show_Image_focus(choice3):
     myImage = Image.open("cartoon.png")
 
 def getinstruction():
-    messagebox.showinfo("Instructions", "1. Press on 'START' button to begin the game.\n2. Select the correct button corresponding to the image shown on the polariser.\n3. You will proceed on to the next level if you choose the correct button\n4. Game will reset if you choose wrongly")
+    messagebox.showinfo("Instructions", "1. Click on the 'START' button to begin.\n2. Click on the correct button corresponding to the image shown on the polariser.\n3. You will proceed on to the next level if you select the correct answer.\n4. The game will reset if you select the incorrect answer.")
 
 
 def click():
@@ -578,7 +578,7 @@ modeframe = Frame(main) #Mode
 modeframe.grid(row=2, column=0)
 
 #ALWAYS APPEAR IN ALL GAME PAGE
-headertitle = Button(topframe, text="Fun Ways to approach MENTAL WELLNESS", font=header_font, fg = '#6495ED', activeforeground='#C3B1E1', command=mainappear, padx=250)
+headertitle = Button(topframe, text="Fun Ways to Approach MENTAL WELLNESS", font=header_font, fg = '#6495ED', activeforeground='#C3B1E1', command=mainappear, padx=250)
 headertitle.grid(row=0, column=0)
 
 
@@ -586,11 +586,11 @@ headertitle.grid(row=0, column=0)
 mainframe = Frame(middleframe)
 mainframe.grid(row=0, column=0)
 
-quotevar = "Mental health.. is not a destination, but a process. It's about how you drive, not where you're going.\n -NOAM SHPANCER, PHD"
+quotevar = "Mental Health.. is not a destination, but a process. It's about how you drive, not where you're going.\n \n-NOAM SHPANCER, PHD"
 quote = Label(mainframe, text=quotevar, font=quote_font, bg='#DBDBDB', padx=50 ,pady=50)
 quote.grid(row=0, column=0)
 
-descvar = "Mental wellness is an internal resource that helps us THINK, FEEL, CONNECT, and FUNCTION."
+descvar = "Mental Wellness is an internal resource that helps us THINK, FEEL, CONNECT, and FUNCTION."
 desc = Label(mainframe, text=descvar, font=('Arial', 20), pady=25) 
 desc.grid(row=1, column=0)
 
@@ -768,7 +768,7 @@ clicked.set(whos)  #this refers to month
 clickeds.set(who.day) #this refers to date
 
 #Header
-lucktitle = Label(luckframe, text="How is your luck?", font=('Arial', 30))
+lucktitle = Label(luckframe, text="What's Your Luck?", font=('Arial', 30))
 lucktitle.grid(row=0, columnspan=4)
 
 #This is for dropdown button
@@ -792,12 +792,12 @@ enterbtn= Button(frame0, text= "Enter", command=change_img,  bg="#00076f", fg="W
 enterbtn.grid(row=1, column=2)
 
 #Text
-title= Label (luckframe, text="What's your luck today?", font=('100px'), bg='white', width=30)
+title= Label (luckframe, text="How lucky are you today?", font=('100px'), bg='white', width=30)
 title.grid(row=2, columnspan=3)
 
 
 #Create a Label widget
-label= Label(luckframe, image='', text="Kindly, Input your DoB and Press the 'Enter' button", font=('100px'), bg='white')
+label= Label(luckframe, image='', text="Input your date of birth and click on the 'Enter' button.", font=('100px'), bg='white')
 label.grid(row=3, columnspan=3)
 
 
@@ -856,7 +856,7 @@ headername = Label(focusframe, text="ICONcentrate", font=('Arial', 30), fg='#96D
 headername.grid(row=0, column=0)
 
 #Instructions
-instrubtn = Button(focusframe, text='Instruction', font=('Arial', 15), bg = '#b0c8ed', fg='white', command=getinstruction)
+instrubtn = Button(focusframe, text='Instructions', font=('Arial', 15), bg = '#b0c8ed', fg='white', command=getinstruction)
 instrubtn.grid(row=1, column=0)
 
 midframe = Frame(focusframe)
@@ -894,7 +894,7 @@ horoscopetitlebtn.grid(row=0, column=0)
 luckbtn = Button(modeframe, text="What's Your Luck?", font=("Courier", 15), width=25, height=2, bg='#F6D2E0', command=luckappear)
 luckbtn.grid(row=0, column=1)
 
-focusbtn = Button(modeframe, text="Test your concentration", font=("Courier", 15), width=25, height=2, bg='#C8E7F5', command=focusappear)
+focusbtn = Button(modeframe, text="Test Your Concentration", font=("Courier", 15), width=25, height=2, bg='#C8E7F5', command=focusappear)
 focusbtn.grid(row=0, column=2)
 
 main.mainloop()
