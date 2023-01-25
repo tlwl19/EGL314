@@ -961,7 +961,7 @@ def paint(event):   #creating line
     global getx, gety, value
     if getx >= 0 and getx <= 575 and gety >= 0 and gety <= 575:
       if colour == 0: 
-          canvas.create_line((getx,gety, event.x, event.y),fill='grey99',width=4)
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey99',width=4)  #event.x is the position of the mouse relative to the widget
           canvasdraw[getx][gety] = 0   #store position in canvasdraw
       elif colour == 20:
           canvas.create_line((getx,gety, event.x, event.y),fill='grey88',width=4)
