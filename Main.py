@@ -128,7 +128,7 @@ def restartgame():
     global score, prevent, number, prevent2
     prevent = []
     prevent2 = 0
-    if number == 13 or number == 14: 
+    if number == 13 or number == 14: #restart
         for i in range(0, 12):
             paths = "horo/" + str(i) + ".png"
             myImages = Image.open(paths)
@@ -248,7 +248,7 @@ def guess():
     else: 
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
 
-def horobutton(c):
+def horobutton(c): #to get number for c (using lambda) to compare to random integer (according to the corresponding button that the user pressed), etc. user pick aquarius so it will send 0
     global number, score, prevent, numberx, prevent2
     youwin.grid_forget()
     if btn0.cget('bg') == 'white':
@@ -344,7 +344,7 @@ def horobutton(c):
                     btn11.config(bg='white', fg='black')
 
 # To navigate to GUESS page
-def guessappear():
+def guessappear(): #guess appear but the rest disappear
     luckframe.grid_forget()
     focusframe.grid_forget()
     mainframe.grid_forget()
@@ -535,11 +535,12 @@ def change_img():
                     test3 = True
             else:
                 test3 = True
+                
     if test3 == True:   #If is valid, execute below command
-        label.config(text="Kindly, Input your DoB and Press the 'Enter' button")
-        randomno = random.randint(0, 4)
+        label.config(text="Input your DoB and Press the 'Enter' button.")
+        randomno = random.randint(0, 4) #randomly generate a number 0-4
         randomnolist = [0,25,50,75,100]
-        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100:
+        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100: #when randomly generated number is 3 or 4, will activate game
             label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
             frame1.grid(row=4, column=1)
             show_Image_luck(randomnolist[randomno])
@@ -548,15 +549,17 @@ def change_img():
             previewtitle.grid(row=2, column=3)
             imageLabel.grid(rowspan=2, column=3)
             print(randomnolist[randomno])
-        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25:
+            
+        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25: #when randomly generated number is 0 or 1, will show genie pic
             label2.config(text='')
             frame1.grid_forget()
             show_Image_luck(7)#insert genie pic name
             previewtitle.grid_forget()
             imageLabel.grid_forget()
             print(randomnolist[randomno])
-        else:
-            label2.config(text='')
+            
+        else:                                               #when randomly generated number is 2, will show 50% pic
+            label2.config(text='') 
             frame1.grid_forget()
             previewtitle.grid_forget()
             imageLabel.grid_forget()
@@ -565,7 +568,7 @@ def change_img():
     else:
         label.config(text = "Please input a valid DoB", image='', font=('50px'))
 
-def preview_Image(choice):
+def preview_Image(choice): #for game preview at the side
     global imageLabel
     if choice == 1:
         choice = "scissors"
@@ -579,7 +582,7 @@ def preview_Image(choice):
     loadImage = ImageTk.PhotoImage(myImages)
     imageLabel.image = loadImage
     imageLabel.config(image = loadImage, width = 250, height = 250)
-    previewtitle.config(text="You have choose " + choice)
+    previewtitle.config(text="You have chosen " + choice)
 
 def game(m):
     frame1.grid_forget()  
@@ -590,8 +593,8 @@ def game(m):
         o = "paper"
     else:
         o = "stone"
-    show_Image_luck(o)
-    preview_Image(m)
+    show_Image_luck(o) #send to polariser
+    preview_Image(m) #for game preview at the side (what user has chosen)
 
 
 # To navigate to LUCK page
