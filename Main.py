@@ -944,6 +944,10 @@ def allwht():
     for c in range (32):
       button[r][c].config(bg='grey99')
       value[r][c] = 0  #This is the angle of grey99
+  canvas.config(bg = 'white')
+  for r in range(800):
+    for c in range(800):
+      canvasdraw[r][c] = 0
 
 
 def allblk():
