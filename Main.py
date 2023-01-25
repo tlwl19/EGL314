@@ -950,37 +950,37 @@ def allblk():
  
 
 def get_x_and_y(event):
-   global lasx, lasy
-   lasx, lasy = event.x, event.y
+   global getx, gety
+   getx, gety = event.x, event.y
 
 
 def paint(event):   #creating line
-    global lasx, lasy, value
-    if lasx >= 0 and lasx <= 575 and lasy >= 0 and lasy <= 575:
+    global getx, gety, value
+    if getx >= 0 and getx <= 575 and gety >= 0 and gety <= 575:
       if colour == 0: 
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey99',width=4)
-          canvasdraw[lasx][lasy] = 0   #store position in canvasdraw
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey99',width=4)
+          canvasdraw[getx][gety] = 0   #store position in canvasdraw
       elif colour == 20:
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey88',width=4)
-          canvasdraw[lasx][lasy] = 20
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey88',width=4)
+          canvasdraw[getx][gety] = 20
       elif colour == 30:
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey77',width=4)
-          canvasdraw[lasx][lasy] = 30
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey77',width=4)
+          canvasdraw[getx][gety] = 30
       elif colour == 40: 
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey66',width=4)
-          canvasdraw[lasx][lasy] = 40
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey66',width=4)
+          canvasdraw[getx][gety] = 40
       elif colour == 50:
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey44',width=4)
-          canvasdraw[lasx][lasy] = 50
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey44',width=4)
+          canvasdraw[getx][gety] = 50
       elif colour == 60: 
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey33',width=4)
-          canvasdraw[lasx][lasy] = 60
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey33',width=4)
+          canvasdraw[getx][gety] = 60
       elif colour == 70:
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey22',width=4)
-          canvasdraw[lasx][lasy] = 70
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey22',width=4)
+          canvasdraw[getx][gety] = 70
       else: 
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey11',width=4)
-          canvasdraw[lasx][lasy] = 90
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey11',width=4)
+          canvasdraw[getx][gety] = 90
       get_x_and_y(event)
 
 
