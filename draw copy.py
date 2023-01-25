@@ -89,11 +89,11 @@ def paint(event):
       get_x_and_y(event)
 
 
-def save_draw_colour(list):
+def save_draw_colour(list):  #number convert to colour
   global value
-  for r in range(32):
+  for r in range(32):    
     for c in range(32):
-      if list[r][c] == 0:
+      if list[r][c] == 0: 
         button[c][r].config(bg='grey99')
         value[c][r] = 0
       elif list[r][c] == 20: 
@@ -119,31 +119,29 @@ def save_draw_colour(list):
         value[c][r] = 90
 
 
-def savecanvas():
-  global list2, list1, value, list4
-  list2 = []
-  list1 = []
-  list3 = []
-  list4 = []
+def savecanvas():  #convert 576x576 to 32x32 grid
+  global value, list4 
+  list3 = []  #one row only (1x18)
+  list4 = []  #final output of 32x32 array that will convert to grid
   for r in range(0, 576, 18):
-    list3 = []
-    for c in range(0 , 576, 18):
-      getnumber = f0(r, c)
-      list3.append(getnumber)
-    list4.append(list3)
+    list3 = []   #it will be empty once it is done getting the value for list4, will keep repeating 
+    for c in range(0 , 576, 18): #will only loop 32times that is 1x18
+      getnumber = f0(r, c)    #returning only 1 value
+      list3.append(getnumber) #store that 1 value for 32 times
+    list4.append(list3)       #row will loop 32 times
   save_draw_colour(list4)
   print(list4)
   
 
 def f0(x, y): #get the starting x, y of a 18x18 and to return 1 value back to rep the 18x18, to scale down a 18x18 to a 1x1
-  global list0, list1, list2
-  list0 = []
+  global list0
+  list0 = []  #To store the value of 18x18 to store in 1 array,
   for r in range(x ,18+x):
     for c in range(y ,18+y):
       list0.append(canvasdraw[r][c])
   freq = min(set(list0), key = list0.count) #using min instead cause if max almost everytime will get 0,harder for the draw to show; once the 18x18 grid got 1 value change, then return that value
                                             #Link: https://www.geeksforgeeks.org/python-find-most-frequent-element-in-a-list/
-  return freq 
+  return freq  #Returning min value 
 
 
 def clearbtn():
