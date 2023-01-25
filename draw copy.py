@@ -170,14 +170,14 @@ master.add(tabgrid,text="Grid")
 master.add(tabdraw,text="Draw")
 master.grid(row=0, column = 0)
 
-gridframe = Frame(tabdraw, width=800, height=800) #32x32 btn
+gridframe = Frame(tabgrid, width=800, height=800) #32x32 btn
 gridframe.grid(row=0, column=0)
 
 shadeframe = Frame(main) #shades btn
 shadeframe.grid(row=0, column=1)
 
 colourframe = Frame(main)
-colourframe.grid(row=1, columnspan=2) #all white/black btns and send btn 
+colourframe.grid(row=1, column=0) #all white/black btns and send btn 
 
 
 #Set canvas background colour to white
@@ -198,7 +198,7 @@ value = [[0 for r in range(32)] for c in range(32)]  #angle
 
 for r in range (32):
   for c in range (32):
-    button[r][c] = Button(gridframe, font=("Calibri, 5"), width=1, height=1, bg='white', command=lambda x=r, y=c:colour_picker(x, y))
+    button[r][c] = Button(gridframe, font=("Calibri, 5"), width=2, height=2, bg='white', command=lambda x=r, y=c:colour_picker(x, y))
     button[r][c].grid(row=r, column=c)
 
 #shades button
