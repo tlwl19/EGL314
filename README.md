@@ -15,9 +15,9 @@ The Mental Wellness GUI approaches different ways to improve one's posititve sta
 
 The Mental Wellness GUI provides the following features:
 
-- Guess the Horoscope
-- What's Your Luck?
-- Test Your Concentration
+- <a href="https://github.com/tlwl19/EGL314#guess-the-horoscope">Guess the Horoscope</a>
+- <a href="https://github.com/tlwl19/EGL314#whats-your-luck">What's Your Luck?</a>
+- <a href="https://github.com/tlwl19/EGL314#whats-your-luck">Test Your Concentration</a>
 
 Upon clicking on any of the buttons, each game will show up 
 
