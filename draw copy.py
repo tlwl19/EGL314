@@ -59,12 +59,12 @@ def get_x_and_y(event):
    lasx, lasy = event.x, event.y
 
 
-def paint(event):
+def paint(event):   #creating line
     global lasx, lasy, value
     if lasx >= 0 and lasx <= 575 and lasy >= 0 and lasy <= 575:
       if colour == 0: 
           canvas.create_line((lasx,lasy, event.x, event.y),fill='grey99',width=4)
-          canvasdraw[lasx][lasy] = 0
+          canvasdraw[lasx][lasy] = 0   #store position in canvasdraw
       elif colour == 20:
           canvas.create_line((lasx,lasy, event.x, event.y),fill='grey88',width=4)
           canvasdraw[lasx][lasy] = 20
