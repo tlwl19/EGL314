@@ -211,12 +211,12 @@ def horobutton(c):
     elif number == 12:
         scoreresults.config(text="Press Guess to Start Guessing", font=('Arial',10))
     else :
-        if c == numberx:
-            if prevent == [2]:
+        if c == numberx: #to get the corresponding button value based on what the user press (etc. user press aquarius, c == 0)
+            if prevent == [2]: #prevent adding score when user keep pressing correct button multiple times
                 if score >= 1:
                     scoreresults.config(text=str(score), font=('Arial',20))
                 else:
-                    number = 13
+                    number = 13 #restart
                     scoreresults.config(text=str(score), font=('Arial',20))
             else:
                 btn0.config(bg='#7fff00') #show green colour
