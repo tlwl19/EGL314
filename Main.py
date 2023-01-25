@@ -8,6 +8,7 @@ from datetime import datetime
 from tkinter import messagebox, simpledialog
 from tkinter.font import Font
 from tkinter import ttk
+from student_pub import *
 
 main = Tk()
 main.title("Mental Wellness")
@@ -935,7 +936,7 @@ def colour_picker(r, c):
 def sendbtn():
   global value
   print(value)
-  #pubpic(output)
+  #pubpic(value)
 
 
 def allwht():
@@ -959,7 +960,7 @@ def get_x_and_y(event): #get coordinates on canvas
 
 def paint(event):   #creating line
     global getx, gety, value
-    if getx >= 0 and getx <= 575 and gety >= 0 and gety <= 575:
+    if getx >= 0 and getx <= 799 and gety >= 0 and gety <= 799:
       if colour == 0: 
           canvas.create_line((getx,gety, event.x, event.y),fill='grey99',width=4)  #event.x is the position of the mouse relative to the widget
           canvasdraw[getx][gety] = 0   #store position in canvasdraw
@@ -1017,13 +1018,13 @@ def save_draw_colour(list):  #number convert to colour
         value[c][r] = 90
 
 
-def savecanvas():  #convert 576x576 to 32x32 grid
+def savecanvas():  #convert 800x800 to 32x32 grid
   global value, list4 
   list3 = []  #one row only (1x18)
   list4 = []  #final output of 32x32 array that will convert to grid
-  for r in range(0, 576, 18):
+  for r in range(0, 800, 25):
     list3 = []   #it will be empty once it is done getting the value for list4, will keep repeating 
-    for c in range(0 , 576, 18): #will only loop 32times that is 1x18
+    for c in range(0 , 800, 25): #will only loop 32times that is 1x18
       getnumber = f0(r, c)    #returning only 1 value
       list3.append(getnumber) #store that 1 value for 32 times
     list4.append(list3)       #row will loop 32 times
@@ -1031,21 +1032,20 @@ def savecanvas():  #convert 576x576 to 32x32 grid
   print(list4)
   
 
-def f0(x, y): #get the starting x, y of a 18x18 and to return 1 value back to rep the 18x18, to scale down a 18x18 to a 1x1
+def f0(x, y): #get the starting x, y of a 25x25 and to return 1 value back to rep the 25x25, to scale down a 25x25 to a 1x1
   global list0
-  list0 = []  #To store the value of 18x18 to store in 1 array,
-  for r in range(x ,18+x):
-    for c in range(y ,18+y):
+  list0 = []  #To store the value of 25x25 to store in 1 array,
+  for r in range(x ,25+x):
+    for c in range(y ,25+y):
       list0.append(canvasdraw[r][c])
   freq = min(set(list0), key = list0.count) #using min instead cause if max almost everytime will get 0,harder for the draw to show; once the 18x18 grid got 1 value change, then return that value
-                                            #Link: https://www.geeksforgeeks.org/python-find-most-frequent-element-in-a-list/
   return freq  #Returning min value 
 
 
 def clearbtn():
   allwht()
-  for r in range(576):
-    for c in range(576):
+  for r in range(800):
+    for c in range(800):
       canvasdraw[r][c] = 0
   canvas.delete('all')
   print(canvasdraw)
@@ -1082,7 +1082,7 @@ colourframe.grid(row=1, column=0) #all white/black btns and send btn
 
 
 #Set canvas background colour to white
-canvas = Canvas(tabdraw, width=576, height=576, bg='white')  
+canvas = Canvas(tabdraw, width=800, height=800, bg='white')  
 canvas.grid(row=0, column=0)
 
 canvas.bind('<Button-1>', get_x_and_y)
@@ -1091,7 +1091,7 @@ canvas.bind('<Enter>', get_x_and_y)
 
 #This variable to store the colour choice 
 colour = 0
-canvasdraw = [[0 for r in range(576)] for c in range(576)]  # save eventxy into an array 
+canvasdraw = [[0 for r in range(800)] for c in range(800)]  # save eventxy into an array 
 
 # 32x32 grid
 button = [[r for r in range(32)] for c in range(32)]

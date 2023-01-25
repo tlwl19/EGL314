@@ -1,7 +1,8 @@
 from tkinter import *
 from tkinter import ttk
+import cartoon
 
-# Function to choose colour
+
 def choose_colour(m):
     global colour #Value of the colour selected
     colour = m
@@ -38,6 +39,7 @@ def colour_picker(r, c):
 def sendbtn():
   global value
   print(value)
+  #pubpic(output)
 
 
 def allwht():
@@ -55,37 +57,37 @@ def allblk():
  
 
 def get_x_and_y(event):
-   global lasx, lasy
-   lasx, lasy = event.x, event.y
+   global getx, gety
+   getx, gety = event.x, event.y
 
 
 def paint(event):   #creating line
-    global lasx, lasy, value
-    if lasx >= 0 and lasx <= 575 and lasy >= 0 and lasy <= 575:
+    global getx, gety, value
+    if getx >= 0 and getx <= 575 and gety >= 0 and gety <= 575:
       if colour == 0: 
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey99',width=4)
-          canvasdraw[lasx][lasy] = 0   #store position in canvasdraw
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey99',width=4)  #event.x is the position of the mouse relative to the widget
+          canvasdraw[getx][gety] = 0   #store position in canvasdraw
       elif colour == 20:
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey88',width=4)
-          canvasdraw[lasx][lasy] = 20
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey88',width=4)
+          canvasdraw[getx][gety] = 20
       elif colour == 30:
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey77',width=4)
-          canvasdraw[lasx][lasy] = 30
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey77',width=4)
+          canvasdraw[getx][gety] = 30
       elif colour == 40: 
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey66',width=4)
-          canvasdraw[lasx][lasy] = 40
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey66',width=4)
+          canvasdraw[getx][gety] = 40
       elif colour == 50:
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey44',width=4)
-          canvasdraw[lasx][lasy] = 50
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey44',width=4)
+          canvasdraw[getx][gety] = 50
       elif colour == 60: 
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey33',width=4)
-          canvasdraw[lasx][lasy] = 60
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey33',width=4)
+          canvasdraw[getx][gety] = 60
       elif colour == 70:
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey22',width=4)
-          canvasdraw[lasx][lasy] = 70
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey22',width=4)
+          canvasdraw[getx][gety] = 70
       else: 
-          canvas.create_line((lasx,lasy, event.x, event.y),fill='grey11',width=4)
-          canvasdraw[lasx][lasy] = 90
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey11',width=4)
+          canvasdraw[getx][gety] = 90
       get_x_and_y(event)
 
 
@@ -140,7 +142,6 @@ def f0(x, y): #get the starting x, y of a 18x18 and to return 1 value back to re
     for c in range(y ,18+y):
       list0.append(canvasdraw[r][c])
   freq = min(set(list0), key = list0.count) #using min instead cause if max almost everytime will get 0,harder for the draw to show; once the 18x18 grid got 1 value change, then return that value
-                                            #Link: https://www.geeksforgeeks.org/python-find-most-frequent-element-in-a-list/
   return freq  #Returning min value 
 
 
@@ -151,12 +152,10 @@ def clearbtn():
       canvasdraw[r][c] = 0
   canvas.delete('all')
   print(canvasdraw)
-  
 
 
 main = Tk()
 main.title("Draw")
-main.state('zoom')
 
 master = ttk.Notebook(main) #widget that manages a collection of windows/displays
 
@@ -196,7 +195,7 @@ value = [[0 for r in range(32)] for c in range(32)]  #angle
 
 for r in range (32):
   for c in range (32):
-    button[r][c] = Button(gridframe, font=("Calibri, 5"), width=2, height=2, bg='white', command=lambda x=r, y=c:colour_picker(x, y))
+    button[r][c] = Button(gridframe, font=("Calibri, 5"), width=1, height=1, bg='white', command=lambda x=r, y=c:colour_picker(x, y))
     button[r][c].grid(row=r, column=c)
 
 #shades button
@@ -234,5 +233,7 @@ clear.grid(row=0, column=2)
 #send btn
 send = Button(colourframe, text="Send Image!", font=("Calibri, 12"), width=13, height=2, command=lambda :sendbtn())
 send.grid(row=0, column=3)
+
+
 
 main.mainloop()
