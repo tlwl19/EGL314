@@ -951,6 +951,11 @@ def allblk():
     for c in range (32):
       button[r][c].config(bg='grey1')
       value[r][c] = 90 #This is the angle of grey1
+  canvas.config(bg = 'black')
+  for r in range(800):
+    for c in range(800):
+      canvasdraw[r][c] = 90
+
  
 
 def get_x_and_y(event): #get coordinates on canvas
