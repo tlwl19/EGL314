@@ -90,7 +90,6 @@ main.mainloop()
 On the Main Page of the Mental Wellness GUI, there are 3 avaiable games that can help you in improving your mental wellness.
 
 ![](Demo%20Pics/Main%20Page.png)
-
 *GUI Main Page*
 
 ## Guess the Horoscope
@@ -98,7 +97,7 @@ On the Main Page of the Mental Wellness GUI, there are 3 avaiable games that can
 Let's begin with the "Guess the Horoscope" game.
 <br>
 
-The main objective of this game is to test your memory by geetting 4 correct horoscope guesses.
+The main objective of this game is to test your memory by getting 4 correct horoscope guesses.
 <br>
 
 Let's see how to play this game.
@@ -112,7 +111,6 @@ You will be redirected to the "Guess the Horoscope" page.
 <br>
 
 ![](Demo%20Pics/Horo.png)
-
 *Guess the Horoscope*
 
 Click on "Start Game" to begin
@@ -125,7 +123,7 @@ Next, click on the Guess button to generate a random Horoscope on the polarizer 
 
 ![](Demo%20Pics/HoroGuess.png)
 
-The polarizer board will generate a random horoscope image. If you are having a hard time making out the horoscsope image, you can click on the guess button again to generate a different horoscope image on the polarizer board.
+The polarizer board will generate a random horoscope image. If you are having a hard time figuring out the horoscsope image, you can click on the guess button again to generate a different horoscope image on the polarizer board.
 
 If you have chosen the correct horocsope, the grid on the left will turn green and you gain a point.
 
@@ -135,13 +133,13 @@ However, if you have chosen the wrong horoscope, the grid will turn red and you 
 
 ![](Demo%20Pics/HoroWrong.png)
 
-You have a total of 3 guess attempts, if all 3 attempts are unsuccessful the grid will turn white and the game will end.
+If you have -3 points, the grid will turn white and the game will end.
 
 ![](Demo%20Pics/HoroGameOver.png)
 
 You can click on the Reset Game button to start over
 
-Likewise, if you acheive a score of 4 the grid will turn white and the game will end.
+Likewise, if you acheive a score of 4, the grid will turn white and the game will end.
 
 You can click on the big "Fun Ways to Approach MENTAL WELLNESS" button on the top of the window to return to the main page.
 
@@ -152,7 +150,7 @@ You can click on the big "Fun Ways to Approach MENTAL WELLNESS" button on the to
 ## What's Your Luck?
 ---
 
-Next, well will proceed with the "What's Your Luck?" game.
+Next, we will proceed with the "What's Your Luck?" game.
 
 From the main page, click on the "What's Your Luck?" button.
 
@@ -172,7 +170,7 @@ The luck percentages are as follows:
 - 75% Luck
 - 99% Luck
 
-If the polarizer displays 75% luck or 99% luck, the game will prompt you to play a game of rock, paper, scissors.
+If the polarizer displays 75% or 99% luck, the game will prompt you to play a game of rock, paper, scissors.
 
 ![](Demo%20Pics/LuckGame.png)
 
@@ -190,7 +188,7 @@ As always, you can return to the main page by clicking on the big "Fun Ways to A
 
 ## ICONcentrate
 ---
-Lastly, we will see how to play ICONcentrate, a game built to test your concentration by seeing how fast you react to guessing common brands of everything under the sun.
+Lastly, we will see how to play ICONcentrate, a game built to test your concentration by seeing how fast you can react to guessing common brands of everything under the sun.
 
 To begin, let's open the ICONcentrate game by clicking on the "Test Your Concentration" button from the main page.
 
@@ -209,7 +207,7 @@ To start the game, press the start button on the right to begin.
 
 ![](Demo%20Pics/IconStart.png)
 
-Once the game has begun, a random brand logo will be displayed on the polarizer board. You will have 20 seconds to guess the logo from the selection of choices below. Once 20 seconds has passed, the game will end.
+Once the game has begun, a random brand icon will be displayed on the polarizer board. You will have 20 seconds to guess the icon from the selection of choices below. Once 20 seconds has passed, the game will end.
 
 ![](Demo%20Pics/IconGameOver.png)
 
@@ -219,7 +217,7 @@ If you guessed a wrong icon, a message box will appear to notify you that you ha
 
 If you guessed a correct icon, you will move on to the next level, and you can click the start button to display the next icon on the polarizer.
 
-In order to beat the game, you have to guess the correct icon through 4 levels with each level progressing with higher diffuulty where lesser-known brands are displayed or where some brand icons are harder to distinguish. You only have one attempt.
+In order to beat the game, you have to guess the correct icon through 4 levels, with each level progressing with higher diffuulty where lesser-known brands are displayed or where some brand icons are harder to distinguish. You only have one attempt.
 
 Once you have beaten all 4 levels, you will be prompted to enter your name
 
