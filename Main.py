@@ -540,7 +540,7 @@ def change_img():
         label.config(text="Input your DoB and Press the 'Enter' button.")
         randomno = random.randint(0, 4) #randomly generate a number 0-4
         randomnolist = [0,25,50,75,100]
-        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100: #when randomly generated number is 3 or 4, will activate game
+        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100: #when randomly generated number is 3 or 4, will show 75% or 99%, and activate game
             label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
             frame1.grid(row=4, column=1)
             show_Image_luck(randomnolist[randomno])
@@ -558,7 +558,7 @@ def change_img():
             imageLabel.grid_forget()
             print(randomnolist[randomno])
             
-        else:                                               #when randomly generated number is 2, will show 50% pic
+        else:  #when randomly generated number is 2, will show 50% pic
             label2.config(text='') 
             frame1.grid_forget()
             previewtitle.grid_forget()
@@ -891,7 +891,7 @@ icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']  #L
 btn = [i for i in range(len(icons))]  #defining the number of buttons
 
 for i in range (0, 6):  #Assigning array values into btn 
-    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m), wraplength=130)
+    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m), wraplength=130) #so that texaschicken text can fully show on the button
     btn[i].grid(row=0, column=i)
 
 
@@ -952,7 +952,7 @@ def allblk():
       value[r][c] = 90 #This is the angle of grey1
  
 
-def get_x_and_y(event):
+def get_x_and_y(event): #get coordinates on canvas
    global getx, gety
    getx, gety = event.x, event.y
 
