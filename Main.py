@@ -8,7 +8,11 @@ from datetime import datetime
 from tkinter import messagebox, simpledialog
 from tkinter.font import Font
 
-#At the last of each function based on indiv game
+
+main = Tk()
+main.title("Mental Wellness")
+
+
 #MAIN PAGE
 #To navigate to MAIN page
 def mainappear(): 
@@ -16,6 +20,51 @@ def mainappear():
     focusframe.grid_forget()
     luckframe.grid_forget()
     mainframe.grid(row=0, column=0)
+
+#Create my own font for header
+header_font = Font(
+    family = 'Times', 
+    size = 30,
+    weight = 'bold',
+    slant = 'roman',
+)
+
+quote_font = Font(
+    family = 'Typewriter', 
+    size = 15,
+    weight = 'bold',
+    slant = 'roman',
+)
+
+#FRAME for Top/Middle/Mode
+topframe = Frame(main) #Header
+topframe.grid(row=0, column=0)
+
+middleframe = Frame(main) #Feature
+middleframe.grid(row=1, column=0)
+
+modeframe = Frame(main) #Mode
+modeframe.grid(row=2, column=0)
+
+#ALWAYS APPEAR IN ALL GAME PAGE
+headertitle = Button(topframe, text="Fun Ways to Approach MENTAL WELLNESS", font=header_font, fg = '#6495ED', activeforeground='#C3B1E1', command=mainappear, padx=250)
+headertitle.grid(row=0, column=0)
+
+
+
+#MAIN PAGE GUI
+mainframe = Frame(middleframe)
+mainframe.grid(row=0, column=0)
+
+quotevar = "Mental Health.. is not a destination, but a process. It's about how you drive, not where you're going.\n \n-NOAM SHPANCER, PHD"
+quote = Label(mainframe, text=quotevar, font=quote_font, bg='#DBDBDB', padx=50 ,pady=50)
+quote.grid(row=0, column=0)
+
+descvar = "Mental Wellness is an internal resource that helps us THINK, FEEL, CONNECT, and FUNCTION."
+desc = Label(mainframe, text=descvar, font=('Arial', 20), pady=25) 
+desc.grid(row=1, column=0)
+
+
 
 
 #GUESS PAGE
@@ -300,301 +349,6 @@ def guessappear():
     mainframe.grid_forget()
     guessframe.grid(row=0, column=0)
 
-
-
-# LUCK PAGE
-# ################## LUCK FUNCTION ###################
-def show_Image_luck(choice2):
-
-    if type(choice2) == int:
-        lucky = "percentage pics/" + str(choice2) + ".png"
-        myImage = Image.open(lucky)
-    else:
-        lucky = "scissors paper stone pics/" + choice2 + ".png"
-        myImage = Image.open(lucky)
-
-        #sending to cartoon.py
-        #first path refers to input for img
-        #path2 refers to variable
-    cartoon.pixelised(path = lucky)
-    myImage = Image.open("cartoon.png")
-
-
-def change_img(): 
-    for i in range(len(options)) : #check if is a valid DOB
-        if options[i] == clicked.get():
-            i = i+1
-            if i == 2 and clickeds.get() > 29:
-                test3 = False   
-            elif clickeds.get() > 30:
-                if i == 4 or i == 6 or i == 9 or i == 11:
-                    test3 = False
-                else: 
-                    test3 = True
-            else:
-                test3 = True
-    if test3 == True:   #If is valid, execute below command
-        label.config(text="Kindly, Input your DoB and Press the 'Enter' button")
-        randomno = random.randint(0, 4)
-        randomnolist = [0,25,50,75,100]
-        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100:
-            label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
-            frame1.grid(row=4, column=1)
-            show_Image_luck(randomnolist[randomno])
-            imageLabel.config(image="", width = 30, height = 15)
-            previewtitle.config(text="")
-            previewtitle.grid(row=2, column=3)
-            imageLabel.grid(rowspan=2, column=3)
-            print(randomnolist[randomno])
-        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25:
-            label2.config(text='')
-            frame1.grid_forget()
-            show_Image_luck(7)#insert genie pic name
-            previewtitle.grid_forget()
-            imageLabel.grid_forget()
-            print(randomnolist[randomno])
-        else:
-            label2.config(text='')
-            frame1.grid_forget()
-            previewtitle.grid_forget()
-            imageLabel.grid_forget()
-            show_Image_luck(randomnolist[randomno])
-            print(randomnolist[randomno])
-    else:
-        label.config(text = "Please input a valid DoB", image='', font=('50px'))
-
-def preview_Image(choice):
-    global imageLabel
-    if choice == 1:
-        choice = "scissors"
-    elif choice == 2:
-        choice = "paper"
-    else:
-        choice = "stone"
-    path = "scissors paper stone pics/" + str(choice) + ".png"
-    myImages = Image.open(path)
-    myImages = myImages.resize((250, 250))
-    loadImage = ImageTk.PhotoImage(myImages)
-    imageLabel.image = loadImage
-    imageLabel.config(image = loadImage, width = 250, height = 250)
-    previewtitle.config(text="You have choose " + choice)
-
-def game(m):
-    frame1.grid_forget()  
-    randoms = random.randint(1,3)
-    if randoms == 1:
-        o = "scissors"
-    elif randoms == 2:
-        o = "paper"
-    else:
-        o = "stone"
-    show_Image_luck(o)
-    preview_Image(m)
-
-
-# To navigate to LUCK page
-def luckappear(): 
-    guessframe.grid_forget()
-    focusframe.grid_forget()
-    mainframe.grid_forget()
-    luckframe.grid(row=0, column=0)
-
-
-#FOCUS PAGE
-# ################### FOCUS FUNCTION #################
-counter = 0   #Time starts from 0
-running = False  #Timer is not running
-
-def show_Image_focus(choice3):
-    global icons
-    path2 = "icons/" + str(icons[choice3]) + ".png"
-    myImage = Image.open(path2)
-
-    #sending to cartoon.py
-    #first path refers to input for img
-    #path2 refers to variable
-    cartoon.pixelised(path = path2)
-    myImage = Image.open("cartoon.png")
-
-def getinstruction():
-    messagebox.showinfo("Instructions", "1. Click on the 'START' button to begin.\n2. Click on the correct button corresponding to the image shown on the polariser.\n3. You will proceed on to the next level if you select the correct answer.\n4. The game will reset if you select the incorrect answer.")
-
-
-def click():
-    global numberxlist
-    numberx = random.randint(0,5) #generate a random no.
-    if len(numberxlist) >= 1:   #If there is number inside
-        while numberx == numberxlist[0]: #To check if the random int is the same as the previous random generate int
-            numberx = random.randint(0,5)
-        else:
-            numberxlist[0] = numberx #New random int 
-            print(numberx)
-    else:
-        numberxlist = [numberx]  #To store the first random generator int
-        print(numberxlist[0])
-    show_Image_focus(numberx) #send to polariser the number
-
-def getname():
-    name = simpledialog.askstring("Test", "What's your Name?:")
-    return name
-
-def correctbox():
-    global storetime
-    name = getname()
-    messagebox.showinfo("Congrats {}".format(name)+" !","You're 100% focus! You've completed in {} s".format(storetime)+" !")
-
-def wrongbox():
-    messagebox.showinfo("Try Again!", "You need to improve on your focus!")
-
-def timeup():
-    messagebox.showinfo("TIMES UP!!", "TIMESS UPP!!, You need to improve on your concentration")
-    
-
-# start function of the stopwatch
-def Start(label):
-    global running, Lno
-    running=True
-    counter_label(label) #To start the timer
-    start['state']='disabled'  #Start btn will be disabled once my start btn is pressed
-    for i in range (0, 6): 
-        btn[i]['state']='normal' #Selection btn will be enabled
-    click()  #Generate random int and send to the polarizer (show_image)
-   
-# Stop function of the stopwatch
-def Stop(m):
-    global running, numberxlist, Lno, counter, storetime, display
-    running = False
-    print('stop')
-    for i in range (0, 6): 
-        btn[i]['state']='disabled'
-    if m == numberxlist[0]:  #If what i choose is the same as what is being sent, 
-        Lno = Lno+1  #Level increase by 1
-        storetime = storetime + counter-1
-        Reset(timer) #Timer reset to 0
-        if Lno == 4: #Level will stop till level 3
-            Lno = 0
-            Reset(timer)
-            correctbox() #User pop up will appear
-            storetime = 0
-    elif m == 10: #When timer reach 10sec,
-        Lno = 0  #Level reset to 0
-        Reset(timer)
-        timeup()
-    else:
-        Lno = 0     #When user select wrg btn, level goes back to 0
-        wrongbox()
-        Reset(timer)
-        print('wrong')
-
-# Reset function of the stopwatch
-def Reset(label):
-    global counter, Lno, icons, storetime
-    counter=0
-   
-    # If rest is pressed after pressing stop.
-    if running==False:  #When timer is not running
-        start['state']='normal'      
-        label['text']='Welcome!'
-        level['text']='Level '+ str(Lno)
-        if Lno == 1:
-            icons = ['KFC', 'Jollibee', 'McDonalds', 'Pizza Hut', 'Mos Burger', 'Texas Chicken']
-            for i in range (0, 6):
-                btn[i]['text']=icons[i]
-        elif Lno == 2:
-            icons = ['Puma', 'A&W', 'Fila', 'BMW', 'Subway', 'Ferrari']
-            for i in range (0, 6):
-                btn[i]['text']=icons[i]
-        elif Lno == 3:
-            icons = ['Hawkeye', 'Hulk', 'Nissan', 'Rolls Royce', 'Burger King', 'Dominos']
-            for i in range (0, 6):
-                btn[i]['text']=icons[i]
-        else:
-            icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']  #Level 0
-            for i in range (0, 6):
-                btn[i]['text']=icons[i]
-
-def counter_label(label):
-    def count():
-        if running:
-            global counter, display
-
-            tt = datetime.fromtimestamp(counter)
-            string = tt.strftime("00:00:%S")
-            display=string
-            label['text']=display
-   
-            # label.after(arg1, arg2) delays by 
-            # first argument given in milliseconds
-            # and then calls the function given as second argument.
-            # Generally like here we need to call the 
-            # function in which it is present repeatedly.
-            # Delays by 1000ms=1 seconds and call count again.
-            timer.after(1000, count) 
-            counter += 1
-            #print(counter)
-            if counter > 20:
-                Stop(10)
-           
-    # Triggering the start of the counter.
-    count()
-
-
-# To navigate to FOCUS page
-def focusappear():
-    luckframe.grid_forget()
-    guessframe.grid_forget()
-    mainframe.grid_forget()
-    focusframe.grid(row=0, column=0)
-
-
-
-main = Tk()
-main.title("Mental Wellness")
-main.state('zoom')
-
-#Create my own font for header
-header_font = Font(
-    family = 'Times', 
-    size = 30,
-    weight = 'bold',
-    slant = 'roman',
-)
-
-quote_font = Font(
-    family = 'Typewriter', 
-    size = 15,
-    weight = 'bold',
-    slant = 'roman',
-)
-
-#FRAME for Top/Middle/Mode
-topframe = Frame(main) #Header
-topframe.grid(row=0, column=0)
-
-middleframe = Frame(main) #Feature
-middleframe.grid(row=1, column=0)
-
-modeframe = Frame(main) #Mode
-modeframe.grid(row=2, column=0)
-
-#ALWAYS APPEAR IN ALL GAME PAGE
-headertitle = Button(topframe, text="Fun Ways to Approach MENTAL WELLNESS", font=header_font, fg = '#6495ED', activeforeground='#C3B1E1', command=mainappear, padx=250)
-headertitle.grid(row=0, column=0)
-
-
-#MAIN PAGE GUI
-mainframe = Frame(middleframe)
-mainframe.grid(row=0, column=0)
-
-quotevar = "Mental Health.. is not a destination, but a process. It's about how you drive, not where you're going.\n \n-NOAM SHPANCER, PHD"
-quote = Label(mainframe, text=quotevar, font=quote_font, bg='#DBDBDB', padx=50 ,pady=50)
-quote.grid(row=0, column=0)
-
-descvar = "Mental Wellness is an internal resource that helps us THINK, FEEL, CONNECT, and FUNCTION."
-desc = Label(mainframe, text=descvar, font=('Arial', 20), pady=25) 
-desc.grid(row=1, column=0)
-
-
 #GUESS GUI
 # ################## GUESS #######################
 guessframe = Frame(middleframe)
@@ -747,6 +501,105 @@ youwin.grid(row=4, column=2)
 youwin.grid_forget()
 
 
+
+# LUCK PAGE
+# ################## LUCK FUNCTION ###################
+def show_Image_luck(choice2):
+
+    if type(choice2) == int:
+        lucky = "percentage pics/" + str(choice2) + ".png"
+        myImage = Image.open(lucky)
+    else:
+        lucky = "scissors paper stone pics/" + choice2 + ".png"
+        myImage = Image.open(lucky)
+
+        #sending to cartoon.py
+        #first path refers to input for img
+        #path2 refers to variable
+    cartoon.pixelised(path = lucky)
+    myImage = Image.open("cartoon.png")
+
+
+def change_img(): 
+    for i in range(len(options)) : #check if is a valid DOB
+        if options[i] == clicked.get():
+            i = i+1
+            if i == 2 and clickeds.get() > 29:
+                test3 = False   
+            elif clickeds.get() > 30:
+                if i == 4 or i == 6 or i == 9 or i == 11:
+                    test3 = False
+                else: 
+                    test3 = True
+            else:
+                test3 = True
+    if test3 == True:   #If is valid, execute below command
+        label.config(text="Kindly, Input your DoB and Press the 'Enter' button")
+        randomno = random.randint(0, 4)
+        randomnolist = [0,25,50,75,100]
+        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100:
+            label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
+            frame1.grid(row=4, column=1)
+            show_Image_luck(randomnolist[randomno])
+            imageLabel.config(image="", width = 30, height = 15)
+            previewtitle.config(text="")
+            previewtitle.grid(row=2, column=3)
+            imageLabel.grid(rowspan=2, column=3)
+            print(randomnolist[randomno])
+        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25:
+            label2.config(text='')
+            frame1.grid_forget()
+            show_Image_luck(7)#insert genie pic name
+            previewtitle.grid_forget()
+            imageLabel.grid_forget()
+            print(randomnolist[randomno])
+        else:
+            label2.config(text='')
+            frame1.grid_forget()
+            previewtitle.grid_forget()
+            imageLabel.grid_forget()
+            show_Image_luck(randomnolist[randomno])
+            print(randomnolist[randomno])
+    else:
+        label.config(text = "Please input a valid DoB", image='', font=('50px'))
+
+def preview_Image(choice):
+    global imageLabel
+    if choice == 1:
+        choice = "scissors"
+    elif choice == 2:
+        choice = "paper"
+    else:
+        choice = "stone"
+    path = "scissors paper stone pics/" + str(choice) + ".png"
+    myImages = Image.open(path)
+    myImages = myImages.resize((250, 250))
+    loadImage = ImageTk.PhotoImage(myImages)
+    imageLabel.image = loadImage
+    imageLabel.config(image = loadImage, width = 250, height = 250)
+    previewtitle.config(text="You have choose " + choice)
+
+def game(m):
+    frame1.grid_forget()  
+    randoms = random.randint(1,3)
+    if randoms == 1:
+        o = "scissors"
+    elif randoms == 2:
+        o = "paper"
+    else:
+        o = "stone"
+    show_Image_luck(o)
+    preview_Image(m)
+
+
+# To navigate to LUCK page
+def luckappear(): 
+    guessframe.grid_forget()
+    focusframe.grid_forget()
+    mainframe.grid_forget()
+    luckframe.grid(row=0, column=0)
+
+
 #LUCK GUI
 # ################## LUCK #######################
 luckframe = Frame(middleframe)
@@ -843,6 +696,155 @@ imageLabel.grid_forget()
 main.bind("<Return>", change_img) 
 
 
+
+
+#FOCUS PAGE
+# ################### FOCUS FUNCTION #################
+counter = 0   #Time starts from 0
+running = False  #Timer is not running
+
+def show_Image_focus(choice3):
+    global icons
+    path2 = "icons/" + str(icons[choice3]) + ".png"
+    myImage = Image.open(path2)
+
+    #sending to cartoon.py
+    #first path refers to input for img
+    #path2 refers to variable
+    cartoon.pixelised(path = path2)
+    myImage = Image.open("cartoon.png")
+
+def getinstruction():
+    messagebox.showinfo("Instructions", "1. Click on the 'START' button to begin.\n2. Click on the correct button corresponding to the image shown on the polariser.\n3. You will proceed on to the next level if you select the correct answer.\n4. The game will reset if you select the incorrect answer.")
+
+
+def click():
+    global numberxlist
+    numberx = random.randint(0,5) #generate a random no.
+    if len(numberxlist) >= 1:   #If there is number inside
+        while numberx == numberxlist[0]: #To check if the random int is the same as the previous random generate int
+            numberx = random.randint(0,5)
+        else:
+            numberxlist[0] = numberx #New random int 
+            print(numberx)
+    else:
+        numberxlist = [numberx]  #To store the first random generator int
+        print(numberxlist[0])
+    show_Image_focus(numberx) #send to polariser the number
+
+def getname():
+    name = simpledialog.askstring("Test", "What's your Name?:")
+    return name
+
+def correctbox():
+    global storetime
+    name = getname()
+    messagebox.showinfo("Congrats {}".format(name)+" !","You're 100% focus! You've completed in {} s".format(storetime)+" !")
+
+def wrongbox():
+    messagebox.showinfo("Try Again!", "You need to improve on your focus!")
+
+def timeup():
+    messagebox.showinfo("TIMES UP!!", "TIMESS UPP!!, You need to improve on your concentration")
+    
+
+# start function of the stopwatch
+def Start(label):
+    global running, Lno
+    running=True
+    counter_label(label) #To start the timer
+    start['state']='disabled'  #Start btn will be disabled once my start btn is pressed
+    for i in range (0, 6): 
+        btn[i]['state']='normal' #Selection btn will be enabled
+    click()  #Generate random int and send to the polarizer (show_image)
+   
+# Stop function of the stopwatch
+def Stop(m):
+    global running, numberxlist, Lno, counter, storetime, display
+    running = False
+    print('stop')
+    for i in range (0, 6): 
+        btn[i]['state']='disabled'
+    if m == numberxlist[0]:  #If what i choose is the same as what is being sent, 
+        Lno = Lno+1  #Level increase by 1
+        storetime = storetime + counter-1
+        Reset(timer) #Timer reset to 0
+        if Lno == 4: #Level will stop till level 3
+            Lno = 0
+            Reset(timer)
+            correctbox() #User pop up will appear
+            storetime = 0
+    elif m == 10: #When timer reach 10sec,
+        Lno = 0  #Level reset to 0
+        Reset(timer)
+        timeup()
+    else:
+        Lno = 0     #When user select wrg btn, level goes back to 0
+        wrongbox()
+        Reset(timer)
+        print('wrong')
+
+# Reset function of the stopwatch
+def Reset(label):
+    global counter, Lno, icons, storetime
+    counter=0
+   
+    # If rest is pressed after pressing stop.
+    if running==False:  #When timer is not running
+        start['state']='normal'      
+        label['text']='Welcome!'
+        level['text']='Level '+ str(Lno)
+        if Lno == 1:
+            icons = ['KFC', 'Jollibee', 'McDonalds', 'Pizza Hut', 'Mos Burger', 'Texas Chicken']
+            for i in range (0, 6):
+                btn[i]['text']=icons[i]
+        elif Lno == 2:
+            icons = ['Puma', 'A&W', 'Fila', 'BMW', 'Subway', 'Ferrari']
+            for i in range (0, 6):
+                btn[i]['text']=icons[i]
+        elif Lno == 3:
+            icons = ['Hawkeye', 'Hulk', 'Nissan', 'Rolls Royce', 'Burger King', 'Dominos']
+            for i in range (0, 6):
+                btn[i]['text']=icons[i]
+        else:
+            icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']  #Level 0
+            for i in range (0, 6):
+                btn[i]['text']=icons[i]
+
+def counter_label(label):
+    def count():
+        if running:
+            global counter, display
+
+            tt = datetime.fromtimestamp(counter)
+            string = tt.strftime("00:00:%S")
+            display=string
+            label['text']=display
+   
+            # label.after(arg1, arg2) delays by 
+            # first argument given in milliseconds
+            # and then calls the function given as second argument.
+            # Generally like here we need to call the 
+            # function in which it is present repeatedly.
+            # Delays by 1000ms=1 seconds and call count again.
+            timer.after(1000, count) 
+            counter += 1
+            #print(counter)
+            if counter > 20:
+                Stop(10)
+           
+    # Triggering the start of the counter.
+    count()
+
+
+# To navigate to FOCUS page
+def focusappear():
+    luckframe.grid_forget()
+    guessframe.grid_forget()
+    mainframe.grid_forget()
+    focusframe.grid(row=0, column=0)
+
+
 # FOCUS GUI
 #################### FOCUS GUI ####################
 focusframe = Frame(middleframe)
@@ -886,6 +888,7 @@ for i in range (0, 6):  #Assigning array values into btn
     btn[i].grid(row=0, column=i)
 
 
+
 #MODE FRAME
 #Buttons at the bottom to navigate to the different games
 horoscopetitlebtn = Button(modeframe, text="Guess the Horoscope", font=("Courier", 15), width=25, height=2, bg='#CBC3E3', command=guessappear)
@@ -896,6 +899,7 @@ luckbtn.grid(row=0, column=1)
 
 focusbtn = Button(modeframe, text="Test Your Concentration", font=("Courier", 15), width=25, height=2, bg='#C8E7F5', command=focusappear)
 focusbtn.grid(row=0, column=2)
+
 
 main.mainloop()
 
