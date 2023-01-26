@@ -66,7 +66,12 @@ descvar = "Mental Wellness is an internal resource that helps us THINK, FEEL, CO
 desc = Label(mainframe, text=descvar, font=('Arial', 20), pady=25) 
 desc.grid(row=1, column=0)
 
-
+mentalpath = "wellness/mental.jpg"
+myImage = Image.open(mentalpath)
+#myImage = myImage.resize((100, 100))
+mentalImage = ImageTk.PhotoImage(myImage)
+mentalpic = Label(mainframe, image=mentalImage)
+mentalpic.grid(row=2, column=0)
 
 
 #GUESS PAGE
@@ -1155,13 +1160,13 @@ horoscopetitlebtn = Button(modeframe, text="Guess the Horoscope", font=("Courier
 horoscopetitlebtn.grid(row=0, column=0)
 
 luckbtn = Button(modeframe, text="What's Your Luck?", font=("Courier", 15), width=25, height=2, bg='#F6D2E0', command=luckappear)
-luckbtn.grid(row=0, column=1)
+luckbtn.grid(row=0, column=1, pady=25)
 
 focusbtn = Button(modeframe, text="Test Your Concentration", font=("Courier", 15), width=25, height=2, bg='#C8E7F5', command=focusappear)
-focusbtn.grid(row=0, column=2)
+focusbtn.grid(row=0, column=2, pady=25)
 
 drawbtn = Button(modeframe, text="Express Yourself", font=("Courier", 15), width=25, height=2, bg='yellow', command=drawappear)
-drawbtn.grid(row=0, column=3)
+drawbtn.grid(row=0, column=3, pady=25)
 
 
 main.mainloop()
