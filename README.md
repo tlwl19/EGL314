@@ -537,33 +537,50 @@ If you want to clear your canvas or grid, you can press the clear button.
 
 ## **Overall frame structure**
 
+<br>
+
 Header frame:
 ```
 topframe = Frame(main)
 topframe.grid(row=0, column=0)
 ```
+<br>
+
 Feature frame:
 ```
 middleframe = Frame(main)
 middleframe.grid(row=1, column=0)
 ```
+<br>
+
 Footer frame:
 ```
 modeframe = Frame(main)
 modeframe.grid(row=2, column=0)
 ```
+
+<br>
+
 ## **Title**
 ```
 headertitle = Button(topframe, text="Fun Ways to Approach MENTAL WELLNESS", font=header_font, fg = '#6495ED', activeforeground='#C3B1E1', command=mainappear, padx=250)
 headertitle.grid(row=0, column=0)
 ```
+
+<br>
+
 ## **Creating the main page**
+
+<br>
 
 Main Page Frame:
 ```
 mainframe = Frame(middleframe)
 mainframe.grid(row=0, column=0)
 ```
+
+<br>
+
 Quote & Description:
 ```
 quotevar = "Mental Health.. is not a destination, but a process. It's about how you drive, not where you're going.\n \n-NOAM SHPANCER, PHD"
@@ -574,6 +591,9 @@ descvar = "Mental Wellness is an internal resource that helps us THINK, FEEL, CO
 desc = Label(mainframe, text=descvar, font=('Arial', 20), pady=25) 
 desc.grid(row=1, column=0)
 ```
+
+<br>
+
 Image:
 ```
 mentalpath = "wellness/mental.jpg"
@@ -588,19 +608,6 @@ mentalpic.grid(row=2, column=0)
 
 # **Guess the Horoscope**
 
-**Guess the Horoscope** is a game where it challenges the users' memorising skills, and determines if the user has good memory or not.
-
-
-<br>
-
-![Alt text](markdown%20imgs/horoscopeSS.png)
-*Guess the Horoscope GUI*
-
-<br>
-
----
-
-<br>
 
 ## **Creating the Frames**
 <br>
@@ -801,12 +808,6 @@ youwin.grid_forget()
 <br>
 
 # **What's Your Luck?**
-
-**What's Your Luck?** is a game where it .......
-
-![Alt text](markdown%20imgs/luckSS.png)
-
-*What's Your Luck? GUI*
 
 <br>
 
@@ -1194,32 +1195,40 @@ canvasdraw = [[0 for r in range(800)] for c in range(800)]
 ---
 <br>
 
+# **Open file in Raspberry Pi**
+
 In order to view the values from the terminal, you will need to change the directory to the folder of the file. After changing the directory, you will need to enter `python3 filename.py` to print the output.
 
 
 1. Open the terminal on Raspberry Pi.
 2. In the terminal, type the following commands under this format: 
+
 ```
 cd /Directory
 ```
+<br>
 
 Example:
 
 ```
 cd /home/pi/Documents/EGL314/
 ```
+
+<br>
+
 3. Once inside the directory folder of your file, type in the following:
 
 ```
 python3 main.py
 ```
 
-<font size = "4">Output</font>
-
-![](images/sendimage_outcome.png)
 <br>
 
+<font size = "3">Output</font>
 
+<br>
+
+![](images/sendimage_outcome.png)
 *The values printed are based on the sequence pattern.*
 
 
