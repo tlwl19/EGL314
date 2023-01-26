@@ -17,7 +17,8 @@ The Mental Wellness GUI provides the following features:
 
 - <a href="https://github.com/tlwl19/EGL314#guess-the-horoscope">Guess the Horoscope</a>
 - <a href="https://github.com/tlwl19/EGL314#whats-your-luck">What's Your Luck?</a>
-- <a href="https://github.com/tlwl19/EGL314#whats-your-luck">Test Your Concentration</a>
+- <a href="https://github.com/tlwl19/EGL314#iconcentrate">Test Your Concentration</a>
+- <a href="https://github.com/tlwl19/EGL314#express-yourself">Express Yourself</a>
 
 Upon clicking on any of the buttons they will be directed to each respective game, where more details will be given.
 
@@ -44,9 +45,6 @@ Upon clicking on any of the buttons they will be directed to each respective gam
 2. VNC Viewer
 3. Python
 
-<br>
-
----
 <br>
 
 ## **Tutorial**
@@ -85,12 +83,8 @@ main.mainloop()
 
 ---
 
-# **Guess the Horoscope**
-
-Let's begin with the "Guess the Horoscope" game.
-<br>
-The main objective of this game is to challenge the user's sbort-term memory skills and determine if the user has good memory by getting 4 correct horoscope guesses.
-
+# **Home Page** 
+In the home page, there are 4 navigation buttons that user can use to navigate to each respective games. The 4 games which the user can play are Guess the Horoscope, What's you luck, ICONcentrate and lastly Express yourself.  
 <br>
 
 ![](Demo%20Pics/Main%20Page.png)
@@ -98,12 +92,22 @@ The main objective of this game is to challenge the user's sbort-term memory ski
 
 <br>
 
-## Let's see how to play this game.
+---
 
-From the main page, click on the "Guess the Horoscope" button.
+# **Guess the Horoscope**
+
+Let's begin with the "Guess the Horoscope" game.
+<br>
+The main objective of this game is to challenge the user's short-term memory skills and determine if the user has good memory by getting 4 correct horoscope guesses.
+
+<br>
+
+## Let's see how to play this game
+
+From the home page, click on the "Guess the Horoscope" button.
 
 ![](Demo%20Pics/Select%20Horo.png)
-*Navigate to Guess the Horoscope*
+*From Home page navigate to "Guess the Horoscope" page*
 
 <br>
 
@@ -111,13 +115,16 @@ You will be redirected to the "Guess the Horoscope" page.
 <br>
 
 ![](Demo%20Pics/Horo.png)
-*Guess the Horoscope*
+*Guess the Horoscope page*
 
 <br>
 
 Click on "Start Game" to begin
 
 ![](Demo%20Pics/HoroStart.png)
+*Press 'Start Game' to play*
+
+<br>
 
 Once the game has started, all the images of the horosopes on the grid on the left side of the window will disappear, and will only display their respective names.
 
@@ -126,77 +133,91 @@ Once the game has started, all the images of the horosopes on the grid on the le
 Next, click on the Guess button to generate a random Horoscope on the polarizer board.
 
 ![](Demo%20Pics/HoroGuess.png)
+*Press on 'Guess!!' to send image to polariser board*
 
 <br>
 
 The polarizer board will generate a random horoscope image. You have to guess the horoscope that is shown on the polariser.
 --> Insert polariser pic
+*Image has been sent over to the polariser*
 
 <br>
 
 For example, if the polariser show Leo, click on the Leo button on the GUI.
 --> Insert Gui pic, arrow pointing to leo button
+*Click on the correct button*
 
 <br>
 
 If you have chosen the correct horocsope, the grid on the left will turn green and you gain a point.
 
 ![](Demo%20Pics/HoroCorrect.png)
+*Correct answer*
 
 <br>
 
 However, if you have chosen the wrong horoscope, the grid will turn red and you lose a point.
 
 ![](Demo%20Pics/HoroWrong.png)
+*Wrong answer*
 
 <br>
 
 If you have -3 points, the grid will turn white and the game will end.
 
 ![](Demo%20Pics/HoroGameOver.png)
-
-<br>
-
-You can click on the Reset Game button to start over
---> Insert arrow pointing to reset button pic 
+*Game over with -3 points*
 
 <br>
 
 Likewise, if you acheive a score of 4, the grid will turn white and the game will end.
 -->Insert whole gui that show 'You win' pic
+*Win the game with a maximum of 4 points*
 
 <br>
 
-You can click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the main page. Or you can click on the bottom navigation button to play other games.
-==> add another arrow pointing to bottom button
+You can click on the Reset Game button to start over
+--> Insert arrow pointing to reset button pic 
+*Reset game*
+
+<br>
+
+You can click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the home page. Or you can click on the bottom navigation button to play other games.
+==> change img and add another arrow pointing to bottom button
 ![](Demo%20Pics/HoroBack.png)
+*Navigate to home or other games page*
 
 <br>
 
 ---
 
 # **What's Your Luck?**
-Next, we will proceed on with the "What's Your Luck?" game.
+
+Next, we will proceed on with "What's Your Luck?" game.
 <br>
 The luck game gives the user a surge of dopamine and it plays a part in controlling the movement a person makes, as well as their emotional response.
 
 <br>
 
-From the main page, click on the "What's Your Luck?" button.
+## Let's see how to play this game
+
+From the home page, click on the "What's Your Luck?" button.
 
 ![](Demo%20Pics/SelectLuck.png)
+*From home page navigate to "What's your luck?" page*
 
 <br>
 
 You will then be redirected to the "What's Your Luck?" page.
 
 ![](Demo%20Pics/Luck.png)
-*What's Your Luck?*
+*What's Your Luck? page*
 
 <br>
 
 On this page, you can insert your date of birth, and it will generate a random luck percentage on the polarizer. 
 -->Insert arrow pointing to the dropdown button pic
+*Input your date of birth*
 
 The luck percentages are as follows:
 - Genie Lamp
@@ -210,112 +231,195 @@ The luck percentages are as follows:
 If the polarizer displays genie lamp, you can try again by entering another date of birth.
 
 -->Insert Genie lamp on polariser pic
+*Genie lamp shown on polariser*
 
 <br>
 
 However, if the polarizer displays 75% or 99% luck, the game will prompt you to play a game of rock, paper, scissors.
 
 ![](Demo%20Pics/LuckGame.png)
+*Play rock, paper, scissors*
 
 <br>
 
 Once you have select either rock, paper or scissors, it will be displayed on the preview window.
 
 ![](Demo%20Pics/LuckChosen.png)
+*Preview of rock, paper, scissors that you have choosen*
 
 <br>
 
 The game will generate rock, paper or scissors on the polariser. That will determine if you win or lose.
 --> Insert polariser pic of rock, paper,scissor
+*Either rock, paper or scissors will be shown on the polariser*
 
 <br>
 
-The game has ended after playing rock, paper or scissors. You can choose to play again by entering another date of birth or click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the main page. Or you can click on the bottom navigation button to play other games.
+The game has ended after playing rock, paper or scissors. You can choose to play again by entering another date of birth or click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the home page. Or you can click on the bottom navigation button to play other games.
 ==> Insert pic from Luck, arrow pointing at top and bottom of navigation button and arrow pointing to the dateofbirth dropdown
+*Navigate to home or other games page*
 
 <br>
 
 ---
 
-## **ICONcentrate**
+# **ICONcentrate**
 
-Now we will see how to play ICONcentrate, a game built to test your concentration by seeing how fast you can react to guessing common brands of everything under the sun.
+ICONcentrate is a game that trains user's call-back memory.It is also built to test your concentration by seeing how fast you can react to guessing common brands that we see in our daily life.
 
-To begin, let's open the ICONcentrate game by clicking on the "Test Your Concentration" button from the main page.
+<br>
+
+## Lets see how to play this game
+
+From the home page, click on the "Test Your Concentration" button.
 
 ![](Demo%20Pics/SelectIcon.png)
+*From home page navigate to "ICONcentrate" page*
+
+<br>
 
 You will then be redirected to the ICONcentrate game page
 
 ![](Demo%20Pics/Icon.png)
-*ICONcentrate*
+*ICONcentrate page*
+
+<br>
 
 Click on the instructions button to learn how to play the game.
 
+-->Insert pic, arrow pointing to instruction button
+*Press on 'Instruction' button to read the instructions of the game*
+
+<br>
+
 ![](Demo%20Pics/Instructions.png)
+*Instructions*
+
+<br>
 
 To start the game, press the start button on the right to begin.
 
 ![](Demo%20Pics/IconStart.png)
+*Press 'Start' to play the game*
 
-Once the game has begun, a random brand icon will be displayed on the polarizer board. You will have 20 seconds to guess the icon from the selection of choices below. Once 20 seconds has passed, the game will end.
+<br>
+
+Once the game has begun, a random brand icon will be displayed on the polarizer board. 
+
+-->Insert polariser pic of random icon
+*Random image icon is generated and send to polariser*
+
+<br>
+
+You will have 20 seconds to guess the icon from the selection of choices below. 
+
+-->Insert GUI page and arrow pointing to the selection of choices
+*Choose the correct icon that is shown on the polariser*
+
+<br>
+Once 20 seconds has passed, the game will end.
 
 ![](Demo%20Pics/IconGameOver.png)
+*Time's Up*
 
-If you guessed a wrong icon, a message box will appear to notify you that you have guessed the wrong brand and the game will end
+<br>
 
-![](Demo%20Pics/IconWrong.png)
+If you guessed the wrong icon, a message box will appear to notify you that you have guessed the wrong brand and the game will end
+
+![](Demo%20Pics/IconWrong.png)         
+
+*Game ended once you guessed wrongly*
+
+<br>
 
 If you guessed a correct icon, you will move on to the next level, and you can click the start button to display the next icon on the polarizer.
 
+-->Insert pic and show next level and arrow pointing to Start button
+*Next level*
+
+<br>
+
 In order to beat the game, you have to guess the correct icon through 4 levels, with each level progressing with higher diffuulty where lesser-known brands are displayed or where some brand icons are harder to distinguish. You only have one attempt.
+
+-->Insert pic of last level
+*Final level*
+
+<br>
 
 Once you have beaten all 4 levels, you will be prompted to enter your name
 
 ![](Demo%20Pics/IconName.png)
+
+*Enter your name*
+
 <br>
 Once you have entered your name, a messaage box with your name will appear to notify you that you have beaten the game and the time taken to beat the game.
 
 ![](Demo%20Pics/IconWin.png)
+*Total time taken to complete the game*
 
 <br>
-Remember, you can always return to the main page by clicking on the big "Fun Ways to Approach MENTAL WELLNESS" button on the top of the window.
 
-## Express Yourself
+You can click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the home page. Or you can click on the bottom navigation button to play other games.
+==> change img and add another arrow pointing to bottom button
+![](Demo%20Pics/HoroBack.png)
+*Navigate to home or other games page*
 
-Lasty, we will see how to use the "Express Yourself" feature.
+<br>
 
-To Begin, select the "Express Yourself" button on the main page.
+---
+
+# **Express Yourself**
+
+The main objective of this game is to help user express their feelings through drawing. As some people may be afraid to voice out their inner thoughts, instead they can draw it out.
+
+<br>
+
+## Let's see how to play this game
+
+From the home page, click on the "Express Yourself" button.
+
 ![](Demo%20pics/SelectDraw.png)
-
-You will then be redirected to the "Express Yourself" feature page.
-![](Demo%20Pics/Draw.png)
-*Express Yourself*
-
-This feature features a grid consisting of 32 x 32 pixels. You can change the colour of each pixel by clicking on the available shades of black on the right and then clicking on the pixel that you want to change the colour of on the grid.
-![](Demo%20Pics/DrawSelectColour.png)
-*1. Select the colour that you want to use*
+*From home page navigate to "Express Yourself" page*
 
 <br>
+
+You will be redirected to the "Express Yourself" page.
+
+![](Demo%20Pics/Draw.png)
+*Express Yourself page*
+
+<br>
+
+The game features a grid consisting of 32 x 32 pixels. You can change the colour of each pixel by clicking on the available shades of black on the right. 
+
+![](Demo%20Pics/DrawSelectColour.png)
+*Select the colour that you want to use*
+
+<br>
+
+Next, click on the 32 x 32 pixel and change the colour of the grid. You can also select the grid and draw something out.
 
 ![](Demo%20Pics/DrawColourGrid.png)
-*2. Click on the respective pixels on the grid to change their respective colours*
+*Click on the respective pixels on the grid to change their respective colours*
 
 <br>
 
 Alternatively, you can also paint the grid by changing to the draw mode located on the top left hand corner of the grid.
 
 ![](Demo%20Pics/DrawChange.png)
+*Change to draw mode*
+
+<br>
 
 Once you have changed to draw mode, the grid will be changed into a canvas.
 
-<br>
-
 ![](Demo%20Pics/DrawCanvas.png)
-
-Afterwards, you can choose which colour to draw with and begin to draw on the canvas.
+*Draw mode will show canvas*
 
 <br>
+
+You can choose any shades of black that is on the right and begin to draw on the canvas.
 
 ![](Demo%20Pics/DrawDrawn.png)
 *I am the modern day Picasso*
@@ -324,25 +428,48 @@ Afterwards, you can choose which colour to draw with and begin to draw on the ca
 
 Once you are done drawwing, you can convert your drawing into a pixelised form on the grid. In order to do that, we will have to save the drawing.
 
+--> Change img, add arrow pointing to save button
 ![](Demo%20Pics/DrawSave.png)
+*Save drawing on canvas*
 
 <br>
 
-Once you have saved the drawing, it will be immediately pixelise. If you want to see your pixelised drawing, you can change back to the grid form by clicking the grid button on the top left hand corner of the cavnvas.
+Once you have saved the drawing, it will be pixelised in the grid mode. If you want to see your pixelised drawing, you can change back to the grid form by clicking the grid button on the top left hand corner of the cavnvas.
 
 ![](Demo%20Pics/DrawChangeGrid.png)
+*Change to grid mode to see pixelised form*
 
 <br>
 
 And voilà! You have successfully converted your drawing into a pixelised form.
 
 ![](Demo%20Pics/DrawConvertGrid.png)
+*Pixelised form on grid*
 
-What's left to do now is just to send the image to the polariser and it will display your pixelised drawing.
+<br>
 
-## Additional Features: Express Yourself
+You can send your pixelised drawing to the polariser by clicking on the 'Send Image' button and it will display your pixelised drawing.
 
-Additional feature for "Express Yourself" 1: All White<br>Turns the entire grid/canvas to white.
+-->Insert pic, arrow pointing to send image button
+*Click on 'Send Image' to see pixelised form on the polariser*
+
+-->Insert pic on final outcome from the polariser
+*Final outcome on the polariser*
+
+<br>
+
+### Additional Features: Express Yourself
+<br>
+
+1. All White
+<br>
+
+Click on the 'All White' button to turn the entire grid and canvas to white.
+
+-->Insert pic, arrow pointing on 'all white' button
+*Change the grid and canvas to white*
+
+<br>
 
 ![](Demo%20Pics/Draw.png)
 *All White on grid*
@@ -354,7 +481,18 @@ Additional feature for "Express Yourself" 1: All White<br>Turns the entire grid/
 
 <br>
 
-Additional feature for "Express Yourself" 2: All Black<br>Turns the entire grid/canvas to black. This can be extremely helpful if you want to draw with lighter shades (White to Grey 3)
+2. All Black
+<br>
+
+Turns the entire grid and canvas to black. This can be extremely helpful if you want to draw with lighter shades such as white colour to Grey 3
+
+<br>
+Click on the 'All Black' button to turn the entire grid and canvas to black.
+
+-->Insert pic, arrow pointing on 'all black' button
+*Change the grid and canvas to black*
+
+<br>
 
 ![](Demo%20Pics/DrawGridAllBlack.png)
 *All Black on grid*
@@ -368,9 +506,12 @@ Additional feature for "Express Yourself" 2: All Black<br>Turns the entire grid/
 
 If you want to clear your canvas or grid, you can press the clear button.
 
+-->Insert pic, arrow pointing to 'clear' button
+*Clear everything that is drawn either on grid or canvas*
+
+<br>
 
 ---
-<br>
 
 # **Creating the Frames**
 
