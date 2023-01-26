@@ -294,9 +294,60 @@ You will then be redirected to the "Express Yourself" feature page.
 This feature features a grid consisting of 32 x 32 pixels. You can change the colour of each pixel by clicking on the available shades of black on the right and then clicking on the pixel that you want to change the colour of on the grid.
 ![](Demo%20Pics/DrawSelectColour.png)
 *1. Select the colour that you want to use*
-
+<br>
 ![](Demo%20Pics/DrawColourGrid.png)
 *2. Click on the respective pixels on the grid to change their respective colours*
+
+Alternatively, you can also paint the grid by changing to the draw mode located on the top left hand corner of the grid.
+
+![](Demo%20Pics/DrawChange.png)
+
+Once you have changed to draw mode, the grid will be changed into a canvas.
+
+![](Demo%20Pics/DrawCanvas.png)
+
+Afterwards, you can choose which colour to draw with and begin to draw on the canvas.
+
+![](Demo%20Pics/DrawDrawn.png)
+*I am the modern day Picasso*
+
+Once you are done drawwing, you can convert your drawing into a pixelised form on the grid. In order to do that, we will have to save the drawing.
+
+![](Demo%20Pics/DrawSave.png)
+
+Once you have saved the drawing, it will be immediately pixelise. If you want to see your pixelised drawing, you can change back to the grid form by clicking the grid button on the top left hand corner of the cavnvas.
+
+![](Demo%20Pics/DrawChangeGrid.png)
+
+And voilà! You have successfully converted your drawing into a pixelised form.
+
+![](Demo%20Pics/DrawConvertGrid.png)
+
+What's left to do now is just to send the image to the polariser and it will display your pixelised drawing.
+
+## Additional Features: Express Yourself
+
+Additional feature for "Express Yourself" 1: All White<br>Turns the entire grid/canvas to white.
+
+![](Demo%20Pics/Draw.png)
+*All White on grid*
+<br>
+
+![](Demo%20Pics/DrawCanvas.png)
+*All White on canvas*
+
+<br>
+
+Additional feature for "Express Yourself" 2: All Black<br>Turns the entire grid/canvas to black. This can be extremely helpful if you want to draw with lighter shades (White to Grey 3)
+
+![](Demo%20Pics/DrawGridAllBlack.png)
+*All Black on grid*
+
+![](Demo%20Pics/DrawCanvasAllBlack.png)
+*All Black on canvas*
+
+If you want to clear your canvas or grid, you can press the clear button.
+
 
 ---
 <br>
