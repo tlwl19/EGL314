@@ -144,7 +144,7 @@ The polarizer board will generate a random horoscope image. You have to guess th
 <br>
 
 For example, if the polariser show Leo, click on the Leo button on the GUI.
---> Insert Gui pic, arrow pointing to leo button
+![](Demo%20Pics/HoroSelectLeo.png)
 *Click on the correct button*
 
 <br>
@@ -171,20 +171,21 @@ If you have -3 points, the grid will turn white and the game will end.
 <br>
 
 Likewise, if you acheive a score of 4, the grid will turn white and the game will end.
--->Insert whole gui that show 'You win' pic
+![](Demo%20Pics/HoroWin.png)
 *Win the game with a maximum of 4 points*
 
 <br>
 
 You can click on the Reset Game button to start over
---> Insert arrow pointing to reset button pic 
+![](Demo%20Pics/HoroReset.png)
 *Reset game*
 
 <br>
 
 You can click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the home page. Or you can click on the bottom navigation button to play other games.
-==> change img and add another arrow pointing to bottom button
+
 ![](Demo%20Pics/HoroBack.png)
+
 *Navigate to home or other games page*
 
 <br>
@@ -216,8 +217,15 @@ You will then be redirected to the "What's Your Luck?" page.
 <br>
 
 On this page, you can insert your date of birth, and it will generate a random luck percentage on the polarizer. 
--->Insert arrow pointing to the dropdown button pic
-*Input your date of birth*
+![](Demo%20Pics/LuckSelectMonth.png)
+*Select your birth month*
+
+<br>
+
+![](Demo%20Pics/LuckSelectDay.png)
+*Select your birth date*
+
+<br>
 
 The luck percentages are as follows:
 - Genie Lamp
@@ -256,7 +264,7 @@ The game will generate rock, paper or scissors on the polariser. That will deter
 <br>
 
 The game has ended after playing rock, paper or scissors. You can choose to play again by entering another date of birth or click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the home page. Or you can click on the bottom navigation button to play other games.
-==> Insert pic from Luck, arrow pointing at top and bottom of navigation button and arrow pointing to the dateofbirth dropdown
+![](Demo%20Pics/LuckBack.png)
 *Navigate to home or other games page*
 
 <br>
@@ -287,7 +295,7 @@ You will then be redirected to the ICONcentrate game page
 
 Click on the instructions button to learn how to play the game.
 
--->Insert pic, arrow pointing to instruction button
+![](Demo%20Pics/IconInstructions.png)
 *Press on 'Instruction' button to read the instructions of the game*
 
 <br>
@@ -313,7 +321,7 @@ Once the game has begun, a random brand icon will be displayed on the polarizer 
 
 You will have 20 seconds to guess the icon from the selection of choices below. 
 
--->Insert GUI page and arrow pointing to the selection of choices
+![](Demo%20Pics/IconSelect.png)
 *Choose the correct icon that is shown on the polariser*
 
 <br>
@@ -334,14 +342,14 @@ If you guessed the wrong icon, a message box will appear to notify you that you 
 
 If you guessed a correct icon, you will move on to the next level, and you can click the start button to display the next icon on the polarizer.
 
--->Insert pic and show next level and arrow pointing to Start button
+![](Demo%20Pics/IconNext.png)
 *Next level*
 
 <br>
 
 In order to beat the game, you have to guess the correct icon through 4 levels, with each level progressing with higher diffuulty where lesser-known brands are displayed or where some brand icons are harder to distinguish. You only have one attempt.
 
--->Insert pic of last level
+![](Demo%20Pics/IconLastLv.png)
 *Final level*
 
 <br>
@@ -362,7 +370,7 @@ Once you have entered your name, a messaage box with your name will appear to no
 
 You can click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the home page. Or you can click on the bottom navigation button to play other games.
 ==> change img and add another arrow pointing to bottom button
-![](Demo%20Pics/HoroBack.png)
+![](Demo%20Pics/IconBack.png)
 *Navigate to home or other games page*
 
 <br>
@@ -426,9 +434,8 @@ You can choose any shades of black that is on the right and begin to draw on the
 
 <br>
 
-Once you are done drawwing, you can convert your drawing into a pixelised form on the grid. In order to do that, we will have to save the drawing.
+Once you are done drawing, you can convert your drawing into a pixelised form on the grid. In order to do that, we will have to save the drawing.
 
---> Change img, add arrow pointing to save button
 ![](Demo%20Pics/DrawSave.png)
 *Save drawing on canvas*
 
@@ -450,7 +457,7 @@ And voilà! You have successfully converted your drawing into a pixelised form.
 
 You can send your pixelised drawing to the polariser by clicking on the 'Send Image' button and it will display your pixelised drawing.
 
--->Insert pic, arrow pointing to send image button
+![](Demo%20Pics/DrawConvertGridSend.png)
 *Click on 'Send Image' to see pixelised form on the polariser*
 
 -->Insert pic on final outcome from the polariser
@@ -466,7 +473,7 @@ You can send your pixelised drawing to the polariser by clicking on the 'Send Im
 
 Click on the 'All White' button to turn the entire grid and canvas to white.
 
--->Insert pic, arrow pointing on 'all white' button
+![](Demo%20Pics/DrawAllWhite.png)
 *Change the grid and canvas to white*
 
 <br>
@@ -489,7 +496,7 @@ Turns the entire grid and canvas to black. This can be extremely helpful if you 
 <br>
 Click on the 'All Black' button to turn the entire grid and canvas to black.
 
--->Insert pic, arrow pointing on 'all black' button
+![](Demo%20Pics/DrawAllBlack.png)
 *Change the grid and canvas to black*
 
 <br>
@@ -506,7 +513,7 @@ Click on the 'All Black' button to turn the entire grid and canvas to black.
 
 If you want to clear your canvas or grid, you can press the clear button.
 
--->Insert pic, arrow pointing to 'clear' button
+![](Demo%20Pics/DrawSave.png)
 *Clear everything that is drawn either on grid or canvas*
 
 <br>
