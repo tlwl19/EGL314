@@ -513,20 +513,68 @@ Click on the 'All Black' button to turn the entire grid and canvas to black.
 
 If you want to clear your canvas or grid, you can press the clear button.
 
-![](Demo%20Pics/DrawSave.png)
+![](Demo%20Pics/DrawClear.png)
+*Clear everything that is drawn either on grid or canvas*
+
+<br>
+
+![](Demo%20Pics/Draw.png)
 *Clear everything that is drawn either on grid or canvas*
 
 <br>
 
 ---
 
-# **Creating the Frames**
+# **Creating the Overall GUI**
 
 ## **Overall frame structure**
+
+Header frame:
+```
+topframe = Frame(main)
+topframe.grid(row=0, column=0)
+```
+Feature frame:
+```
+middleframe = Frame(main)
+middleframe.grid(row=1, column=0)
+```
+Footer frame:
+```
+modeframe = Frame(main)
+modeframe.grid(row=2, column=0)
+```
+## **Title**
+```
+headertitle = Button(topframe, text="Fun Ways to Approach MENTAL WELLNESS", font=header_font, fg = '#6495ED', activeforeground='#C3B1E1', command=mainappear, padx=250)
+headertitle.grid(row=0, column=0)
+```
+## **Creating the main page**
+
+Main Page Frame:
+```
+mainframe = Frame(middleframe)
+mainframe.grid(row=0, column=0)
+```
+Quote & Description:
+```
+quotevar = "Mental Health.. is not a destination, but a process. It's about how you drive, not where you're going.\n \n-NOAM SHPANCER, PHD"
+quote = Label(mainframe, text=quotevar, font=quote_font, bg='#DBDBDB', padx=50 ,pady=50)
+quote.grid(row=0, column=0)
+
+descvar = "Mental Wellness is an internal resource that helps us THINK, FEEL, CONNECT, and FUNCTION."
+desc = Label(mainframe, text=descvar, font=('Arial', 20), pady=25) 
+desc.grid(row=1, column=0)
+```
+Image:
+```
+mentalpath = "wellness/mental.jpg"
+myImage = Image.open(mentalpath)
+mentalImage = ImageTk.PhotoImage(myImage)
+mentalpic = Label(mainframe, image=mentalImage)
+mentalpic.grid(row=2, column=0)
+```
 <br>
-
-insert code for header and footer 
-
 
 ---
 
@@ -953,6 +1001,20 @@ main.bind("<Return>", change_img)
 
 <br>
 
+Create the frame first
+```
+focusframe = Frame(middleframe)
+```
+focus frame 
+```
+midframe = Frame(focusframe)
+midframe.grid(row=2, columnspan=6)
+```
+button frame
+```
+frameone = Frame(focusframe)
+frameone.grid(row=3, column=0)
+```
 Firstly, we set the title to 'ICONcentrate'. You can change the title to your preference.
 
 ```
@@ -967,14 +1029,161 @@ instrubtn = Button(focusframe, text='Instructions', font=('Arial', 15), bg = '#b
 instrubtn.grid(row=1, column=0)
 ```
 
+Before creating the buttons, create these variable
 
+```
+numberxlist = []
+Lno = 0
+storetime = 0
+```
+level button
+```
+level = Label(midframe, text='Level '+ str(Lno), font=('Arial', 15))
+level.grid(row=2, column=0)
+```
+timer
+```
+timer = Label(midframe, text='Welcome', font=('Arial', 15))
+timer.grid(row=2, column=1, padx=100)
+```
+start button
+```
+start = Button(midframe, text='Start', font=('Arial', 15), command=lambda:Start(timer))
+start.grid(row=2, column=2, ipadx=30)
+```
+answer button
+```
+icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
+btn = [i for i in range(len(icons))] 
 
-
-
+for i in range (0, 6):
+    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m), wraplength=130) #so that texaschicken text can fully show on the button
+    btn[i].grid(row=0, column=i)
+```
 <br>
 
 ---
+<br>
 
+# **Express Yourself**
+
+![](Demo%20Pics/Draw.png)
+*Express Yourself GUI*
+
+---
+<br>
+
+## **Creating the Frames**
+
+Overall frame
+
+```
+drawingframe = Frame(middleframe)
+```
+
+Canvas frame
+
+```
+master = ttk.Notebook(drawingframe)
+```
+Frame for both tabs
+```
+tabgrid = Frame(master) #new frame for tab grid
+tabdraw = Frame(master)
+```
+Frame for grid button
+```
+gridframe = Frame(tabgrid, width=800, height=800)
+gridframe.grid(row=0, column=0)
+```
+Frame for shades selection
+```
+shadeframe = Frame(drawingframe)
+shadeframe.grid(row=0, column=1)
+```
+Frame for color preset n send btn
+```
+colourframe = Frame(drawingframe)
+colourframe.grid(row=1, column=0)
+```
+Next, tab position:
+```
+master.add(tabgrid,text="Grid")
+master.add(tabdraw,text="Draw")
+master.grid(row=0, column = 0)
+```
+Creating the grid:
+```
+button = [[r for r in range(32)] for c in range(32)]
+value = [[0 for r in range(32)] for c in range(32)]
+
+for r in range (32):
+  for c in range (32):
+    button[r][c] = Button(gridframe, font=("Calibri, 5"), width=1, height=1, bg='white', command=lambda x=r, y=c:colour_picker(x, y))
+    button[r][c].grid(row=r, column=c)
+```
+Shades button:
+```
+white = Button(shadeframe, text="White", font=("Calibri, 10"), bg='grey99', width=13, height=2, command=lambda m=0:choose_colour(m))
+white.grid(row=1, column=0)
+grey1 = Button(shadeframe, text="Grey1", font=("Calibri, 10"), bg='grey88', width=13, height=2, command=lambda m=20:choose_colour(m))
+grey1.grid(row=2, column=0)
+grey2 = Button(shadeframe, text="Grey2", font=("Calibri, 10"), bg='grey77', width=13, height=2, command=lambda m=30:choose_colour(m))
+grey2.grid(row=3, column=0)
+grey3 = Button(shadeframe, text="Grey3", font=("Calibri, 10"), bg='grey66', width=13, height=2, command=lambda m=40:choose_colour(m))
+grey3.grid(row=4, column=0)
+grey4 = Button(shadeframe, text="Grey4", font=("Calibri, 10"), bg='grey44', width=13, height=2, command=lambda m=50:choose_colour(m))
+grey4.grid(row=5, column=0)
+grey5 = Button(shadeframe, text="Grey5", font=("Calibri, 10"), bg='grey33', fg='white', width=13, height=2, command=lambda m=60:choose_colour(m))
+grey5.grid(row=6, column=0)
+grey6 = Button(shadeframe, text="Grey6", font=("Calibri, 10"), bg='grey11', fg='white', width=13, height=2, command=lambda m=70:choose_colour(m))
+grey6.grid(row=7, column=0)
+black = Button(shadeframe, text="Black", font=("Calibri, 10"), bg='grey1', fg='white', width=13, height=2, command=lambda m=90:choose_colour(m))
+black.grid(row=8, column=0)
+```
+Save button:
+```
+savebtn = Button(shadeframe, text="Save", font=("Calibri, 10"), bg='light blue', fg='black', width=13, height=2, command=savecanvas)
+savebtn.grid(row=9, column=0)
+```
+Color selection button:
+```
+allwhite = Button(colourframe, text="All White",font=("Calibri, 12"), bg='white', width=13, height=2, command=allwht)
+allwhite.grid(row=0, column=0)
+
+allblack = Button(colourframe, text="All Black",font=("Calibri, 12"), bg='black', fg='white', width=13, height=2, command=allblk)
+allblack.grid(row=0, column=1)
+```
+Clear button:
+```
+clear = Button(colourframe, text="Clear",font=("Calibri, 12"), bg='gold', width=13, height=2, command=clearbtn)
+clear.grid(row=0, column=2)
+```
+Send button:
+```
+send = Button(colourframe, text="Send Image!", font=("Calibri, 12"), width=13, height=2, command=lambda :sendbtn())
+send.grid(row=0, column=3)
+```
+Creating the canvas:
+```
+canvas = Canvas(tabdraw, width=800, height=800, bg='white')  
+canvas.grid(row=0, column=0)
+```
+Binding the canvas:
+```
+canvas.bind('<Button-1>', get_x_and_y)
+canvas.bind('<B1-Motion>',paint)
+canvas.bind('<Enter>', get_x_and_y)
+```
+Color choice variable:
+```
+colour = 0
+```
+Canvas arrray:
+```
+canvasdraw = [[0 for r in range(800)] for c in range(800)]
+```
+---
 <br>
 
 In order to view the values from the terminal, you will need to change the directory to the folder of the file. After changing the directory, you will need to enter `python3 filename.py` to print the output.

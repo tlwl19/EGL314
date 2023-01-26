@@ -68,7 +68,6 @@ desc.grid(row=1, column=0)
 
 mentalpath = "wellness/mental.jpg"
 myImage = Image.open(mentalpath)
-#myImage = myImage.resize((100, 100))
 mentalImage = ImageTk.PhotoImage(myImage)
 mentalpic = Label(mainframe, image=mentalImage)
 mentalpic.grid(row=2, column=0)
