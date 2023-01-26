@@ -105,11 +105,15 @@ From the main page, click on the "Guess the Horoscope" button.
 ![](Demo%20Pics/Select%20Horo.png)
 *Navigate to Guess the Horoscope*
 
+<br>
+
 You will be redirected to the "Guess the Horoscope" page.
 <br>
 
 ![](Demo%20Pics/Horo.png)
 *Guess the Horoscope*
+
+<br>
 
 Click on "Start Game" to begin
 
@@ -117,35 +121,59 @@ Click on "Start Game" to begin
 
 Once the game has started, all the images of the horosopes on the grid on the left side of the window will disappear, and will only display their respective names.
 
+<br>
+
 Next, click on the Guess button to generate a random Horoscope on the polarizer board.
 
 ![](Demo%20Pics/HoroGuess.png)
 
-The polarizer board will generate a random horoscope image. If you are having a hard time figuring out the horoscsope image, you can click on the guess button again to generate a different horoscope image on the polarizer board.
+<br>
+
+The polarizer board will generate a random horoscope image. You have to guess the horoscope that is shown on the polariser.
+--> Insert polariser pic
+
+<br>
+
+For example, if the polariser show Leo, click on the Leo button on the GUI.
+--> Insert pic
+
+<br>
 
 If you have chosen the correct horocsope, the grid on the left will turn green and you gain a point.
 
 ![](Demo%20Pics/HoroCorrect.png)
 
+<br>
+
 However, if you have chosen the wrong horoscope, the grid will turn red and you lose a point.
 
 ![](Demo%20Pics/HoroWrong.png)
+
+<br>
 
 If you have -3 points, the grid will turn white and the game will end.
 
 ![](Demo%20Pics/HoroGameOver.png)
 
+<br>
+
 You can click on the Reset Game button to start over
+--> Insert pic 
+
+<br>
 
 Likewise, if you acheive a score of 4, the grid will turn white and the game will end.
+-->Insert pic
 
-You can click on the big "Fun Ways to Approach MENTAL WELLNESS" button on the top of the window to return to the main page.
+<br>
+
+You can click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the main page. Or you can click on the bottom navigation button to play other games.
 
 ![](Demo%20Pics/HoroBack.png)
 
 <br>
 
-## What's Your Luck?
+# **What's Your Luck?**
 ---
 
 Next, we will proceed with the "What's Your Luck?" game.
