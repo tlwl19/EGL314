@@ -374,13 +374,13 @@ If you want to clear your canvas or grid, you can press the clear button.
 
 # **Creating the Frames**
 
+## **Overall frame structure**
 <br>
+
+insert code for header and footer 
+
 
 ---
-
-
-
-<br>
 
 # **Guess the Horoscope**
 
@@ -401,6 +401,12 @@ If you want to clear your canvas or grid, you can press the clear button.
 ## **Creating the Frames**
 <br>
 
+Overall frame
+
+```
+guessframe = Frame(middleframe)
+```
+
 We will need to create the first frame, which is for the 3x4 grid.
 
 ```
@@ -409,9 +415,6 @@ inguessframe.grid(row=1, column=0)
 
 imageFrame = Frame(guessframe)
 imageFrame.grid(row=0, column=1)
-
-inputrow = 6    
-inputcolumn = 4
 
 ```
 
@@ -432,27 +435,22 @@ Lastly, we will need to create the third frame, which is for the START button, R
 inguessframe3 = Frame(guessframe)
 inguessframe3.grid(row=1, column=2)
 
-startbtn = Button(inguessframe3, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
-startbtn.grid(row=0, column=2)
+```
 
-resetbtn = Button(inguessframe3, text="RESET GAME", font=('Arial', 20), bg='pink', command=restartgame)
-resetbtn.grid(row=1, column=2)
+Guess game title
 
-scorename = Label(inguessframe3, text="Score", font=('Arial', 25)) 
-scorename.grid(row=2, column=2)
-
-scoreresults = Label(inguessframe3, text=str(score), font=('Arial', 20))
-scoreresults.grid(row=3, column=2)
-
-youwin = Label(inguessframe3, text="Press Reset Game to Reset", font=('Arial', 12))
-youwin.grid(row=4, column=2)
-youwin.grid_forget()
+```
+headername = Label(guessframe, text="Guess the Horoscope", font=('Arial', 30)) 
+headername.grid(row=0, columnspan=3)
 
 ```
 
 After the frames have been created, we will start to create the buttons in the 3x4 grid. 
 
 ```
+inputrow = 6    
+inputcolumn = 4
+
 for r in range(inputrow):
     for c in range(inputcolumn):
         # Button Section
@@ -557,6 +555,41 @@ for i in range(0, 12):
         btn11.config(image = loadImage, width=widthx, height=heightx)
 ```
 
+After which, we'll need to create a guess button
+
+```
+guessbtn = Button(inguessframe2, text="GUESS!!", font=('Arial',20), command=guess)
+guessbtn.grid(row=0, column=1)
+```
+
+After which, we'll need to create buttons/labels for start, reset, score and result
+
+```
+startbtn = Button(inguessframe3, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
+startbtn.grid(row=0, column=2)
+
+resetbtn = Button(inguessframe3, text="RESET GAME", font=('Arial', 20), bg='pink', command=restartgame)
+resetbtn.grid(row=1, column=2)
+
+scorename = Label(inguessframe3, text="Score", font=('Arial', 25)) 
+scorename.grid(row=2, column=2)
+
+scoreresults = Label(inguessframe3, text=str(score), font=('Arial', 20))
+scoreresults.grid(row=3, column=2)
+```
+
+After which, we'll need to create label for prompt on reset game
+
+```
+youwin = Label(inguessframe3, text="Press Reset Game to Reset", font=('Arial', 12))
+youwin.grid(row=4, column=2)
+```
+
+After which, we'll need to remove the reset prompt at intial boot(appear only when triggered)
+
+```
+youwin.grid_forget()
+```
 <br>
 
 ---
@@ -571,6 +604,44 @@ for i in range(0, 12):
 
 *What's Your Luck? GUI*
 
+<br>
+
+## **Creating the Frames**
+
+Overall frame
+
+```
+guessframe = Frame(middleframe)
+```
+
+We will need to create the first frame, which is for the dropdown menus.
+
+```
+frame0 = Frame(luckframe)
+frame0.grid(row=1, columnspan=3)
+
+```
+
+Next, we will create the second frame, which is for the scissors, paper, stone game.
+
+```
+frame1 = Frame(luckframe)
+frame1.grid(row=4, column=0)
+
+```
+
+After which, we'll need to remove the game at intial boot(appear only when triggered)
+
+```
+frame1.grid_forget()
+```
+
+lucktitle
+
+```
+lucktitle = Label(luckframe, text="What's Your Luck?", font=('Arial', 30))
+lucktitle.grid(row=0, columnspan=4)
+```
 ## **Creating the Calendar Dropdown Menu**
 <br>
 
@@ -578,6 +649,11 @@ We will first need to create an array of the months in a year.
 
 ```
 options = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+```
+
+We will first need to create an array of the months in a year.
+
+```
 optionss = []
 d = 32
 for x in range (1, d):
