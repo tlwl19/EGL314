@@ -87,26 +87,23 @@ main.mainloop()
 
 # **Guess the Horoscope**
 
+Let's begin with the "Guess the Horoscope" game.
+<br>
+The main objective of this game is to challenge the user's sbort-term memory skills and determine if the user has good memory by getting 4 correct horoscope guesses.
+
+<br>
 
 ![](Demo%20Pics/Main%20Page.png)
 *GUI Main Page*
 
 <br>
 
-## Guess the Horoscope
----
-Let's begin with the "Guess the Horoscope" game.
-<br>
-
-The main objective of this game is to test your memory by getting 4 correct horoscope guesses.
-<br>
-
-Let's see how to play this game.
+## Let's see how to play this game.
 
 From the main page, click on the "Guess the Horoscope" button.
 
 ![](Demo%20Pics/Select%20Horo.png)
-
+*Navigate to Guess the Horoscope*
 
 You will be redirected to the "Guess the Horoscope" page.
 <br>
