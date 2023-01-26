@@ -1,6 +1,6 @@
 # **Mental Wellness GUI**
 
-The Mental Wellness GUI approaches different ways to improve one's posititve state of mental health. The GUI allows users to play different games that could approach mental wellness, and the games would leverage on electromechanical systems that manipulate polarization to synergize pixelized art forms. 
+The Mental Wellness GUI approaches different ways to improve one's posititve state of mental health. The GUI allows users to play different games that could approach mental wellness. The games also leverages on electromechanical systems that manipulate polarization to synergize pixelized art forms. 
 
 
 <br>
@@ -17,9 +17,10 @@ The Mental Wellness GUI provides the following features:
 
 - <a href="https://github.com/tlwl19/EGL314#guess-the-horoscope">Guess the Horoscope</a>
 - <a href="https://github.com/tlwl19/EGL314#whats-your-luck">What's Your Luck?</a>
-- <a href="https://github.com/tlwl19/EGL314#whats-your-luck">Test Your Concentration</a>
+- <a href="https://github.com/tlwl19/EGL314#iconcentrate">Test Your Concentration</a>
+- <a href="https://github.com/tlwl19/EGL314#iconcentrate">Express Yourself</a>
 
-Upon clicking on any of the buttons, each game will show up 
+Upon clicking on any of the buttons, you will be directed to the respective features
 
 <br>
 
@@ -45,17 +46,14 @@ Upon clicking on any of the buttons, each game will show up
 
 <br>
 
----
-<br>
-
-# **Tutorial**
+## **Tutorial**
 
 For more details on installation of your software, refer to the following:
-- <a href="https://github.com/tlwl19/finalchallenge#installation">32 x 32 Pixel-Tint GUI</a>
+- <a href="https://github.com/tlwl19/finalchallenge#installation">Software installation steps</a>
 
 <br>
 
-## **GUI Setup**
+### **GUI Setup**
 
 Firstly, we will need to import the tkinter library.
 
@@ -63,7 +61,7 @@ Firstly, we will need to import the tkinter library.
 from tkinter import *
 ```
 
-Next, we will need to create a main GUI window. Here, we changed the title to 'Mental Wellness'. You can change the title to your preference.
+Next, we will need to create a main GUI window. We changed the title to 'Mental Wellness' but you can change the title to your preference.
 ```
 main = Tk()
 main.title("Mental Wellness")
