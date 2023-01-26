@@ -5,7 +5,8 @@ The Mental Wellness GUI approaches different ways to improve one's posititve sta
 
 <br>
 
-![Alt text](markdown%20imgs/mainpageSS.png)
+![Alt text](markdown%20imgs/Main%20Page.png)
+<br>
 *Mental Wellness GUI Main Page*
 
 <br>
