@@ -5,7 +5,7 @@ The Mental Wellness GUI approaches different ways to improve one's positive stat
 
 <br>
 
-![Alt text](markdown%20imgs/Main%20Page.png)
+![Alt text](markdown%20imgs/mainpageSS.png)
 <br>
 *Mental Wellness GUI Main Page*
 
@@ -186,7 +186,7 @@ As always, you can return to the main page by clicking on the big "Fun Ways to A
 
 ## ICONcentrate
 ---
-Lastly, we will see how to play ICONcentrate, a game built to test your concentration by seeing how fast you can react to guessing common brands of everything under the sun.
+Now we will see how to play ICONcentrate, a game built to test your concentration by seeing how fast you can react to guessing common brands of everything under the sun.
 
 To begin, let's open the ICONcentrate game by clicking on the "Test Your Concentration" button from the main page.
 
@@ -227,6 +227,24 @@ Once you have entered your name, a messaage box with your name will appear to no
 
 <br>
 Remember, you can always return to the main page by clicking on the big "Fun Ways to Approach MENTAL WELLNESS" button on the top of the window.
+
+## Express Yourself
+
+Lasty, we will see how to use the "Express Yourself" feature.
+
+To Begin, select the "Express Yourself" button on the main page.
+![](Demo%20pics/SelectDraw.png)
+
+You will then be redirected to the "Express Yourself" feature page.
+![](Demo%20Pics/Draw.png)
+*Express Yourself*
+
+This feature features a grid consisting of 32 x 32 pixels. You can change the colour of each pixel by clicking on the available shades of black on the right and then clicking on the pixel that you want to change the colour of on the grid.
+![](Demo%20Pics/DrawSelectColour.png)
+*1. Select the colour that you want to use*
+
+![](Demo%20Pics/DrawColourGrid.png)
+*2. Click on the respective pixels on the grid to change their respective colours*
 
 ---
 <br>
