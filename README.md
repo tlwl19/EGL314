@@ -636,7 +636,7 @@ After which, we'll need to remove the game at intial boot(appear only when trigg
 frame1.grid_forget()
 ```
 
-lucktitle
+Here, we set the title to 'What's Your Luck?'. You can change the title to your preference.
 
 ```
 lucktitle = Label(luckframe, text="What's Your Luck?", font=('Arial', 30))
@@ -651,7 +651,7 @@ We will first need to create an array of the months in a year.
 options = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 ```
 
-We will first need to create an array of the months in a year.
+We will first need to create an array of the days in a month.
 
 ```
 optionss = []
@@ -672,20 +672,6 @@ clicked.set(whos)  #this refers to month
 clickeds.set(who.day) #this refers to date
 ```
 
-Here, we set the title to 'What's Your Luck?'. You can change the title to your preference.
-
-```
-lucktitle = Label(luckframe, text="What's Your Luck?", font=('Arial', 30))
-lucktitle.grid(row=0, columnspan=4)
-```
-
-To create the calendar dropdown buttons:
-
-```
-frame0 = Frame(luckframe)
-frame0.grid(row=1, columnspan=3)
-```
-
 To create the dropdown menu for Month:
 
 ```
@@ -704,14 +690,95 @@ drops.config(bg="#9f45b0", fg="WHITE", activebackground="#44008b", activeforegro
 drops["menu"].config(bg="#44008b", fg="WHITE", activebackground="#9f45b0", activeforeground="WHITE")
 ```
 
+To create an enter button:
+```
+enterbtn= Button(frame0, text= "Enter", command=change_img,  bg="#00076f", fg="WHITE", width=30)
+enterbtn.grid(row=1, column=2)
+```
+## **Creating instructions and scissors, paper, stone game**
+<br>
 
+### *Instructions*
+---
 
+We will need to create two label for two instructions:
+```
+title= Label (luckframe, text="How lucky are you today?", font=('100px'), bg='white', width=30)
+title.grid(row=2, columnspan=3)
+```
+```
+label= Label(luckframe, image='', text="Input your date of birth and click on the 'Enter' button.", font=('100px'), bg='white')
+label.grid(row=3, columnspan=3)
+```
 
+### *Scissors, Paper, Stone Game*
+---
 
+We will need to create a prompt to notify users to play: 
 
+```
+label2 = Label(frame1, text = "", font='20px')
+label2.grid(row=0, columnspan=3)
+```
+After that, we will create each of the scissors, paper, stone picture on the GUI.
 
+```
+paths = os.path.abspath('scissors paper stone pics') +'\\scissors.png'
+file = paths.replace('\\','/')
+img1= ImageTk.PhotoImage(Image.open(file))
 
+paths = os.path.abspath('scissors paper stone pics') +'\\paper.png'
+file = paths.replace('\\','/')
+img2= ImageTk.PhotoImage(Image.open(file))
 
+paths = os.path.abspath('scissors paper stone pics') +'\\stone.png'
+file = paths.replace('\\','/')
+img3= ImageTk.PhotoImage(Image.open(file))
+```
+
+Scissors, paper, stonoe button for user to input their choice
+```
+label3 = Button(frame1, image = img1, command=lambda m=1:game(m))
+label3.grid(row=1, column=0)
+
+label4 = Button(frame1, image = img2, command=lambda m=2:game(m))
+label4.grid(row=1, column=1)
+
+label5 = Button(frame1, image = img3, command=lambda m=3:game(m))
+label5.grid(row=1, column=2)
+```
+
+Next, We will create the preview of what the user have choose:
+
+Text:
+```
+previewtitle = Label(luckframe, text="", font=('Arial', 15))
+previewtitle.grid(row=2, column=3)
+```
+We will need to remove the preview tile from the inital boot(appear when trigger)
+```
+previewtitle.grid_forget()
+```
+Image:
+```
+imageLabel = Label(luckframe, bg = 'white', width = 30, height = 15)
+imageLabel.grid(rowspan=2, column=3)
+```
+We will need to remove the preview image from the inital boot(appear when trigger)
+```
+imageLabel.grid_forget()
+```
+Last, we will need to bind the change_img function to main:(link in gp chat, i forgor whats this for)
+```
+main.bind("<Return>", change_img) 
+```
+## **Creating the Functions Used**
+---
+<br>
+
+### *Line 512*
+```
+```
 
 <br>
 
