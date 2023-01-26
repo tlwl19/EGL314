@@ -1160,13 +1160,13 @@ horoscopetitlebtn = Button(modeframe, text="Guess the Horoscope", font=("Courier
 horoscopetitlebtn.grid(row=0, column=0)
 
 luckbtn = Button(modeframe, text="What's Your Luck?", font=("Courier", 15), width=25, height=2, bg='#F6D2E0', command=luckappear)
-luckbtn.grid(row=0, column=1, pady=25)
+luckbtn.grid(row=0, column=1)
 
 focusbtn = Button(modeframe, text="Test Your Concentration", font=("Courier", 15), width=25, height=2, bg='#C8E7F5', command=focusappear)
-focusbtn.grid(row=0, column=2, pady=25)
+focusbtn.grid(row=0, column=2)
 
 drawbtn = Button(modeframe, text="Express Yourself", font=("Courier", 15), width=25, height=2, bg='yellow', command=drawappear)
-drawbtn.grid(row=0, column=3, pady=25)
+drawbtn.grid(row=0, column=3)
 
 
 main.mainloop()
