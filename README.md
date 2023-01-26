@@ -24,10 +24,6 @@ Upon clicking on any of the buttons they will be directed to each respective gam
 
 <br>
 
----
-
-<br>
-
 # **Getting Started**
 
 ## **Hardware** 
@@ -35,7 +31,6 @@ Upon clicking on any of the buttons they will be directed to each respective gam
 2. Operating System: Raspbian Buster Full
 
 ![](markdown%20imgs/RaspberryPi.png)
-<br>
 *Fu YongWei, EGL314, Lecture notes 1*
 
 <br>
@@ -61,6 +56,7 @@ Firstly, we will need to import the tkinter library.
 ```
 from tkinter import *
 ```
+<br>
 
 Next, we will need to create a main GUI window. Here, we changed the title to 'Mental Wellness'. You can change the title to your preference.
 ```
@@ -68,10 +64,14 @@ main = Tk()
 main.title("Mental Wellness")
 ```
 
+<br>
+
 For the window to stay, we will need to loop it.
 ```
 main.mainloop()
 ```
+
+<br>
 
 <font size = "3">Output</font>
 
@@ -138,12 +138,14 @@ Next, click on the Guess button to generate a random Horoscope on the polarizer 
 <br>
 
 The polarizer board will generate a random horoscope image. You have to guess the horoscope that is shown on the polariser.
+
 --> Insert polariser pic
 *Image has been sent over to the polariser*
 
 <br>
 
 For example, if the polariser show Leo, click on the Leo button on the GUI.
+
 ![](Demo%20Pics/HoroSelectLeo.png)
 *Click on the correct button*
 
@@ -170,13 +172,15 @@ If you have -3 points, the grid will turn white and the game will end.
 
 <br>
 
-Likewise, if you acheive a score of 4, the grid will turn white and the game will end.
+Likewise, if you acheive a score of 4, the grid will turn white, 'YOU WIN' will appear and the game will end.
+
 ![](Demo%20Pics/HoroWin.png)
 *Win the game with a maximum of 4 points*
 
 <br>
 
 You can click on the Reset Game button to start over
+
 ![](Demo%20Pics/HoroReset.png)
 *Reset game*
 
@@ -217,6 +221,7 @@ You will then be redirected to the "What's Your Luck?" page.
 <br>
 
 On this page, you can insert your date of birth, and it will generate a random luck percentage on the polarizer. 
+
 ![](Demo%20Pics/LuckSelectMonth.png)
 *Select your birth month*
 
@@ -258,12 +263,14 @@ Once you have select either rock, paper or scissors, it will be displayed on the
 <br>
 
 The game will generate rock, paper or scissors on the polariser. That will determine if you win or lose.
+
 --> Insert polariser pic of rock, paper,scissor
 *Either rock, paper or scissors will be shown on the polariser*
 
 <br>
 
 The game has ended after playing rock, paper or scissors. You can choose to play again by entering another date of birth or click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the home page. Or you can click on the bottom navigation button to play other games.
+
 ![](Demo%20Pics/LuckBack.png)
 *Navigate to home or other games page*
 
@@ -322,9 +329,10 @@ Once the game has begun, a random brand icon will be displayed on the polarizer 
 You will have 20 seconds to guess the icon from the selection of choices below. 
 
 ![](Demo%20Pics/IconSelect.png)
-*Choose the correct icon that is shown on the polariser*
+*Choose the correct icon corresponding to that being shown on the polariser*
 
 <br>
+
 Once 20 seconds has passed, the game will end.
 
 ![](Demo%20Pics/IconGameOver.png)
@@ -335,7 +343,6 @@ Once 20 seconds has passed, the game will end.
 If you guessed the wrong icon, a message box will appear to notify you that you have guessed the wrong brand and the game will end
 
 ![](Demo%20Pics/IconWrong.png)         
-
 *Game ended once you guessed wrongly*
 
 <br>
@@ -347,9 +354,10 @@ If you guessed a correct icon, you will move on to the next level, and you can c
 
 <br>
 
-In order to beat the game, you have to guess the correct icon through 4 levels, with each level progressing with higher diffuulty where lesser-known brands are displayed or where some brand icons are harder to distinguish. You only have one attempt.
+In order to beat the game, you have to guess the correct icon through 4 levels, with each level progressing with higher difficulty where lesser-known brands are displayed or where some brand icons are harder to distinguish. You only have one attempt.
 
 ![](Demo%20Pics/IconLastLv.png)
+--> Change img, must show level 4 to indicate final level
 *Final level*
 
 <br>
@@ -369,7 +377,7 @@ Once you have entered your name, a messaage box with your name will appear to no
 <br>
 
 You can click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the home page. Or you can click on the bottom navigation button to play other games.
-==> change img and add another arrow pointing to bottom button
+
 ![](Demo%20Pics/IconBack.png)
 *Navigate to home or other games page*
 
