@@ -232,6 +232,7 @@ The game will generate rock, paper or scissors on the polariser. That will deter
 
 The game has ended after playing rock, paper or scissors. You can choose to play again by entering another date of birth or click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the main page. Or you can click on the bottom navigation button to play other games.
 ==> Insert pic from Luck, arrow pointing at top and bottom of navigation button and arrow pointing to the dateofbirth dropdown
+
 <br>
 
 ---
