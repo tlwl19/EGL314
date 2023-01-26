@@ -135,7 +135,7 @@ The polarizer board will generate a random horoscope image. You have to guess th
 <br>
 
 For example, if the polariser show Leo, click on the Leo button on the GUI.
---> Insert pic
+--> Insert Gui pic, arrow pointing to leo button
 
 <br>
 
@@ -158,23 +158,25 @@ If you have -3 points, the grid will turn white and the game will end.
 <br>
 
 You can click on the Reset Game button to start over
---> Insert pic 
+--> Insert arrow pointing to reset button pic 
 
 <br>
 
 Likewise, if you acheive a score of 4, the grid will turn white and the game will end.
--->Insert pic
+-->Insert whole gui that show 'You win' pic
 
 <br>
 
 You can click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the main page. Or you can click on the bottom navigation button to play other games.
-
+==> add another arrow pointing to bottom button
 ![](Demo%20Pics/HoroBack.png)
 
 <br>
 
-# **What's Your Luck?**
 ---
+
+# **What's Your Luck?**
+
 
 Next, we will proceed with the "What's Your Luck?" game.
 
