@@ -1,12 +1,11 @@
 # **Mental Wellness GUI**
 
-The Mental Wellness GUI approaches different ways to improve one's posititve state of mental health. The GUI allows users to play different games that could approach mental wellness, and the games would leverage on electromechanical systems that manipulate polarization to synergize pixelized art forms. 
+The Mental Wellness GUI approaches different ways to improve one's posititve state of mental health. The GUI allows users to play different games that could approach mental wellness. The games also leverages on electromechanical systems that manipulate polarization to synergize pixelized art forms. 
 
 
 <br>
 
 ![Alt text](markdown%20imgs/mainpageSS.png)
-
 *Mental Wellness GUI Main Page*
 
 <br>
@@ -35,8 +34,9 @@ Upon clicking on any of the buttons, each game will show up
 
 ![](markdown%20imgs/RaspberryPi.png)
 <br>
-
 *Fu YongWei, EGL314, Lecture notes 1*
+
+<br>
 
 ## **Software** 
 1. PuTTY 
@@ -74,23 +74,23 @@ For the window to stay, we will need to loop it.
 main.mainloop()
 ```
 
-<font size = "4">Output</font>
+<font size = "3">Output</font>
 
 ![Alt text](markdown%20imgs/mentalwellnessSS.png)
-
 <br>
-
 *Main GUI Window*
 
 <br>
 
 ---
-# **Demonstration of Games**
 
-On the Main Page of the Mental Wellness GUI, there are 3 avaiable games that can help you in improving your mental wellness.
+# **Guess the Horoscope**
+
 
 ![](Demo%20Pics/Main%20Page.png)
 *GUI Main Page*
+
+<br>
 
 ## Guess the Horoscope
 ---
