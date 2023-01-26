@@ -295,9 +295,13 @@ You will then be redirected to the "Express Yourself" feature page.
 This feature features a grid consisting of 32 x 32 pixels. You can change the colour of each pixel by clicking on the available shades of black on the right and then clicking on the pixel that you want to change the colour of on the grid.
 ![](Demo%20Pics/DrawSelectColour.png)
 *1. Select the colour that you want to use*
+
 <br>
+
 ![](Demo%20Pics/DrawColourGrid.png)
 *2. Click on the respective pixels on the grid to change their respective colours*
+
+<br>
 
 Alternatively, you can also paint the grid by changing to the draw mode located on the top left hand corner of the grid.
 
@@ -305,20 +309,30 @@ Alternatively, you can also paint the grid by changing to the draw mode located 
 
 Once you have changed to draw mode, the grid will be changed into a canvas.
 
+<br>
+
 ![](Demo%20Pics/DrawCanvas.png)
 
 Afterwards, you can choose which colour to draw with and begin to draw on the canvas.
 
+<br>
+
 ![](Demo%20Pics/DrawDrawn.png)
 *I am the modern day Picasso*
+
+<br>
 
 Once you are done drawwing, you can convert your drawing into a pixelised form on the grid. In order to do that, we will have to save the drawing.
 
 ![](Demo%20Pics/DrawSave.png)
 
+<br>
+
 Once you have saved the drawing, it will be immediately pixelise. If you want to see your pixelised drawing, you can change back to the grid form by clicking the grid button on the top left hand corner of the cavnvas.
 
 ![](Demo%20Pics/DrawChangeGrid.png)
+
+<br>
 
 And voilà! You have successfully converted your drawing into a pixelised form.
 
@@ -332,6 +346,7 @@ Additional feature for "Express Yourself" 1: All White<br>Turns the entire grid/
 
 ![](Demo%20Pics/Draw.png)
 *All White on grid*
+
 <br>
 
 ![](Demo%20Pics/DrawCanvas.png)
@@ -344,8 +359,12 @@ Additional feature for "Express Yourself" 2: All Black<br>Turns the entire grid/
 ![](Demo%20Pics/DrawGridAllBlack.png)
 *All Black on grid*
 
+<br>
+
 ![](Demo%20Pics/DrawCanvasAllBlack.png)
 *All Black on canvas*
+
+<br>
 
 If you want to clear your canvas or grid, you can press the clear button.
 
@@ -367,10 +386,10 @@ If you want to clear your canvas or grid, you can press the clear button.
 
 **Guess the Horoscope** is a game where it challenges the users' memorising skills, and determines if the user has good memory or not.
 
-![Alt text](markdown%20imgs/horoscopeSS.png)
 
 <br>
 
+![Alt text](markdown%20imgs/horoscopeSS.png)
 *Guess the Horoscope GUI*
 
 <br>
@@ -628,10 +647,9 @@ drops["menu"].config(bg="#44008b", fg="WHITE", activebackground="#9f45b0", activ
 
 **Test Your Concentration** is a game where it challenges the users' ability to focus and select the correct answer within the given time limit. The game is called 'ICONcentrate', in which it has 4 stages, with the difficulty increasing each round. The program will randomly generate icons for each round, prompting the player to guess the correct icon shown on the polarizer panel.
 
-![Alt text](markdown%20imgs/iconSS.png)
-
 <br>
 
+![](markdown%20imgs/iconSS.png)
 *Test Your Concentration GUI*
 
 <br>
