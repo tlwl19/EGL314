@@ -176,20 +176,27 @@ You can click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on
 ---
 
 # **What's Your Luck?**
+Next, we will proceed on with the "What's Your Luck?" game.
+<br>
+The luck game gives the user a surge of dopamine and it plays a part in controlling the movement a person makes, as well as their emotional response.
 
-
-Next, we will proceed with the "What's Your Luck?" game.
+<br>
 
 From the main page, click on the "What's Your Luck?" button.
 
 ![](Demo%20Pics/SelectLuck.png)
+
+<br>
 
 You will then be redirected to the "What's Your Luck?" page.
 
 ![](Demo%20Pics/Luck.png)
 *What's Your Luck?*
 
+<br>
+
 On this page, you can insert your date of birth, and it will generate a random luck percentage on the polarizer. 
+-->Insert arrow pointing to the dropdown button pic
 
 The luck percentages are as follows:
 - Genie Lamp
@@ -198,11 +205,13 @@ The luck percentages are as follows:
 - 75% Luck
 - 99% Luck
 
+<br>
+
 If the polarizer displays 75% or 99% luck, the game will prompt you to play a game of rock, paper, scissors.
 
 ![](Demo%20Pics/LuckGame.png)
 
-Depending on your luck percentage, you may have a higer or lower chance of winning the game.
+<br>
 
 Once you have made your choice, it will be displayed on the window while the game will display its choice at the polarizer board.
 
@@ -211,11 +220,14 @@ Once you have made your choice, it will be displayed on the window while the gam
 You can reset by entering another date of birth.
 <br>
 
-As always, you can return to the main page by clicking on the big "Fun Ways to Approach MENTAL WELLNESS" button on the top of the window.
+You can click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the main page. Or you can click on the bottom navigation button to play other games.
+==> Insert pic from Luck, arrow pointing at top and bottom of navigation button
 <br>
 
-## ICONcentrate
 ---
+
+## **ICONcentrate**
+
 Now we will see how to play ICONcentrate, a game built to test your concentration by seeing how fast you can react to guessing common brands of everything under the sun.
 
 To begin, let's open the ICONcentrate game by clicking on the "Test Your Concentration" button from the main page.
