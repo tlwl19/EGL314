@@ -207,21 +207,31 @@ The luck percentages are as follows:
 
 <br>
 
-If the polarizer displays 75% or 99% luck, the game will prompt you to play a game of rock, paper, scissors.
+If the polarizer displays genie lamp, you can try again by entering another date of birth.
+
+-->Insert Genie lamp on polariser pic
+
+<br>
+
+However, if the polarizer displays 75% or 99% luck, the game will prompt you to play a game of rock, paper, scissors.
 
 ![](Demo%20Pics/LuckGame.png)
 
 <br>
 
-Once you have made your choice, it will be displayed on the window while the game will display its choice at the polarizer board.
+Once you have select either rock, paper or scissors, it will be displayed on the preview window.
 
 ![](Demo%20Pics/LuckChosen.png)
 
-You can reset by entering another date of birth.
 <br>
 
-You can click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the main page. Or you can click on the bottom navigation button to play other games.
-==> Insert pic from Luck, arrow pointing at top and bottom of navigation button
+The game will generate rock, paper or scissors on the polariser. That will determine if you win or lose.
+--> Insert polariser pic of rock, paper,scissor
+
+<br>
+
+The game has ended after playing rock, paper or scissors. You can choose to play again by entering another date of birth or click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the main page. Or you can click on the bottom navigation button to play other games.
+==> Insert pic from Luck, arrow pointing at top and bottom of navigation button and arrow pointing to the dateofbirth dropdown
 <br>
 
 ---
