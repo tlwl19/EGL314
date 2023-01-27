@@ -189,16 +189,17 @@ Once the game has started, all the images of the horosopes on the grid on the le
 
 <br>
 
-Next, click on the Guess button to generate a random Horoscope on the polarizer board.
+Next, click on the Guess button to generate a random Horoscope on the polariser board.
 
 ![](Demo%20Pics/HoroGuess.png)
 *Press on 'Guess!!' to send image to polariser board*
 
 <br>
 
-The polarizer board will generate a random horoscope image. You have to guess the horoscope that is shown on the polariser.
+The polariser board will generate a random horoscope image. You have to guess the horoscope that is shown on the polariser.
 
---> Insert polariser pic
+![Alt text](polariser%20pics/cancer.jpg)
+
 *Image has been sent over to the polariser*
 
 <br>
@@ -279,7 +280,7 @@ You will then be redirected to the "What's Your Luck?" page.
 
 <br>
 
-On this page, you can insert your date of birth, and it will generate a random luck percentage on the polarizer. 
+On this page, you can insert your date of birth, and it will generate a random luck percentage on the polariser. 
 
 ![](Demo%20Pics/LuckSelectMonth.png)
 *Select your birth month*
@@ -300,14 +301,15 @@ The luck percentages are as follows:
 
 <br>
 
-If the polarizer displays genie lamp, you can try again by entering another date of birth.
+If the polariser displays genie lamp, you can try again by entering another date of birth.
 
--->Insert Genie lamp on polariser pic
+![Alt text](polariser%20pics/genie.jpg)
+
 *Genie lamp shown on polariser*
 
 <br>
 
-However, if the polarizer displays 75% or 99% luck, the game will prompt you to play a game of rock, paper, scissors.
+However, if the polariser displays 75% or 99% luck, the game will prompt you to play a game of rock, paper, scissors.
 
 ![](Demo%20Pics/LuckGame.png)
 *Play rock, paper, scissors*
@@ -323,7 +325,8 @@ Once you have select either rock, paper or scissors, it will be displayed on the
 
 The game will generate rock, paper or scissors on the polariser. That will determine if you win or lose.
 
---> Insert polariser pic of rock, paper,scissor
+![Alt text](polariser%20pics/paper.jpg)
+
 *Either rock, paper or scissors will be shown on the polariser*
 
 <br>
@@ -343,7 +346,7 @@ ICONcentrate is a game that trains user's call-back memory.It is also built to t
 
 <br>
 
-## Lets see how to play this game
+## How The Game Works
 
 From the home page, click on the "Test Your Concentration" button.
 
@@ -378,9 +381,10 @@ To start the game, press the start button on the right to begin.
 
 <br>
 
-Once the game has begun, a random brand icon will be displayed on the polarizer board. 
+Once the game has begun, a random brand icon will be displayed on the polariser board. 
 
--->Insert polariser pic of random icon
+![Alt text](polariser%20pics/idk.jpg)
+
 *Random image icon is generated and send to polariser*
 
 <br>
@@ -406,7 +410,7 @@ If you guessed the wrong icon, a message box will appear to notify you that you 
 
 <br>
 
-If you guessed a correct icon, you will move on to the next level, and you can click the start button to display the next icon on the polarizer.
+If you guessed a correct icon, you will move on to the next level, and you can click the start button to display the next icon on the polariser.
 
 ![](Demo%20Pics/IconNext.png)
 *Next level*
@@ -526,7 +530,8 @@ You can send your pixelised drawing to the polariser by clicking on the 'Send Im
 ![](Demo%20Pics/DrawConvertGridSend.png)
 *Click on 'Send Image' to see pixelised form on the polariser*
 
--->Insert pic on final outcome from the polariser
+![Alt text](polariser%20pics/draw.jpg)
+
 *Final outcome on the polariser*
 
 <br>
@@ -875,7 +880,7 @@ youwin.grid_forget()
 ```
 ## **Creating the Functions Used**
 ---
-### **Creating function to send images to the polarizer**
+### **Creating function to send images to the polariser**
 ---
 To send images in the game to the polariser:
 ```
@@ -1386,7 +1391,7 @@ main.bind("<Return>", change_img)
 
 <br>
 
-### **Creating the function to send images to the polarizer**
+### **Creating the function to send images to the polariser**
 ---
 To send images in the game to the polariser :
 ```
@@ -1485,7 +1490,7 @@ Output:
 
 <br>
 
-### **Creating the function used to send random images to the polarizer**
+### **Creating the function used to send random images to the polariser**
 ---
 To send the choice the game has made to the polariser :
 ```
@@ -1521,7 +1526,7 @@ def luckappear():
 
 # **Test Your Concentration**
 
-**Test Your Concentration** is a game where it challenges the users' ability to focus and select the correct answer within the given time limit. The game is called 'ICONcentrate', in which it has 4 stages, with the difficulty increasing each round. The program will randomly generate icons for each round, prompting the player to guess the correct icon shown on the polarizer panel.
+**Test Your Concentration** is a game where it challenges the users' ability to focus and select the correct answer within the given time limit. The game is called 'ICONcentrate', in which it has 4 stages, with the difficulty increasing each round. The program will randomly generate icons for each round, prompting the player to guess the correct icon shown on the polariser panel.
 
 <br>
 
@@ -1641,7 +1646,7 @@ Output:
 
 <br>
 
-### **Creating the function to send images to the polarizer**
+### **Creating the function to send images to the polariser**
 ---
 To send images in the game to the polariser :
 ```
