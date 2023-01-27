@@ -593,6 +593,7 @@ To create the big "Fun Ways to Approach MENTAL WELLNESS"  button on the top of t
 headertitle = Button(topframe, text="Fun Ways to Approach MENTAL WELLNESS", font=header_font, fg = '#6495ED', activeforeground='#C3B1E1', command=mainappear, padx=250)
 headertitle.grid(row=0, column=0)
 ```
+![](markdown%20imgs/Header.png)
 
 <br>
 
@@ -633,6 +634,8 @@ mentalpic.grid(row=2, column=0)
 ```
 <br>
 
+![](markdown%20imgs/MainFrame.png)
+
 ---
 
 # **Guess the Horoscope**
@@ -644,7 +647,7 @@ mentalpic.grid(row=2, column=0)
 Overall frame
 
 
-This will be the frame structure we will be using for our "Guess the Horoscope" game
+This will be the frame structure we will be using for our "Guess the Horoscope" game.
 ```
 guessframe = Frame(middleframe)
 ```
@@ -664,9 +667,6 @@ Next, we will create the second frame, which is for the GUESS button.
 ```
 inguessframe2 = Frame(guessframe)
 inguessframe2.grid(row=1, column=1)
-
-guessbtn = Button(inguessframe2, text="GUESS!!", font=('Arial',20), command=guess)
-guessbtn.grid(row=0, column=1)
 ```
 
 Lastly, we will need to create the third frame, which is for the START button, RESET button, and SCORE.
@@ -677,7 +677,7 @@ inguessframe3.grid(row=1, column=2)
 ```
 ## **Creating Guess title**
 
-Guess game title
+Guess game title:
 
 ```
 headername = Label(guessframe, text="Guess the Horoscope", font=('Arial', 30)) 
@@ -794,6 +794,7 @@ for i in range(0, 12):
         btn11.image = loadImage
         btn11.config(image = loadImage, width=widthx, height=heightx)
 ```
+![](markdown%20imgs/HoroGrid.png)
 
 After which, we'll need to create a guess button
 
@@ -801,6 +802,7 @@ After which, we'll need to create a guess button
 guessbtn = Button(inguessframe2, text="GUESS!!", font=('Arial',20), command=guess)
 guessbtn.grid(row=0, column=1)
 ```
+![](markdown%20imgs/GuessBtn.png)
 
 After which, we'll need to create buttons/labels for start, reset, score and result
 
@@ -817,6 +819,7 @@ scorename.grid(row=2, column=2)
 scoreresults = Label(inguessframe3, text=str(score), font=('Arial', 20))
 scoreresults.grid(row=3, column=2)
 ```
+![](markdown%20imgs/HoroLBL.png)
 
 After which, we'll need to create label for prompt on reset game
 
@@ -824,6 +827,7 @@ After which, we'll need to create label for prompt on reset game
 youwin = Label(inguessframe3, text="Press Reset Game to Reset", font=('Arial', 12))
 youwin.grid(row=4, column=2)
 ```
+![](markdown%20imgs/HoroResetPrompt.png)
 
 After which, we'll need to remove the reset prompt at intial boot(appear only when triggered)
 
