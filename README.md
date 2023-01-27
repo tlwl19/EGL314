@@ -1769,9 +1769,7 @@ def show_Image_focus(choice3):
 <br>
 
 ### **Creating Instructions Message Box**
-
-<br>
-
+---
 We will have to create a message box for the user to read the instructions and understand how the game works.
 
 ```
@@ -1791,7 +1789,7 @@ Output:
 
 <br>
 
-To create the Timer Button :
+To start the timer :
 
 ```
 def Start(label):
@@ -1804,7 +1802,7 @@ def Start(label):
     click()
 ```
 
-To make sure the label follows the timer, and to make sure it stops once it reaches 20 seconds :
+To make sure the label for timer follows the timer that's running, and to make sure it stops once it reaches 20 seconds :
 
 ```
 def counter_label(label):
@@ -1913,7 +1911,6 @@ def Reset(label):
 Sample Output:
 
 ![Alt text](focusbutton%20pics/level2.png)
-
 *Selection Buttons for other levels*
 
 For user to enter their name at the end of the game :
