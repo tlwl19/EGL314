@@ -982,8 +982,15 @@ main.bind("<Return>", change_img)
 <br>
 
 ### *Line 512*
+
+### *Assign functions to*
+
+Use ? statement to create function for ?
 ```
+insert function here
 ```
+output
+
 
 <br>
 
