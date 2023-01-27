@@ -66,7 +66,7 @@ def restartgame():
     #score = 0
     prevent = []  
     prevent2 = 0
-    if number == 13 or number == 14: 
+    if number == 13 or number == 14: #restart
         for i in range(0, 12):
             paths = "horo/" + str(i) + ".png"
             myImages = Image.open(paths)
@@ -205,7 +205,7 @@ def button(c):
                 if score >= 1:
                     scoreresults.config(text=str(score), font=('Arial',20))
                 else:
-                    number = 13
+                    number = 13 #restart
                     scoreresults.config(text=str(score), font=('Arial',20))
             else:
                 btn0.config(bg='#7fff00') #show green colour

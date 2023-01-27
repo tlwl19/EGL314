@@ -521,8 +521,8 @@ def show_Image_luck(choice2):
         myImage = Image.open(lucky)
 
         #sending to cartoon.py
-        #first path refers to input for img
-        #path2 refers to variable
+        #path refers to input for img
+        #lucky refers to variable
     cartoon.pixelised(path = lucky)
     myImage = Image.open("cartoon.png")
 
@@ -542,7 +542,7 @@ def change_img():
                 test3 = True
                 
     if test3 == True:   #If is valid, execute below command
-        label.config(text="Input your DoB and Press the 'Enter' button.")
+        label.config(text="Input your date of birth and click on the 'Enter' button.")
         randomno = random.randint(0, 4) #randomly generate a number 0-4
         randomnolist = [0,25,50,75,100]
         if randomnolist[randomno] == 75 or randomnolist[randomno] == 100: #when randomly generated number is 3 or 4, will show 75% or 99%, and activate game
@@ -570,8 +570,9 @@ def change_img():
             imageLabel.grid_forget()
             show_Image_luck(randomnolist[randomno])
             print(randomnolist[randomno])
+
     else:
-        label.config(text = "Please input a valid DoB", image='', font=('50px'))
+        label.config(text = "Please input a valid date of birth.", image='', font=('50px'))
 
 def preview_Image(choice): #for game preview at the side
     global imageLabel

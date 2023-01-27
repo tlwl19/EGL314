@@ -17,8 +17,8 @@ def show_Image_luck(choice):
         myImage = Image.open(lucky)
 
         #sending to cartoon.py
-        #first path refers to input for img
-        #path2 refers to variable
+        #path refers to input for img
+        #lucky refers to variable
     cartoon.pixelised(path = lucky)
     myImage = Image.open("cartoon.png")
 
@@ -36,11 +36,12 @@ def change_img():
                     test3 = True
             else:
                 test3 = True
+
     if test3 == True:   #If is valid, execute below command
-        label.config(text="Kindly, Input your DoB and Press the 'Enter' button")
-        randomno = random.randint(0, 4)
+        label.config(text="Input your date of birth and click on the 'Enter' button.")
+        randomno = random.randint(0, 4) #randomly generate a number 0-4
         randomnolist = [0,25,50,75,100]
-        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100:
+        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100:  #when randomly generated number is 3 or 4, will show 75% or 99%, and activate game
             label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
             frame1.grid(row=4, column=1)
             show_Image_luck(randomnolist[randomno])
@@ -49,22 +50,25 @@ def change_img():
             previewtitle.grid(row=2, column=3)
             imageLabel.grid(rowspan=2, column=3)
             print(randomnolist[randomno])
-        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25:
+
+        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25: #when randomly generated number is 0 or 1, will show genie pic
             label2.config(text='')
             frame1.grid_forget()
             show_Image_luck(7)#insert genie pic name
             previewtitle.grid_forget()
             imageLabel.grid_forget()
             print(randomnolist[randomno])
-        else:
+
+        else: #when randomly generated number is 2, will show 50% pic
             label2.config(text='')
             frame1.grid_forget()
             previewtitle.grid_forget()
             imageLabel.grid_forget()
             show_Image_luck(randomnolist[randomno])
             print(randomnolist[randomno])
+
     else:
-        label.config(text = "Please input a valid DoB", image='', font=('50px'))
+        label.config(text = "Please input a valid date of birth.", image='', font=('50px'))
 
 def preview_Image(choice):
     global imageLabel
@@ -80,7 +84,7 @@ def preview_Image(choice):
     loadImage = ImageTk.PhotoImage(myImages)
     imageLabel.image = loadImage
     imageLabel.config(image = loadImage, width = 250, height = 250)
-    previewtitle.config(text="You have choose " + choice)
+    previewtitle.config(text="You have chosen " + choice)
 
 def game(m):
     frame1.grid_forget()  
@@ -91,8 +95,8 @@ def game(m):
         o = "paper"
     else:
         o = "stone"
-    show_Image_luck(o)
-    preview_Image(m)
+    show_Image_luck(o) #send to polariser
+    preview_Image(m) #for game preview at the side (what user has chosen)
 
 
 
@@ -104,7 +108,7 @@ main= Tk()
 main.geometry("1000x600")      
 
 # Dropdown menu options
-options = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+options = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 optionss = []
 d = 32
 for x in range (1, d):
@@ -123,7 +127,7 @@ clicked.set(whos)  #this refers to month
 clickeds.set(who.day) #this refers to date
 
 #Header
-lucktitle = Label(main, text="How is your luck?", font=('Arial', 30))
+lucktitle = Label(main, text="What's Your Luck?", font=('Arial', 30))
 lucktitle.grid(row=0, columnspan=4)
 
 #This is for dropdown button
@@ -147,12 +151,12 @@ button= Button(frame0, text= "Enter", command= change_img,  bg="#00076f", fg="WH
 button.grid(row=1, column=2)
 
 #Text
-title= Label (main, text="What's your luck today?", font=('100px'), bg='white', width=30)
+title= Label (main, text="How lucky are you today?", font=('100px'), bg='white', width=30)
 title.grid(row=2, columnspan=3)
 
 
 #Create a Label widget
-label= Label(main, image='', text="Kindly, Input your DoB and Press the 'Enter' button", font=('100px'), bg='white')
+label= Label(main, image='', text="Input your date of birth and click on the 'Enter' button.", font=('100px'), bg='white')
 label.grid(row=3, columnspan=3)
 
 
