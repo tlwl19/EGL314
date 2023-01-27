@@ -47,14 +47,33 @@ Upon clicking on any of the buttons they will be directed to each respective gam
 For more details on installation of your software, refer to the following:
 - <a href="https://github.com/tlwl19/finalchallenge#installation">Software Installation steps</a>
 
+Before we begin coding, we will need to install certain libraries that will be used for this project.
+
+Some of the libraries that we will be using are:
+
+- <a href="https://pillow.readthedocs.io/en/stable/installation.html">Pillow</a>
+- <a href="https://www.tutorialspoint.com/how-to-install-tkinter-in-python">Tkinter</a>
+
+The other libraries needed should already be installed within Python.
+
 <br>
 
 ### **GUI Setup**
 
-Firstly, we will need to import the tkinter library.
+Firstly, we will need to import all of the necessary libraries for this project.
 
 ```
 from tkinter import *
+import os 
+from PIL import Image, ImageTk, ImageOps
+import cartoon
+import random
+from datetime import *
+from datetime import datetime
+from tkinter import messagebox, simpledialog
+from tkinter.font import Font
+from tkinter import ttk
+from student_pub import *
 ```
 <br>
 
@@ -84,7 +103,8 @@ main.mainloop()
 ---
 
 # **Home Page** 
-In the home page, there are 4 navigation buttons that user can use to navigate to each respective games. The 4 games which the user can play are Guess the Horoscope, What's you luck, ICONcentrate and lastly Express yourself.  
+
+In the home page, there are 4 navigation buttons that the user can use to navigate to each respective game. The 4 games that the user can play are: "Guess the Horoscope", "What's Your Luck", "ICONcentrate", and lastly, "Express Yourself".  
 <br>
 
 ![](Demo%20Pics/Main%20Page.png)
