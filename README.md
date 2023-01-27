@@ -1434,9 +1434,7 @@ def luckappear():
     drawingframe.grid_forget()
     luckframe.grid(row=0, column=0)
 ```
-output
-<br>insert pic here
-<br>
+
 ---
 
 <br>
@@ -1456,8 +1454,7 @@ output
 
 <br>
 
-## **Code**
-
+## **Creating the Frames**
 <br>
 
 Create the frame first
@@ -1476,13 +1473,14 @@ button frame
 frameone = Frame(focusframe)
 frameone.grid(row=3, column=0)
 ```
+## **Creating Focus Title**
 Firstly, we set the title to 'ICONcentrate'. You can change the title to your preference.
 
 ```
 headername = Label(focusframe, text="ICONcentrate", font=('Arial', 30), fg='#96DED1') 
 headername.grid(row=0, column=0)
 ```
-
+## **Creating Focus Game**
 Next, we created the **Instructions** button for the game, in which the user would need to click on the button so that a pop-up window would appear and show them the instructions.
 
 ```
@@ -1521,8 +1519,167 @@ for i in range (0, 6):
     btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m), wraplength=130) #so that texaschicken text can fully show on the button
     btn[i].grid(row=0, column=i)
 ```
+## **Creating the Functions Used**
+---
+### **Creating function to send images to the polarizer**
+---
+To send images in the game to the polariser:
+```
+def show_Image_focus(choice3):
+    global icons
+    path2 = "icons/" + str(icons[choice3]) + ".png"
+    myImage = Image.open(path2)
+    cartoon.pixelised(path = path2)
+    myImage = Image.open("cartoon.png")
+```
+output
+<br>insert polarizer pic here
+<br>
+### **Creating instructions prompt**
+text
+```
+def getinstruction():
+    messagebox.showinfo("Instructions", "1. Click on the 'START' button to begin.\n2. Click on the correct button corresponding to the image shown on the polariser.\n3. You will proceed on to the next level if you select the correct answer.\n4. The game will reset if you select the incorrect answer.")
+```
 <br>
 
+### **Creating Focus Game**
+Timer button
+```
+def Start(label):
+    global running, Lno
+    running=True
+    counter_label(label) 
+    start['state']='disabled'  
+    for i in range (0, 6): 
+        btn[i]['state']='normal' 
+    click()
+```
+```
+def counter_label(label):
+    def count():
+        if running:
+            global counter, display
+
+            tt = datetime.fromtimestamp(counter)
+            string = tt.strftime("00:00:%S")
+            display=string
+            label['text']=display
+   
+            # label.after(arg1, arg2) delays by 
+            # first argument given in milliseconds
+            # and then calls the function given as second argument.
+            # Generally like here we need to call the 
+            # function in which it is present repeatedly.
+            # Delays by 1000ms=1 seconds and call count again.
+            timer.after(1000, count) 
+            counter += 1
+            #print(counter)
+            if counter > 20:
+                Stop(10)
+           
+    # Triggering the start of the counter.
+    count()
+```
+```
+def click():
+    global numberxlist
+    numberx = random.randint(0,5) #generate a random no.
+    if len(numberxlist) >= 1:   #If there is number inside
+        while numberx == numberxlist[0]: #To check if the random int is the same as the previous random generate int
+            numberx = random.randint(0,5)
+        else:
+            numberxlist[0] = numberx #New random int 
+            print(numberx)
+    else:
+        numberxlist = [numberx]  #To store the first random generator int
+        print(numberxlist[0])
+    show_Image_focus(numberx)
+```
+Answer button
+```
+def Stop(m):
+    global running, numberxlist, Lno, counter, storetime, display
+    running = False
+    print('stop')
+    for i in range (0, 6): 
+        btn[i]['state']='disabled'
+    if m == numberxlist[0]:  #If what i choose is the same as what is being sent, 
+        Lno = Lno+1  #Level increase by 1
+        storetime = storetime + counter-1
+        Reset(timer) #Timer reset to 0
+        if Lno == 4: #Level will stop till level 3
+            Lno = 0
+            Reset(timer)
+            correctbox() #User pop up will appear
+            storetime = 0
+    elif m == 10: #When timer reach 10sec,
+        Lno = 0  #Level reset to 0
+        Reset(timer)
+        timeup()
+    else:
+        Lno = 0     #When user select wrg btn, level goes back to 0
+        wrongbox()
+        Reset(timer)
+        print('wrong')
+```
+```
+def Reset(label):
+    global counter, Lno, icons, storetime
+    counter=0
+   
+    # If rest is pressed after pressing stop.
+    if running==False:  #When timer is not running
+        start['state']='normal'      
+        label['text']='Welcome!'
+        level['text']='Level '+ str(Lno)
+        if Lno == 1:
+            icons = ['KFC', 'Jollibee', 'McDonalds', 'Pizza Hut', 'Mos Burger', 'Texas Chicken']
+            for i in range (0, 6):
+                btn[i]['text']=icons[i]
+        elif Lno == 2:
+            icons = ['Puma', 'A&W', 'Fila', 'BMW', 'Subway', 'Ferrari']
+            for i in range (0, 6):
+                btn[i]['text']=icons[i]
+        elif Lno == 3:
+            icons = ['Hawkeye', 'Hulk', 'Nissan', 'Rolls Royce', 'Burger King', 'Dominos']
+            for i in range (0, 6):
+                btn[i]['text']=icons[i]
+        else:
+            icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']  #Level 0
+            for i in range (0, 6):
+                btn[i]['text']=icons[i]
+```
+```
+def getname():
+    name = simpledialog.askstring("Test", "What's your Name?:")
+    return name
+```
+```
+def correctbox():
+    global storetime
+    name = getname()
+    messagebox.showinfo("Congrats {}".format(name)+" !","You're 100% focus! You've completed in {} s".format(storetime)+" !")
+```
+```
+def wrongbox():
+    messagebox.showinfo("Try Again!", "You need to improve on your focus!")
+```
+```
+def timeup():
+    messagebox.showinfo("TIMES UP!!", "TIMESS UPP!!, You need to improve on your concentration")
+```
+
+### **Creating function to navigate to Focus GUI**
+text
+```
+def focusappear():
+    luckframe.grid_forget()
+    guessframe.grid_forget()
+    mainframe.grid_forget()
+    drawingframe.grid_forget()
+    focusframe.grid(row=0, column=0)
+```
 ---
 <br>
 
