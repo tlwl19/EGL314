@@ -775,22 +775,67 @@ modeframe.grid(row=2, column=0)
 
 <br>
 
-## **Home Button**
+## **Home button in every page**
 
-To create the big "Fun Ways to Approach MENTAL WELLNESS"  button on the top of the window
-```
-headertitle = Button(topframe, text="Fun Ways to Approach MENTAL WELLNESS", font=header_font, fg = '#6495ED', activeforeground='#C3B1E1', command=mainappear, padx=250)
-headertitle.grid(row=0, column=0)
-```
+<br>
+
 ![](markdown%20imgs/Header.png)
 
 <br>
 
-## **Creating the main page**
+To create the big "Fun Ways to Approach MENTAL WELLNESS"  button on the top of the window. Once user pressed on the button, it will bring them back to their home page.
+
+```
+headertitle = Button(topframe, text="Fun Ways to Approach MENTAL WELLNESS", font=header_font, fg = '#6495ED', activeforeground='#C3B1E1', command=mainappear, padx=250)
+headertitle.grid(row=0, column=0)
+```
 
 <br>
 
-Main Page Frame: 
+## **Creating the main page**
+---
+
+<br>
+
+![](markdown%20imgs/MainFrame.png)
+*Main Page GUI*
+
+<br>
+
+### **Creating the Functions Used**
+**Main Page Function:**
+<br>
+
+To navigate to Main Page :
+```
+def mainappear(): 
+    guessframe.grid_forget()
+    focusframe.grid_forget()
+    luckframe.grid_forget()
+    drawingframe.grid_forget()
+    mainframe.grid(row=0, column=0)
+```
+
+Creating own font for header and quote :
+```
+header_font = Font(
+    family = 'Times', 
+    size = 30,
+    weight = 'bold',
+    slant = 'roman',
+)
+
+quote_font = Font(
+    family = 'Typewriter', 
+    size = 15,
+    weight = 'bold',
+    slant = 'roman',
+)
+```
+
+### **Creating the Layout**
+**Main Page Frame:**
+<br>
 
 We will be displaying our definition of mental wellness on this frame.
 ```
@@ -821,238 +866,23 @@ mentalImage = ImageTk.PhotoImage(myImage)
 mentalpic = Label(mainframe, image=mentalImage)
 mentalpic.grid(row=2, column=0)
 ```
+
 <br>
 
-Creating own font for header and quote :
-```
-header_font = Font(
-    family = 'Times', 
-    size = 30,
-    weight = 'bold',
-    slant = 'roman',
-)
-
-quote_font = Font(
-    family = 'Typewriter', 
-    size = 15,
-    weight = 'bold',
-    slant = 'roman',
-)
-```
-![](markdown%20imgs/MainFrame.png)
-*Main Page GUI*
-
-## **Creating the Functions Used**
----
-To navigate to Main Page :
-```
-def mainappear(): 
-    guessframe.grid_forget()
-    focusframe.grid_forget()
-    luckframe.grid_forget()
-    drawingframe.grid_forget()
-    mainframe.grid(row=0, column=0)
-
-```
+## **Creating Guess the Horoscope**
 ---
 
-# **Guess the Horoscope**
-
-
-## **Creating the Frames**
 <br>
 
-This will be the frame structure we will be using for our "Guess the Horoscope" game.
-```
-guessframe = Frame(middleframe)
-```
+![](Demo%20Pics/Horo.png)
+*Guess the Horoscope page*
 
-We will need to create the first frame, which is for the 3x4 grid.
+<br>
 
-```
-inguessframe = Frame(guessframe)
-inguessframe.grid(row=1, column=0)
+### **Creating the Functions Used**
+**Guess the Horoscope Function:**
+<br>
 
-imageFrame = Frame(guessframe)
-imageFrame.grid(row=0, column=1)
-```
-
-Next, we will create the second frame, which is for the GUESS button.
-
-```
-inguessframe2 = Frame(guessframe)
-inguessframe2.grid(row=1, column=1)
-```
-
-Lastly, we will need to create the third frame, which is for the START button, RESET button, and SCORE.
-
-```
-inguessframe3 = Frame(guessframe)
-inguessframe3.grid(row=1, column=2)
-```
-## **Creating Guess title**
-
-Guess the Horoscope game title :
-
-```
-headername = Label(guessframe, text="Guess the Horoscope", font=('Arial', 30)) 
-headername.grid(row=0, columnspan=3)
-```
-## **Creating Horoscope Game**
-
-After the frames have been created, we will start to create the buttons for the horoscopes and their respective names as labels in the 3x4 grid.
-
-```
-inputrow = 6    
-inputcolumn = 4
-
-for r in range(inputrow):
-    for c in range(inputcolumn):
-        # Button Section
-        btn0 = Button(inguessframe, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=0:horobutton(m))
-        lbl0 = Label(inguessframe, text="Aquarius", font=("Arial", 15), fg='black')
-        btn1 = Button(inguessframe, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=1:horobutton(m))
-        lbl1 = Label(inguessframe, text="Aries", font=("Arial", 15), fg='black')
-        btn2 = Button(inguessframe, text = "Cancer", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=2:horobutton(m))
-        lbl2 = Label(inguessframe, text="Cancer", font=("Arial", 15), fg='black')
-        btn3 = Button(inguessframe, text = "Capricorn", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=3:horobutton(m))
-        lbl3 = Label(inguessframe, text="Capricorn", font=("Arial", 15), fg='black')
-        btn4 = Button(inguessframe, text = "Gemini", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=4:horobutton(m))
-        lbl4 = Label(inguessframe, text="Gemini", font=("Arial", 15), fg='black')
-        btn5 = Button(inguessframe, text = "Leo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=5:horobutton(m))
-        lbl5 = Label(inguessframe, text="Leo", font=("Arial", 15), fg='black')
-        btn6 = Button(inguessframe, text = "Libra", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=6:horobutton(m))
-        lbl6 = Label(inguessframe, text="Libra", font=("Arial", 15), fg='black')
-        btn7 = Button(inguessframe, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=7:horobutton(m))
-        lbl7 = Label(inguessframe, text="Pisces", font=("Arial", 15),fg='black')
-        btn8 = Button(inguessframe, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=8:horobutton(m))
-        lbl8 = Label(inguessframe, text="Sagittarius", font=("Arial", 15), fg='black')
-        btn9 = Button(inguessframe, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=9:horobutton(m))
-        lbl9 = Label(inguessframe, text="Scorpio", font=("Arial", 15), fg='black')
-        btn10 = Button(inguessframe, text = "Taurus", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=10:horobutton(m))
-        lbl10 = Label(inguessframe, text="Taurus", font=("Arial", 15), fg='black')
-        btn11 = Button(inguessframe, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=11:horobutton(m))
-        lbl11 = Label(inguessframe, text="Virgo", font=("Arial", 15), fg='black')
-
-btn0.grid(row=0, column=0)
-lbl0.grid(row=1, column=0)
-btn1.grid(row=0, column=1)
-lbl1.grid(row=1, column=1)
-btn2.grid(row=0, column=2)
-lbl2.grid(row=1, column=2)
-btn3.grid(row=0, column=3)
-lbl3.grid(row=1, column=3)
-btn4.grid(row=2, column=0)
-lbl4.grid(row=3, column=0)
-btn5.grid(row=2, column=1)
-lbl5.grid(row=3, column=1)
-btn6.grid(row=2, column=2)
-lbl6.grid(row=3, column=2)
-btn7.grid(row=2, column=3)
-lbl7.grid(row=3, column=3)
-
-btn8.grid(row=4, column=0)
-lbl8.grid(row=5, column=0)
-btn9.grid(row=4, column=1)
-lbl9.grid(row=5, column=1)
-btn10.grid(row=4, column=2)
-lbl10.grid(row=5, column=2)
-btn11.grid(row=4, column=3)
-lbl11.grid(row=5, column=3)
-
-```
-
-We will then need to insert the images of the horoscope symbols onto our buttons. To acheive this we will name our images in numerical order, and use a for loop to fit the images into the grid in their corresponding buttons based on their numerical order.
-
-```
-for i in range(0, 12):
-    path = "horo/" + str(i) + ".png"
-    myImage = Image.open(path)
-    myImage = myImage.resize((100, 100))
-    loadImage = ImageTk.PhotoImage(myImage)
-    widthx = 114
-    heightx = 126
-    if i == 0:
-        btn0.image = loadImage
-        btn0.config(image = loadImage, width=widthx, height=heightx)
-    elif i == 1:
-        btn1.image = loadImage
-        btn1.config(image = loadImage, width=widthx, height=heightx)
-    elif i == 2:
-        btn2.image = loadImage
-        btn2.config(image = loadImage, width=widthx, height=heightx)
-    elif i == 3:
-        btn3.image = loadImage
-        btn3.config(image = loadImage, width=widthx, height=heightx)
-    elif i == 4:
-        btn4.image = loadImage
-        btn4.config(image = loadImage, width=widthx, height=heightx)
-    elif i == 5:
-        btn5.image = loadImage
-        btn5.config(image = loadImage, width=widthx, height=heightx)
-    elif i == 6:
-        btn6.image = loadImage
-        btn6.config(image = loadImage, width=widthx, height=heightx)
-    elif i == 7:
-        btn7.image = loadImage
-        btn7.config(image = loadImage, width=widthx, height=heightx)
-    elif i == 8:
-        btn8.image = loadImage
-        btn8.config(image = loadImage, width=widthx, height=heightx)
-    elif i == 9:
-        btn9.image = loadImage
-        btn9.config(image = loadImage, width=widthx, height=heightx)
-    elif i == 10:
-        btn10.image = loadImage
-        btn10.config(image = loadImage, width=widthx, height=heightx)
-    else:
-        btn11.image = loadImage
-        btn11.config(image = loadImage, width=widthx, height=heightx)
-```
-![](markdown%20imgs/HoroGrid.png)
-
-Now, we will need to create the guess button.
-
-```
-guessbtn = Button(inguessframe2, text="GUESS!!", font=('Arial',20), command=guess)
-guessbtn.grid(row=0, column=1)
-```
-![](markdown%20imgs/GuessBtn.png)
-
-After which, we'll need to create buttons/labels for start, reset, score and result.
-
-```
-startbtn = Button(inguessframe3, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
-startbtn.grid(row=0, column=2)
-
-resetbtn = Button(inguessframe3, text="RESET GAME", font=('Arial', 20), bg='pink', command=restartgame)
-resetbtn.grid(row=1, column=2)
-
-scorename = Label(inguessframe3, text="Score", font=('Arial', 25)) 
-scorename.grid(row=2, column=2)
-
-scoreresults = Label(inguessframe3, text=str(score), font=('Arial', 20))
-scoreresults.grid(row=3, column=2)
-```
-![](markdown%20imgs/HoroLBL.png)
-
-After which, we'll need to create the label for the prompt on reset game.
-
-```
-youwin = Label(inguessframe3, text="Press Reset Game to Reset", font=('Arial', 12))
-youwin.grid(row=4, column=2)
-```
-![](markdown%20imgs/HoroResetPrompt.png)
-
-After which, we'll need to remove the reset prompt at intial boot(appear only when triggered)
-
-```
-youwin.grid_forget()
-```
-## **Creating the Functions Used**
----
-### **Creating function to send images to the polariser**
----
 To send images in the game to the polariser:
 ```
 def show_Image_guess(choice1):   #To send to polariser
@@ -1066,6 +896,9 @@ def show_Image_guess(choice1):   #To send to polariser
     myImage = Image.open("cartoon.png")
 
 ```
+
+<br>
+
 To start the game :
 ```
 def startgame():
@@ -1105,8 +938,9 @@ def startgame():
 
 ```
 
-To reset game :
+<br>
 
+To reset game :
 ```
 def restartgame():
     global score, prevent, number, prevent2
@@ -1187,8 +1021,10 @@ def restartgame():
         lbl11.grid(row=5, column=3)
 
 ```
-For the guess button to generate a random horoscope, with no duplicates and to send it to the polariser :
 
+<br>
+
+For the guess button to generate a random horoscope, with no duplicates and to send it to the polariser :
 ```
 def guess():
     global number, prevent, numberx, numberxlist, prevent2
@@ -1235,8 +1071,10 @@ def guess():
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
 
 ```
-To check if the game has started and if it has started, to check if player choice is correct and indicate if the player has guessed correctly or not. If game has not started or the game has already ended, it will prompt the player to reset and start the game again.
 
+<br>
+
+To check if the game has started and if it has started, to check if player choice is correct and indicate if the player has guessed correctly or not. If game has not started or the game has already ended, it will prompt the player to reset and start the game again.
 ```
 def horobutton(c): 
     global number, score, prevent, numberx, prevent2
@@ -1334,6 +1172,9 @@ def horobutton(c):
                     btn11.config(bg='white', fg='black')
 
 ```
+
+<br>
+
 To navigate to guess page :
 ```
 def guessappear(): 
@@ -1342,6 +1183,228 @@ def guessappear():
     mainframe.grid_forget()
     drawingframe.grid_forget()
     guessframe.grid(row=0, column=0)
+```
+
+<br>
+
+### **Creating the Layout**
+**Guess the Horoscope Frame:**
+<br>
+
+This will be the frame structure we will be using for our "Guess the Horoscope" game.
+```
+guessframe = Frame(middleframe)
+```
+
+<br>
+
+We will need to create the first frame, which is for the 3x4 grid.
+```
+inguessframe = Frame(guessframe)
+inguessframe.grid(row=1, column=0)
+
+imageFrame = Frame(guessframe)
+imageFrame.grid(row=0, column=1)
+```
+
+<br>
+
+Next, we will create the second frame, which is for the GUESS button.
+```
+inguessframe2 = Frame(guessframe)
+inguessframe2.grid(row=1, column=1)
+```
+
+<br>
+
+Lastly, we will need to create the third frame, which is for the START button, RESET button, and SCORE.
+```
+inguessframe3 = Frame(guessframe)
+inguessframe3.grid(row=1, column=2)
+```
+
+<br>
+
+Guess the Horoscope game title :
+```
+headername = Label(guessframe, text="Guess the Horoscope", font=('Arial', 30)) 
+headername.grid(row=0, columnspan=3)
+```
+
+<br>
+
+Creating Horoscope Game:
+
+<br>
+
+After the frames have been created, we will start to create the buttons for the horoscopes and their respective names as labels in the 3x4 grid.
+```
+inputrow = 6    
+inputcolumn = 4
+
+for r in range(inputrow):
+    for c in range(inputcolumn):
+        # Button Section
+        btn0 = Button(inguessframe, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=0:horobutton(m))
+        lbl0 = Label(inguessframe, text="Aquarius", font=("Arial", 15), fg='black')
+        btn1 = Button(inguessframe, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=1:horobutton(m))
+        lbl1 = Label(inguessframe, text="Aries", font=("Arial", 15), fg='black')
+        btn2 = Button(inguessframe, text = "Cancer", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=2:horobutton(m))
+        lbl2 = Label(inguessframe, text="Cancer", font=("Arial", 15), fg='black')
+        btn3 = Button(inguessframe, text = "Capricorn", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=3:horobutton(m))
+        lbl3 = Label(inguessframe, text="Capricorn", font=("Arial", 15), fg='black')
+        btn4 = Button(inguessframe, text = "Gemini", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=4:horobutton(m))
+        lbl4 = Label(inguessframe, text="Gemini", font=("Arial", 15), fg='black')
+        btn5 = Button(inguessframe, text = "Leo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=5:horobutton(m))
+        lbl5 = Label(inguessframe, text="Leo", font=("Arial", 15), fg='black')
+        btn6 = Button(inguessframe, text = "Libra", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=6:horobutton(m))
+        lbl6 = Label(inguessframe, text="Libra", font=("Arial", 15), fg='black')
+        btn7 = Button(inguessframe, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=7:horobutton(m))
+        lbl7 = Label(inguessframe, text="Pisces", font=("Arial", 15),fg='black')
+        btn8 = Button(inguessframe, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=8:horobutton(m))
+        lbl8 = Label(inguessframe, text="Sagittarius", font=("Arial", 15), fg='black')
+        btn9 = Button(inguessframe, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=9:horobutton(m))
+        lbl9 = Label(inguessframe, text="Scorpio", font=("Arial", 15), fg='black')
+        btn10 = Button(inguessframe, text = "Taurus", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=10:horobutton(m))
+        lbl10 = Label(inguessframe, text="Taurus", font=("Arial", 15), fg='black')
+        btn11 = Button(inguessframe, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=11:horobutton(m))
+        lbl11 = Label(inguessframe, text="Virgo", font=("Arial", 15), fg='black')
+
+btn0.grid(row=0, column=0)
+lbl0.grid(row=1, column=0)
+btn1.grid(row=0, column=1)
+lbl1.grid(row=1, column=1)
+btn2.grid(row=0, column=2)
+lbl2.grid(row=1, column=2)
+btn3.grid(row=0, column=3)
+lbl3.grid(row=1, column=3)
+btn4.grid(row=2, column=0)
+lbl4.grid(row=3, column=0)
+btn5.grid(row=2, column=1)
+lbl5.grid(row=3, column=1)
+btn6.grid(row=2, column=2)
+lbl6.grid(row=3, column=2)
+btn7.grid(row=2, column=3)
+lbl7.grid(row=3, column=3)
+
+btn8.grid(row=4, column=0)
+lbl8.grid(row=5, column=0)
+btn9.grid(row=4, column=1)
+lbl9.grid(row=5, column=1)
+btn10.grid(row=4, column=2)
+lbl10.grid(row=5, column=2)
+btn11.grid(row=4, column=3)
+lbl11.grid(row=5, column=3)
+```
+
+<br>
+
+We will then need to insert the images of the horoscope symbols onto our buttons. To acheive this we will name our images in numerical order, and use a for loop to fit the images into the grid in their corresponding buttons based on their numerical order.
+```
+for i in range(0, 12):
+    path = "horo/" + str(i) + ".png"
+    myImage = Image.open(path)
+    myImage = myImage.resize((100, 100))
+    loadImage = ImageTk.PhotoImage(myImage)
+    widthx = 114
+    heightx = 126
+    if i == 0:
+        btn0.image = loadImage
+        btn0.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 1:
+        btn1.image = loadImage
+        btn1.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 2:
+        btn2.image = loadImage
+        btn2.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 3:
+        btn3.image = loadImage
+        btn3.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 4:
+        btn4.image = loadImage
+        btn4.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 5:
+        btn5.image = loadImage
+        btn5.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 6:
+        btn6.image = loadImage
+        btn6.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 7:
+        btn7.image = loadImage
+        btn7.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 8:
+        btn8.image = loadImage
+        btn8.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 9:
+        btn9.image = loadImage
+        btn9.config(image = loadImage, width=widthx, height=heightx)
+    elif i == 10:
+        btn10.image = loadImage
+        btn10.config(image = loadImage, width=widthx, height=heightx)
+    else:
+        btn11.image = loadImage
+        btn11.config(image = loadImage, width=widthx, height=heightx)
+```
+<br>
+
+![](markdown%20imgs/HoroGrid.png)
+*Horoscope button*
+
+<br>
+
+Now, we will need to create the guess button.
+```
+guessbtn = Button(inguessframe2, text="GUESS!!", font=('Arial',20), command=guess)
+guessbtn.grid(row=0, column=1)
+```
+
+<br>
+
+![](markdown%20imgs/GuessBtn.png)
+
+*Guess Button*
+
+<br>
+
+After which, we'll need to create buttons/labels for start, reset, score and result.
+```
+startbtn = Button(inguessframe3, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
+startbtn.grid(row=0, column=2)
+
+resetbtn = Button(inguessframe3, text="RESET GAME", font=('Arial', 20), bg='pink', command=restartgame)
+resetbtn.grid(row=1, column=2)
+
+scorename = Label(inguessframe3, text="Score", font=('Arial', 25)) 
+scorename.grid(row=2, column=2)
+
+scoreresults = Label(inguessframe3, text=str(score), font=('Arial', 20))
+scoreresults.grid(row=3, column=2)
+```
+
+<br>
+
+![](markdown%20imgs/HoroLBL.png)
+
+*Start game, Reset game and Score*
+
+<br>
+
+After which, we'll need to create the label for the prompt on reset game.
+```
+youwin = Label(inguessframe3, text="Press Reset Game to Reset", font=('Arial', 12))
+youwin.grid(row=4, column=2)
+```
+
+<br>
+
+![](markdown%20imgs/HoroResetPrompt.png)
+*YOU WIN label will be shown*
+
+<br>
+
+After which, we'll need to remove the reset prompt at intial boot(appear only when triggered)
+```
+youwin.grid_forget()
 ```
 
 <br>
