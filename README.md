@@ -60,6 +60,7 @@ D --> B
 E --> B
 F --> B
 ```
+*Software Flow Chart*
 
 ## **Guess the Horoscope**
 
@@ -79,6 +80,8 @@ G --> J[Reset Btn]
 I --> J
 J --> B
 ```
+*Guess the Horoscope Flow Chart*
+
 ## **What's your Luck?**
 ```mermaid
 graph TD
@@ -92,6 +95,7 @@ F --> E
 F --> G[Preview Image]
 
 ```
+*What's the Luck Flow Chart*
 
 ## **ICONcentrate**
 
@@ -112,6 +116,8 @@ I --> J[Enter Name]
 J --> H
 K --> H
 ```
+*ICONcentrate Flow Chart*
+
 ## **Express Yourself**
 ```mermaid
 graph TD
@@ -141,6 +147,8 @@ K --> L[Draw Polariser]
 K --> H
 K --> I
 ```
+*Express Yourself Flow Chart*
+
 <br>
 
 
