@@ -277,12 +277,7 @@ Next, click on the Guess button to generate a random Horoscope on the polariser 
 <br>
 
 The polariser board will generate a random horoscope image. You have to guess the horoscope that is shown on the polariser.
-
-<<<<<<< Updated upstream
-![](Demo%20Pics/HoroPol.png)
-=======
 ![Alt text](polariser%20pics/cancer.jpg)
->>>>>>> Stashed changes
 *Image has been sent over to the polariser*
 
 <br>
@@ -385,13 +380,7 @@ The luck percentages are as follows:
 <br>
 
 If the polariser displays genie lamp, you can try again by entering another date of birth.
-
-<<<<<<< Updated upstream
-![](Demo%20Pics/LuckPol.png)
-=======
 ![Alt text](polariser%20pics/genie.jpg)
-
->>>>>>> Stashed changes
 *Genie lamp shown on polariser*
 
 <br>
@@ -415,13 +404,9 @@ Once you have select either rock, paper or scissors, it will be displayed on the
 <br>
 
 The game will generate rock, paper or scissors on the polariser. That will determine if you win or lose.
-
-<<<<<<< Updated upstream
-![](Demo%20Pics/LuckRockPaperScissorsPol.png)
-=======
 ![Alt text](polariser%20pics/paper.jpg)
 
->>>>>>> Stashed changes
+
 *Either rock, paper or scissors will be shown on the polariser*
 
 <br>
@@ -478,12 +463,9 @@ To start the game, press the start button on the right to begin.
 
 Once the game has begun, a random brand icon will be displayed on the polariser board. 
 
-<<<<<<< Updated upstream
-![](Demo%20Pics/IconPol.png)
-=======
+
 ![Alt text](polariser%20pics/idk.jpg)
 
->>>>>>> Stashed changes
 *Random image icon is generated and send to polariser*
 
 <br>
@@ -629,12 +611,8 @@ You can send your pixelised drawing to the polariser by clicking on the 'Send Im
 ![](Demo%20Pics/DrawConvertGridSend.png)
 *Click on 'Send Image' to see pixelised form on the polariser*
 
-<<<<<<< Updated upstream
-![](Demo%20Pics/DrawPol.png)
-=======
 ![Alt text](polariser%20pics/draw.jpg)
 
->>>>>>> Stashed changes
 *Final outcome on the polariser*
 
 <br>
