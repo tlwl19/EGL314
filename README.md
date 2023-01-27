@@ -2025,12 +2025,17 @@ Frame for color preset n send btn
 colourframe = Frame(drawingframe)
 colourframe.grid(row=1, column=0)
 ```
-Next, tab position:
+Next, add tab navigation:
 ```
 master.add(tabgrid,text="Grid")
 master.add(tabdraw,text="Draw")
 master.grid(row=0, column = 0)
 ```
+Output:<br>
+![](drawbutton%20pics/drawtab.png)
+
+*Grid and Draw Tabs*
+## **Creating Express Yourself Game**
 Creating the grid:
 
 We used a List of List and a nested for loop to create the 32x32 grid and its values.
@@ -2043,6 +2048,11 @@ for r in range (32):
     button[r][c] = Button(gridframe, font=("Calibri, 5"), width=1, height=1, bg='white', command=lambda x=r, y=c:colour_picker(x, y))
     button[r][c].grid(row=r, column=c)
 ```
+Output:<br>
+![](drawbutton%20pics/grid.png)
+
+*32x32 Grid*
+
 Shades button:
 ```
 white = Button(shadeframe, text="White", font=("Calibri, 10"), bg='grey99', width=13, height=2, command=lambda m=0:choose_colour(m))
@@ -2067,6 +2077,11 @@ Save button:
 savebtn = Button(shadeframe, text="Save", font=("Calibri, 10"), bg='light blue', fg='black', width=13, height=2, command=savecanvas)
 savebtn.grid(row=9, column=0)
 ```
+Output:<br>
+![](drawbutton%20pics/shades.png)
+
+*8 Shades of Grey and Save Button*
+
 Color selection button:
 ```
 allwhite = Button(colourframe, text="All White",font=("Calibri, 12"), bg='white', width=13, height=2, command=allwht)
@@ -2085,6 +2100,11 @@ Send button:
 send = Button(colourframe, text="Send Image!", font=("Calibri, 12"), width=13, height=2, command=lambda :sendbtn())
 send.grid(row=0, column=3)
 ```
+Output:<br>
+![](drawbutton%20pics/drawadditionalfeature.png)
+
+*All White, All Black, Clear and Send Image Button*
+
 Creating the canvas:
 ```
 canvas = Canvas(tabdraw, width=800, height=800, bg='white')  
@@ -2104,6 +2124,10 @@ Canvas arrray:
 ```
 canvasdraw = [[0 for r in range(800)] for c in range(800)]
 ```
+Output:<br>
+![](drawbutton%20pics/canvastab.png)
+
+*Canvas in Draw Tab*
 ## **Creating the Functions Used**
 ---
 ### **Creating function for shades of grey selection and save button**
