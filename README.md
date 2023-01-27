@@ -637,7 +637,6 @@ inguessframe.grid(row=1, column=0)
 
 imageFrame = Frame(guessframe)
 imageFrame.grid(row=0, column=1)
-
 ```
 
 Next, we will create the second frame, which is for the GUESS button.
@@ -648,7 +647,6 @@ inguessframe2.grid(row=1, column=1)
 
 guessbtn = Button(inguessframe2, text="GUESS!!", font=('Arial',20), command=guess)
 guessbtn.grid(row=0, column=1)
-
 ```
 
 Lastly, we will need to create the third frame, which is for the START button, RESET button, and SCORE.
@@ -656,16 +654,16 @@ Lastly, we will need to create the third frame, which is for the START button, R
 ```
 inguessframe3 = Frame(guessframe)
 inguessframe3.grid(row=1, column=2)
-
 ```
+## **Creating Guess title**
 
 Guess game title
 
 ```
 headername = Label(guessframe, text="Guess the Horoscope", font=('Arial', 30)) 
 headername.grid(row=0, columnspan=3)
-
 ```
+## **Creating Horoscope Game**
 
 After the frames have been created, we will start to create the buttons for the horoscopes and their respective names as labels in the 3x4 grid.
 
@@ -812,6 +810,17 @@ After which, we'll need to remove the reset prompt at intial boot(appear only wh
 ```
 youwin.grid_forget()
 ```
+## **Creating the Functions Used**
+---
+### **Creating function to send images to the polarizer**
+---
+To send images in the game to the polariser:
+```
+
+```
+output
+<br>insert polarizer pic here
+<br>
 <br>
 
 ---
