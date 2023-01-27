@@ -1104,7 +1104,20 @@ def game(m):
 output
 <br>insert pic here
 <br>
-
+### **Creating function to navigate to luck page**
+---
+text
+```
+def luckappear(): 
+    guessframe.grid_forget()
+    focusframe.grid_forget()
+    mainframe.grid_forget()
+    drawingframe.grid_forget()
+    luckframe.grid(row=0, column=0)
+```
+output
+<br>insert pic here
+<br>
 ---
 
 <br>
@@ -1311,6 +1324,149 @@ colour = 0
 Canvas arrray:
 ```
 canvasdraw = [[0 for r in range(800)] for c in range(800)]
+```
+## **Creating the Functions Used**
+---
+### **Creating function for shades of grey selection and save button**
+This is to change the color value according to the selected shades of grey.
+```
+def choose_colour(m):
+    global colour
+    colour = m
+```
+This is to assign the individual squares' background colours and its values.
+```
+def colour_picker(r, c):
+  global colour
+  if colour == 0:
+      button[r][c].config(bg='grey99') 
+      value[r][c] = colour 
+  elif colour == 20:
+      button[r][c].config(bg='grey88')
+      value[r][c] = colour
+  elif colour == 30:
+      button[r][c].config(bg='grey77')
+      value[r][c] = colour
+  elif colour == 40:
+      button[r][c].config(bg='grey66')
+      value[r][c] = colour
+  elif colour == 50:
+      button[r][c].config(bg='grey44')
+      value[r][c] = colour
+  elif colour == 60:
+      button[r][c].config(bg='grey33')
+      value[r][c] = colour
+  elif colour == 70:
+      button[r][c].config(bg='grey11')
+      value[r][c] = colour
+  else:
+      button[r][c].config(bg='grey1') 
+      value[r][c] = colour
+```
+save button
+```
+def save_draw_colour(list): 
+  global value
+  for r in range(32):    
+    for c in range(32):
+      if list[r][c] == 0: 
+        button[c][r].config(bg='grey99')
+        value[c][r] = 0
+      elif list[r][c] == 20: 
+        button[c][r].config(bg='grey88')
+        value[c][r] = 20
+      elif list[r][c] == 30:
+        button[c][r].config(bg='grey77')
+        value[c][r] = 30
+      elif list[r][c] == 40: 
+        button[c][r].config(bg='grey66')
+        value[c][r] = 40
+      elif list[r][c] == 50:
+        button[c][r].config(bg='grey44')  
+        value[c][r] = 50
+      elif list[r][c] == 60: 
+        button[c][r].config(bg='grey33')
+        value[c][r] = 60
+      elif list[r][c] == 70:
+        button[c][r].config(bg='grey22')
+        value[c][r] = 70
+      else: 
+        button[c][r].config(bg='grey1')
+        value[c][r] = 90
+
+def savecanvas():  
+  global value, list4 
+  list3 = []  
+  list4 = []  
+  for r in range(0, 800, 25):
+    list3 = []   
+    for c in range(0 , 800, 25):
+      getnumber = f0(r, c)   
+      list3.append(getnumber) 
+    list4.append(list3)       
+  save_draw_colour(list4)
+  print(list4)
+
+def f0(x, y): 
+  global list0
+  list0 = []  
+  for r in range(x ,25+x):
+    for c in range(y ,25+y):
+      list0.append(canvasdraw[r][c])
+  freq = min(set(list0), key = list0.count)
+  return freq  
+```
+### **Creating function for addtitonal features and send button**
+all white button
+```
+def allwht():
+  for r in range (32):
+    for c in range (32):
+      button[r][c].config(bg='grey99')
+      value[r][c] = 0  #This is the angle of grey99
+  canvas.config(bg = 'white')
+  for r in range(800):
+    for c in range(800):
+      canvasdraw[r][c] = 0
+```
+all black button
+```
+def allblk():
+  for r in range (32):
+    for c in range (32):
+      button[r][c].config(bg='grey1')
+      value[r][c] = 90 #This is the angle of grey1
+  canvas.config(bg = 'black')
+  for r in range(800):
+    for c in range(800):
+      canvasdraw[r][c] = 90
+```
+clear button
+```
+def clearbtn():
+  allwht()
+  for r in range(800):
+    for c in range(800):
+      canvasdraw[r][c] = 0
+  canvas.delete('all')
+  print(canvasdraw)
+```
+send button
+```
+def sendbtn():
+  global value
+  print(value)
+  pubpic(value)
+```
+### **Creating function to navigate to Draw GUI**
+text
+```
+def drawappear(): 
+    guessframe.grid_forget()
+    focusframe.grid_forget()
+    luckframe.grid_forget()
+    mainframe.grid_forget()
+    drawingframe.grid(row=1, column=0)
 ```
 ---
 <br>
