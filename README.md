@@ -357,7 +357,6 @@ If you guessed a correct icon, you will move on to the next level, and you can c
 In order to beat the game, you have to guess the correct icon through 4 levels, with each level progressing with higher difficulty where lesser-known brands are displayed or where some brand icons are harder to distinguish. You only have one attempt.
 
 ![](Demo%20Pics/IconLastLv.png)
---> Change img, must show level 4 to indicate final level
 *Final level*
 
 <br>
