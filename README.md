@@ -24,6 +24,45 @@ Upon clicking on any of the buttons they will be directed to each respective gam
 
 <br>
 
+---
+
+# **System Diagram**
+
+## **Hardware**
+
+```mermaid
+graph TD
+A[Laptop] --> B[VNC Viewer]
+B --> A
+A --> C
+B --> D
+A --> C[MQTT]
+C --> D[Raspberry Pi]
+D --> E[Main Server]
+E --> F[ESP32]
+F --> G[Servo Motors]
+```
+
+<br>
+
+## **Software**
+
+```mermaid
+graph TD
+A[main.py] --> B[Main Page]
+B --> C[Guess the Horoscope]
+B --> D[What's Your Luck?]
+B --> E[ICONcentrate]
+B --> F[Express Yourself]
+C --> B
+D --> B
+E --> B
+F --> B
+```
+
+<br>
+
+
 # **Getting Started**
 
 ## **Hardware** 
