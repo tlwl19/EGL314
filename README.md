@@ -1255,6 +1255,8 @@ master.add(tabdraw,text="Draw")
 master.grid(row=0, column = 0)
 ```
 Creating the grid:
+
+We used a List of List and a nested for loop to create the 32x32 grid and its values.
 ```
 button = [[r for r in range(32)] for c in range(32)]
 value = [[0 for r in range(32)] for c in range(32)]
