@@ -1409,222 +1409,20 @@ youwin.grid_forget()
 
 <br>
 
+## **Creating What's Your Luck?**
 ---
 
 <br>
 
-# **What's Your Luck?**
+![](Demo%20Pics/Luck.png)
+*What's Your Luck? page*
 
 <br>
 
-## **Creating the Frames**
+### **Creating the Function Used**
+**What's Your Luck? Function:**
 <br>
 
-This will be the frame structure that we will be using for our "What's Your Luck?" game
-```
-guessframe = Frame(middleframe)
-```
-
-We will need to create the first frame, which is for the dropdown menus.
-
-```
-frame0 = Frame(luckframe)
-frame0.grid(row=1, columnspan=3)
-
-```
-
-Next, we will create the second frame, which is for the scissors, paper, stone game.
-
-```
-frame1 = Frame(luckframe)
-frame1.grid(row=4, column=0)
-```
-
-After which, we'll need to remove the game upon initial boot.
-
-```
-frame1.grid_forget()
-```
-
-Here, we set the title to 'What's Your Luck?'. You can change the title to your preference.
-
-```
-lucktitle = Label(luckframe, text="What's Your Luck?", font=('Arial', 30))
-lucktitle.grid(row=0, columnspan=4)
-```
-## **Creating the Calendar Dropdown Menu**
-<br>
-
-We will first need to create an array of the months in a year.
-
-```
-options = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-```
-
-We will then need to create an array of the number days in a month.
->We use a for loop to determine the number of days in a month. In this case, the variable `d` represents the number of days in a month. We set `d = 32` as in this `for` loop the `in range` function begins at 1, and will progressively increase in increments of 1 until it reaches 32, in which afterwards it will deduct 1 from the range of values, leaving us at 31 values, which is approximately the number of days in a month.
-
-```
-optionss = []
-d = 32
-for x in range (1, d):
-    optionss.append(x)
-```
-
-Datatype of menu text :
-
-```
-clicked = StringVar()
-clickeds = IntVar()
-
-who = date.today()
-whos = options[who.month-1]
-clicked.set(whos)  #this refers to month
-clickeds.set(who.day) #this refers to date
-```
-
-To create the dropdown menu for Month :
-
-```
-drop = OptionMenu(frame0, clicked , *options )
-drop.grid(row=1, column=0)
-drop.config(bg="#ffe4f2", fg="BLACK", activebackground="#e54ed0", activeforeground="WHITE", width=30)
-drop["menu"].config(bg="#e54ed0", fg="WHITE", activebackground="#ffe4f2", activeforeground="BLACK")
-```
-Output:
-
-![Alt text](luckbutton%20pics/month.png)
-
-*Dropdown Menu for Month*
-
-<br>
-
-To create the dropdown menu for Date :
-
-```
-drops = OptionMenu(frame0, clickeds , *optionss )
-drops.grid(row=1, column=1)
-drops.config(bg="#9f45b0", fg="WHITE", activebackground="#44008b", activeforeground="WHITE", width=30)
-drops["menu"].config(bg="#44008b", fg="WHITE", activebackground="#9f45b0", activeforeground="WHITE")
-```
-
-Output:
-
-![Alt text](luckbutton%20pics/date.png)
-
-*Dropdown Menu for Date*
-
-To create an enter button :
-```
-enterbtn= Button(frame0, text= "Enter", command=change_img,  bg="#00076f", fg="WHITE", width=30)
-enterbtn.grid(row=1, column=2)
-```
-
-Output:
-
-![Alt text](luckbutton%20pics/enter.png)
-
-*Enter Button*
-
-<br>
-
----
-
-## **Creating the instructions and the Scissors, Paper, Stone game**
-<br>
-
-### *Instructions*
-
-<br>
-
-We will need to create two label for two instructions :
-```
-title= Label (luckframe, text="How lucky are you today?", font=('100px'), bg='white', width=30)
-title.grid(row=2, columnspan=3)
-```
-```
-label= Label(luckframe, image='', text="Input your date of birth and click on the 'Enter' button.", font=('100px'), bg='white')
-label.grid(row=3, columnspan=3)
-```
-
-### *Scissors, Paper, Stone Game*
----
-
-We will need to create a prompt to notify users to play : 
-
-```
-label2 = Label(frame1, text = "", font='20px')
-label2.grid(row=0, columnspan=3)
-```
-After that, we will create each of the scissors, paper, and stone pictures on the GUI.
-
-```
-paths = os.path.abspath('scissors paper stone pics') +'\\scissors.png'
-file = paths.replace('\\','/')
-img1= ImageTk.PhotoImage(Image.open(file))
-
-paths = os.path.abspath('scissors paper stone pics') +'\\paper.png'
-file = paths.replace('\\','/')
-img2= ImageTk.PhotoImage(Image.open(file))
-
-paths = os.path.abspath('scissors paper stone pics') +'\\stone.png'
-file = paths.replace('\\','/')
-img3= ImageTk.PhotoImage(Image.open(file))
-```
-
-Scissors, Paper, Stone buttons for user to input their choice :
-```
-label3 = Button(frame1, image = img1, command=lambda m=1:game(m))
-label3.grid(row=1, column=0)
-
-label4 = Button(frame1, image = img2, command=lambda m=2:game(m))
-label4.grid(row=1, column=1)
-
-label5 = Button(frame1, image = img3, command=lambda m=3:game(m))
-label5.grid(row=1, column=2)
-```
-Output:
-
-![Alt text](luckbutton%20pics/sps.png)
-
-*Scissors, Paper, Stone Selection Buttons*
-
-<br>
-
-Next, we will create a preview of what the user has chosen :
-
-<br>
-
-Text :
-```
-previewtitle = Label(luckframe, text="", font=('Arial', 15))
-previewtitle.grid(row=2, column=3)
-```
-We will need to remove the preview tile from the initial boot.
-```
-previewtitle.grid_forget()
-```
-Image :
-```
-imageLabel = Label(luckframe, bg = 'white', width = 30, height = 15)
-imageLabel.grid(rowspan=2, column=3)
-```
-We will need to remove the preview image from the initial boot.
-```
-imageLabel.grid_forget()
-```
-Lastly, we will need to bind the change_img function to main.
-```
-main.bind("<Return>", change_img) 
-```
-<br>
-
-## **Creating the Functions Used**
-
-<br>
-
-### **Creating the function to send images to the polariser**
----
 To send images in the game to the polariser :
 ```
 def show_Image_luck(choice2):
@@ -1638,10 +1436,11 @@ def show_Image_luck(choice2):
     cartoon.pixelised(path = lucky)
     myImage = Image.open("cartoon.png")
 ```
+
 <br>
 
-### **Creating functions to change the images**
----
+To change the images:
+
 To generate random luck percentage and to check for valid DoB input :
 ```
 def change_img(): 
@@ -1693,8 +1492,8 @@ def change_img():
 
 <br>
 
-### **Creating functions to preview users' choice on GUI**
----
+To preview users' choice on GUI
+
 To show the choice the player has made :
 ```
 def preview_Image(choice): #for game preview at the side
@@ -1714,6 +1513,8 @@ def preview_Image(choice): #for game preview at the side
     previewtitle.config(text="You have chosen " + choice)
 ```
 
+<br>
+
 Output:
 
 ![Alt text](luckbutton%20pics/choice.png)
@@ -1722,8 +1523,8 @@ Output:
 
 <br>
 
-### **Creating the function used to send random images to the polariser**
----
+Send random images to the polariser
+
 To send the choice the game has made to the polariser :
 ```
 def game(m):
@@ -1738,10 +1539,9 @@ def game(m):
     show_Image_luck(o) #send to polariser
     preview_Image(m)
 ```
+
 <br>
 
-### **Creating the function to navigate to luck page**
----
 To navigate to luck page :
 ```
 def luckappear(): 
@@ -1752,25 +1552,252 @@ def luckappear():
     luckframe.grid(row=0, column=0)
 ```
 
----
+### **Creating the Layout**
+**What's Your Luck Frame:**
+
+This will be the frame structure we will be using for our "What;s Your Luck?" game.
+```
+luckframe = Frame(middleframe)
+```
 
 <br>
 
-# **Test Your Concentration**
+We will need to create the first frame, which is for the dropdown menus.
+```
+frame0 = Frame(luckframe)
+frame0.grid(row=1, columnspan=3)
+```
 
-**Test Your Concentration** is a game where it challenges the users' ability to focus and select the correct answer within the given time limit. The game is called 'ICONcentrate', in which it has 4 stages, with the difficulty increasing each round. The program will randomly generate icons for each round, prompting the player to guess the correct icon shown on the polariser panel.
+<br>
+
+Next, we will create the second frame, which is for the scissors, paper, stone game.
+```
+frame1 = Frame(luckframe)
+frame1.grid(row=4, column=0)
+```
+
+<br>
+
+After which, we'll need to remove the game upon initial boot.
+```
+frame1.grid_forget()
+```
+
+<br>
+
+Here, we set the title to 'What's Your Luck?'. You can change the title to your preference.
+```
+lucktitle = Label(luckframe, text="What's Your Luck?", font=('Arial', 30))
+lucktitle.grid(row=0, columnspan=4)
+```
+
+<br>
+
+Creating the Calendar Dropdown Menu:
+
+We will first need to create an array of the months in a year.
+```
+options = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+```
+
+<br>
+
+We will then need to create an array of the number days in a month.
+>We use a for loop to determine the number of days in a month. In this case, the variable `d` represents the number of days in a month. We set `d = 32` as in this `for` loop the `in range` function begins at 1, and will progressively increase in increments of 1 until it reaches 32, in which afterwards it will deduct 1 from the range of values, leaving us at 31 values, which is approximately the number of days in a month.
+```
+optionss = []
+d = 32
+for x in range (1, d):
+    optionss.append(x)
+```
+
+<br>
+
+Datatype of menu text :
+```
+clicked = StringVar()
+clickeds = IntVar()
+
+who = date.today()
+whos = options[who.month-1]
+clicked.set(whos)  #this refers to month
+clickeds.set(who.day) #this refers to date
+```
+
+<br>
+
+To create the dropdown menu for Month :
+```
+drop = OptionMenu(frame0, clicked , *options )
+drop.grid(row=1, column=0)
+drop.config(bg="#ffe4f2", fg="BLACK", activebackground="#e54ed0", activeforeground="WHITE", width=30)
+drop["menu"].config(bg="#e54ed0", fg="WHITE", activebackground="#ffe4f2", activeforeground="BLACK")
+```
+
+<br>
+
+Output:
+
+![Alt text](luckbutton%20pics/month.png)
+
+*Dropdown Menu for Month*
+
+<br>
+
+To create the dropdown menu for Date:
+```
+drops = OptionMenu(frame0, clickeds , *optionss )
+drops.grid(row=1, column=1)
+drops.config(bg="#9f45b0", fg="WHITE", activebackground="#44008b", activeforeground="WHITE", width=30)
+drops["menu"].config(bg="#44008b", fg="WHITE", activebackground="#9f45b0", activeforeground="WHITE")
+```
+
+<br>
+
+Output:
+
+![Alt text](luckbutton%20pics/date.png)
+
+*Dropdown Menu for Date*
+
+<br>
+
+To create an enter button :
+```
+enterbtn= Button(frame0, text= "Enter", command=change_img,  bg="#00076f", fg="WHITE", width=30)
+enterbtn.grid(row=1, column=2)
+```
+
+<br>
+
+Output:
+
+![Alt text](luckbutton%20pics/enter.png)
+
+*Enter Button*
+
+<br>
+Creating the instructions and the Scissors, Paper, Stone game:
+
+<br>
+
+We will need to create two label for two instructions :
+```
+title= Label (luckframe, text="How lucky are you today?", font=('100px'), bg='white', width=30)
+title.grid(row=2, columnspan=3)
+```
+
+```
+label= Label(luckframe, image='', text="Input your date of birth and click on the 'Enter' button.", font=('100px'), bg='white')
+label.grid(row=3, columnspan=3)
+```
+
+<br>
+
+We will need to create a prompt to notify users to play scissors, paper, stone: 
+```
+label2 = Label(frame1, text = "", font='20px')
+label2.grid(row=0, columnspan=3)
+```
+
+<br>
+
+After that, we will create each of the scissors, paper, and stone pictures on the GUI.
+```
+paths = os.path.abspath('scissors paper stone pics') +'\\scissors.png'
+file = paths.replace('\\','/')
+img1= ImageTk.PhotoImage(Image.open(file))
+
+paths = os.path.abspath('scissors paper stone pics') +'\\paper.png'
+file = paths.replace('\\','/')
+img2= ImageTk.PhotoImage(Image.open(file))
+
+paths = os.path.abspath('scissors paper stone pics') +'\\stone.png'
+file = paths.replace('\\','/')
+img3= ImageTk.PhotoImage(Image.open(file))
+```
+
+<br>
+
+Scissors, Paper, Stone buttons for user to input their choice :
+```
+label3 = Button(frame1, image = img1, command=lambda m=1:game(m))
+label3.grid(row=1, column=0)
+
+label4 = Button(frame1, image = img2, command=lambda m=2:game(m))
+label4.grid(row=1, column=1)
+
+label5 = Button(frame1, image = img3, command=lambda m=3:game(m))
+label5.grid(row=1, column=2)
+```
+
+<br>
+
+Output:
+
+![Alt text](luckbutton%20pics/sps.png)
+
+*Scissors, Paper, Stone Selection Buttons*
+
+<br>
+
+Next, we will create a preview of what the user has chosen :
+
+Preview Text 
+```
+previewtitle = Label(luckframe, text="", font=('Arial', 15))
+previewtitle.grid(row=2, column=3)
+```
+
+<br>
+
+We will need to remove the preview tile from the initial boot.
+```
+previewtitle.grid_forget()
+```
+
+<br>
+
+Preview Image :
+```
+imageLabel = Label(luckframe, bg = 'white', width = 30, height = 15)
+imageLabel.grid(rowspan=2, column=3)
+```
+
+<br>
+
+We will need to remove the preview image from the initial boot.
+```
+imageLabel.grid_forget()
+```
+
+<br>
+
+Lastly, we will need to bind the change_img function to main.
+```
+main.bind("<Return>", change_img) 
+```
+
+<br>
+
+## **Creating Test Your Concentration**
+---
 
 <br>
 
 ![](markdown%20imgs/iconSS.png)
-
 *Test Your Concentration GUI*
 
 <br>
 
----
-
+### **Creating the Functions Used**
+**Test Your Concentration Function:**
 <br>
+
+
+
+
+
 
 ## **Creating the Frames**
 <br>
