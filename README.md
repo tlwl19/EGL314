@@ -24,8 +24,6 @@ Upon clicking on any of the buttons they will be directed to each respective gam
 
 <br>
 
----
-
 # **System Diagram**
 
 ## **Hardware**
@@ -62,8 +60,9 @@ F --> B
 ```
 *Software Flow Chart*
 
-## **Guess the Horoscope**
+<br>
 
+## **Guess the Horoscope**
 ```mermaid
 graph TD
 
@@ -82,6 +81,8 @@ J --> B
 ```
 *Guess the Horoscope Flow Chart*
 
+<br>
+
 ## **What's your Luck?**
 ```mermaid
 graph TD
@@ -96,6 +97,8 @@ F --> G[Preview Image]
 
 ```
 *What's the Luck Flow Chart*
+
+<br>
 
 ## **ICONcentrate**
 
@@ -117,6 +120,8 @@ J --> H
 K --> H
 ```
 *ICONcentrate Flow Chart*
+
+<br>
 
 ## **Express Yourself**
 ```mermaid
@@ -150,7 +155,6 @@ K --> I
 *Express Yourself Flow Chart*
 
 <br>
-
 
 # **Getting Started**
 
@@ -186,23 +190,71 @@ The other libraries needed should already be installed within Python.
 
 <br>
 
-### **GUI Setup**
+### **Import libraries**
 
-Firstly, we will need to import all of the necessary libraries for this project.
-
+Firstly, we will need to import all of the necessary libraries to `main.py`. These are the libraries that we used throughout the 4 games.
 ```
 from tkinter import *
-import os 
-from PIL import Image, ImageTk, ImageOps
-import cartoon
+from tkinter.font import Font
+import os
 import random
-from datetime import *
+from PIL import Image, ImageTk, ImageOps
 from datetime import datetime
 from tkinter import messagebox, simpledialog
-from tkinter.font import Font
 from tkinter import ttk
+import cartoon
 from student_pub import *
 ```
+
+<br>
+
+#### **Import libraries for Guess the Horoscope**
+These are the libraries that we need to import in order to run `guess.py`
+```
+from tkinter import *
+import random
+import os 
+from PIL import Image, ImageTk, ImageOps
+from PIL import ImageDraw
+import cartoon
+```
+
+<br>
+
+#### **Import libraries for What's Your Luck?**
+These are the libraries that we need to import in order to run `luck.py`
+```
+from tkinter import *
+import random
+import os 
+from datetime import *
+from PIL import Image, ImageTk, ImageOps
+import cartoon
+```
+
+<br>
+
+#### **Import libraries for ICONcentrate**
+These are the libraries that we need to import in order to run `focus.py`
+```
+from tkinter import *
+import random
+from datetime import datetime
+from PIL import Image, ImageTk
+from tkinter import messagebox, simpledialog
+import cartoon
+```
+
+<br>
+
+#### **Import libraries for Express Yourself**
+These are the libraries that we need to import in order to run `draw.py`
+```
+from tkinter import *
+from tkinter import ttk
+import cartoon
+```
+
 <br>
 
 Next, we will need to create a main GUI window. Here, we changed the title to 'Mental Wellness'. You can change the title to your preference.
@@ -286,6 +338,7 @@ Next, click on the Guess button to generate a random Horoscope on the polariser 
 <br>
 
 The polariser board will generate a random horoscope image. You have to guess the horoscope that is shown on the polariser.
+
 ![Alt text](polariser%20pics/cancer.jpg)
 *Image has been sent over to the polariser*
 
@@ -326,7 +379,7 @@ Likewise, if you acheive a score of 4, the grid will turn white, 'YOU WIN' will 
 
 <br>
 
-You can click on the Reset Game button to start over
+You can click on the Reset Game button to start over.
 
 ![](Demo%20Pics/HoroReset.png)
 *Reset game*
@@ -336,7 +389,6 @@ You can click on the Reset Game button to start over
 You can click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the home page. Or you can click on the bottom navigation button to play other games.
 
 ![](Demo%20Pics/HoroBack.png)
-
 *Navigate to home or other games page*
 
 <br>
@@ -388,7 +440,8 @@ The luck percentages are as follows:
 
 <br>
 
-If the polariser displays genie lamp, you can try again by entering another date of birth.
+If the polariser displays genie lamp, it means your luck is either 0% or 25%. You can choose to try again by entering another date of birth.
+
 ![Alt text](polariser%20pics/genie.jpg)
 *Genie lamp shown on polariser*
 
@@ -399,6 +452,7 @@ However, if the polariser displays 75% or 99% luck, the game will prompt you to 
 ![](Demo%20Pics/Luck75Pol.png)
 *75% luck or higher*
 
+<br>
 
 ![](Demo%20Pics/LuckGame.png)
 *Play rock, paper, scissors*
@@ -413,9 +467,8 @@ Once you have select either rock, paper or scissors, it will be displayed on the
 <br>
 
 The game will generate rock, paper or scissors on the polariser. That will determine if you win or lose.
+
 ![Alt text](polariser%20pics/paper.jpg)
-
-
 *Either rock, paper or scissors will be shown on the polariser*
 
 <br>
@@ -473,9 +526,7 @@ To start the game, press the start button on the right to begin.
 
 Once the game has begun, a random brand icon will be displayed on the polariser board. 
 
-
 ![Alt text](polariser%20pics/idk.jpg)
-
 *Random image icon is generated and send to polariser*
 
 <br>
@@ -490,13 +541,11 @@ You will have 20 seconds to guess the icon from the selection of choices below.
 Once 20 seconds has passed, the game will end.
 
 ![](Demo%20Pics/IconGameOver.png)
-<br>
-
 *Time's Up*
 
 <br>
 
-If you guessed the wrong icon, a message box will appear to notify you that you have guessed the wrong brand and the game will end
+If you guessed the wrong icon, a message box will appear to notify you that you have guessed the wrong brand and the game will end.
 
 ![](Demo%20Pics/IconWrong.png)         
 *Game ended once you guessed wrongly*
@@ -524,11 +573,10 @@ Once you have beaten all 4 levels, you will be prompted to enter your name
 *Enter your name*
 
 <br>
+
 Once you have entered your name, a messaage box with your name will appear to notify you that you have beaten the game and the time taken to beat the game.
 
 ![](Demo%20Pics/IconWin.png)
-<br>
-
 *Total time taken to complete the game*
 
 <br>
@@ -623,12 +671,11 @@ And voilà! You have successfully converted your drawing into a pixelised form.
 You can send your pixelised drawing to the polariser by clicking on the 'Send Image' button and it will display your pixelised drawing.
 
 ![](Demo%20Pics/DrawConvertGridSend.png)
-<br>
-
 *Click on 'Send Image' to see pixelised form on the polariser*
 
-![Alt text](polariser%20pics/draw.jpg)
+<br>
 
+![Alt text](polariser%20pics/draw.jpg)
 *Final outcome on the polariser*
 
 <br>
@@ -659,9 +706,10 @@ Click on the 'All White' button to turn the entire grid and canvas to white.
 2. All Black
 <br>
 
-Turns the entire grid and canvas to black. This can be extremely helpful if you want to draw with lighter shades such as white colour to Grey 3
+Turns the entire grid and canvas to black. This can be extremely helpful if you want to draw with lighter shades such as white colour to Grey 3.
 
 <br>
+
 Click on the 'All Black' button to turn the entire grid and canvas to black.
 
 ![](Demo%20Pics/DrawAllBlack.png)
