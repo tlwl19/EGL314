@@ -1224,12 +1224,12 @@ python3 main.py
 
 <br>
 
-<font size = "3">Output</font>
+<font size = "3">Output:</font>
 
 <br>
 
-![](images/sendimage_outcome.png)
-*The values printed are based on the sequence pattern.*
+![](Demo%20Pics/Main%20Page.png)
+*Output*
 
 
 
