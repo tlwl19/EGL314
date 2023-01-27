@@ -745,6 +745,9 @@ If you want to clear your canvas or grid, you can press the clear button.
 
 ## **Overall frame structure**
 
+![](markdown%20imgs/frameimg.png)
+*Frame structure*
+
 <br>
 
 Header frame:
