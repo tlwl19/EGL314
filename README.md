@@ -60,6 +60,86 @@ E --> B
 F --> B
 ```
 
+## **Guess the Horoscope**
+
+```mermaid
+graph TD
+
+A[Guess the Horoscope] --> B[START GAME]
+B --> C[GUESS]
+C --> D[Polariser Horoscope]
+C --> E[horoscopeBtn]
+E --> C
+E --> F[4 pts]
+F --> G[Win Game]
+E --> H[-3 pts]
+H --> I[Lose Game]
+G --> J[Reset Btn]
+I --> J
+J --> B
+```
+## **What's your Luck?**
+```mermaid
+graph TD
+
+A[What's Your Luck?] --> B[Birth Month]
+B --> C[Birth Day]
+C --> D[Enter]
+D --> E[Polariser Luck]
+D --> F[Scissors, Paper, Stone]
+F --> E
+F --> G[Preview Image]
+
+```
+
+## **ICONcentrate**
+
+```mermaid
+graph TD
+A[ICONcentrate] --> B[Instructions]
+A --> C[Start]
+C --> D[Polariser Focus]
+D --> K[Time Up]
+D --> E[Answer Buttons]
+E --> F[Correct]
+F --> C
+E --> G[Wrong]
+G --> H[Game End]
+H --> C
+F --> I[Corrext x4]
+I --> J[Enter Name]
+J --> H
+K --> H
+```
+## **Express Yourself**
+```mermaid
+graph TD
+A[Express Yourself] --> B[Select Colour]
+B --> C[32 x 32 Grid]
+A --> D[All White]
+A --> E[All Black]
+C --> F[Save]
+D --> F
+E --> F
+C --> G[Clear]
+D --> G
+E --> G
+G --> B
+G --> D
+G --> E
+A --> H[Grid Mode]
+H --> B
+A --> I[Canvas Mode]
+I --> B
+B --> J[Canvas]
+I --> D
+I --> E
+J --> F
+F --> K[Send Img]
+K --> L[Draw Polariser]
+K --> H
+K --> I
+```
 <br>
 
 
