@@ -616,7 +616,7 @@ def luckappear():
 luckframe = Frame(middleframe)
 
 # Dropdown menu options
-options = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+options = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 optionss = []
 d = 32
 for x in range (1, d):

@@ -1181,8 +1181,7 @@ output
 <br>
 
 ## **Creating the Frames**
-
-Overall frame
+<br>
 
 This will be the frame structure that we will be using for our "What's Your Luck?" game
 ```
@@ -1202,10 +1201,9 @@ Next, we will create the second frame, which is for the scissors, paper, stone g
 ```
 frame1 = Frame(luckframe)
 frame1.grid(row=4, column=0)
-
 ```
 
-After which, we'll need to remove the game upon intial boot(appear only when triggered)
+After which, we'll need to remove the game upon initial boot.
 
 ```
 frame1.grid_forget()
@@ -1223,11 +1221,12 @@ lucktitle.grid(row=0, columnspan=4)
 We will first need to create an array of the months in a year.
 
 ```
-options = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+options = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 ```
 
 We will then need to create an array of the number days in a month.
 >We use a for loop to determine the number of days in a month. In this case, the variable `d` represents the number of days in a month. We set `d = 32` as in this `for` loop the `in range` function begins at 1, and will progressively increase in increments of 1 until it reaches 32, in which afterwards it will deduct 1 from the range of values, leaving us at 31 values, which is approximately the number of days in a month.
+
 ```
 optionss = []
 d = 32
@@ -1235,7 +1234,7 @@ for x in range (1, d):
     optionss.append(x)
 ```
 
-Datatype of menu text (check website)
+Datatype of menu text :
 
 ```
 clicked = StringVar()
@@ -1247,7 +1246,7 @@ clicked.set(whos)  #this refers to month
 clickeds.set(who.day) #this refers to date
 ```
 
-To create the dropdown menu for Month:
+To create the dropdown menu for Month :
 
 ```
 drop = OptionMenu(frame0, clicked , *options )
@@ -1255,8 +1254,15 @@ drop.grid(row=1, column=0)
 drop.config(bg="#ffe4f2", fg="BLACK", activebackground="#e54ed0", activeforeground="WHITE", width=30)
 drop["menu"].config(bg="#e54ed0", fg="WHITE", activebackground="#ffe4f2", activeforeground="BLACK")
 ```
+Output:
 
-To create the dropdown menu for Date:
+![Alt text](luckbutton%20pics/month.png)
+
+*Dropdown Menu for Month*
+
+<br>
+
+To create the dropdown menu for Date :
 
 ```
 drops = OptionMenu(frame0, clickeds , *optionss )
@@ -1265,18 +1271,36 @@ drops.config(bg="#9f45b0", fg="WHITE", activebackground="#44008b", activeforegro
 drops["menu"].config(bg="#44008b", fg="WHITE", activebackground="#9f45b0", activeforeground="WHITE")
 ```
 
-To create an enter button:
+Output:
+
+![Alt text](luckbutton%20pics/date.png)
+
+*Dropdown Menu for Date*
+
+To create an enter button :
 ```
 enterbtn= Button(frame0, text= "Enter", command=change_img,  bg="#00076f", fg="WHITE", width=30)
 enterbtn.grid(row=1, column=2)
 ```
-## **Creating instructions and scissors, paper, stone game**
+
+Output:
+
+![Alt text](luckbutton%20pics/enter.png)
+
+*Enter Button*
+
+<br>
+
+---
+
+## **Creating the instructions and the Scissors, Paper, Stone game**
 <br>
 
 ### *Instructions*
----
 
-We will need to create two label for two instructions:
+<br>
+
+We will need to create two label for two instructions :
 ```
 title= Label (luckframe, text="How lucky are you today?", font=('100px'), bg='white', width=30)
 title.grid(row=2, columnspan=3)
@@ -1289,13 +1313,13 @@ label.grid(row=3, columnspan=3)
 ### *Scissors, Paper, Stone Game*
 ---
 
-We will need to create a prompt to notify users to play: 
+We will need to create a prompt to notify users to play : 
 
 ```
 label2 = Label(frame1, text = "", font='20px')
 label2.grid(row=0, columnspan=3)
 ```
-After that, we will create each of the scissors, paper, stone picture on the GUI.
+After that, we will create each of the scissors, paper, and stone pictures on the GUI.
 
 ```
 paths = os.path.abspath('scissors paper stone pics') +'\\scissors.png'
@@ -1311,7 +1335,7 @@ file = paths.replace('\\','/')
 img3= ImageTk.PhotoImage(Image.open(file))
 ```
 
-Scissors, paper, stonoe button for user to input their choice
+Scissors, Paper, Stone buttons for user to input their choice :
 ```
 label3 = Button(frame1, image = img1, command=lambda m=1:game(m))
 label3.grid(row=1, column=0)
@@ -1322,36 +1346,49 @@ label4.grid(row=1, column=1)
 label5 = Button(frame1, image = img3, command=lambda m=3:game(m))
 label5.grid(row=1, column=2)
 ```
+Output:
 
-Next, We will create the preview of what the user has chosen:
+![Alt text](luckbutton%20pics/sps.png)
 
-Text:
+*Scissors, Paper, Stone Selection Buttons*
+
+<br>
+
+Next, we will create a preview of what the user has chosen :
+
+<br>
+
+Text :
 ```
 previewtitle = Label(luckframe, text="", font=('Arial', 15))
 previewtitle.grid(row=2, column=3)
 ```
-We will need to remove the preview tile from the inital boot(appear when triggered)
+We will need to remove the preview tile from the initial boot.
 ```
 previewtitle.grid_forget()
 ```
-Image:
+Image :
 ```
 imageLabel = Label(luckframe, bg = 'white', width = 30, height = 15)
 imageLabel.grid(rowspan=2, column=3)
 ```
-We will need to remove the preview image from the inital boot (appear when triggered)
+We will need to remove the preview image from the initial boot.
 ```
 imageLabel.grid_forget()
 ```
-Lastly, we will need to bind the change_img function to main:(link in gp chat, i forgor whats this for)
+Lastly, we will need to bind the change_img function to main.
 ```
 main.bind("<Return>", change_img) 
 ```
+<br>
+
 ## **Creating the Functions Used**
+
+<br>
+
+### **Creating the function to send images to the polarizer**
 ---
-### **Creating function to send images to the polarizer**
----
-To send images in the game to the polariser:
+To send images in the game to the polariser :
 ```
 def show_Image_luck(choice2):
 
@@ -1364,12 +1401,11 @@ def show_Image_luck(choice2):
     cartoon.pixelised(path = lucky)
     myImage = Image.open("cartoon.png")
 ```
-output
-<br>insert polarizer pic here
 <br>
+
 ### **Creating functions to change the images**
 ---
-To generate random luck percentage:
+To generate random luck percentage and to check for valid DoB input :
 ```
 def change_img(): 
     for i in range(len(options)) : #check if is a valid DOB
@@ -1417,12 +1453,12 @@ def change_img():
     else:
         label.config(text = "Please input a valid DoB", image='', font=('50px'))
 ```
-output 
-<br>insert pic here
+
 <br>
-### **Creating function to preview users' choice on GUI**
+
+### **Creating functions to preview users' choice on GUI**
 ---
-To show what choice the player has made:
+To show the choice the player has made :
 ```
 def preview_Image(choice): #for game preview at the side
     global imageLabel
@@ -1440,12 +1476,18 @@ def preview_Image(choice): #for game preview at the side
     imageLabel.config(image = loadImage, width = 250, height = 250)
     previewtitle.config(text="You have chosen " + choice)
 ```
-output
-<br>insert pic here
+
+Output:
+
+![Alt text](luckbutton%20pics/choice.png)
+
+*Preview of user's selection*
+
 <br>
-### **Creating function to send random images to the polarizer**
+
+### **Creating the function used to send random images to the polarizer**
 ---
-To send the choice the game has made to the polariser:
+To send the choice the game has made to the polariser :
 ```
 def game(m):
     frame1.grid_forget()  
@@ -1459,12 +1501,11 @@ def game(m):
     show_Image_luck(o) #send to polariser
     preview_Image(m)
 ```
-output
-<br>insert pic here
 <br>
-### **Creating function to navigate to luck page**
+
+### **Creating the function to navigate to luck page**
 ---
-text
+To navigate to luck page :
 ```
 def luckappear(): 
     guessframe.grid_forget()
@@ -1485,6 +1526,7 @@ def luckappear():
 <br>
 
 ![](markdown%20imgs/iconSS.png)
+
 *Test Your Concentration GUI*
 
 <br>
@@ -1496,18 +1538,16 @@ def luckappear():
 ## **Creating the Frames**
 <br>
 
-Create the frame first
-
-This will be the frame structure we will be using for the ICONcentrate game
+This will be the frame structure we will be using for the ICONcentrate game :
 ```
 focusframe = Frame(middleframe)
 ```
-focus frame 
+The main focus frame :
 ```
 midframe = Frame(focusframe)
 midframe.grid(row=2, columnspan=6)
 ```
-button frame
+The buttons frame :
 ```
 frameone = Frame(focusframe)
 frameone.grid(row=3, column=0)
@@ -1527,29 +1567,59 @@ instrubtn = Button(focusframe, text='Instructions', font=('Arial', 15), bg = '#b
 instrubtn.grid(row=1, column=0)
 ```
 
-Before creating the buttons, create these variables
+Output:
+
+![Alt text](focusbutton%20pics/instructions.png)
+
+*Instructions Button and Message Box*
+
+<br>
+
+Before creating the buttons, we will have to create these variables :
 
 ```
 numberxlist = [] #Array for answers list
 Lno = 0 #level number
 storetime = 0 #time
 ```
-level button
+Level :
 ```
 level = Label(midframe, text='Level '+ str(Lno), font=('Arial', 15))
 level.grid(row=2, column=0)
 ```
-timer
+
+Output:
+
+![Alt text](focusbutton%20pics/level.png)
+
+*Level Label*
+
+Timer :
 ```
 timer = Label(midframe, text='Welcome', font=('Arial', 15))
 timer.grid(row=2, column=1, padx=100)
 ```
-start button
+
+Output:
+
+![Alt text](focusbutton%20pics/timer.png)
+
+*Timer Label*
+
+Start Button :
 ```
 start = Button(midframe, text='Start', font=('Arial', 15), command=lambda:Start(timer))
 start.grid(row=2, column=2, ipadx=30)
 ```
-answer button
+
+Output:
+
+![Alt text](focusbutton%20pics/startbtn.png)
+
+*Start Button*
+
+Selection Buttons :
+
 ```
 icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
 btn = [i for i in range(len(icons))] 
@@ -1558,11 +1628,22 @@ for i in range (0, 6):
     btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m), wraplength=130) #so that texaschicken text can fully show on the button
     btn[i].grid(row=0, column=i)
 ```
+
+Output:
+
+![Alt text](focusbutton%20pics/game.png)
+
+*Selection Buttons*
+
+<br>
+
 ## **Creating the Functions Used**
+
+<br>
+
+### **Creating the function to send images to the polarizer**
 ---
-### **Creating function to send images to the polarizer**
----
-To send images in the game to the polariser:
+To send images in the game to the polariser :
 ```
 def show_Image_focus(choice3):
     global icons
@@ -1571,19 +1652,33 @@ def show_Image_focus(choice3):
     cartoon.pixelised(path = path2)
     myImage = Image.open("cartoon.png")
 ```
-output
-<br>insert polarizer pic here
 <br>
-### **Creating instructions prompt**
-text
+
+### **Creating Instructions Message Box**
+
+<br>
+
+We will have to create a message box for the user to read the instructions and understand how the game works.
+
 ```
 def getinstruction():
     messagebox.showinfo("Instructions", "1. Click on the 'START' button to begin.\n2. Click on the correct button corresponding to the image shown on the polariser.\n3. You will proceed on to the next level if you select the correct answer.\n4. The game will reset if you select the incorrect answer.")
 ```
+
+Output:
+
+![Alt text](focusbutton%20pics/instructions.png)
+
+*Message Box for instructions*
+
 <br>
 
 ### **Creating Focus Game**
-Timer button
+
+<br>
+
+To create the Timer Button :
+
 ```
 def Start(label):
     global running, Lno
@@ -1595,7 +1690,8 @@ def Start(label):
     click()
 ```
 
-Make sure the label follows the timer, and to make sure it stops once it reaches 20 seconds
+To make sure the label follows the timer, and to make sure it stops once it reaches 20 seconds :
+
 ```
 def counter_label(label):
     def count():
@@ -1623,7 +1719,8 @@ def counter_label(label):
     count()
 ```
 
-Generate a random icon
+Randomly generate an icon without duplicates :
+
 ```
 def click():
     global numberxlist
@@ -1639,7 +1736,9 @@ def click():
         print(numberxlist[0])
     show_Image_focus(numberx)
 ```
-Answer button
+
+To create the Selection Buttons :
+
 ```
 def Stop(m):
     global running, numberxlist, Lno, counter, storetime, display
@@ -1667,7 +1766,8 @@ def Stop(m):
         print('wrong')
 ```
 
-Set icons for each level
+Set icons for each level :
+
 ```
 def Reset(label):
     global counter, Lno, icons, storetime
@@ -1696,14 +1796,29 @@ def Reset(label):
                 btn[i]['text']=icons[i]
 ```
 
-For user to enter their name at the end of the game
+Sample Output:
+
+![Alt text](focusbutton%20pics/level2.png)
+
+*Selection Buttons for other levels*
+
+For user to enter their name at the end of the game :
+
 ```
 def getname():
     name = simpledialog.askstring("Test", "What's your Name?:")
     return name
 ```
 
-Display the name player has entered
+Output:
+
+![Alt text](Demo%20Pics/IconName.png)
+
+*Message Box to prompt user to type their name*
+
+
+Creating a message box to display the name player has entered and after the player has won the game :
+
 ```
 def correctbox():
     global storetime
@@ -1711,20 +1826,45 @@ def correctbox():
     messagebox.showinfo("Congrats {}".format(name)+" !","You're 100% focus! You've completed in {} s".format(storetime)+" !")
 ```
 
-Message to display if player chooses wrong answer
+Output:
+
+![Alt text](Demo%20Pics/IconWin.png)
+
+*Message Box after winning*
+
+
+Creating a message box to display if player selects the wrong answer :
+
 ```
 def wrongbox():
     messagebox.showinfo("Try Again!", "You need to improve on your focus!")
 ```
 
-Message to display when time runs out
+Output:
+
+![Alt text](focusbutton%20pics/tryagain.png)
+
+Creating a message box to display when time runs out :
+
 ```
 def timeup():
     messagebox.showinfo("TIMES UP!!", "TIMESS UPP!!, You need to improve on your concentration")
 ```
 
-### **Creating function to navigate to Focus GUI**
-To navigate to ICONcentrate page
+Output:
+
+![Alt text](focusbutton%20pics/timesup.png)
+
+*Message Box after time is up*
+
+<br>
+
+### **Creating the function to navigate to Focus GUI**
+
+<br> 
+
+To navigate to ICONcentrate page :
+
 ```
 def focusappear():
     luckframe.grid_forget()
@@ -1739,6 +1879,7 @@ def focusappear():
 # **Express Yourself**
 
 ![](Demo%20Pics/Draw.png)
+
 *Express Yourself GUI*
 
 ---
