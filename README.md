@@ -24,6 +24,45 @@ Upon clicking on any of the buttons they will be directed to each respective gam
 
 <br>
 
+---
+
+# **System Diagram**
+
+## **Hardware**
+
+```mermaid
+graph TD
+A[Laptop] --> B[VNC Viewer]
+B --> A
+A --> C
+B --> D
+A --> C[MQTT]
+C --> D[Raspberry Pi]
+D --> E[Main Server]
+E --> F[ESP32]
+F --> G[Servo Motors]
+```
+
+<br>
+
+## **Software**
+
+```mermaid
+graph TD
+A[main.py] --> B[Main Page]
+B --> C[Guess the Horoscope]
+B --> D[What's Your Luck?]
+B --> E[ICONcentrate]
+B --> F[Express Yourself]
+C --> B
+D --> B
+E --> B
+F --> B
+```
+
+<br>
+
+
 # **Getting Started**
 
 ## **Hardware** 
@@ -858,9 +897,9 @@ def startgame():
     #score = 0
     prevent = []
     prevent2 = 0
-    if number == 15: # before starting the game
+    if number == 15:
         score = 0
-        btn0.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) #Show blue colour
+        btn0.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
         btn1.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
         btn2.config(bg='#b0c8ed', fg="white", image='', width=10, height=5)
         btn3.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
@@ -872,8 +911,8 @@ def startgame():
         btn9.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
         btn10.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
         btn11.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        scoreresults.config(text=str(score),font=('Arial',20))  #It will show 0 when press "Start game"
-        number = 12 #to signal that user has pressed the start game btn n to ensure that when user click on the 3x4 grids bef guess btn, it will show press guess btn
+        scoreresults.config(text=str(score),font=('Arial',20))  
+        number = 12
         youwin.grid_forget()
         lbl0.grid_forget()
         lbl1.grid_forget()
@@ -897,7 +936,7 @@ def restartgame():
     global score, prevent, number, prevent2
     prevent = []
     prevent2 = 0
-    if number == 13 or number == 14: #restart
+    if number == 13 or number == 14: 
         for i in range(0, 12):
             paths = "horo/" + str(i) + ".png"
             myImages = Image.open(paths)
@@ -941,7 +980,7 @@ def restartgame():
             else:
                 btn11.image = loadImages
                 btn11.config(image = loadImages, width=widthy, height=heighty, bg='white')
-        scoreresults.config(text="Press Start Game to Start",font=('Arial',12))  #It will show 0 when press "Reset game"
+        scoreresults.config(text="Press Start Game to Start",font=('Arial',12))  
         number = 15
         youwin.grid_forget()
         btn0.grid(row=0, column=0)
@@ -979,23 +1018,21 @@ def guess():
     global number, prevent, numberx, numberxlist, prevent2
     youwin.grid_forget()
     prevent = []  
-    #number = list(range(0,11))
-                        #green                          #red                            #blue
     if btn0.cget('bg') == '#7fff00' or btn0.cget('bg') == '#FF0800' or btn0.cget('bg') == '#b0c8ed':
-        if btn0.cget('bg') != '#FF0800': #red color
-            if prevent2 == 0:  #To prevent horoscope from duplicating
-                numberx = random.randint(0,11) #generate a random no.
-                if len(numberxlist) >= 1: #to check if there is smth in the list
-                    while numberx in numberxlist:  #if hv smth in the list
-                        numberx = random.randint(0,11) #regenerate the number that is not the same as the previous
+        if btn0.cget('bg') != '#FF0800':
+            if prevent2 == 0:  
+                numberx = random.randint(0,11) 
+                if len(numberxlist) >= 1: 
+                    while numberx in numberxlist:  
+                        numberx = random.randint(0,11) 
                     else:
-                        numberxlist[0] = numberx #else store the random generated number when the list is empty
+                        numberxlist[0] = numberx
                         print(numberx)
-                        show_Image_guess(numberx) #send to polariser the number
+                        show_Image_guess(numberx) 
                 else:
                     numberxlist = [numberx]
                     print(numberxlist[0])
-                    show_Image_guess(numberx) #send to polariser the number
+                    show_Image_guess(numberx) 
                 number = 0
                 btn0.config(bg='#b0c8ed', fg="white")
                 btn1.config(bg='#b0c8ed', fg="white") 
@@ -1013,7 +1050,7 @@ def guess():
                 print(prevent2)
         else:
             scoreresults.config(text="Try Again", font=('Arial',15))
-    elif btn0.cget('bg') == '#a58fbe': #purple color
+    elif btn0.cget('bg') == '#a58fbe': 
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
         number = 15
     elif number == 13: # restart
@@ -1025,7 +1062,7 @@ def guess():
 To check if the game has started and if it has started, to check if player choice is correct and indicate if the player has guessed correctly or not. If game has not started or the game has already ended, it will prompt the player to reset and start the game again.
 
 ```
-def horobutton(c): #to get number for c (using lambda) to compare to random integer (according to the corresponding button that the user pressed), etc. user pick aquarius so it will send 0
+def horobutton(c): 
     global number, score, prevent, numberx, prevent2
     youwin.grid_forget()
     if btn0.cget('bg') == 'white':
@@ -1038,15 +1075,15 @@ def horobutton(c): #to get number for c (using lambda) to compare to random inte
     elif number == 12:
         scoreresults.config(text="Press Guess to Start Guessing", font=('Arial',10))
     else :
-        if c == numberx: #to get the corresponding button value based on what the user press (etc. user press aquarius, c == 0)
-            if prevent == [2]: #prevent adding score when user keep pressing correct button multiple times
+        if c == numberx: 
+            if prevent == [2]:
                 if score >= 1:
                     scoreresults.config(text=str(score), font=('Arial',20))
                 else:
                     number = 13 #restart
                     scoreresults.config(text=str(score), font=('Arial',20))
             else:
-                btn0.config(bg='#7fff00') #show green colour
+                btn0.config(bg='#7fff00') 
                 btn1.config(bg='#7fff00') 
                 btn2.config(bg='#7fff00') 
                 btn3.config(bg='#7fff00') 
@@ -1087,7 +1124,7 @@ def horobutton(c): #to get number for c (using lambda) to compare to random inte
             prevent.append(0)
             scoreresults.config(text=str(score), font=('Arial',20))
         else:
-            btn0.config(bg='#FF0800')  #Show red colour
+            btn0.config(bg='#FF0800')  
             btn1.config(bg='#FF0800')
             btn2.config(bg='#FF0800')
             btn3.config(bg='#FF0800')
@@ -1123,15 +1160,13 @@ def horobutton(c): #to get number for c (using lambda) to compare to random inte
 ```
 To navigate to guess page
 ```
-def guessappear(): #guess appear but the rest disappear
+def guessappear(): 
     luckframe.grid_forget()
     focusframe.grid_forget()
     mainframe.grid_forget()
     drawingframe.grid_forget()
     guessframe.grid(row=0, column=0)
 ```
-
-
 output
 <br>insert polarizer pic here
 <br>
