@@ -1794,119 +1794,6 @@ main.bind("<Return>", change_img)
 **Test Your Concentration Function:**
 <br>
 
-
-
-
-
-
-## **Creating the Frames**
-<br>
-
-This will be the frame structure we will be using for the ICONcentrate game :
-```
-focusframe = Frame(middleframe)
-```
-The main focus frame :
-```
-midframe = Frame(focusframe)
-midframe.grid(row=2, columnspan=6)
-```
-The buttons frame :
-```
-frameone = Frame(focusframe)
-frameone.grid(row=3, column=0)
-```
-## **Creating Focus Title**
-Firstly, we set the title to 'ICONcentrate'. You can change the title to your preference.
-
-```
-headername = Label(focusframe, text="ICONcentrate", font=('Arial', 30), fg='#96DED1') 
-headername.grid(row=0, column=0)
-```
-## **Creating Focus Game**
-Next, we created the **Instructions** button for the game, in which the user would need to click on the button so that a pop-up window would appear and show them the instructions.
-
-```
-instrubtn = Button(focusframe, text='Instructions', font=('Arial', 15), bg = '#b0c8ed', fg='white', command=getinstruction)
-instrubtn.grid(row=1, column=0)
-```
-
-Output:
-
-![Alt text](focusbutton%20pics/instructions.png)
-
-*Instructions Button and Message Box*
-
-<br>
-
-Before creating the buttons, we will have to create these variables :
-
-```
-numberxlist = [] #Array for answers list
-Lno = 0 #level number
-storetime = 0 #time
-```
-Level :
-```
-level = Label(midframe, text='Level '+ str(Lno), font=('Arial', 15))
-level.grid(row=2, column=0)
-```
-
-Output:
-
-![Alt text](focusbutton%20pics/level.png)
-
-*Level Label*
-
-Timer :
-```
-timer = Label(midframe, text='Welcome', font=('Arial', 15))
-timer.grid(row=2, column=1, padx=100)
-```
-
-Output:
-
-![Alt text](focusbutton%20pics/timer.png)
-
-*Timer Label*
-
-Start Button :
-```
-start = Button(midframe, text='Start', font=('Arial', 15), command=lambda:Start(timer))
-start.grid(row=2, column=2, ipadx=30)
-```
-
-Output:
-
-![Alt text](focusbutton%20pics/startbtn.png)
-
-*Start Button*
-
-Selection Buttons :
-
-```
-icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
-btn = [i for i in range(len(icons))] 
-
-for i in range (0, 6):
-    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m), wraplength=130) #so that texaschicken text can fully show on the button
-    btn[i].grid(row=0, column=i)
-```
-
-Output:
-
-![Alt text](focusbutton%20pics/game.png)
-
-*Selection Buttons*
-
-<br>
-
-## **Creating the Functions Used**
-
-<br>
-
-### **Creating the function to send images to the polariser**
----
 To send images in the game to the polariser :
 ```
 def show_Image_focus(choice3):
@@ -1916,31 +1803,25 @@ def show_Image_focus(choice3):
     cartoon.pixelised(path = path2)
     myImage = Image.open("cartoon.png")
 ```
+
 <br>
 
-### **Creating Instructions Message Box**
----
 We will have to create a message box for the user to read the instructions and understand how the game works.
-
 ```
 def getinstruction():
     messagebox.showinfo("Instructions", "1. Click on the 'START' button to begin.\n2. Click on the correct button corresponding to the image shown on the polariser.\n3. You will proceed on to the next level if you select the correct answer.\n4. The game will reset if you select the incorrect answer.")
 ```
 
+<br>
+
 Output:
 
 ![Alt text](focusbutton%20pics/instructions.png)
-
 *Message Box for instructions*
 
 <br>
 
-### **Creating Focus Game**
-
-<br>
-
 To start the timer :
-
 ```
 def Start(label):
     global running, Lno
@@ -1952,8 +1833,9 @@ def Start(label):
     click()
 ```
 
-To make sure the label for timer follows the timer that's running, and to make sure it stops once it reaches 20 seconds :
+<br>
 
+To make sure the label for timer follows the timer that's running, and to make sure it stops once it reaches 20 seconds :
 ```
 def counter_label(label):
     def count():
@@ -1981,8 +1863,9 @@ def counter_label(label):
     count()
 ```
 
-Randomly generate an icon without duplicates :
+<br>
 
+Randomly generate an icon without duplicates :
 ```
 def click():
     global numberxlist
@@ -1999,8 +1882,9 @@ def click():
     show_Image_focus(numberx)
 ```
 
-To create the Selection Buttons :
+<br>
 
+To create the Selection Buttons :
 ```
 def Stop(m):
     global running, numberxlist, Lno, counter, storetime, display
@@ -2028,8 +1912,9 @@ def Stop(m):
         print('wrong')
 ```
 
-Set icons for each level :
+<br>
 
+Set icons for each level :
 ```
 def Reset(label):
     global counter, Lno, icons, storetime
@@ -2058,18 +1943,23 @@ def Reset(label):
                 btn[i]['text']=icons[i]
 ```
 
+<br>
+
 Sample Output:
 
 ![Alt text](focusbutton%20pics/level2.png)
 *Selection Buttons for other levels*
 
-For user to enter their name at the end of the game :
+<br>
 
+For user to enter their name at the end of the game :
 ```
 def getname():
     name = simpledialog.askstring("Test", "What's your Name?:")
     return name
 ```
+
+<br>
 
 Output:
 
@@ -2077,9 +1967,9 @@ Output:
 
 *Message Box to prompt user to type their name*
 
+<br>
 
 Creating a message box to display the name player has entered and after the player has won the game :
-
 ```
 def correctbox():
     global storetime
@@ -2087,45 +1977,48 @@ def correctbox():
     messagebox.showinfo("Congrats {}".format(name)+" !","You're 100% focus! You've completed in {} s".format(storetime)+" !")
 ```
 
+<br>
+
 Output:
 
 ![Alt text](Demo%20Pics/IconWin.png)
 
 *Message Box after winning*
 
+<br>
 
 Creating a message box to display if player selects the wrong answer :
-
 ```
 def wrongbox():
     messagebox.showinfo("Try Again!", "You need to improve on your focus!")
 ```
 
+<br>
+
 Output:
 
 ![Alt text](focusbutton%20pics/tryagain.png)
 
-Creating a message box to display when time runs out :
+*Try Again prompter is shown*
 
+<br>
+
+Creating a message box to display when time runs out :
 ```
 def timeup():
     messagebox.showinfo("TIMES UP!!", "TIMESS UPP!!, You need to improve on your concentration")
 ```
 
+<br>
+
 Output:
 
 ![Alt text](focusbutton%20pics/timesup.png)
-
 *Message Box after time is up*
 
 <br>
 
-### **Creating the function to navigate to Focus GUI**
-
-<br> 
-
 To navigate to ICONcentrate page :
-
 ```
 def focusappear():
     luckframe.grid_forget()
@@ -2134,163 +2027,158 @@ def focusappear():
     drawingframe.grid_forget()
     focusframe.grid(row=0, column=0)
 ```
----
+
 <br>
 
-# **Express Yourself**
+### **Creating the Layout**
+**ICONcentrate frame:**
+
+This will be the frame structure we will be using for the ICONcentrate game :
+```
+focusframe = Frame(middleframe)
+```
+
+<br>
+
+The main focus frame :
+```
+midframe = Frame(focusframe)
+midframe.grid(row=2, columnspan=6)
+```
+
+<br>
+
+The buttons frame :
+```
+frameone = Frame(focusframe)
+frameone.grid(row=3, column=0)
+```
+
+<br>
+
+Firstly, we set the title to 'ICONcentrate'. You can change the title to your preference.
+```
+headername = Label(focusframe, text="ICONcentrate", font=('Arial', 30), fg='#96DED1') 
+headername.grid(row=0, column=0)
+```
+
+<br>
+
+Next, we created the **Instructions** button for the game, in which the user would need to click on the button so that a pop-up window would appear and show them the instructions.
+```
+instrubtn = Button(focusframe, text='Instructions', font=('Arial', 15), bg = '#b0c8ed', fg='white', command=getinstruction)
+instrubtn.grid(row=1, column=0)
+```
+
+<br>
+
+Output:
+
+![Alt text](focusbutton%20pics/instructions.png)
+*Instructions Button and Message Box*
+
+<br>
+
+Before creating the buttons, we will have to create these variables :
+```
+numberxlist = [] #Array for answers list
+Lno = 0 #level number
+storetime = 0 #time
+```
+
+<br>
+
+Level :
+```
+level = Label(midframe, text='Level '+ str(Lno), font=('Arial', 15))
+level.grid(row=2, column=0)
+```
+
+<br>
+
+Output:
+
+![Alt text](focusbutton%20pics/level.png)
+
+*Level Label*
+
+<br>
+
+Timer :
+```
+timer = Label(midframe, text='Welcome', font=('Arial', 15))
+timer.grid(row=2, column=1, padx=100)
+```
+
+<br>
+
+Output:
+
+![Alt text](focusbutton%20pics/timer.png)
+
+*Timer Label*
+
+<br>
+
+Start Button :
+```
+start = Button(midframe, text='Start', font=('Arial', 15), command=lambda:Start(timer))
+start.grid(row=2, column=2, ipadx=30)
+```
+
+<br>
+
+Output:
+
+![Alt text](focusbutton%20pics/startbtn.png)
+
+*Start Button*
+
+<br>
+
+Selection Buttons :
+```
+icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
+btn = [i for i in range(len(icons))] 
+
+for i in range (0, 6):
+    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m), wraplength=130) #so that texaschicken text can fully show on the button
+    btn[i].grid(row=0, column=i)
+```
+
+<br>
+
+Output:
+
+![Alt text](focusbutton%20pics/game.png)
+
+*Selection Buttons*
+
+<br>
+
+### **Creating Express Yourself**
+---
+
+<br>
 
 ![](Demo%20Pics/Draw.png)
-
 *Express Yourself GUI*
 
----
 <br>
 
-## **Creating the Frames**
+### **Creating the Functions Used**
+# **Express Yourself Function:**
+<br>
 
-Overall frame
-
-```
-drawingframe = Frame(middleframe)
-```
-
-Canvas frame
-
-```
-master = ttk.Notebook(drawingframe)
-```
-Frame for both tabs
-```
-tabgrid = Frame(master) #new frame for tab grid
-tabdraw = Frame(master)
-```
-Frame for grid button
-```
-gridframe = Frame(tabgrid, width=800, height=800)
-gridframe.grid(row=0, column=0)
-```
-Frame for shades selection
-```
-shadeframe = Frame(drawingframe)
-shadeframe.grid(row=0, column=1)
-```
-Frame for color preset n send btn
-```
-colourframe = Frame(drawingframe)
-colourframe.grid(row=1, column=0)
-```
-Next, add tab navigation:
-```
-master.add(tabgrid,text="Grid")
-master.add(tabdraw,text="Draw")
-master.grid(row=0, column = 0)
-```
-Output:<br>
-![](drawbutton%20pics/drawtab.png)
-
-*Grid and Draw Tabs*
-## **Creating Express Yourself Game**
-Creating the grid:
-
-We used a List of List and a nested for loop to create the 32x32 grid and its values.
-```
-button = [[r for r in range(32)] for c in range(32)]
-value = [[0 for r in range(32)] for c in range(32)]
-
-for r in range (32):
-  for c in range (32):
-    button[r][c] = Button(gridframe, font=("Calibri, 5"), width=1, height=1, bg='white', command=lambda x=r, y=c:colour_picker(x, y))
-    button[r][c].grid(row=r, column=c)
-```
-Output:<br>
-![](drawbutton%20pics/grid.png)
-
-*32x32 Grid*
-
-Shades button:
-```
-white = Button(shadeframe, text="White", font=("Calibri, 10"), bg='grey99', width=13, height=2, command=lambda m=0:choose_colour(m))
-white.grid(row=1, column=0)
-grey1 = Button(shadeframe, text="Grey1", font=("Calibri, 10"), bg='grey88', width=13, height=2, command=lambda m=20:choose_colour(m))
-grey1.grid(row=2, column=0)
-grey2 = Button(shadeframe, text="Grey2", font=("Calibri, 10"), bg='grey77', width=13, height=2, command=lambda m=30:choose_colour(m))
-grey2.grid(row=3, column=0)
-grey3 = Button(shadeframe, text="Grey3", font=("Calibri, 10"), bg='grey66', width=13, height=2, command=lambda m=40:choose_colour(m))
-grey3.grid(row=4, column=0)
-grey4 = Button(shadeframe, text="Grey4", font=("Calibri, 10"), bg='grey44', width=13, height=2, command=lambda m=50:choose_colour(m))
-grey4.grid(row=5, column=0)
-grey5 = Button(shadeframe, text="Grey5", font=("Calibri, 10"), bg='grey33', fg='white', width=13, height=2, command=lambda m=60:choose_colour(m))
-grey5.grid(row=6, column=0)
-grey6 = Button(shadeframe, text="Grey6", font=("Calibri, 10"), bg='grey11', fg='white', width=13, height=2, command=lambda m=70:choose_colour(m))
-grey6.grid(row=7, column=0)
-black = Button(shadeframe, text="Black", font=("Calibri, 10"), bg='grey1', fg='white', width=13, height=2, command=lambda m=90:choose_colour(m))
-black.grid(row=8, column=0)
-```
-Save button:
-```
-savebtn = Button(shadeframe, text="Save", font=("Calibri, 10"), bg='light blue', fg='black', width=13, height=2, command=savecanvas)
-savebtn.grid(row=9, column=0)
-```
-Output:<br>
-![](drawbutton%20pics/shades.png)
-
-*8 Shades of Grey and Save Button*
-
-Color selection button:
-```
-allwhite = Button(colourframe, text="All White",font=("Calibri, 12"), bg='white', width=13, height=2, command=allwht)
-allwhite.grid(row=0, column=0)
-
-allblack = Button(colourframe, text="All Black",font=("Calibri, 12"), bg='black', fg='white', width=13, height=2, command=allblk)
-allblack.grid(row=0, column=1)
-```
-Clear button:
-```
-clear = Button(colourframe, text="Clear",font=("Calibri, 12"), bg='gold', width=13, height=2, command=clearbtn)
-clear.grid(row=0, column=2)
-```
-Send button:
-```
-send = Button(colourframe, text="Send Image!", font=("Calibri, 12"), width=13, height=2, command=lambda :sendbtn())
-send.grid(row=0, column=3)
-```
-Output:<br>
-![](drawbutton%20pics/drawadditionalfeature.png)
-
-*All White, All Black, Clear and Send Image Button*
-
-Creating the canvas:
-```
-canvas = Canvas(tabdraw, width=800, height=800, bg='white')  
-canvas.grid(row=0, column=0)
-```
-Binding the canvas:
-```
-canvas.bind('<Button-1>', get_x_and_y)
-canvas.bind('<B1-Motion>',paint)
-canvas.bind('<Enter>', get_x_and_y)
-```
-Color choice variable:
-```
-colour = 0
-```
-Canvas arrray:
-```
-canvasdraw = [[0 for r in range(800)] for c in range(800)]
-```
-Output:<br>
-![](drawbutton%20pics/canvastab.png)
-
-*Canvas in Draw Tab*
-## **Creating the Functions Used**
----
-### **Creating function for shades of grey selection and save button**
-This is to change the color value according to the selected shades of grey.
+This is to change the color value according to the selected shades of grey:
 ```
 def choose_colour(m):
     global colour
     colour = m
 ```
+
+<br>
+
 This is to assign the individual squares' background colours and its values.
 ```
 def colour_picker(r, c):
@@ -2320,6 +2208,9 @@ def colour_picker(r, c):
       button[r][c].config(bg='grey1') 
       value[r][c] = colour
 ```
+
+<br>
+
 This is to save and convert what's on canvas to be shown on grid.
 ```
 def save_draw_colour(list): 
@@ -2373,8 +2264,10 @@ def f0(x, y):
   freq = min(set(list0), key = list0.count)
   return freq  
 ```
-### **Creating function for addtitonal features and send button**
-This is to make both the canvas and grid to all white.
+
+<br>
+
+This is to make both the canvas and grid to all white:
 ```
 def allwht():
   for r in range (32):
@@ -2386,7 +2279,10 @@ def allwht():
     for c in range(800):
       canvasdraw[r][c] = 0
 ```
-This is to make both the canvas and grid to all black.
+
+<br>
+
+This is to make both the canvas and grid to all black:
 ```
 def allblk():
   for r in range (32):
@@ -2398,7 +2294,10 @@ def allblk():
     for c in range(800):
       canvasdraw[r][c] = 90
 ```
-This is to clear all drawings on the canvas.
+
+<br>
+
+This is to clear all drawings on the canvas:
 ```
 def clearbtn():
   allwht()
@@ -2408,15 +2307,20 @@ def clearbtn():
   canvas.delete('all')
   print(canvasdraw)
 ```
-This is to send all the angle values of the 32x32 grid to the polarizer.
+
+<br>
+
+This is to send all the angle values of the 32x32 grid to the polarizer:
 ```
 def sendbtn():
   global value
   print(value)
   pubpic(value)
 ```
-### **Creating function to navigate to Draw GUI**
-To navigate to Express Yourself page.
+
+<br>
+
+To navigate to Express Yourself page:
 ```
 def drawappear(): 
     guessframe.grid_forget()
@@ -2425,13 +2329,209 @@ def drawappear():
     mainframe.grid_forget()
     drawingframe.grid(row=1, column=0)
 ```
----
+
+<br>
+
+### **Creating the Layout**
+**Express Yourself Frame:**
+
+Overall frame
+```
+drawingframe = Frame(middleframe)
+```
+
+<br>
+
+Canvas frame:
+```
+master = ttk.Notebook(drawingframe)
+```
+
+<br>
+
+Frame for both tabs:
+```
+tabgrid = Frame(master) #new frame for tab grid
+tabdraw = Frame(master)
+```
+
+<br>
+
+Frame for grid button:
+```
+gridframe = Frame(tabgrid, width=800, height=800)
+gridframe.grid(row=0, column=0)
+```
+
+<br>
+
+Frame for shades selection:
+```
+shadeframe = Frame(drawingframe)
+shadeframe.grid(row=0, column=1)
+```
+
+<br>
+
+Frame for color preset and send btn:
+```
+colourframe = Frame(drawingframe)
+colourframe.grid(row=1, column=0)
+```
+
+<br>
+
+Next, add tab navigation:
+```
+master.add(tabgrid,text="Grid")
+master.add(tabdraw,text="Draw")
+master.grid(row=0, column = 0)
+```
+
+<br>
+
+Output:
+
+![](drawbutton%20pics/drawtab.png)
+
+*Grid and Draw Tabs*
+
+<br>
+
+We used a List of List and a nested for loop to create the 32x32 grid and its values:
+```
+button = [[r for r in range(32)] for c in range(32)]
+value = [[0 for r in range(32)] for c in range(32)]
+
+for r in range (32):
+  for c in range (32):
+    button[r][c] = Button(gridframe, font=("Calibri, 5"), width=1, height=1, bg='white', command=lambda x=r, y=c:colour_picker(x, y))
+    button[r][c].grid(row=r, column=c)
+```
+
+<br>
+Output:
+
+![](drawbutton%20pics/grid.png)
+*32x32 Grid*
+
+<br>
+
+Shades button:
+```
+white = Button(shadeframe, text="White", font=("Calibri, 10"), bg='grey99', width=13, height=2, command=lambda m=0:choose_colour(m))
+white.grid(row=1, column=0)
+grey1 = Button(shadeframe, text="Grey1", font=("Calibri, 10"), bg='grey88', width=13, height=2, command=lambda m=20:choose_colour(m))
+grey1.grid(row=2, column=0)
+grey2 = Button(shadeframe, text="Grey2", font=("Calibri, 10"), bg='grey77', width=13, height=2, command=lambda m=30:choose_colour(m))
+grey2.grid(row=3, column=0)
+grey3 = Button(shadeframe, text="Grey3", font=("Calibri, 10"), bg='grey66', width=13, height=2, command=lambda m=40:choose_colour(m))
+grey3.grid(row=4, column=0)
+grey4 = Button(shadeframe, text="Grey4", font=("Calibri, 10"), bg='grey44', width=13, height=2, command=lambda m=50:choose_colour(m))
+grey4.grid(row=5, column=0)
+grey5 = Button(shadeframe, text="Grey5", font=("Calibri, 10"), bg='grey33', fg='white', width=13, height=2, command=lambda m=60:choose_colour(m))
+grey5.grid(row=6, column=0)
+grey6 = Button(shadeframe, text="Grey6", font=("Calibri, 10"), bg='grey11', fg='white', width=13, height=2, command=lambda m=70:choose_colour(m))
+grey6.grid(row=7, column=0)
+black = Button(shadeframe, text="Black", font=("Calibri, 10"), bg='grey1', fg='white', width=13, height=2, command=lambda m=90:choose_colour(m))
+black.grid(row=8, column=0)
+```
+
+<br>
+
+Save button:
+```
+savebtn = Button(shadeframe, text="Save", font=("Calibri, 10"), bg='light blue', fg='black', width=13, height=2, command=savecanvas)
+savebtn.grid(row=9, column=0)
+```
+
+<br>
+
+Output:
+
+![](drawbutton%20pics/shades.png)
+
+*8 Shades of Grey and Save Button*
+
+<br>
+
+Color selection button:
+```
+allwhite = Button(colourframe, text="All White",font=("Calibri, 12"), bg='white', width=13, height=2, command=allwht)
+allwhite.grid(row=0, column=0)
+
+allblack = Button(colourframe, text="All Black",font=("Calibri, 12"), bg='black', fg='white', width=13, height=2, command=allblk)
+allblack.grid(row=0, column=1)
+```
+
+<br>
+
+
+Clear button:
+```
+clear = Button(colourframe, text="Clear",font=("Calibri, 12"), bg='gold', width=13, height=2, command=clearbtn)
+clear.grid(row=0, column=2)
+```
+
+<br>
+
+Send button:
+```
+send = Button(colourframe, text="Send Image!", font=("Calibri, 12"), width=13, height=2, command=lambda :sendbtn())
+send.grid(row=0, column=3)
+```
+
+<br>
+
+Output:
+![](drawbutton%20pics/drawadditionalfeature.png)
+*All White, All Black, Clear and Send Image Button*
+
+<br>
+
+Creating the canvas:
+```
+canvas = Canvas(tabdraw, width=800, height=800, bg='white')  
+canvas.grid(row=0, column=0)
+```
+
+<br>
+
+Binding the canvas:
+```
+canvas.bind('<Button-1>', get_x_and_y)
+canvas.bind('<B1-Motion>',paint)
+canvas.bind('<Enter>', get_x_and_y)
+```
+
+<br>
+
+Color choice variable:
+```
+colour = 0
+```
+
+<br>
+
+Canvas arrray:
+```
+canvasdraw = [[0 for r in range(800)] for c in range(800)]
+```
+
+<br>
+
+Output:
+
+![](drawbutton%20pics/canvastab.png)
+*Canvas in Draw Tab*
+
 <br>
 
 # **Open file in Raspberry Pi**
 
 In order to view the values from the terminal, you will need to change the directory to the folder of the file. After changing the directory, you will need to enter `python3 filename.py` to print the output.
 
+<br>
 
 1. Open the terminal on Raspberry Pi.
 2. In the terminal, type the following commands under this format: 
@@ -2439,10 +2539,10 @@ In order to view the values from the terminal, you will need to change the direc
 ```
 cd /Directory
 ```
+
 <br>
 
 Example:
-
 ```
 cd /home/pi/Documents/EGL314/
 ```
@@ -2450,7 +2550,6 @@ cd /home/pi/Documents/EGL314/
 <br>
 
 3. Once inside the directory folder of your file, type in the following:
-
 ```
 python3 main.py
 ```
@@ -2462,7 +2561,7 @@ python3 main.py
 <br>
 
 ![](Demo%20Pics/Main%20Page.png)
-*Output*
+*Home Page will appear first*
 
 
 
