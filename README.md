@@ -1793,8 +1793,7 @@ main.bind("<Return>", change_img)
 
 <br>
 
-### **Creating the Functions Used**
-**Test Your Concentration Function:**
+## **Test Your Concentration Function:**
 <br>
 
 To send images in the game to the polariser :
@@ -2088,9 +2087,9 @@ Output:
 
 Before creating the buttons, we will have to create these variables :
 ```
-numberxlist = [] #Array for answers list
-Lno = 0 #level number
-storetime = 0 #time
+numberxlist = [] 
+Lno = 0
+storetime = 0 
 ```
 
 <br>
@@ -2149,7 +2148,7 @@ icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
 btn = [i for i in range(len(icons))] 
 
 for i in range (0, 6):
-    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m), wraplength=130) #so that texaschicken text can fully show on the button
+    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m), wraplength=130)
     btn[i].grid(row=0, column=i)
 ```
 
@@ -2163,7 +2162,7 @@ Output:
 
 <br>
 
-### **Creating Express Yourself**
+# **Creating Express Yourself**
 ---
 
 <br>
@@ -2173,7 +2172,6 @@ Output:
 
 <br>
 
-### **Creating the Functions Used**
 # **Express Yourself Function:**
 <br>
 
