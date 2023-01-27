@@ -877,7 +877,7 @@ for x in range (1, d):
     optionss.append(x)
 ```
 
-Datatype of menu text (??)
+Datatype of menu text (check website)
 
 ```
 clicked = StringVar()
@@ -965,14 +965,14 @@ label5 = Button(frame1, image = img3, command=lambda m=3:game(m))
 label5.grid(row=1, column=2)
 ```
 
-Next, We will create the preview of what the user have choose:
+Next, We will create the preview of what the user has chosen:
 
 Text:
 ```
 previewtitle = Label(luckframe, text="", font=('Arial', 15))
 previewtitle.grid(row=2, column=3)
 ```
-We will need to remove the preview tile from the inital boot(appear when trigger)
+We will need to remove the preview tile from the inital boot(appear when triggered)
 ```
 previewtitle.grid_forget()
 ```
@@ -981,11 +981,11 @@ Image:
 imageLabel = Label(luckframe, bg = 'white', width = 30, height = 15)
 imageLabel.grid(rowspan=2, column=3)
 ```
-We will need to remove the preview image from the inital boot(appear when trigger)
+We will need to remove the preview image from the inital boot (appear when triggered)
 ```
 imageLabel.grid_forget()
 ```
-Last, we will need to bind the change_img function to main:(link in gp chat, i forgor whats this for)
+Lastly, we will need to bind the change_img function to main:(link in gp chat, i forgor whats this for)
 ```
 main.bind("<Return>", change_img) 
 ```
@@ -993,8 +993,7 @@ main.bind("<Return>", change_img)
 ---
 ### **Creating function to send images to the polarizer**
 ---
-### *Line 512*
-text
+To send images in the game to the polariser:
 ```
 def show_Image_luck(choice2):
 
@@ -1012,10 +1011,10 @@ output
 <br>
 ### **Creating functions to change the images**
 ---
-text
+To generate random luck percentage:
 ```
 def change_img(): 
-    for i in range(len(options)) : 
+    for i in range(len(options)) : #check if is a valid DOB
         if options[i] == clicked.get():
             i = i+1
             if i == 2 and clickeds.get() > 29:
@@ -1028,11 +1027,11 @@ def change_img():
             else:
                 test3 = True
                 
-    if test3 == True:   
+    if test3 == True:   #If is valid, execute below command
         label.config(text="Input your DoB and Press the 'Enter' button.")
         randomno = random.randint(0, 4) #randomly generate a number 0-4
         randomnolist = [0,25,50,75,100]
-        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100: 
+        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100: #when randomly generated number is 3 or 4, will show 75% or 99%, and activate game
             label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
             frame1.grid(row=4, column=1)
             show_Image_luck(randomnolist[randomno])
@@ -1042,7 +1041,7 @@ def change_img():
             imageLabel.grid(rowspan=2, column=3)
             print(randomnolist[randomno])
             
-        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25:
+        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25: #when randomly generated number is 0 or 1, will show genie pic
             label2.config(text='')
             frame1.grid_forget()
             show_Image_luck(7)#insert genie pic name
@@ -1050,7 +1049,7 @@ def change_img():
             imageLabel.grid_forget()
             print(randomnolist[randomno])
             
-        else:  
+        else:  #when randomly generated number is 2, will show 50% pic
             label2.config(text='') 
             frame1.grid_forget()
             previewtitle.grid_forget()
@@ -1065,9 +1064,9 @@ output
 <br>
 ### **Creating function to preview users' choice on GUI**
 ---
-text
+To show what choice the player has made:
 ```
-def preview_Image(choice): 
+def preview_Image(choice): #for game preview at the side
     global imageLabel
     if choice == 1:
         choice = "scissors"
@@ -1088,7 +1087,7 @@ output
 <br>
 ### **Creating function to send random images to the polarizer**
 ---
-text
+To send the choice the game has made to the polariser:
 ```
 def game(m):
     frame1.grid_forget()  
@@ -1099,7 +1098,7 @@ def game(m):
         o = "paper"
     else:
         o = "stone"
-    show_Image_luck(o)
+    show_Image_luck(o) #send to polariser
     preview_Image(m)
 ```
 output
@@ -1107,6 +1106,7 @@ output
 <br>
 
 ---
+
 <br>
 
 # **Test Your Concentration**
@@ -1129,6 +1129,8 @@ output
 <br>
 
 Create the frame first
+
+This will be the frame structure we will be using for the ICONcentrate game
 ```
 focusframe = Frame(middleframe)
 ```
@@ -1156,12 +1158,12 @@ instrubtn = Button(focusframe, text='Instructions', font=('Arial', 15), bg = '#b
 instrubtn.grid(row=1, column=0)
 ```
 
-Before creating the buttons, create these variable
+Before creating the buttons, create these variables
 
 ```
-numberxlist = []
-Lno = 0
-storetime = 0
+numberxlist = [] #Array for answers list
+Lno = 0 #level number
+storetime = 0 #time
 ```
 level button
 ```
@@ -1239,7 +1241,6 @@ master.add(tabgrid,text="Grid")
 master.add(tabdraw,text="Draw")
 master.grid(row=0, column = 0)
 ```
-## **Creating the elements in Grid Tab**
 Creating the grid:
 ```
 button = [[r for r in range(32)] for c in range(32)]
@@ -1292,7 +1293,6 @@ Send button:
 send = Button(colourframe, text="Send Image!", font=("Calibri, 12"), width=13, height=2, command=lambda :sendbtn())
 send.grid(row=0, column=3)
 ```
-## **Creating the elements in Canvas Tab**
 Creating the canvas:
 ```
 canvas = Canvas(tabdraw, width=800, height=800, bg='white')  
@@ -1311,13 +1311,6 @@ colour = 0
 Canvas arrray:
 ```
 canvasdraw = [[0 for r in range(800)] for c in range(800)]
-```
-## **Creating the Functions Used**
----
-### **Creating function for shades of grey selectionr**
-text
-```
-
 ```
 ---
 <br>
