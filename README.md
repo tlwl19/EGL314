@@ -302,7 +302,7 @@ The main objective of this game is to challenge the user's short-term memory ski
 
 <br>
 
-## Let's see how to play this game
+## How The Game Works
 
 From the home page, click on the "Guess the Horoscope" button.
 
@@ -403,7 +403,7 @@ The luck game gives the user a surge of dopamine and it plays a part in controll
 
 <br>
 
-## Let's see how to play this game
+## How The Game Works
 
 From the home page, click on the "What's Your Luck?" button.
 
@@ -1820,6 +1820,8 @@ def getinstruction():
 Output:
 
 ![Alt text](focusbutton%20pics/instructions.png)
+<br>
+
 *Message Box for instructions*
 
 <br>
@@ -2017,6 +2019,8 @@ def timeup():
 Output:
 
 ![Alt text](focusbutton%20pics/timesup.png)
+<br>
+
 *Message Box after time is up*
 
 <br>
@@ -2173,7 +2177,7 @@ Output:
 # **Express Yourself Function:**
 <br>
 
-This is to change the color value according to the selected shades of grey:
+This is to change the color value according to the selected shades of grey :
 ```
 def choose_colour(m):
     global colour
@@ -2182,7 +2186,7 @@ def choose_colour(m):
 
 <br>
 
-This is to assign the individual squares' background colours and its values.
+This is to assign the individual squares' background colours and its values :
 ```
 def colour_picker(r, c):
   global colour
@@ -2214,7 +2218,7 @@ def colour_picker(r, c):
 
 <br>
 
-This is to save and convert what's on canvas to be shown on grid.
+This is to save and convert what's on canvas to be shown on grid :
 ```
 def save_draw_colour(list): 
   global value
@@ -2270,7 +2274,7 @@ def f0(x, y):
 
 <br>
 
-This is to make both the canvas and grid to all white:
+This is to make both the canvas and grid to all white :
 ```
 def allwht():
   for r in range (32):
@@ -2285,7 +2289,7 @@ def allwht():
 
 <br>
 
-This is to make both the canvas and grid to all black:
+This is to make both the canvas and grid to all black :
 ```
 def allblk():
   for r in range (32):
@@ -2300,7 +2304,7 @@ def allblk():
 
 <br>
 
-This is to clear all drawings on the canvas:
+This is to clear all drawings on the canvas :
 ```
 def clearbtn():
   allwht()
@@ -2313,7 +2317,7 @@ def clearbtn():
 
 <br>
 
-This is to send all the angle values of the 32x32 grid to the polarizer:
+This is to send all the angle values of the 32x32 grid to the polarizer :
 ```
 def sendbtn():
   global value
@@ -2323,7 +2327,7 @@ def sendbtn():
 
 <br>
 
-To navigate to Express Yourself page:
+To navigate to Express Yourself page :
 ```
 def drawappear(): 
     guessframe.grid_forget()
@@ -2338,21 +2342,21 @@ def drawappear():
 ### **Creating the Layout**
 **Express Yourself Frame:**
 
-Overall frame
+Overall frame :
 ```
 drawingframe = Frame(middleframe)
 ```
 
 <br>
 
-Canvas frame:
+Canvas frame :
 ```
 master = ttk.Notebook(drawingframe)
 ```
 
 <br>
 
-Frame for both tabs:
+Frame for both tabs :
 ```
 tabgrid = Frame(master) #new frame for tab grid
 tabdraw = Frame(master)
@@ -2360,7 +2364,7 @@ tabdraw = Frame(master)
 
 <br>
 
-Frame for grid button:
+Frame for grid button :
 ```
 gridframe = Frame(tabgrid, width=800, height=800)
 gridframe.grid(row=0, column=0)
@@ -2368,7 +2372,7 @@ gridframe.grid(row=0, column=0)
 
 <br>
 
-Frame for shades selection:
+Frame for shades selection :
 ```
 shadeframe = Frame(drawingframe)
 shadeframe.grid(row=0, column=1)
@@ -2376,7 +2380,7 @@ shadeframe.grid(row=0, column=1)
 
 <br>
 
-Frame for color preset and send btn:
+Frame for colour preset and send button :
 ```
 colourframe = Frame(drawingframe)
 colourframe.grid(row=1, column=0)
@@ -2384,7 +2388,7 @@ colourframe.grid(row=1, column=0)
 
 <br>
 
-Next, add tab navigation:
+Next, add tab navigation :
 ```
 master.add(tabgrid,text="Grid")
 master.add(tabdraw,text="Draw")
@@ -2401,7 +2405,7 @@ Output:
 
 <br>
 
-We used a List of List and a nested for loop to create the 32x32 grid and its values:
+We used a List of List and a nested for loop to create the 32x32 grid and its values :
 ```
 button = [[r for r in range(32)] for c in range(32)]
 value = [[0 for r in range(32)] for c in range(32)]
@@ -2420,7 +2424,7 @@ Output:
 
 <br>
 
-Shades button:
+Shades Button :
 ```
 white = Button(shadeframe, text="White", font=("Calibri, 10"), bg='grey99', width=13, height=2, command=lambda m=0:choose_colour(m))
 white.grid(row=1, column=0)
@@ -2442,7 +2446,7 @@ black.grid(row=8, column=0)
 
 <br>
 
-Save button:
+Save Button :
 ```
 savebtn = Button(shadeframe, text="Save", font=("Calibri, 10"), bg='light blue', fg='black', width=13, height=2, command=savecanvas)
 savebtn.grid(row=9, column=0)
@@ -2458,7 +2462,7 @@ Output:
 
 <br>
 
-Color selection button:
+Color Selection Button :
 ```
 allwhite = Button(colourframe, text="All White",font=("Calibri, 12"), bg='white', width=13, height=2, command=allwht)
 allwhite.grid(row=0, column=0)
@@ -2470,7 +2474,7 @@ allblack.grid(row=0, column=1)
 <br>
 
 
-Clear button:
+Clear Button :
 ```
 clear = Button(colourframe, text="Clear",font=("Calibri, 12"), bg='gold', width=13, height=2, command=clearbtn)
 clear.grid(row=0, column=2)
@@ -2478,7 +2482,7 @@ clear.grid(row=0, column=2)
 
 <br>
 
-Send button:
+Send Button :
 ```
 send = Button(colourframe, text="Send Image!", font=("Calibri, 12"), width=13, height=2, command=lambda :sendbtn())
 send.grid(row=0, column=3)
@@ -2487,12 +2491,16 @@ send.grid(row=0, column=3)
 <br>
 
 Output:
+<br>
+
 ![](drawbutton%20pics/drawadditionalfeature.png)
+<br>
+
 *All White, All Black, Clear and Send Image Button*
 
 <br>
 
-Creating the canvas:
+Creating the canvas :
 ```
 canvas = Canvas(tabdraw, width=800, height=800, bg='white')  
 canvas.grid(row=0, column=0)
@@ -2500,7 +2508,7 @@ canvas.grid(row=0, column=0)
 
 <br>
 
-Binding the canvas:
+Binding the canvas :
 ```
 canvas.bind('<Button-1>', get_x_and_y)
 canvas.bind('<B1-Motion>',paint)
@@ -2509,14 +2517,14 @@ canvas.bind('<Enter>', get_x_and_y)
 
 <br>
 
-Color choice variable:
+Color choice variable :
 ```
 colour = 0
 ```
 
 <br>
 
-Canvas arrray:
+Canvas arrray :
 ```
 canvasdraw = [[0 for r in range(800)] for c in range(800)]
 ```
@@ -2559,7 +2567,7 @@ python3 main.py
 
 <br>
 
-<font size = "3">Output:</font>
+Output:
 
 <br>
 
