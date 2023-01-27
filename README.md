@@ -2259,7 +2259,43 @@ def f0(x, y):
   freq = min(set(list0), key = list0.count)
   return freq  
 ```
-
+This is to get the coordinates of the canvas :
+```
+def get_x_and_y(event): 
+   global getx, gety
+   getx, gety = event.x, event.y
+```
+This is to create the line drawn onto the canvas :
+```
+def paint(event):   
+    global getx, gety, value
+    if getx >= 0 and getx <= 799 and gety >= 0 and gety <= 799:
+      if colour == 0: 
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey99',width=4)  #event.x is the position of the mouse relative to the widget
+          canvasdraw[getx][gety] = 0   #store position in canvasdraw
+      elif colour == 20:
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey88',width=4)
+          canvasdraw[getx][gety] = 20
+      elif colour == 30:
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey77',width=4)
+          canvasdraw[getx][gety] = 30
+      elif colour == 40: 
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey66',width=4)
+          canvasdraw[getx][gety] = 40
+      elif colour == 50:
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey44',width=4)
+          canvasdraw[getx][gety] = 50
+      elif colour == 60: 
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey33',width=4)
+          canvasdraw[getx][gety] = 60
+      elif colour == 70:
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey22',width=4)
+          canvasdraw[getx][gety] = 70
+      else: 
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey11',width=4)
+          canvasdraw[getx][gety] = 90
+      get_x_and_y(event)
+```
 <br>
 
 This is to make both the canvas and grid to all white :
