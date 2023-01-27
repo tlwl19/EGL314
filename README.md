@@ -1555,6 +1555,8 @@ def Start(label):
         btn[i]['state']='normal' 
     click()
 ```
+
+Make sure the label follows the timer, and to make sure it stops once it reaches 20 seconds
 ```
 def counter_label(label):
     def count():
@@ -1581,6 +1583,8 @@ def counter_label(label):
     # Triggering the start of the counter.
     count()
 ```
+
+Generate a random icon
 ```
 def click():
     global numberxlist
@@ -1623,6 +1627,8 @@ def Stop(m):
         Reset(timer)
         print('wrong')
 ```
+
+Set icons for each level
 ```
 def Reset(label):
     global counter, Lno, icons, storetime
@@ -1650,28 +1656,36 @@ def Reset(label):
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
 ```
+
+For user to enter their name at the end of the game
 ```
 def getname():
     name = simpledialog.askstring("Test", "What's your Name?:")
     return name
 ```
+
+Display the name player has entered
 ```
 def correctbox():
     global storetime
     name = getname()
     messagebox.showinfo("Congrats {}".format(name)+" !","You're 100% focus! You've completed in {} s".format(storetime)+" !")
 ```
+
+Message to display if player chooses wrong answer
 ```
 def wrongbox():
     messagebox.showinfo("Try Again!", "You need to improve on your focus!")
 ```
+
+Message to display when time runs out
 ```
 def timeup():
     messagebox.showinfo("TIMES UP!!", "TIMESS UPP!!, You need to improve on your concentration")
 ```
 
 ### **Creating function to navigate to Focus GUI**
-text
+To navigate to ICONcentrate page
 ```
 def focusappear():
     luckframe.grid_forget()
