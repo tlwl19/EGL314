@@ -278,12 +278,16 @@ Next, click on the Guess button to generate a random Horoscope on the polariser 
 
 The polariser board will generate a random horoscope image. You have to guess the horoscope that is shown on the polariser.
 
+<<<<<<< Updated upstream
 ![](Demo%20Pics/HoroPol.png)
+=======
+![Alt text](polariser%20pics/cancer.jpg)
+>>>>>>> Stashed changes
 *Image has been sent over to the polariser*
 
 <br>
 
-For example, if the polariser show Leo, click on the Leo button on the GUI.
+For example, if the polariser shows Cancer, click on the Cancer button on the GUI.
 
 ![](Demo%20Pics/HoroSelectLeo.png)
 *Click on the correct button*
@@ -382,7 +386,12 @@ The luck percentages are as follows:
 
 If the polariser displays genie lamp, you can try again by entering another date of birth.
 
+<<<<<<< Updated upstream
 ![](Demo%20Pics/LuckPol.png)
+=======
+![Alt text](polariser%20pics/genie.jpg)
+
+>>>>>>> Stashed changes
 *Genie lamp shown on polariser*
 
 <br>
@@ -407,7 +416,12 @@ Once you have select either rock, paper or scissors, it will be displayed on the
 
 The game will generate rock, paper or scissors on the polariser. That will determine if you win or lose.
 
+<<<<<<< Updated upstream
 ![](Demo%20Pics/LuckRockPaperScissorsPol.png)
+=======
+![Alt text](polariser%20pics/paper.jpg)
+
+>>>>>>> Stashed changes
 *Either rock, paper or scissors will be shown on the polariser*
 
 <br>
@@ -464,7 +478,12 @@ To start the game, press the start button on the right to begin.
 
 Once the game has begun, a random brand icon will be displayed on the polariser board. 
 
+<<<<<<< Updated upstream
 ![](Demo%20Pics/IconPol.png)
+=======
+![Alt text](polariser%20pics/idk.jpg)
+
+>>>>>>> Stashed changes
 *Random image icon is generated and send to polariser*
 
 <br>
@@ -610,7 +629,12 @@ You can send your pixelised drawing to the polariser by clicking on the 'Send Im
 ![](Demo%20Pics/DrawConvertGridSend.png)
 *Click on 'Send Image' to see pixelised form on the polariser*
 
+<<<<<<< Updated upstream
 ![](Demo%20Pics/DrawPol.png)
+=======
+![Alt text](polariser%20pics/draw.jpg)
+
+>>>>>>> Stashed changes
 *Final outcome on the polariser*
 
 <br>
@@ -734,7 +758,7 @@ mainframe.grid(row=0, column=0)
 
 <br>
 
-Quote & Description:
+Quote & Description :
 ```
 quotevar = "Mental Health.. is not a destination, but a process. It's about how you drive, not where you're going.\n \n-NOAM SHPANCER, PHD"
 quote = Label(mainframe, text=quotevar, font=quote_font, bg='#DBDBDB', padx=50 ,pady=50)
@@ -747,7 +771,7 @@ desc.grid(row=1, column=0)
 
 <br>
 
-Image:
+Image :
 ```
 mentalpath = "wellness/mental.jpg"
 myImage = Image.open(mentalpath)
@@ -778,7 +802,7 @@ quote_font = Font(
 
 ## **Creating the Functions Used**
 ---
-To navigate to Main Page:
+To navigate to Main Page :
 ```
 def mainappear(): 
     guessframe.grid_forget()
@@ -795,9 +819,6 @@ def mainappear():
 
 ## **Creating the Frames**
 <br>
-
-Overall frame
-
 
 This will be the frame structure we will be using for our "Guess the Horoscope" game.
 ```
@@ -829,7 +850,7 @@ inguessframe3.grid(row=1, column=2)
 ```
 ## **Creating Guess title**
 
-Guess game title:
+Guess the Horoscope game title :
 
 ```
 headername = Label(guessframe, text="Guess the Horoscope", font=('Arial', 30)) 
@@ -948,7 +969,7 @@ for i in range(0, 12):
 ```
 ![](markdown%20imgs/HoroGrid.png)
 
-After which, we'll need to create a guess button
+Now, we will need to create the guess button.
 
 ```
 guessbtn = Button(inguessframe2, text="GUESS!!", font=('Arial',20), command=guess)
@@ -956,7 +977,7 @@ guessbtn.grid(row=0, column=1)
 ```
 ![](markdown%20imgs/GuessBtn.png)
 
-After which, we'll need to create buttons/labels for start, reset, score and result
+After which, we'll need to create buttons/labels for start, reset, score and result.
 
 ```
 startbtn = Button(inguessframe3, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
@@ -973,7 +994,7 @@ scoreresults.grid(row=3, column=2)
 ```
 ![](markdown%20imgs/HoroLBL.png)
 
-After which, we'll need to create label for prompt on reset game
+After which, we'll need to create the label for the prompt on reset game.
 
 ```
 youwin = Label(inguessframe3, text="Press Reset Game to Reset", font=('Arial', 12))
@@ -1003,7 +1024,7 @@ def show_Image_guess(choice1):   #To send to polariser
     myImage = Image.open("cartoon.png")
 
 ```
-To start the game
+To start the game :
 ```
 def startgame():
     global score, prevent, number, prevent2
@@ -1042,7 +1063,7 @@ def startgame():
 
 ```
 
-To reset game
+To reset game :
 
 ```
 def restartgame():
@@ -1124,7 +1145,7 @@ def restartgame():
         lbl11.grid(row=5, column=3)
 
 ```
-For the guess button to generate a random horoscope, with no duplicates and to send it to the polariser
+For the guess button to generate a random horoscope, with no duplicates and to send it to the polariser :
 
 ```
 def guess():
@@ -1271,7 +1292,7 @@ def horobutton(c):
                     btn11.config(bg='white', fg='black')
 
 ```
-To navigate to guess page
+To navigate to guess page :
 ```
 def guessappear(): 
     luckframe.grid_forget()
@@ -1280,9 +1301,7 @@ def guessappear():
     drawingframe.grid_forget()
     guessframe.grid(row=0, column=0)
 ```
-output
-<br>insert polarizer pic here
-<br>
+
 <br>
 
 ---
