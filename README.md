@@ -891,10 +891,6 @@ To send images in the game to the polariser:
 def show_Image_guess(choice1):   #To send to polariser
     path2 = "horo/" + str(choice1) + ".png"
     myImage = Image.open(path2)
-
-    #sending to cartoon.py
-    #first path refers to input for img
-    #path2 refers to variable
     cartoon.pixelised(path = path2)
     myImage = Image.open("cartoon.png")
 
@@ -906,7 +902,6 @@ To start the game :
 ```
 def startgame():
     global score, prevent, number, prevent2
-    #score = 0
     prevent = []
     prevent2 = 0
     if number == 15:
@@ -1068,7 +1063,7 @@ def guess():
     elif btn0.cget('bg') == '#a58fbe': 
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
         number = 15
-    elif number == 13: # restart
+    elif number == 13:
         scoreresults.config(text="Press Reset Game to Reset", font=('Arial',10))
     else: 
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
@@ -1087,7 +1082,7 @@ def horobutton(c):
             scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
         else:
             scoreresults.config(text="Press Reset Game to Reset", font=('Arial',10))
-    elif btn0.cget('bg') == '#a58fbe' : #purple color
+    elif btn0.cget('bg') == '#a58fbe' : 
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
     elif number == 12:
         scoreresults.config(text="Press Guess to Start Guessing", font=('Arial',10))
@@ -1097,7 +1092,7 @@ def horobutton(c):
                 if score >= 1:
                     scoreresults.config(text=str(score), font=('Arial',20))
                 else:
-                    number = 13 #restart
+                    number = 13 
                     scoreresults.config(text=str(score), font=('Arial',20))
             else:
                 btn0.config(bg='#7fff00') 
@@ -1247,7 +1242,7 @@ inputcolumn = 4
 
 for r in range(inputrow):
     for c in range(inputcolumn):
-        # Button Section
+        
         btn0 = Button(inguessframe, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=0:horobutton(m))
         lbl0 = Label(inguessframe, text="Aquarius", font=("Arial", 15), fg='black')
         btn1 = Button(inguessframe, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=1:horobutton(m))
@@ -1447,7 +1442,7 @@ To change the images:
 To generate random luck percentage and to check for valid DoB input :
 ```
 def change_img(): 
-    for i in range(len(options)) : #check if is a valid DOB
+    for i in range(len(options)) : 
         if options[i] == clicked.get():
             i = i+1
             if i == 2 and clickeds.get() > 29:
@@ -1460,7 +1455,7 @@ def change_img():
             else:
                 test3 = True
                 
-    if test3 == True:   #If is valid, execute below command
+    if test3 == True:  
         label.config(text="Input your DoB and Press the 'Enter' button.")
         randomno = random.randint(0, 4) #randomly generate a number 0-4
         randomnolist = [0,25,50,75,100]
@@ -1474,15 +1469,15 @@ def change_img():
             imageLabel.grid(rowspan=2, column=3)
             print(randomnolist[randomno])
             
-        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25: #when randomly generated number is 0 or 1, will show genie pic
+        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25:
             label2.config(text='')
             frame1.grid_forget()
-            show_Image_luck(7)#insert genie pic name
+            show_Image_luck(7)
             previewtitle.grid_forget()
             imageLabel.grid_forget()
             print(randomnolist[randomno])
             
-        else:  #when randomly generated number is 2, will show 50% pic
+        else: 
             label2.config(text='') 
             frame1.grid_forget()
             previewtitle.grid_forget()
@@ -1499,7 +1494,7 @@ To preview users' choice on GUI
 
 To show the choice the player has made :
 ```
-def preview_Image(choice): #for game preview at the side
+def preview_Image(choice): 
     global imageLabel
     if choice == 1:
         choice = "scissors"
@@ -1539,7 +1534,7 @@ def game(m):
         o = "paper"
     else:
         o = "stone"
-    show_Image_luck(o) #send to polariser
+    show_Image_luck(o) 
     preview_Image(m)
 ```
 
@@ -1623,8 +1618,8 @@ clickeds = IntVar()
 
 who = date.today()
 whos = options[who.month-1]
-clicked.set(whos)  #this refers to month
-clickeds.set(who.day) #this refers to date
+clicked.set(whos)  
+clickeds.set(who.day) 
 ```
 
 <br>
@@ -1851,19 +1846,14 @@ def counter_label(label):
             display=string
             label['text']=display
    
-            # label.after(arg1, arg2) delays by 
-            # first argument given in milliseconds
-            # and then calls the function given as second argument.
-            # Generally like here we need to call the 
-            # function in which it is present repeatedly.
-            # Delays by 1000ms=1 seconds and call count again.
+           
             timer.after(1000, count) 
             counter += 1
-            #print(counter)
+            
             if counter > 20:
                 Stop(10)
            
-    # Triggering the start of the counter.
+   
     count()
 ```
 
@@ -1873,15 +1863,15 @@ Randomly generate an icon without duplicates :
 ```
 def click():
     global numberxlist
-    numberx = random.randint(0,5) #generate a random no.
-    if len(numberxlist) >= 1:   #If there is number inside
+    numberx = random.randint(0,5) 
+    if len(numberxlist) >= 1:  
         while numberx == numberxlist[0]: #To check if the random int is the same as the previous random generate int
             numberx = random.randint(0,5)
         else:
-            numberxlist[0] = numberx #New random int 
+            numberxlist[0] = numberx 
             print(numberx)
     else:
-        numberxlist = [numberx]  #To store the first random generator int
+        numberxlist = [numberx]  
         print(numberxlist[0])
     show_Image_focus(numberx)
 ```
@@ -1896,21 +1886,21 @@ def Stop(m):
     print('stop')
     for i in range (0, 6): 
         btn[i]['state']='disabled'
-    if m == numberxlist[0]:  #If what i choose is the same as what is being sent, 
-        Lno = Lno+1  #Level increase by 1
+    if m == numberxlist[0]:  
+        Lno = Lno+1 
         storetime = storetime + counter-1
-        Reset(timer) #Timer reset to 0
-        if Lno == 4: #Level will stop till level 3
+        Reset(timer) 
+        if Lno == 4: 
             Lno = 0
             Reset(timer)
-            correctbox() #User pop up will appear
+            correctbox() 
             storetime = 0
-    elif m == 10: #When timer reach 10sec,
-        Lno = 0  #Level reset to 0
+    elif m == 10:
+        Lno = 0  
         Reset(timer)
         timeup()
     else:
-        Lno = 0     #When user select wrg btn, level goes back to 0
+        Lno = 0     
         wrongbox()
         Reset(timer)
         print('wrong')
@@ -1924,8 +1914,8 @@ def Reset(label):
     global counter, Lno, icons, storetime
     counter=0
    
-    # If rest is pressed after pressing stop.
-    if running==False:  #When timer is not running
+  
+    if running==False: 
         start['state']='normal'      
         label['text']='Welcome!'
         level['text']='Level '+ str(Lno)
@@ -1942,7 +1932,7 @@ def Reset(label):
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         else:
-            icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']  #Level 0
+            icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']  
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
 ```
@@ -2278,7 +2268,7 @@ def allwht():
   for r in range (32):
     for c in range (32):
       button[r][c].config(bg='grey99')
-      value[r][c] = 0  #This is the angle of grey99
+      value[r][c] = 0 
   canvas.config(bg = 'white')
   for r in range(800):
     for c in range(800):
@@ -2293,7 +2283,7 @@ def allblk():
   for r in range (32):
     for c in range (32):
       button[r][c].config(bg='grey1')
-      value[r][c] = 90 #This is the angle of grey1
+      value[r][c] = 90 
   canvas.config(bg = 'black')
   for r in range(800):
     for c in range(800):
@@ -2356,7 +2346,7 @@ master = ttk.Notebook(drawingframe)
 
 Frame for both tabs :
 ```
-tabgrid = Frame(master) #new frame for tab grid
+tabgrid = Frame(master)
 tabdraw = Frame(master)
 ```
 
