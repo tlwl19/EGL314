@@ -284,7 +284,7 @@ The polariser board will generate a random horoscope image. You have to guess th
 
 For example, if the polariser shows Cancer, click on the Cancer button on the GUI.
 
-![](Demo%20Pics/HoroSelectLeo.png)
+![](Demo%20Pics/HoroSelectCancer.png)
 *Click on the correct button*
 
 <br>
