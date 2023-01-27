@@ -625,7 +625,7 @@ modeframe.grid(row=2, column=0)
 
 <br>
 
-## **Title**
+## **Home Button**
 
 To create the big "Fun Ways to Approach MENTAL WELLNESS"  button on the top of the window
 ```
@@ -673,8 +673,37 @@ mentalpic.grid(row=2, column=0)
 ```
 <br>
 
-![](markdown%20imgs/MainFrame.png)
+Creating own font for header and quote :
+```
+header_font = Font(
+    family = 'Times', 
+    size = 30,
+    weight = 'bold',
+    slant = 'roman',
+)
 
+quote_font = Font(
+    family = 'Typewriter', 
+    size = 15,
+    weight = 'bold',
+    slant = 'roman',
+)
+```
+![](markdown%20imgs/MainFrame.png)
+*Main Page GUI*
+
+## **Creating the Functions Used**
+---
+To navigate to Main Page:
+```
+def mainappear(): 
+    guessframe.grid_forget()
+    focusframe.grid_forget()
+    luckframe.grid_forget()
+    drawingframe.grid_forget()
+    mainframe.grid(row=0, column=0)
+
+```
 ---
 
 # **Guess the Horoscope**
@@ -2035,7 +2064,7 @@ def colour_picker(r, c):
       button[r][c].config(bg='grey1') 
       value[r][c] = colour
 ```
-save button
+This is to save and convert what's on canvas to be shown on grid.
 ```
 def save_draw_colour(list): 
   global value
@@ -2089,7 +2118,7 @@ def f0(x, y):
   return freq  
 ```
 ### **Creating function for addtitonal features and send button**
-all white button
+This is to make both the canvas and grid to all white.
 ```
 def allwht():
   for r in range (32):
@@ -2101,7 +2130,7 @@ def allwht():
     for c in range(800):
       canvasdraw[r][c] = 0
 ```
-all black button
+This is to make both the canvas and grid to all black.
 ```
 def allblk():
   for r in range (32):
@@ -2113,7 +2142,7 @@ def allblk():
     for c in range(800):
       canvasdraw[r][c] = 90
 ```
-clear button
+This is to clear all drawings on the canvas.
 ```
 def clearbtn():
   allwht()
@@ -2123,7 +2152,7 @@ def clearbtn():
   canvas.delete('all')
   print(canvasdraw)
 ```
-send button
+This is to send all the angle values of the 32x32 grid to the polarizer.
 ```
 def sendbtn():
   global value
@@ -2131,7 +2160,7 @@ def sendbtn():
   pubpic(value)
 ```
 ### **Creating function to navigate to Draw GUI**
-text
+To navigate to Express Yourself page.
 ```
 def drawappear(): 
     guessframe.grid_forget()
