@@ -539,6 +539,8 @@ If you want to clear your canvas or grid, you can press the clear button.
 <br>
 
 Header frame:
+
+To be used for the top of the window
 ```
 topframe = Frame(main)
 topframe.grid(row=0, column=0)
@@ -546,6 +548,8 @@ topframe.grid(row=0, column=0)
 <br>
 
 Feature frame:
+
+To be used for the middle of the window
 ```
 middleframe = Frame(main)
 middleframe.grid(row=1, column=0)
@@ -553,6 +557,8 @@ middleframe.grid(row=1, column=0)
 <br>
 
 Footer frame:
+
+To be used at the bottom of the window
 ```
 modeframe = Frame(main)
 modeframe.grid(row=2, column=0)
@@ -561,6 +567,8 @@ modeframe.grid(row=2, column=0)
 <br>
 
 ## **Title**
+
+To create the big "Fun Ways to Approach MENTAL WELLNESS"  button on the top of the window
 ```
 headertitle = Button(topframe, text="Fun Ways to Approach MENTAL WELLNESS", font=header_font, fg = '#6495ED', activeforeground='#C3B1E1', command=mainappear, padx=250)
 headertitle.grid(row=0, column=0)
@@ -572,7 +580,9 @@ headertitle.grid(row=0, column=0)
 
 <br>
 
-Main Page Frame:
+Main Page Frame: 
+
+We will be displaying our definition of mental wellness on this frame.
 ```
 mainframe = Frame(middleframe)
 mainframe.grid(row=0, column=0)
@@ -613,6 +623,8 @@ mentalpic.grid(row=2, column=0)
 
 Overall frame
 
+
+This will be the frame structure we will be using for our "Guess the Horoscope" game
 ```
 guessframe = Frame(middleframe)
 ```
@@ -655,7 +667,7 @@ headername.grid(row=0, columnspan=3)
 
 ```
 
-After the frames have been created, we will start to create the buttons in the 3x4 grid. 
+After the frames have been created, we will start to create the buttons for the horoscopes and their respective names as labels in the 3x4 grid.
 
 ```
 inputrow = 6    
@@ -717,7 +729,7 @@ lbl11.grid(row=5, column=3)
 
 ```
 
-We will then need to insert the images of the horoscope symbols onto our buttons.
+We will then need to insert the images of the horoscope symbols onto our buttons. To acheive this we will name our images in numerical order, and use a for loop to fit the images into the grid in their corresponding buttons based on their numerical order.
 
 ```
 for i in range(0, 12):
@@ -856,8 +868,7 @@ options = ["January", "Febuary", "March", "April", "May", "June", "July", "Augus
 ```
 
 We will first need to create an array of the days in a month.
->The default colour of the 32x32 grid is white, and the value of white is 0.<br>
-The variable `o` represents the number of rows and columns. In this case, we assigned 32 to the variable `o`.<br>EDIT THIS
+
 ```
 optionss = []
 d = 32
@@ -979,122 +990,19 @@ main.bind("<Return>", change_img)
 ```
 ## **Creating the Functions Used**
 ---
-
-### **Creating function to send images to the polarizer**
----
-
-### *Line 512*
-text
-```
-def show_Image_luck(choice2):
-
-    if type(choice2) == int:
-        lucky = "percentage pics/" + str(choice2) + ".png"
-        myImage = Image.open(lucky)
-    else:
-        lucky = "scissors paper stone pics/" + choice2 + ".png"
-        myImage = Image.open(lucky)
-    cartoon.pixelised(path = lucky)
-    myImage = Image.open("cartoon.png")
-```
-output
-<br>insert polarizer pic here
-
-### **Creating functions to change the images**
----
-text
-```
-def change_img(): 
-    for i in range(len(options)) : #check if is a valid DOB
-        if options[i] == clicked.get():
-            i = i+1
-            if i == 2 and clickeds.get() > 29:
-                test3 = False   
-            elif clickeds.get() > 30:
-                if i == 4 or i == 6 or i == 9 or i == 11:
-                    test3 = False
-                else: 
-                    test3 = True
-            else:
-                test3 = True
-                
-    if test3 == True:   #If is valid, execute below command
-        label.config(text="Input your DoB and Press the 'Enter' button.")
-        randomno = random.randint(0, 4) #randomly generate a number 0-4
-        randomnolist = [0,25,50,75,100]
-        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100: #when randomly generated number is 3 or 4, will show 75% or 99%, and activate game
-            label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
-            frame1.grid(row=4, column=1)
-            show_Image_luck(randomnolist[randomno])
-            imageLabel.config(image="", width = 30, height = 15)
-            previewtitle.config(text="")
-            previewtitle.grid(row=2, column=3)
-            imageLabel.grid(rowspan=2, column=3)
-            print(randomnolist[randomno])
-            
-        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25: #when randomly generated number is 0 or 1, will show genie pic
-            label2.config(text='')
-            frame1.grid_forget()
-            show_Image_luck(7)#insert genie pic name
-            previewtitle.grid_forget()
-            imageLabel.grid_forget()
-            print(randomnolist[randomno])
-            
-        else:  #when randomly generated number is 2, will show 50% pic
-            label2.config(text='') 
-            frame1.grid_forget()
-            previewtitle.grid_forget()
-            imageLabel.grid_forget()
-            show_Image_luck(randomnolist[randomno])
-            print(randomnolist[randomno])
-    else:
-        label.config(text = "Please input a valid DoB", image='', font=('50px'))
-```
-output
-<br>insert pic here
-
-### **Creating function to preview users' choice on GUI**
----
-text
-```
-def preview_Image(choice): #for game preview at the side
-    global imageLabel
-    if choice == 1:
-        choice = "scissors"
-    elif choice == 2:
-        choice = "paper"
-    else:
-        choice = "stone"
-    path = "scissors paper stone pics/" + str(choice) + ".png"
-    myImages = Image.open(path)
-    myImages = myImages.resize((250, 250))
-    loadImage = ImageTk.PhotoImage(myImages)
-    imageLabel.image = loadImage
-    imageLabel.config(image = loadImage, width = 250, height = 250)
-    previewtitle.config(text="You have chosen " + choice)
-```
-output
-<br>insert pic here
 <br>
 
-### **Creating function to send random images to the polarizer**
----
-text
+### *Line 512*
+
+### *Assign functions to*
+
+Use ? statement to create function for ?
 ```
-def game(m):
-    frame1.grid_forget()  
-    randoms = random.randint(1,3)
-    if randoms == 1:
-        o = "scissors"
-    elif randoms == 2:
-        o = "paper"
-    else:
-        o = "stone"
-    show_Image_luck(o) #send to polariser
-    preview_Image(m)
+insert function here
 ```
 output
-<br>insert pic here
+
+
 <br>
 
 ---
