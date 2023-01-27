@@ -42,7 +42,8 @@ D --> E[Main Server]
 E --> F[ESP32]
 F --> G[Servo Motors]
 ```
-*Fu Yongwei, huats-club/EGL314starterkit*
+<a href="https://github.com/huats-club/EGL314starterkit"><i>Fu Yongwei, huats-club/EGL314starterkit</i></a>
+
 <br>
 
 ## **Software**
