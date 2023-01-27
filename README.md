@@ -1015,7 +1015,7 @@ output
 text
 ```
 def change_img(): 
-    for i in range(len(options)) : #check if is a valid DOB
+    for i in range(len(options)) : 
         if options[i] == clicked.get():
             i = i+1
             if i == 2 and clickeds.get() > 29:
@@ -1028,11 +1028,11 @@ def change_img():
             else:
                 test3 = True
                 
-    if test3 == True:   #If is valid, execute below command
+    if test3 == True:   
         label.config(text="Input your DoB and Press the 'Enter' button.")
         randomno = random.randint(0, 4) #randomly generate a number 0-4
         randomnolist = [0,25,50,75,100]
-        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100: #when randomly generated number is 3 or 4, will show 75% or 99%, and activate game
+        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100: 
             label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
             frame1.grid(row=4, column=1)
             show_Image_luck(randomnolist[randomno])
@@ -1042,7 +1042,7 @@ def change_img():
             imageLabel.grid(rowspan=2, column=3)
             print(randomnolist[randomno])
             
-        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25: #when randomly generated number is 0 or 1, will show genie pic
+        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25:
             label2.config(text='')
             frame1.grid_forget()
             show_Image_luck(7)#insert genie pic name
@@ -1050,7 +1050,7 @@ def change_img():
             imageLabel.grid_forget()
             print(randomnolist[randomno])
             
-        else:  #when randomly generated number is 2, will show 50% pic
+        else:  
             label2.config(text='') 
             frame1.grid_forget()
             previewtitle.grid_forget()
@@ -1067,7 +1067,7 @@ output
 ---
 text
 ```
-def preview_Image(choice): #for game preview at the side
+def preview_Image(choice): 
     global imageLabel
     if choice == 1:
         choice = "scissors"
@@ -1099,7 +1099,7 @@ def game(m):
         o = "paper"
     else:
         o = "stone"
-    show_Image_luck(o) #send to polariser
+    show_Image_luck(o)
     preview_Image(m)
 ```
 output
@@ -1107,7 +1107,6 @@ output
 <br>
 
 ---
-
 <br>
 
 # **Test Your Concentration**
@@ -1240,6 +1239,7 @@ master.add(tabgrid,text="Grid")
 master.add(tabdraw,text="Draw")
 master.grid(row=0, column = 0)
 ```
+## **Creating the elements in Grid Tab**
 Creating the grid:
 ```
 button = [[r for r in range(32)] for c in range(32)]
@@ -1292,6 +1292,7 @@ Send button:
 send = Button(colourframe, text="Send Image!", font=("Calibri, 12"), width=13, height=2, command=lambda :sendbtn())
 send.grid(row=0, column=3)
 ```
+## **Creating the elements in Canvas Tab**
 Creating the canvas:
 ```
 canvas = Canvas(tabdraw, width=800, height=800, bg='white')  
@@ -1310,6 +1311,13 @@ colour = 0
 Canvas arrray:
 ```
 canvasdraw = [[0 for r in range(800)] for c in range(800)]
+```
+## **Creating the Functions Used**
+---
+### **Creating function for shades of grey selectionr**
+text
+```
+
 ```
 ---
 <br>
