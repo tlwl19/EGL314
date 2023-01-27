@@ -826,6 +826,7 @@ youwin.grid_forget()
 
 Overall frame
 
+This will be the frame structure that we will be using for our "What's Your Luck?" game
 ```
 guessframe = Frame(middleframe)
 ```
@@ -846,7 +847,7 @@ frame1.grid(row=4, column=0)
 
 ```
 
-After which, we'll need to remove the game at intial boot(appear only when triggered)
+After which, we'll need to remove the game upon intial boot(appear only when triggered)
 
 ```
 frame1.grid_forget()
@@ -867,9 +868,8 @@ We will first need to create an array of the months in a year.
 options = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 ```
 
-We will first need to create an array of the days in a month.
->The default colour of the 32x32 grid is white, and the value of white is 0.<br>
-The variable `o` represents the number of rows and columns. In this case, we assigned 32 to the variable `o`.<br>EDIT THIS
+We will then need to create an array of the number days in a month.
+>We use a for loop to determine the number of days in a month. In this case, the variable `d` represents the number of days in a month. We set `d = 32` as in this `for` loop the `in range` function begins at 1, and will progressively increase in increments of 1 until it reaches 32, in which afterwards it will deduct 1 from the range of values, leaving us at 31 values, which is approximately the number of days in a month.
 ```
 optionss = []
 d = 32
