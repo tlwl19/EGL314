@@ -450,6 +450,7 @@ Click on the instructions button to learn how to play the game.
 <br>
 
 ![](Demo%20Pics/Instructions.png)
+<br>
 *Instructions*
 
 <br>
@@ -480,6 +481,8 @@ You will have 20 seconds to guess the icon from the selection of choices below.
 Once 20 seconds has passed, the game will end.
 
 ![](Demo%20Pics/IconGameOver.png)
+<br>
+
 *Time's Up*
 
 <br>
@@ -515,6 +518,8 @@ Once you have beaten all 4 levels, you will be prompted to enter your name
 Once you have entered your name, a messaage box with your name will appear to notify you that you have beaten the game and the time taken to beat the game.
 
 ![](Demo%20Pics/IconWin.png)
+<br>
+
 *Total time taken to complete the game*
 
 <br>
@@ -609,6 +614,8 @@ And voilà! You have successfully converted your drawing into a pixelised form.
 You can send your pixelised drawing to the polariser by clicking on the 'Send Image' button and it will display your pixelised drawing.
 
 ![](Demo%20Pics/DrawConvertGridSend.png)
+<br>
+
 *Click on 'Send Image' to see pixelised form on the polariser*
 
 ![Alt text](polariser%20pics/draw.jpg)
