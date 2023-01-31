@@ -67,7 +67,7 @@ def restartgame():
     #score = 0
     prevent = []  
     prevent2 = 0
-    if number == 13 or number == 14 or number == 17: #restart
+    if number == 13 or number == 14 or number == 17 or number == 18: #restart
         for i in range(0, 12):
             paths = "horo/" + str(i) + ".png"
             myImages = Image.open(paths)
@@ -148,9 +148,9 @@ def guess():
     #number = list(range(0,11))
                         #green                          #red                            #blue
     #if btn0.cget('bg') == '#7fff00' or btn0.cget('bg') == '#FF0800' or btn0.cget('bg') == '#b0c8ed':
-    if number == 12:
+    if number == 12 or number == 18:
         number = 16
-        scoreresults.config(text="Guess the horoscope!", font=('Arial',10))
+        scoreresults.config(text="Guess the horoscope!", font=('Arial',12))
         #if btn0.cget('bg') != '#FF0800': #red color
             #if prevent2 == 0:  #To prevent horoscope from duplicating
         numberx = random.randint(0,11) #generate a random no.
@@ -166,18 +166,18 @@ def guess():
             print(numberxlist[0])
             show_Image(numberx) #send to polariser the number
         #number = 0
-        # btn0.config(bg='#b0c8ed', fg="white")
-        # btn1.config(bg='#b0c8ed', fg="white") 
-        # btn2.config(bg='#b0c8ed', fg="white") 
-        # btn3.config(bg='#b0c8ed', fg="white") 
-        # btn4.config(bg='#b0c8ed', fg="white") 
-        # btn5.config(bg='#b0c8ed', fg="white") 
-        # btn6.config(bg='#b0c8ed', fg="white") 
-        # btn7.config(bg='#b0c8ed', fg="white") 
-        # btn8.config(bg='#b0c8ed', fg="white") 
-        # btn9.config(bg='#b0c8ed', fg="white") 
-        # btn10.config(bg='#b0c8ed', fg="white")
-        # btn11.config(bg='#b0c8ed', fg="white") 
+        btn0.config(bg='#b0c8ed', fg="white")
+        btn1.config(bg='#b0c8ed', fg="white") 
+        btn2.config(bg='#b0c8ed', fg="white") 
+        btn3.config(bg='#b0c8ed', fg="white") 
+        btn4.config(bg='#b0c8ed', fg="white") 
+        btn5.config(bg='#b0c8ed', fg="white") 
+        btn6.config(bg='#b0c8ed', fg="white") 
+        btn7.config(bg='#b0c8ed', fg="white") 
+        btn8.config(bg='#b0c8ed', fg="white") 
+        btn9.config(bg='#b0c8ed', fg="white") 
+        btn10.config(bg='#b0c8ed', fg="white")
+        btn11.config(bg='#b0c8ed', fg="white") 
         # prevent2 = 1
         # print(prevent2)
         #else:
@@ -185,33 +185,33 @@ def guess():
     # elif btn0.cget('bg') == '#a58fbe': #purple color
     #     scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
     #     number = 15
-    elif number == 13 or number == 17: # restart
-        scoreresults.config(text="Press Reset Game to Reset", font=('Arial',10))
+    elif number == 13 or number == 17 or number == 14: # restart
+        scoreresults.config(text="Press Reset Game to Reset", font=('Arial',12))
     elif number == 15: 
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
     else:
-        scoreresults.config(text="Select one horoscope!", font=('Arial',10))
+        scoreresults.config(text="Select one horoscope!", font=('Arial',12))
 
 def button(c):
     global number, score, prevent, numberx, prevent2
     youwin.grid_forget()
+    preventw = [0]
     if number == 15:
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
-    elif number == 17: #after game ended 
-        scoreresults.config(text="Press Reset Game to Reset", font=('Arial',10))
+    elif number == 17 or number == 14: #after game ended 
+        scoreresults.config(text="Press Reset Game to Reset", font=('Arial',12))
     elif number == 13:
         scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
     elif number == 12:
         scoreresults.config(text="Press Guess to Start Guessing", font=('Arial',10))
     else: #number = 16 guess is pressed
         if c == numberx:
-            #prevent.append(0) #prevent[] is to stop the counter from adding score+1 if user click more than once on the correct horoscope btn
             if prevent == [2]:
-                if score >= 1:
-                    scoreresults.config(text=str(score), font=('Arial',20))
-                else:
-                    number = 13 #restart
-                    scoreresults.config(text=str(score), font=('Arial',20))
+                # if score >= 1:
+                #     scoreresults.config(text=str(score), font=('Arial',20))
+                # else:
+                number = 18 #restart
+                scoreresults.config(text="Press Guess to continue or Restart to reset the game!", font=('Arial',10))
             else:
                 if c == 0:
                     btn0.config(bg="#7fff00")
@@ -250,14 +250,14 @@ def button(c):
                 # btn10.config(bg='#7fff00')
                 # btn11.config(bg='#7fff00') 
                 score = score+1
-                number = 13
                 prevent = [2]
+                number = 18
                 #prevent2 = 0
                 print(prevent)
                 if score >= 4:
                     scoreresults.config(text='YOU WIN', font=('Arial',20))
                     youwin.grid(row=4, column=2)
-                    number = 13
+                    number = 14
                     btn0.config(bg='white', fg='black')
                     btn1.config(bg='white', fg='black')
                     btn2.config(bg='white', fg='black')
@@ -270,38 +270,58 @@ def button(c):
                     btn9.config(bg='white', fg='black')
                     btn10.config(bg='white', fg='black')
                     btn11.config(bg='white', fg='black')
-                elif score <= 0:
-                    scoreresults.config(text=str(score), font=('Arial',20))
+                #elif score <= 0:
+                    #scoreresults.config(text=str(score), font=('Arial',20))
                 else:
                     scoreresults.config(text=str(score), font=('Arial',20))
         # elif btn0.cget('bg') == '#7fff00':
         #     prevent = [2]
         #     scoreresults.config(text=str(score), font=('Arial',20))
         else:
-            if c == 0:
-                btn0.config(bg="#FF0800")
-            elif c == 1:
-                btn1.config(bg="#FF0800")
-            elif c == 2:
-                btn2.config(bg="#FF0800")
-            elif c == 3:
-                btn3.config(bg="#FF0800")
-            elif c == 4:
-                btn4.config(bg="#FF0800")
-            elif c == 5:
-                btn5.config(bg="#FF0800")
-            elif c == 6:
-                btn6.config(bg="#FF0800")
-            elif c == 7:
-                btn7.config(bg="#FF0800")
-            elif c == 8:
-                btn8.config(bg="#FF0800")
-            elif c == 9:
-                btn9.config(bg="#FF0800")
-            elif c == 10:
-                btn10.config(bg="#FF0800")
+            #prevent = [3] #this is to prevent score -1 if user press the same button multiple times
+            if preventw == [3]:
+                score = score-1
+                scoreresults.config(text=str(score), font=('Arial',20))
+            elif preventw == [4]:
+                scoreresults.config(text="Choose another horoscope", font=('Arial',12))
             else:
-                btn11.config(bg="#FF0800")
+                preventw = [3]
+                if c == 0:
+                    btn0.config(bg="#FF0800")
+                    preventw = [4]
+                elif c == 1:
+                    btn1.config(bg="#FF0800")
+                    preventw = [4]
+                elif c == 2:
+                    btn2.config(bg="#FF0800")
+                    preventw = [4]
+                elif c == 3:
+                    btn3.config(bg="#FF0800")
+                    preventw = [4]
+                elif c == 4:
+                    btn4.config(bg="#FF0800")
+                    preventw = [4]
+                elif c == 5:
+                    btn5.config(bg="#FF0800")
+                    preventw = [4]
+                elif c == 6:
+                    btn6.config(bg="#FF0800")
+                    preventw = [4]
+                elif c == 7:
+                    btn7.config(bg="#FF0800")
+                    preventw = [4]
+                elif c == 8:
+                    btn8.config(bg="#FF0800")
+                    preventw = [4]
+                elif c == 9:
+                    btn9.config(bg="#FF0800")
+                    preventw = [4]
+                elif c == 10:
+                    btn10.config(bg="#FF0800")
+                    preventw = [4]
+                else:
+                    btn11.config(bg="#FF0800")
+                    preventw = [4]
             # btn0.config(bg='#FF0800')  #Show red colour
             # btn1.config(bg='#FF0800')
             # btn2.config(bg='#FF0800')
@@ -314,15 +334,14 @@ def button(c):
             # btn9.config(bg='#FF0800')
             # btn10.config(bg='#FF0800')
             # btn11.config(bg='#FF0800')
-            score = score-1
-            scoreresults.config(text=str(score), font=('Arial',20))
             print(score)
             #can add number = 13 to restart game
             if score <= 0:
-                scoreresults.config(text=str(score), font=('Arial',15))
+                scoreresults.config(text=str(score), font=('Arial',20))
                 if score < -2:
                     scoreresults.config(text='GAME OVER', font=('Arial',20))
                     number = 17
+                    prevent = [3]
                     btn0.config(bg='white', fg='black')
                     btn1.config(bg='white', fg='black')
                     btn2.config(bg='white', fg='black')
@@ -351,7 +370,7 @@ score = 0
 number = 15
 numberxlist = []
 prevent = [0]
-prevent2 = 0
+
 
 #First frame is created for the 3x4 grid
 frame1 = Frame(main)
