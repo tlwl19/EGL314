@@ -216,27 +216,27 @@ def button(c):
                 if c == 0:
                     btn0.config(bg="#7fff00")
                 elif c == 1:
-                    btn0.config(bg="#7fff00")
+                    btn1.config(bg="#7fff00")
                 elif c == 2:
-                    btn0.config(bg="#7fff00")
+                    btn2.config(bg="#7fff00")
                 elif c == 3:
-                    btn0.config(bg="#7fff00")
+                    btn3.config(bg="#7fff00")
                 elif c == 4:
-                    btn0.config(bg="#7fff00")
+                    btn4.config(bg="#7fff00")
                 elif c == 5:
-                    btn0.config(bg="#7fff00")
+                    btn5.config(bg="#7fff00")
                 elif c == 6:
-                    btn0.config(bg="#7fff00")
+                    btn6.config(bg="#7fff00")
                 elif c == 7:
-                    btn0.config(bg="#7fff00")
+                    btn7.config(bg="#7fff00")
                 elif c == 8:
-                    btn0.config(bg="#7fff00")
+                    btn8.config(bg="#7fff00")
                 elif c == 9:
-                    btn0.config(bg="#7fff00")
+                    btn9.config(bg="#7fff00")
                 elif c == 10:
-                    btn0.config(bg="#7fff00")
+                    btn10.config(bg="#7fff00")
                 else:
-                    btn0.config(bg="#7fff00")
+                    btn11.config(bg="#7fff00")
                 # btn0.config(bg='#7fff00') #show green colour
                 # btn1.config(bg='#7fff00') 
                 # btn2.config(bg='#7fff00') 
@@ -252,7 +252,7 @@ def button(c):
                 score = score+1
                 number = 13
                 prevent = [2]
-                prevent2 = 0
+                #prevent2 = 0
                 print(prevent)
                 if score >= 4:
                     scoreresults.config(text='YOU WIN', font=('Arial',20))
@@ -274,22 +274,46 @@ def button(c):
                     scoreresults.config(text=str(score), font=('Arial',20))
                 else:
                     scoreresults.config(text=str(score), font=('Arial',20))
-        elif btn0.cget('bg') == '#7fff00':
-            prevent = [2]
-            scoreresults.config(text=str(score), font=('Arial',20))
+        # elif btn0.cget('bg') == '#7fff00':
+        #     prevent = [2]
+        #     scoreresults.config(text=str(score), font=('Arial',20))
         else:
-            btn0.config(bg='#FF0800')  #Show red colour
-            btn1.config(bg='#FF0800')
-            btn2.config(bg='#FF0800')
-            btn3.config(bg='#FF0800')
-            btn4.config(bg='#FF0800')
-            btn5.config(bg='#FF0800')
-            btn6.config(bg='#FF0800')
-            btn7.config(bg='#FF0800')
-            btn8.config(bg='#FF0800')
-            btn9.config(bg='#FF0800')
-            btn10.config(bg='#FF0800')
-            btn11.config(bg='#FF0800')
+            if c == 0:
+                btn0.config(bg="#FF0800")
+            elif c == 1:
+                btn1.config(bg="#FF0800")
+            elif c == 2:
+                btn2.config(bg="#FF0800")
+            elif c == 3:
+                btn3.config(bg="#FF0800")
+            elif c == 4:
+                btn4.config(bg="#FF0800")
+            elif c == 5:
+                btn5.config(bg="#FF0800")
+            elif c == 6:
+                btn6.config(bg="#FF0800")
+            elif c == 7:
+                btn7.config(bg="#FF0800")
+            elif c == 8:
+                btn8.config(bg="#FF0800")
+            elif c == 9:
+                btn9.config(bg="#FF0800")
+            elif c == 10:
+                btn10.config(bg="#FF0800")
+            else:
+                btn11.config(bg="#FF0800")
+            # btn0.config(bg='#FF0800')  #Show red colour
+            # btn1.config(bg='#FF0800')
+            # btn2.config(bg='#FF0800')
+            # btn3.config(bg='#FF0800')
+            # btn4.config(bg='#FF0800')
+            # btn5.config(bg='#FF0800')
+            # btn6.config(bg='#FF0800')
+            # btn7.config(bg='#FF0800')
+            # btn8.config(bg='#FF0800')
+            # btn9.config(bg='#FF0800')
+            # btn10.config(bg='#FF0800')
+            # btn11.config(bg='#FF0800')
             score = score-1
             scoreresults.config(text=str(score), font=('Arial',20))
             print(score)
