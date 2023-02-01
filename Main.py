@@ -657,12 +657,12 @@ enterbtn= Button(frame0, text= "Enter", command=change_img,  bg="#00076f", fg="W
 enterbtn.grid(row=1, column=2)
 
 #Text
-title= Label (luckframe, text="How lucky are you today?", font=('100px'), bg='white', width=30)
+title= Label (luckframe, text="How lucky are you today?", font=('100px'), width=30)
 title.grid(row=2, columnspan=3)
 
 
 #Create a Label widget
-label= Label(luckframe, image='', text="Input your date of birth and click on the 'Enter' button.", font=('100px'), bg='white')
+label= Label(luckframe, image='', text="Input your date of birth and click on the 'Enter' button.", font=('100px'))
 label.grid(row=3, columnspan=3)
 
 
