@@ -156,6 +156,8 @@ def guess():
         #if btn0.cget('bg') != '#FF0800': #red color
             #if prevent2 == 0:  #To prevent horoscope from duplicating
         numberx = random.randint(0,11) #generate a random no.
+        while len(numberxlist) == 12:
+            numberxlist = []
         if len(numberxlist) >= 1: #to check if there is smth in the list
             while numberx in numberxlist:  #if hv smth in the list
                 numberx = random.randint(0,11) #regenerate the number that is not the same as the previous
@@ -165,7 +167,7 @@ def guess():
                 show_Image(numberx) #send to polariser the number
         else:
             numberxlist = [numberx]
-            print(numberxlist[0])
+            print(numberxlist)
             show_Image(numberx) #send to polariser the number
         #number = 0
         btn0.config(bg='#b0c8ed', fg="white")
@@ -276,11 +278,11 @@ def button(c):
                     btn4.config(bg=color, fg='black')
                     btn5.config(bg=color, fg='black')
                     btn6.config(bg=color, fg='black')
-                    btn7.config(bg='#a58fbe', fg='black')
-                    btn8.config(bg='#a58fbe', fg='black')
-                    btn9.config(bg='#a58fbe', fg='black')
-                    btn10.config(bg='#a58fbe', fg='black')
-                    btn11.config(bg='#a58fbe', fg='black')
+                    btn7.config(bg=color, fg='black')
+                    btn8.config(bg=color, fg='black')
+                    btn9.config(bg=color, fg='black')
+                    btn10.config(bg=color, fg='black')
+                    btn11.config(bg=color, fg='black')
                 #elif score <= 0:
                     #scoreresults.config(text=str(score), font=('Arial',20))
                 else:
