@@ -811,15 +811,15 @@ def Reset(label):
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 2:
-            icons = ['Puma', 'A&W', 'Fila', 'BMW', 'Subway', 'Ferrari']
+            icons = ['Puma', 'Adidas', 'Fila', 'Nike', 'Under Armour', 'Reebok']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 3:
-            icons = ['Hawkeye', 'Hulk', 'Nissan', 'Rolls Royce', 'Burger King', 'Dominos']
+            icons = ['Ferrari', 'BMW', 'Nissan', 'Rolls Royce', 'Honda', 'Mercedes']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         else:
-            icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']  #Level 0
+            icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']  #Level 0
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
 
