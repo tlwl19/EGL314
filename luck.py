@@ -43,21 +43,14 @@ def change_img():
         randomnolist = [7,75,100]
         if randomnolist[randomno] == 75 or randomnolist[randomno] == 100:  #when randomly generated number is 3 or 4, will show 75% or 99%, and activate game
             label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
-            frame1.grid(row=4, column=1)
+            frame1.grid(row=4, column=0)  #For the selection of scissors,paper,stone
             show_Image_luck(randomnolist[randomno])
             imageLabel.config(image="", width = 30, height = 15)
             previewtitle.config(text="")
             previewtitle.grid(row=2, column=3)
-            imageLabel.grid(rowspan=2, column=3)
+            imageLabel.grid(row=4, column=3)
+            luckpic.grid_forget()
             print(randomnolist[randomno])
-
-        # elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25: #when randomly generated number is 0 or 1, will show genie pic
-        #     label2.config(text='')
-        #     frame1.grid_forget()
-        #     show_Image_luck(7)#insert genie pic name
-        #     previewtitle.grid_forget()
-        #     imageLabel.grid_forget()
-        #     print(randomnolist[randomno])
 
         else: #when randomly generated number is 2, will show 50% pic
             label2.config(text='')
@@ -151,14 +144,19 @@ button= Button(frame0, text= "Enter", command= change_img,  bg="#00076f", fg="WH
 button.grid(row=1, column=2)
 
 #Text
-title= Label (main, text="How lucky are you today?", font=('100px'), bg='white', width=30)
+title= Label (main, text="How lucky are you today?", font=('100px'), width=30)
 title.grid(row=2, columnspan=3)
 
 
 #Create a Label widget
-label= Label(main, image='', text="Input your date of birth and click on the 'Enter' button.", font=('100px'), bg='white')
+label= Label(main, image='', text="Input your date of birth and click on the 'Enter' button.", font=('100px'))
 label.grid(row=3, columnspan=3)
 
+luckpath = "motivationalquotes/luckmain.png"
+myImage = Image.open(luckpath)
+luckyyImage = ImageTk.PhotoImage(myImage)
+luckpic = Label(main, image=luckyyImage)
+luckpic.grid(row=4, column=0)
 
 #Pop up for scissors paper stone
 frame1 = Frame(main)
@@ -196,7 +194,7 @@ previewtitle = Label(main, text="", font=('Arial', 15))
 previewtitle.grid(row=2, column=3)
 previewtitle.grid_forget()
 imageLabel = Label(main, bg = 'white', width = 30, height = 15)
-imageLabel.grid(rowspan=2, column=3)
+imageLabel.grid(row=4, column=3)
 imageLabel.grid_forget()
 
 main.bind("<Return>", change_img) 
