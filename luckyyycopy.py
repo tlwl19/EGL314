@@ -159,10 +159,15 @@ title.grid(row=2, columnspan=3)
 label= Label(main, image='', text="Input your date of birth and click on the 'Enter' button.", font=('100px'))
 label.grid(row=3, columnspan=3)
 
+mentalpath = "wellness/mental.jpg"
+myImage = Image.open(mentalpath)
+mentalImage = ImageTk.PhotoImage(myImage)
+mentalpic = Label(main, image=mentalImage)
+mentalpic.grid(row=4, column=0)
 
 #Pop up for scissors paper stone
 frame1 = Frame(main)
-frame1.grid(row=4, column=0)
+frame1.grid(row=5, column=0)
 frame1.grid_forget()
 
 #pop up title (scissors paper stone)
