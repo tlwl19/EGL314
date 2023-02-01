@@ -39,8 +39,8 @@ def change_img():
 
     if test3 == True:   #If is valid, execute below command
         label.config(text="Input your date of birth and click on the 'Enter' button.")
-        randomno = random.randint(0, 4) #randomly generate a number 0-4
-        randomnolist = [0,25,50,75,100]
+        randomno = random.randint(0, 2) #randomly generate a number 0-4
+        randomnolist = [7,75,100]
         if randomnolist[randomno] == 75 or randomnolist[randomno] == 100:  #when randomly generated number is 3 or 4, will show 75% or 99%, and activate game
             label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
             frame1.grid(row=4, column=1)
@@ -51,13 +51,13 @@ def change_img():
             imageLabel.grid(rowspan=2, column=3)
             print(randomnolist[randomno])
 
-        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25: #when randomly generated number is 0 or 1, will show genie pic
-            label2.config(text='')
-            frame1.grid_forget()
-            show_Image_luck(7)#insert genie pic name
-            previewtitle.grid_forget()
-            imageLabel.grid_forget()
-            print(randomnolist[randomno])
+        # elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25: #when randomly generated number is 0 or 1, will show genie pic
+        #     label2.config(text='')
+        #     frame1.grid_forget()
+        #     show_Image_luck(7)#insert genie pic name
+        #     previewtitle.grid_forget()
+        #     imageLabel.grid_forget()
+        #     print(randomnolist[randomno])
 
         else: #when randomly generated number is 2, will show 50% pic
             label2.config(text='')
