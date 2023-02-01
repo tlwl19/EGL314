@@ -161,7 +161,7 @@ def guess():
                 numberx = random.randint(0,11) #regenerate the number that is not the same as the previous
             else:
                 numberxlist.append(numberx) #else store the random generated number when the list is empty
-                print(numberx)
+                print(numberxlist)
                 show_Image(numberx) #send to polariser the number
         else:
             numberxlist = [numberx]
@@ -268,18 +268,19 @@ def button(c):
                     youwin.config(text="Press Reset Game to Reset", font=('Arial',12))
                     youwin.grid(row=4, column=2)
                     number = 14
-                    btn0.config(bg='white', fg='black')
-                    btn1.config(bg='white', fg='black')
-                    btn2.config(bg='white', fg='black')
-                    btn3.config(bg='white', fg='black')
-                    btn4.config(bg='white', fg='black')
-                    btn5.config(bg='white', fg='black')
-                    btn6.config(bg='white', fg='black')
-                    btn7.config(bg='white', fg='black')
-                    btn8.config(bg='white', fg='black')
-                    btn9.config(bg='white', fg='black')
-                    btn10.config(bg='white', fg='black')
-                    btn11.config(bg='white', fg='black')
+                    color = '#cbc3e3'
+                    btn0.config(bg=color, fg='black')
+                    btn1.config(bg=color, fg='black')
+                    btn2.config(bg=color, fg='black')
+                    btn3.config(bg=color, fg='black')
+                    btn4.config(bg=color, fg='black')
+                    btn5.config(bg=color, fg='black')
+                    btn6.config(bg=color, fg='black')
+                    btn7.config(bg='#a58fbe', fg='black')
+                    btn8.config(bg='#a58fbe', fg='black')
+                    btn9.config(bg='#a58fbe', fg='black')
+                    btn10.config(bg='#a58fbe', fg='black')
+                    btn11.config(bg='#a58fbe', fg='black')
                 #elif score <= 0:
                     #scoreresults.config(text=str(score), font=('Arial',20))
                 else:
