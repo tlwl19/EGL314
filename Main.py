@@ -12,7 +12,8 @@ from student_pub import *
 
 main = Tk()
 main.title("Mental Wellness")
-
+main.rowconfigure(1, weight=1)
+main.columnconfigure(0, weight=1)
 
 #MAIN PAGE
 #To navigate to MAIN page
