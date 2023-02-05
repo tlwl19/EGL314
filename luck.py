@@ -24,6 +24,7 @@ def show_Image_luck(choice):
 
 
 def change_img(): 
+    global name
     for i in range(len(options)) : #check if is a valid DOB
         if options[i] == clicked.get():
             i = i+1
@@ -49,7 +50,7 @@ def change_img():
             previewtitle.config(text="")
             previewtitle.grid(row=2, column=3)
             imageLabel.grid(row=4, column=3)
-            luckpic.grid_forget()
+            luckpic.config(image = "")
             print(randomnolist[randomno])
 
         else: #when randomly generated number is 2, will show 50% pic
@@ -57,6 +58,16 @@ def change_img():
             frame1.grid_forget()
             previewtitle.grid_forget()
             imageLabel.grid_forget()
+            luckpic.grid(row=4, column=0)
+            luckpiclist = ["come","conquer","control","hang","happy","important","living","openup","tough","turnout","luckmain"]
+            name = name+1
+            if name > len(luckpiclist)-1:
+                name = 0
+            path = "motivationalquotes/" + luckpiclist[name] + ".png"
+            myImages = Image.open(path)
+            loadImage = ImageTk.PhotoImage(myImages)
+            luckpic.image = loadImage
+            luckpic.config(image = loadImage)
             show_Image_luck(randomnolist[randomno])
             print(randomnolist[randomno])
 
@@ -98,7 +109,7 @@ def game(m):
 main= Tk()
 
 #Define geometry of the window
-main.geometry("1000x600")      
+#main.geometry("1000x600")      
 
 # Dropdown menu options
 options = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -152,6 +163,7 @@ title.grid(row=2, columnspan=3)
 label= Label(main, image='', text="Input your date of birth and click on the 'Enter' button.", font=('100px'))
 label.grid(row=3, columnspan=3)
 
+name = -1
 luckpath = "motivationalquotes/luckmain.png"
 myImage = Image.open(luckpath)
 luckyyImage = ImageTk.PhotoImage(myImage)
