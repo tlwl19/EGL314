@@ -28,7 +28,6 @@ def show_Image(choice):
 #The function is for start game
 def startgame():
     global score, prevent, number, prevent2
-    #score = 0
     prevent = []
     prevent2 = 0
     if number == 15: # before starting the game
@@ -48,7 +47,6 @@ def startgame():
         scoreresults.config(text=str(score),font=('Arial',20))  #It will show 0 when press "Start game"
         number = 12 #to signal that user has pressed the start game btn n to ensure that when user click on the 3x4 grids bef guess btn, it will show press guess btn
         guess()
-        #youwin.grid_forget()
         lbl0.grid_forget()
         lbl1.grid_forget()
         lbl2.grid_forget()
@@ -65,7 +63,6 @@ def startgame():
 #The function is for reset game
 def restartgame():
     global score, prevent, number, prevent2
-    #score = 0
     prevent = []  
     prevent2 = 0
     if number == 13 or number == 14 or number == 17 or number == 18: #restart
@@ -144,18 +141,12 @@ def restartgame():
 
 def guess():
     global number, prevent, numberx, numberxlist, prevent2, prevent3
-    #youwin.grid_forget()
     prevent = []  
     prevent2 = [2]
     prevent3 = 0
-    #number = list(range(0,11))
-                        #green                          #red                            #blue
-    #if btn0.cget('bg') == '#7fff00' or btn0.cget('bg') == '#FF0800' or btn0.cget('bg') == '#b0c8ed':
     if number == 12 or number == 18:
         number = 16
         youwin.config(text="Guess the horoscope!", font=('Arial',12))
-        #if btn0.cget('bg') != '#FF0800': #red color
-            #if prevent2 == 0:  #To prevent horoscope from duplicating
         numberx = random.randint(0,11) #generate a random no.
         while len(numberxlist) == 12:
             numberxlist = []
@@ -170,7 +161,6 @@ def guess():
             numberxlist = [numberx]
             print(numberxlist)
             show_Image(numberx) #send to polariser the number
-        #number = 0
         btn0.config(bg='#b0c8ed', fg="white")
         btn1.config(bg='#b0c8ed', fg="white") 
         btn2.config(bg='#b0c8ed', fg="white") 
@@ -183,13 +173,6 @@ def guess():
         btn9.config(bg='#b0c8ed', fg="white") 
         btn10.config(bg='#b0c8ed', fg="white")
         btn11.config(bg='#b0c8ed', fg="white") 
-        # prevent2 = 1
-        # print(prevent2)
-        #else:
-            #scoreresults.config(text="Try Again", font=('Arial',15))
-    # elif btn0.cget('bg') == '#a58fbe': #purple color
-    #     scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
-    #     number = 15
     elif number == 13 or number == 17 or number == 14: # restart
         youwin.config(text="Press Reset Game to Reset", font=('Arial',12))
     elif number == 15: 
@@ -211,7 +194,6 @@ def button(c):
      "'There is no normal life that is free of pain. It's the very wrestling with our problems that can be the impetus for our growth.' — Fred Rogers",
      "'You don’t have to be positive all the time. It’s perfectly okay to feel sad, angry, annoyed, frustrated, scared and anxious. Having feelings doesn’t make you a negative person. It makes you human.' — Lori Deschene",
      "'Nothing can dim the light that shines from within.' — Maya Angelou"]
-    #youwin.grid_forget()
     if number == 15:
         youwin.config(text="Press Start Game to Start", font=('Arial',12))
     elif number == 17: #after game ended 
@@ -232,13 +214,8 @@ def button(c):
             quote.config(text=quotelist[quoteno])
             prevent2 = [0]
             if prevent == [2]:
-                
-                # if score >= 1:
-                #     scoreresults.config(text=str(score), font=('Arial',20))
-                # else:
                 number = 18 #restart
                 guess()
-                #scoreresults.config(text="Press Guess to continue or Restart to reset the game!", font=('Arial',10))
             else:
                 if c == 0:
                     btn0.config(bg="#7fff00")
@@ -264,22 +241,9 @@ def button(c):
                     btn10.config(bg="#7fff00")
                 else:
                     btn11.config(bg="#7fff00")
-                # btn0.config(bg='#7fff00') #show green colour
-                # btn1.config(bg='#7fff00') 
-                # btn2.config(bg='#7fff00') 
-                # btn3.config(bg='#7fff00') 
-                # btn4.config(bg='#7fff00') 
-                # btn5.config(bg='#7fff00') 
-                # btn6.config(bg='#7fff00') 
-                # btn7.config(bg='#7fff00') 
-                # btn8.config(bg='#7fff00') 
-                # btn9.config(bg='#7fff00') 
-                # btn10.config(bg='#7fff00')
-                # btn11.config(bg='#7fff00') 
                 score = score+1
                 prevent = [2]
                 number = 18
-                #prevent2 = 0
                 print(prevent)
                 if score >= 4:
                     scoreresults.config(text='YOU WIN', font=('Arial',20))
@@ -299,22 +263,11 @@ def button(c):
                     btn9.config(bg=color, fg='black')
                     btn10.config(bg=color, fg='black')
                     btn11.config(bg=color, fg='black')
-                #elif score <= 0:
-                    #scoreresults.config(text=str(score), font=('Arial',20))
                 else:
                     scoreresults.config(text=str(score), font=('Arial',20))
                     youwin.config(text="Press any button to continue ", font=('Arial',10))
                     youwin.grid(row=4, column=2)
-        # elif btn0.cget('bg') == '#7fff00':
-        #     prevent = [2]
-        #     scoreresults.config(text=str(score), font=('Arial',20))
         else:
-            #prevent3 = 2 #this is to prevent score -1 if user press the same button multiple times
-            #if prevent2 == [3]:
-                #score = score
-            #if prevent2 == [4] or prevent3 == 1:
-                #scoreresults.config(text="Choose another horoscope", font=('Arial',12))
-                #prevent2 = [2]
             if prevent3 == 0:
                 if quoteno >= len(quotelist)-1:
                     quoteno = -1
@@ -325,8 +278,6 @@ def button(c):
                 number = 18
                 guess()
             else:
-                #prevent2 = [1]
-                #prevent2 = [4]
                 if c == 0:
                     btn0.config(bg="#FF0800")
                     prevent2 = [4]
@@ -379,45 +330,7 @@ def button(c):
                 if prevent2 == [4] or prevent3 == 1:
                     quoteno = quoteno
                     youwin.config(text="Choose another horoscope", font=('Arial',12))
-                    
-                
-                
-                
-                #prevent2 = [4]
-            # btn0.config(bg='#FF0800')  #Show red colour
-            # btn1.config(bg='#FF0800')
-            # btn2.config(bg='#FF0800')
-            # btn3.config(bg='#FF0800')
-            # btn4.config(bg='#FF0800')
-            # btn5.config(bg='#FF0800')
-            # btn6.config(bg='#FF0800')
-            # btn7.config(bg='#FF0800')
-            # btn8.config(bg='#FF0800')
-            # btn9.config(bg='#FF0800')
-            # btn10.config(bg='#FF0800')
-            # btn11.config(bg='#FF0800')
             print(score)
-            #can add number = 13 to restart game
-            # if score <= 0:
-            #     scoreresults.config(text=str(score), font=('Arial',20))
-            #     if score < -2:
-            #         scoreresults.config(text='GAME OVER', font=('Arial',20))
-            #         number = 17
-            #         prevent = [3]
-            #         btn0.config(bg='white', fg='black')
-            #         btn1.config(bg='white', fg='black')
-            #         btn2.config(bg='white', fg='black')
-            #         btn3.config(bg='white', fg='black')
-            #         btn4.config(bg='white', fg='black')
-            #         btn5.config(bg='white', fg='black')
-            #         btn6.config(bg='white', fg='black')
-            #         btn7.config(bg='white', fg='black')
-            #         btn8.config(bg='white', fg='black')
-            #         btn9.config(bg='white', fg='black')
-            #         btn10.config(bg='white', fg='black')
-            #         btn11.config(bg='white', fg='black')
-
-
             
 main = Tk()   #Create a main window
 main.title("Guess the Horoscope") #Title will be shown on the GUI window
@@ -542,36 +455,28 @@ for i in range(0, 12):
     else:
         btn11.image = loadImage
         btn11.config(image = loadImage, width=widthx, height=heightx)
+        
 
-#Second frame is created for the button "GUESS!"
+#Second frame is created for the 'START/RESET/SCORE' 
 frame2 = Frame(main)
-frame2.grid(row=1, column=1)
+frame2.grid(row=1, column=2)
 
-#guessbtn = Button(frame2, text="GUESS!!", font=('Arial',20), command=guess)
-#guessbtn.grid(row=0, column=1)
-
-
-#Third frame is created for the 'START/RESET/SCORE' 
-frame3 = Frame(main)
-frame3.grid(row=1, column=2)
-
-startbtn = Button(frame3, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
+startbtn = Button(frame2, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
 startbtn.grid(row=0, column=2)
 
-resetbtn = Button(frame3, text="RESET GAME", font=('Arial', 20), bg='pink', command=restartgame)
+resetbtn = Button(frame2, text="RESET GAME", font=('Arial', 20), bg='pink', command=restartgame)
 resetbtn.grid(row=1, column=2)
 
-scorename = Label(frame3, text="Score", font=('Arial', 25)) 
+scorename = Label(frame2, text="Score", font=('Arial', 25)) 
 scorename.grid(row=2, column=2)
 
-scoreresults = Label(frame3, text=str(score), font=('Arial', 20))
+scoreresults = Label(frame2, text=str(score), font=('Arial', 20))
 scoreresults.grid(row=3, column=2)
 
-youwin = Label(frame3, text="Press Start Game to Start", font=('Arial', 12))
+youwin = Label(frame2, text="Press Start Game to Start", font=('Arial', 12))
 youwin.grid(row=4, column=2)
-#youwin.grid_forget()
 
-quote = Label(frame3, text="",bg='white', font=('Arial', 12), wraplength=300)
+quote = Label(frame2, text="",bg='white', font=('Arial', 12), wraplength=300)
 quote.grid(row=5, column=2)
 
 main.mainloop()  #for the window to stay

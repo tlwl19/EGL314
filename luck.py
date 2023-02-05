@@ -103,13 +103,8 @@ def game(m):
     preview_Image(m) #for game preview at the side (what user has chosen)
 
 
-
-
 #Create an instance of tkinter frame
-main= Tk()
-
-#Define geometry of the window
-#main.geometry("1000x600")      
+main= Tk()  
 
 # Dropdown menu options
 options = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -122,9 +117,7 @@ for x in range (1, d):
 clicked = StringVar()
 clickeds = IntVar()
 
-# initial menu text
-#clicked.set("January")
-#clickeds.set(1)
+
 who = date.today()
 whos = options[who.month-1]
 clicked.set(whos)  #this refers to month
