@@ -143,10 +143,11 @@ def restartgame():
         lbl11.grid(row=5, column=3)
 
 def guess():
-    global number, prevent, numberx, numberxlist, prevent2
+    global number, prevent, numberx, numberxlist, prevent2, prevent3
     #youwin.grid_forget()
     prevent = []  
     prevent2 = [2]
+    prevent3 = 0
     #number = list(range(0,11))
                         #green                          #red                            #blue
     #if btn0.cget('bg') == '#7fff00' or btn0.cget('bg') == '#FF0800' or btn0.cget('bg') == '#b0c8ed':
@@ -197,9 +198,20 @@ def guess():
         youwin.config(text="Select one horoscope!", font=('Arial',12))
 
 def button(c):
-    global number, score, prevent, numberx, prevent2
+    global number, score, prevent, numberx, prevent2, quoteno, quotelist, prevent3
+    quotelist = ["'You don’t have to control your thoughts. You just have to stop letting them control you.' — Dan Millman",
+     "'There is a crack in everything, that’s how the light gets in.' ― Leonard Cohen",
+     "'Deep breathing is our nervous system’s love language.' — Dr. Lauren Fogel Mersy",
+     "'You are not your illness. You have an individual story to tell. You have a name, a history, a personality. Staying yourself is part of the battle.' — Julian Seifter",
+     "'Happiness can be found even in the darkest of times, if one only remembers to turn on the light.' — Albus Dumbledore",
+     "'Vulnerability sounds like truth and feels like courage. Truth and courage aren’t always comfortable, but they're never weakness.' — Brené Brown",
+     "'Promise me you’ll always remember: You’re braver than you believe, and stronger than you seem, and smarter than you think.' — Christopher Robin from Winnie the Pooh",
+     "'Just because no one else can heal or do your inner work for you doesn’t mean you can, should, or need to do it alone.' – Lisa Olivera",
+     "'There is hope, even when your brain tells you there isn’t.' — John Green",
+     "'There is no normal life that is free of pain. It's the very wrestling with our problems that can be the impetus for our growth.' — Fred Rogers",
+     "'You don’t have to be positive all the time. It’s perfectly okay to feel sad, angry, annoyed, frustrated, scared and anxious. Having feelings doesn’t make you a negative person. It makes you human.' — Lori Deschene",
+     "'Nothing can dim the light that shines from within.' — Maya Angelou"]
     #youwin.grid_forget()
-    prevent3 = 0
     if number == 15:
         youwin.config(text="Press Start Game to Start", font=('Arial',12))
     elif number == 17: #after game ended 
@@ -214,9 +226,13 @@ def button(c):
         youwin.config(text="Press Guess to Start Guessing", font=('Arial',10))
     else: #number = 16 guess is pressed
         if c == numberx:
-            quote.config(text='Hi')
+            if quoteno >= len(quotelist)-1:
+                quoteno = -1
+            quoteno=quoteno+1
+            quote.config(text=quotelist[quoteno])
             prevent2 = [0]
             if prevent == [2]:
+                
                 # if score >= 1:
                 #     scoreresults.config(text=str(score), font=('Arial',20))
                 # else:
@@ -293,13 +309,18 @@ def button(c):
         #     prevent = [2]
         #     scoreresults.config(text=str(score), font=('Arial',20))
         else:
-            prevent3 = 2 #this is to prevent score -1 if user press the same button multiple times
+            #prevent3 = 2 #this is to prevent score -1 if user press the same button multiple times
             #if prevent2 == [3]:
                 #score = score
             #if prevent2 == [4] or prevent3 == 1:
                 #scoreresults.config(text="Choose another horoscope", font=('Arial',12))
                 #prevent2 = [2]
-            quote.config(text='Bye')
+            if prevent3 == 0:
+                if quoteno >= len(quotelist)-1:
+                    quoteno = -1
+                quoteno=quoteno+1
+                prevent3 = 1
+                quote.config(text=quotelist[quoteno])
             if prevent2 == [0]:
                 number = 18
                 guess()
@@ -356,7 +377,9 @@ def button(c):
                     prevent2 = [4]
 
                 if prevent2 == [4] or prevent3 == 1:
+                    quoteno = quoteno
                     youwin.config(text="Choose another horoscope", font=('Arial',12))
+                    
                 
                 
                 
@@ -410,7 +433,7 @@ number = 15
 numberxlist = []
 prevent = [0]
 prevent2 = [2]
-
+quoteno = -1
 
 #First frame is created for the 3x4 grid
 frame1 = Frame(main)
@@ -548,7 +571,7 @@ youwin = Label(frame3, text="Press Start Game to Start", font=('Arial', 12))
 youwin.grid(row=4, column=2)
 #youwin.grid_forget()
 
-quote = Label(frame3, text="",bg='white', font=('Arial', 12))
+quote = Label(frame3, text="",bg='white', font=('Arial', 12), wraplength=300)
 quote.grid(row=5, column=2)
 
 main.mainloop()  #for the window to stay
