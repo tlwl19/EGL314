@@ -253,7 +253,7 @@ def guess():
 
 def horobutton(c):
     global number, score, prevent, numberx, prevent2, quoteno, quotelist, prevent3
-    """quotelist = ["'You don’t have to control your thoughts. You just have to stop letting them control you.' — Dan Millman",
+    quotelist = ["'You don’t have to control your thoughts. You just have to stop letting them control you.' — Dan Millman",
      "'There is a crack in everything, that’s how the light gets in.' ― Leonard Cohen",
      "'Deep breathing is our nervous system’s love language.' — Dr. Lauren Fogel Mersy",
      "'You are not your illness. You have an individual story to tell. You have a name, a history, a personality. Staying yourself is part of the battle.' — Julian Seifter",
@@ -264,7 +264,7 @@ def horobutton(c):
      "'There is hope, even when your brain tells you there isn’t.' — John Green",
      "'There is no normal life that is free of pain. It's the very wrestling with our problems that can be the impetus for our growth.' — Fred Rogers",
      "'You don’t have to be positive all the time. It’s perfectly okay to feel sad, angry, annoyed, frustrated, scared and anxious. Having feelings doesn’t make you a negative person. It makes you human.' — Lori Deschene",
-     "'Nothing can dim the light that shines from within.' — Maya Angelou"]"""
+     "'Nothing can dim the light that shines from within.' — Maya Angelou"]
    #quotelist = ['1']
     if number == 15:
         youwin.config(text="Press Start Game to Start", font=('Arial',12))
@@ -280,10 +280,10 @@ def horobutton(c):
         youwin.config(text="Press Guess to Start Guessing", font=('Arial',10))
     else: #number = 16 guess is pressed
         if c == numberx:
-            #if quoteno >= len(quotelist)-1:
-            #    quoteno = -1
-            #quoteno=quoteno+1
-            #quote.config(text=quotelist[quoteno])
+            if quoteno >= len(quotelist)-1:
+                quoteno = -1
+            quoteno=quoteno+1
+            quote.config(text=quotelist[quoteno])
             prevent2 = [0]
             if prevent == [2]:
                 number = 18 #restart
@@ -341,11 +341,11 @@ def horobutton(c):
                     youwin.grid(row=4, column=2)
         else:
             if prevent3 == 0:
-                #if quoteno >= len(quotelist)-1:
-                #    quoteno = -1
-                #quoteno=quoteno+1
+                if quoteno >= len(quotelist)-1:
+                    quoteno = -1
+                quoteno=quoteno+1
                 prevent3 = 1
-                #quote.config(text=quotelist[quoteno])
+                quote.config(text=quotelist[quoteno])
             if prevent2 == [0]:
                 number = 18
                 guess()
