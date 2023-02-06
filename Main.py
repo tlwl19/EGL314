@@ -100,7 +100,7 @@ def show_Image(choice1):
 def startgame():
     global score, prevent, number, prevent2
     prevent = []
-    prevent2 = 0
+    #prevent2 = 0
     if number == 15: # before starting the game
         score = 0
         btn0.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) #Show blue colour
@@ -135,7 +135,7 @@ def startgame():
 def restartgame():
     global score, prevent, number, prevent2
     prevent = []  
-    prevent2 = 0
+    #prevent2 = 0
     if number == 13 or number == 14 or number == 17 or number == 18: #restart
         for i in range(0, 12):
             paths = "horo/" + str(i) + ".png"
@@ -251,9 +251,9 @@ def guess():
     else:
         youwin.config(text="Select one horoscope!", font=('Arial',12))
 
-def button(c):
+def horobutton(c):
     global number, score, prevent, numberx, prevent2, quoteno, quotelist, prevent3
-    quotelist = ["'You don’t have to control your thoughts. You just have to stop letting them control you.' — Dan Millman",
+    """quotelist = ["'You don’t have to control your thoughts. You just have to stop letting them control you.' — Dan Millman",
      "'There is a crack in everything, that’s how the light gets in.' ― Leonard Cohen",
      "'Deep breathing is our nervous system’s love language.' — Dr. Lauren Fogel Mersy",
      "'You are not your illness. You have an individual story to tell. You have a name, a history, a personality. Staying yourself is part of the battle.' — Julian Seifter",
@@ -264,7 +264,8 @@ def button(c):
      "'There is hope, even when your brain tells you there isn’t.' — John Green",
      "'There is no normal life that is free of pain. It's the very wrestling with our problems that can be the impetus for our growth.' — Fred Rogers",
      "'You don’t have to be positive all the time. It’s perfectly okay to feel sad, angry, annoyed, frustrated, scared and anxious. Having feelings doesn’t make you a negative person. It makes you human.' — Lori Deschene",
-     "'Nothing can dim the light that shines from within.' — Maya Angelou"]
+     "'Nothing can dim the light that shines from within.' — Maya Angelou"]"""
+   #quotelist = ['1']
     if number == 15:
         youwin.config(text="Press Start Game to Start", font=('Arial',12))
     elif number == 17: #after game ended 
@@ -279,10 +280,10 @@ def button(c):
         youwin.config(text="Press Guess to Start Guessing", font=('Arial',10))
     else: #number = 16 guess is pressed
         if c == numberx:
-            if quoteno >= len(quotelist)-1:
-                quoteno = -1
-            quoteno=quoteno+1
-            quote.config(text=quotelist[quoteno])
+            #if quoteno >= len(quotelist)-1:
+            #    quoteno = -1
+            #quoteno=quoteno+1
+            #quote.config(text=quotelist[quoteno])
             prevent2 = [0]
             if prevent == [2]:
                 number = 18 #restart
@@ -340,11 +341,11 @@ def button(c):
                     youwin.grid(row=4, column=2)
         else:
             if prevent3 == 0:
-                if quoteno >= len(quotelist)-1:
-                    quoteno = -1
-                quoteno=quoteno+1
+                #if quoteno >= len(quotelist)-1:
+                #    quoteno = -1
+                #quoteno=quoteno+1
                 prevent3 = 1
-                quote.config(text=quotelist[quoteno])
+                #quote.config(text=quotelist[quoteno])
             if prevent2 == [0]:
                 number = 18
                 guess()
@@ -440,29 +441,29 @@ inputcolumn = 4 #indicate the number of cols
 for r in range(inputrow):
     for c in range(inputcolumn):
         # Button Section
-        btn0 = Button(inguessframe, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=0:button(m))
+        btn0 = Button(inguessframe, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=0:horobutton(m))
         lbl0 = Label(inguessframe, text="Aquarius", font=("Arial", 15), fg='black')
-        btn1 = Button(inguessframe, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=1:button(m))
+        btn1 = Button(inguessframe, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=1:horobutton(m))
         lbl1 = Label(inguessframe, text="Aries", font=("Arial", 15), fg='black')
-        btn2 = Button(inguessframe, text = "Cancer", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=2:button(m))
+        btn2 = Button(inguessframe, text = "Cancer", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=2:horobutton(m))
         lbl2 = Label(inguessframe, text="Cancer", font=("Arial", 15), fg='black')
-        btn3 = Button(inguessframe, text = "Capricorn", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=3:button(m))
+        btn3 = Button(inguessframe, text = "Capricorn", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=3:horobutton(m))
         lbl3 = Label(inguessframe, text="Capricorn", font=("Arial", 15), fg='black')
-        btn4 = Button(inguessframe, text = "Gemini", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=4:button(m))
+        btn4 = Button(inguessframe, text = "Gemini", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=4:horobutton(m))
         lbl4 = Label(inguessframe, text="Gemini", font=("Arial", 15), fg='black')
-        btn5 = Button(inguessframe, text = "Leo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=5:button(m))
+        btn5 = Button(inguessframe, text = "Leo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=5:horobutton(m))
         lbl5 = Label(inguessframe, text="Leo", font=("Arial", 15), fg='black')
-        btn6 = Button(inguessframe, text = "Libra", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=6:button(m))
+        btn6 = Button(inguessframe, text = "Libra", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=6:horobutton(m))
         lbl6 = Label(inguessframe, text="Libra", font=("Arial", 15), fg='black')
-        btn7 = Button(inguessframe, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=7:button(m))
+        btn7 = Button(inguessframe, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=7:horobutton(m))
         lbl7 = Label(inguessframe, text="Pisces", font=("Arial", 15),fg='black')
-        btn8 = Button(inguessframe, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=8:button(m))
+        btn8 = Button(inguessframe, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=8:horobutton(m))
         lbl8 = Label(inguessframe, text="Sagittarius", font=("Arial", 15), fg='black')
-        btn9 = Button(inguessframe, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=9:button(m))
+        btn9 = Button(inguessframe, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=9:horobutton(m))
         lbl9 = Label(inguessframe, text="Scorpio", font=("Arial", 15), fg='black')
-        btn10 = Button(inguessframe, text = "Taurus", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=10:button(m))
+        btn10 = Button(inguessframe, text = "Taurus", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=10:horobutton(m))
         lbl10 = Label(inguessframe, text="Taurus", font=("Arial", 15), fg='black')
-        btn11 = Button(inguessframe, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=11:button(m))
+        btn11 = Button(inguessframe, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=11:horobutton(m))
         lbl11 = Label(inguessframe, text="Virgo", font=("Arial", 15), fg='black')
 
 btn0.grid(row=0, column=0)
