@@ -328,12 +328,8 @@ Click on "Start Game" to begin
 
 Once the game has started, all the images of the horosopes on the grid on the left side of the window will disappear, and will only display their respective names.
 
-<br>
-
-Next, click on the Guess button to generate a random Horoscope on the polariser board.
-
-![](Demo%20Pics/HoroGuess.png)
-*Press on 'Guess!!' to send image to polariser board*
+![](Demo%20Pics/HoroStarted.png)
+*Game has started*
 
 <br>
 
@@ -351,28 +347,28 @@ For example, if the polariser shows Cancer, click on the Cancer button on the GU
 
 <br>
 
-If you have chosen the correct horocsope, the grid on the left will turn green and you gain a point.
+If you have chosen the correct horocsope, your answer will be lighlighted green and you gain a point.
 
 ![](Demo%20Pics/HoroCorrect.png)
 *Correct answer*
 
 <br>
 
-However, if you have chosen the wrong horoscope, the grid will turn red and you lose a point.
+However, if you have chosen the wrong horoscope, your answer will be highlighted red and you lose a point.
 
 ![](Demo%20Pics/HoroWrong.png)
 *Wrong answer*
 
 <br>
 
-If you have -3 points, the grid will turn white and the game will end.
+You can continue guessing until you get the correct answer
 
-![](Demo%20Pics/HoroGameOver.png)
-*Game over with -3 points*
+![](Demo%20Pics/HoroGuessing.png)
+*Keep trying until you get it*
 
 <br>
 
-Likewise, if you acheive a score of 4, the grid will turn white, 'YOU WIN' will appear and the game will end.
+If you acheive a score of 4, 'YOU WIN' will appear and the game will end.
 
 ![](Demo%20Pics/HoroWin.png)
 *Win the game with a maximum of 4 points*
@@ -381,7 +377,7 @@ Likewise, if you acheive a score of 4, the grid will turn white, 'YOU WIN' will 
 
 You can click on the Reset Game button to start over.
 
-![](Demo%20Pics/HoroReset.png)
+![](Demo%20Pics/HoroWinReset.png)
 *Reset game*
 
 <br>
@@ -433,17 +429,20 @@ On this page, you can insert your date of birth, and it will generate a random l
 
 The luck percentages are as follows:
 - Genie Lamp
-    - 0-25% Luck
-- 50% Luck
+    - 50%
 - 75% Luck
 - 99% Luck
 
 <br>
 
-If the polariser displays genie lamp, it means your luck is either 0% or 25%. You can choose to try again by entering another date of birth.
+If the polariser displays genie lamp, it means your luck is 50%. You can choose to try again by entering another date of birth.
 
 ![Alt text](polariser%20pics/genie.jpg)
 *Genie lamp shown on polariser*
+
+Your UI will also display a random quote.
+![](Demo%20Pics/Luck50.png)
+*If you get a genie lamp on the polarizer, your UI will display a quote*
 
 <br>
 
