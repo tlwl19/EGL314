@@ -863,7 +863,7 @@ def Stop(m):
 
 # Reset function of the stopwatch
 def Reset(label):
-    global counter, Lno, icons, storetime
+    global counter, Lno, icons, storetime, naming
     counter=0
    
     # If rest is pressed after pressing stop.
@@ -887,6 +887,15 @@ def Reset(label):
             icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']  #Level 0
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
+    focuspiclist = ["come","conquer","control","hang","happy","important","living","openup","tough","turnout","focusquote"]
+    naming = naming+1
+    if naming > len(focuspiclist)-1:
+        naming = 0
+    path = "motivationalquotes/" + focuspiclist[naming] + ".png"
+    focusImages = Image.open(path)
+    loadImage = ImageTk.PhotoImage(focusImages)
+    focuspic.image = loadImage
+    focuspic.config(image = loadImage)
 
 def counter_label(label):
     def count():
@@ -953,7 +962,6 @@ timer.grid(row=2, column=1, padx=100)
 start = Button(midframe, text='Start', font=('Arial', 15), command=lambda:Start(timer))
 start.grid(row=2, column=2, ipadx=30)
 
-
 #Answer btn
 frameone = Frame(focusframe)
 frameone.grid(row=3, column=0)
@@ -965,7 +973,13 @@ for i in range (0, 6):  #Assigning array values into btn
     btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m), wraplength=130) #so that texaschicken text can fully show on the button
     btn[i].grid(row=0, column=i)
 
-
+#For image to loop
+naming = -1
+focuspath = "motivationalquotes/focusquote.png"
+focusImage = Image.open(focuspath)
+luckyyImage = ImageTk.PhotoImage(focusImage)
+focuspic = Label(frameone, image=luckyyImage)
+focuspic.grid(row=1, columnspan=6)
 
 #DRAW PAGE
 ########################### DRAW FUNCTION #########################
