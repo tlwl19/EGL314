@@ -289,7 +289,7 @@ def horobutton(c):
             if quoteno >= len(quotelist)-1:
                 quoteno = -1
             quoteno=quoteno+1
-            quote.config(text=quotelist[quoteno])
+            quote.config(text=quotelist[quoteno],bg='white')
             prevent2 = [0]
             if prevent == [2]:
                 number = 18 #restart
@@ -351,7 +351,7 @@ def horobutton(c):
                     quoteno = -1
                 quoteno=quoteno+1
                 prevent3 = 1
-                quote.config(text=quotelist[quoteno])
+                quote.config(text=quotelist[quoteno],bg='white')
             if prevent2 == [0]:
                 number = 18
                 guess()
@@ -562,7 +562,7 @@ scoreresults.grid(row=3, column=2)
 youwin = Label(inguessframe2, text="Press Start Game to Start", font=('Arial', 12))
 youwin.grid(row=4, column=2)
 
-quote = Label(inguessframe2, text="",bg='white', font=('Arial', 12), wraplength=300)
+quote = Label(inguessframe2, text="", font=('Arial', 12), wraplength=300)
 quote.grid(row=5, column=2)
 
 
@@ -728,9 +728,9 @@ label.grid(row=3, columnspan=3)
 
 name = -1
 luckpath = "motivationalquotes/luckmain.png"
-myImage = Image.open(luckpath)
-luckyyImage = ImageTk.PhotoImage(myImage)
-luckpic = Label(luckframe, image=luckyyImage)
+myImages = Image.open(luckpath)
+luckyImages = ImageTk.PhotoImage(myImages)
+luckpic = Label(luckframe, image=luckyImages)
 luckpic.grid(row=4, column=0)
 
 #Pop up for scissors paper stone
