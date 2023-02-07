@@ -541,10 +541,10 @@ for i in range(0, 12):
 inguessframe2 = Frame(guessframe)
 inguessframe2.grid(row=1, column=2)
 
-startbtn = Button(inguessframe2, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
+startbtn = Button(inguessframe2, text="START GAME", font=('Arial', 20), bg='#E0B0FF', command=startgame)
 startbtn.grid(row=0, column=2)
 
-resetbtn = Button(inguessframe2, text="RESET GAME", font=('Arial', 20), bg='pink', command=restartgame)
+resetbtn = Button(inguessframe2, text="RESET GAME", font=('Arial', 20), bg='#B47EE5', command=restartgame)
 resetbtn.grid(row=1, column=2)
 
 scorename = Label(inguessframe2, text="Score", font=('Arial', 25)) 
@@ -930,7 +930,7 @@ headername = Label(focusframe, text="ICONcentrate", font=('Arial', 30), fg='#96D
 headername.grid(row=0, column=0)
 
 #Instructions
-instrubtn = Button(focusframe, text='Instructions', font=('Arial', 15), bg = '#b0c8ed', fg='white', command=getinstruction)
+instrubtn = Button(focusframe, text='Instructions', font=('Arial', 15), bg = '#b0c8ed', fg='black', command=getinstruction)
 instrubtn.grid(row=1, column=0)
 
 midframe = Frame(focusframe)
