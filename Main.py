@@ -866,7 +866,7 @@ def Reset(label):
         label['text']='Welcome!'
         level['text']='Level '+ str(Lno)
         if Lno == 1:
-            icons = ['KFC', 'Jollibee', 'McDonalds', 'Pizza Hut', 'Mos Burger', 'Texas Chicken']
+            icons = ['KFC', 'Jollibee', 'Popeyes', 'Pizza Hut', 'Mos Burger', 'Texas Chicken']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 2:
