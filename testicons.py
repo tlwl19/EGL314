@@ -5,22 +5,15 @@ import cartoon
 from PIL import Image, ImageTk
 from tkinter import messagebox, simpledialog
 
-def show_Image(choice):
+def show_Image():
     global icons
-    icons=['nissan']
-    path2 = "car/" + str(icons[choice]) + ".png"
+    icons='Adidas'
+    path2 = "icons/" + icons + ".png"
     myImage = Image.open(path2)
 
     #sending to cartoon.py
     #first path refers to input for img
     #path2 refers to variable
     cartoon.pixelised(pathway = path2)
-    myImage = Image.open("kawaii.png")
+    myImage = Image.open("cartoon.png")
 
-
-show_Image(0)
-
-#rec spiderman ironman fila hawkeye capame blackpanther antman
-#half wintersoldier
-#not hulk
-#cmi thor loki
