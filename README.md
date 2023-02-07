@@ -551,7 +551,7 @@ If you guessed the wrong icon, a message box will appear to notify you that you 
 
 <br>
 
-If you guessed a correct icon, you will move on to the next level, and you can click the start button to display the next icon on the polariser.
+If you guessed a correct icon, you will move on to the next level, and you can click the start button to display the next icon on the polariser. A random quote will also appear below.
 
 ![](Demo%20Pics/IconNext.png)
 *Next level*
