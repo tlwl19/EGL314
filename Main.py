@@ -981,6 +981,7 @@ luckyyImage = ImageTk.PhotoImage(focusImage)
 focuspic = Label(frameone, image=luckyyImage)
 focuspic.grid(row=1, columnspan=6)
 
+
 #DRAW PAGE
 ########################### DRAW FUNCTION #########################
 # Function to choose colour
