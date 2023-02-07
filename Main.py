@@ -959,7 +959,7 @@ level.grid(row=2, column=0)
 timer = Label(midframe, text='Welcome', font=('Arial', 15))
 timer.grid(row=2, column=1, padx=100)
 
-start = Button(midframe, text='Start', font=('Arial', 15), command=lambda:Start(timer))
+start = Button(midframe, text='Start', bg='#d4fafa', fg='black', activebackground='#80e2ff', font=('Arial', 15), command=lambda:Start(timer))
 start.grid(row=2, column=2, ipadx=30)
 
 #Answer btn
