@@ -103,18 +103,18 @@ def startgame():
     #prevent2 = 0
     if number == 15: # before starting the game
         score = 0
-        btn0.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) #Show blue colour
-        btn1.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn2.config(bg='#b0c8ed', fg="white", image='', width=10, height=5)
-        btn3.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn4.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn5.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn6.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn7.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn8.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn9.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn10.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn11.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn0.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) #Show blue colour
+        btn1.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn2.config(bg='#C3B1E1', fg="black", image='', width=10, height=5)
+        btn3.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn4.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn5.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn6.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn7.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn8.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn9.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn10.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn11.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
         scoreresults.config(text=str(score),font=('Arial',20))  #It will show 0 when press "Start game"
         number = 12 #to signal that user has pressed the start game btn n to ensure that when user click on the 3x4 grids bef guess btn, it will show press guess btn
         guess()
@@ -232,18 +232,18 @@ def guess():
             numberxlist = [numberx]
             print(numberxlist)
             show_Image(numberx) #send to polariser the number
-        btn0.config(bg='#b0c8ed', fg="white")
-        btn1.config(bg='#b0c8ed', fg="white") 
-        btn2.config(bg='#b0c8ed', fg="white") 
-        btn3.config(bg='#b0c8ed', fg="white") 
-        btn4.config(bg='#b0c8ed', fg="white") 
-        btn5.config(bg='#b0c8ed', fg="white") 
-        btn6.config(bg='#b0c8ed', fg="white") 
-        btn7.config(bg='#b0c8ed', fg="white") 
-        btn8.config(bg='#b0c8ed', fg="white") 
-        btn9.config(bg='#b0c8ed', fg="white") 
-        btn10.config(bg='#b0c8ed', fg="white")
-        btn11.config(bg='#b0c8ed', fg="white") 
+        btn0.config(bg='#C3B1E1', fg="black")
+        btn1.config(bg='#C3B1E1', fg="black") 
+        btn2.config(bg='#C3B1E1', fg="black") 
+        btn3.config(bg='#C3B1E1', fg="black") 
+        btn4.config(bg='#C3B1E1', fg="black") 
+        btn5.config(bg='#C3B1E1', fg="black") 
+        btn6.config(bg='#C3B1E1', fg="black") 
+        btn7.config(bg='#C3B1E1', fg="black") 
+        btn8.config(bg='#C3B1E1', fg="black") 
+        btn9.config(bg='#C3B1E1', fg="black") 
+        btn10.config(bg='#C3B1E1', fg="black")
+        btn11.config(bg='#C3B1E1', fg="black") 
     elif number == 13 or number == 17 or number == 14: # restart
         youwin.config(text="Press Reset Game to Reset", font=('Arial',12))
     elif number == 15: 
@@ -698,17 +698,17 @@ frame0.grid(row=1, columnspan=3)
 # Create Dropdown menu for month
 drop = OptionMenu(frame0, clicked , *options )
 drop.grid(row=1, column=0)
-drop.config(bg="#ffe4f2", fg="BLACK", activebackground="#e54ed0", activeforeground="WHITE", width=30)
-drop["menu"].config(bg="#e54ed0", fg="WHITE", activebackground="#ffe4f2", activeforeground="BLACK")
+drop.config(bg="#ffe4f2", fg="BLACK", activebackground="#ffb3c6", activeforeground="black", width=30)
+drop["menu"].config(bg="#e18aaa", fg="black", activebackground="#ffb3c6", activeforeground="BLACK")
 
 # Create Dropdown menu for date
 drops = OptionMenu(frame0, clickeds , *optionss )
 drops.grid(row=1, column=1)
-drops.config(bg="#9f45b0", fg="WHITE", activebackground="#44008b", activeforeground="WHITE", width=30)
-drops["menu"].config(bg="#44008b", fg="WHITE", activebackground="#9f45b0", activeforeground="WHITE")
+drops.config(bg="#ffc2d1", fg="black", activebackground="#ffb7b2", activeforeground="black", width=30)
+drops["menu"].config(bg="#ff9aa2", fg="black", activebackground="#ffb7b2", activeforeground="black")
 
 #Create a Button to handle the update Image event
-button= Button(frame0, text= "Enter", command= change_img,  bg="#00076f", fg="WHITE", width=30)
+button= Button(frame0, text= "Enter", command= change_img,  bg="#ff8fab", fg="black", width=30)
 button.grid(row=1, column=2)
 
 #Text
@@ -926,11 +926,11 @@ Lno = 0
 storetime = 0
 
 #Header for the game
-headername = Label(focusframe, text="ICONcentrate", font=('Arial', 30), fg='#96DED1') 
+headername = Label(focusframe, text="ICONcentrate", font=('Arial', 30), fg='#4542fb') 
 headername.grid(row=0, column=0)
 
 #Instructions
-instrubtn = Button(focusframe, text='Instructions', font=('Arial', 15), bg = '#b0c8ed', fg='black', command=getinstruction)
+instrubtn = Button(focusframe, text='Instructions', font=('Arial', 15), bg = '#a4c6eb', fg='black', command=getinstruction)
 instrubtn.grid(row=1, column=0)
 
 midframe = Frame(focusframe)
@@ -1194,7 +1194,7 @@ black = Button(shadeframe, text="Black", font=("Calibri, 10"), bg='grey1', fg='w
 black.grid(row=8, column=0)
 
 #save button
-savebtn = Button(shadeframe, text="Save", font=("Calibri, 10"), bg='light blue', fg='black', width=13, height=2, command=savecanvas)
+savebtn = Button(shadeframe, text="Save", font=("Calibri, 10"), bg='#ece75f', fg='black', width=13, height=2, command=savecanvas)
 savebtn.grid(row=9, column=0)
 
 #colour button
@@ -1204,7 +1204,7 @@ allwhite.grid(row=0, column=0)
 allblack = Button(colourframe, text="All Black",font=("Calibri, 12"), bg='black', fg='white', width=13, height=2, command=allblk)
 allblack.grid(row=0, column=1)
 
-clear = Button(colourframe, text="Clear",font=("Calibri, 12"), bg='gold', width=13, height=2, command=clearbtn)
+clear = Button(colourframe, text="Clear",font=("Calibri, 12"), bg='#e6cc00', width=13, height=2, command=clearbtn)
 clear.grid(row=0, column=2)
 
 #send btn
