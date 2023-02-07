@@ -130,6 +130,7 @@ def startgame():
         lbl9.grid_forget()
         lbl10.grid_forget()
         lbl11.grid_forget()
+        startbtn['state']='disabled'
     elif number == 18:
         youwin.config(text="Press any button to continue ", font=('Arial',10))
         youwin.grid(row=4, column=2)
@@ -186,6 +187,7 @@ def restartgame():
                 btn11.config(image = loadImages, width=widthy, height=heighty, bg='white')
         scoreresults.config(text="Press Start Game to Start",font=('Arial',12))  #It will show 0 when press "Reset game"
         number = 15
+        startbtn['state']='normal'
         youwin.grid_forget()
         btn0.grid(row=0, column=0)
         lbl0.grid(row=1, column=0)
