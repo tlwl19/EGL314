@@ -161,11 +161,11 @@ Lno = 0
 storetime = 0
 
 #Header for the game
-headername = Label(text="ICONcentrate", font=('Arial', 30), fg='#96DED1') 
+headername = Label(text="ICONcentrate", font=('Arial', 30), fg='#4542fb') 
 headername.grid(row=0, column=0)
 
 #Instructions
-instrubtn = Button(main, text='Instruction', font=('Arial', 15), bg = '#b0c8ed', fg='white', command=getinstruction)
+instrubtn = Button(main, text='Instruction', font=('Arial', 15), bg = '#a4c6eb', fg='black', command=getinstruction)
 instrubtn.grid(row=1, column=0)
 
 middleframe = Frame(main)
@@ -179,7 +179,7 @@ level.grid(row=2, column=0)
 timer = Label(middleframe, text='Welcome', font=('Arial', 15))
 timer.grid(row=2, column=1, padx=100)
 
-start = Button(middleframe, text='Start', font=('Arial', 15), command=lambda:Start(timer))
+start = Button(middleframe, text='Start',  bg='#d4fafa', fg='black', activebackground='#80e2ff', font=('Arial', 15), command=lambda:Start(timer))
 start.grid(row=2, column=2, ipadx=30)
 
 #Answer btn
