@@ -100,21 +100,22 @@ def show_Image(choice1):
 def startgame():
     global score, prevent, number, prevent2
     prevent = []
-    #prevent2 = 0
+    widthx = 15
+    heightx = 8
     if number == 15: # before starting the game
         score = 0
-        btn0.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) #Show blue colour
-        btn1.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
-        btn2.config(bg='#C3B1E1', fg="black", image='', width=10, height=5)
-        btn3.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
-        btn4.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
-        btn5.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
-        btn6.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
-        btn7.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
-        btn8.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
-        btn9.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
-        btn10.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
-        btn11.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn0.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) #Show blue colour
+        btn1.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
+        btn2.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx)
+        btn3.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
+        btn4.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
+        btn5.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
+        btn6.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
+        btn7.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
+        btn8.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
+        btn9.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
+        btn10.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
+        btn11.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
         scoreresults.config(text=str(score),font=('Arial',20))  #It will show 0 when press "Start game"
         number = 12 #to signal that user has pressed the start game btn n to ensure that when user click on the 3x4 grids bef guess btn, it will show press guess btn
         guess()
@@ -140,7 +141,8 @@ def startgame():
 def restartgame():
     global score, prevent, number, prevent2
     prevent = []  
-    #prevent2 = 0
+    widthx = 184
+    heightx = 196
     if number == 13 or number == 14 or number == 17 or number == 18: #restart
         for i in range(0, 12):
             paths = "horo/" + str(i) + ".png"
@@ -223,7 +225,7 @@ def guess():
     prevent3 = 0
     if number == 12 or number == 18:
         number = 16
-        youwin.config(text="Guess the horoscope!", font=('Arial',12))
+        youwin.config(text="Guess the horoscope!", font=('Arial',20))
         numberx = random.randint(0,11) #generate a random no.
         while len(numberxlist) == 12:
             numberxlist = []
@@ -343,7 +345,7 @@ def horobutton(c):
                     btn11.config(bg=color, fg='black')
                 else:
                     scoreresults.config(text=str(score), font=('Arial',20))
-                    youwin.config(text="Press any button to continue ", font=('Arial',10))
+                    youwin.config(text="Press any button to continue ", font=('Arial',20))
                     youwin.grid(row=4, column=2)
         else:
             if prevent3 == 0:
@@ -407,7 +409,7 @@ def horobutton(c):
 
                 if prevent2 == [4] or prevent3 == 1:
                     quoteno = quoteno
-                    youwin.config(text="Choose another horoscope", font=('Arial',12))
+                    youwin.config(text="Choose another horoscope", font=('Arial',20))
             print(score)
 
 # To navigate to GUESS page
@@ -423,7 +425,7 @@ def guessappear(): #guess appear but the rest disappear
 guessframe = Frame(middleframe)
 
 #Header for the game
-headername = Label(guessframe, text="Guess the Horoscope", font=('Arial', 30)) 
+headername = Label(guessframe, text="Guess the Horoscope", font=('Arial', 40)) 
 headername.grid(row=0, columnspan=3)
 
 #Variable Declaration
@@ -447,30 +449,30 @@ inputcolumn = 4 #indicate the number of cols
 for r in range(inputrow):
     for c in range(inputcolumn):
         # Button Section
-        btn0 = Button(inguessframe, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=0:horobutton(m))
-        lbl0 = Label(inguessframe, text="Aquarius", font=("Arial", 15), fg='black')
-        btn1 = Button(inguessframe, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=1:horobutton(m))
-        lbl1 = Label(inguessframe, text="Aries", font=("Arial", 15), fg='black')
-        btn2 = Button(inguessframe, text = "Cancer", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=2:horobutton(m))
-        lbl2 = Label(inguessframe, text="Cancer", font=("Arial", 15), fg='black')
-        btn3 = Button(inguessframe, text = "Capricorn", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=3:horobutton(m))
-        lbl3 = Label(inguessframe, text="Capricorn", font=("Arial", 15), fg='black')
-        btn4 = Button(inguessframe, text = "Gemini", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=4:horobutton(m))
-        lbl4 = Label(inguessframe, text="Gemini", font=("Arial", 15), fg='black')
-        btn5 = Button(inguessframe, text = "Leo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=5:horobutton(m))
-        lbl5 = Label(inguessframe, text="Leo", font=("Arial", 15), fg='black')
-        btn6 = Button(inguessframe, text = "Libra", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=6:horobutton(m))
-        lbl6 = Label(inguessframe, text="Libra", font=("Arial", 15), fg='black')
-        btn7 = Button(inguessframe, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=7:horobutton(m))
-        lbl7 = Label(inguessframe, text="Pisces", font=("Arial", 15),fg='black')
-        btn8 = Button(inguessframe, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=8:horobutton(m))
-        lbl8 = Label(inguessframe, text="Sagittarius", font=("Arial", 15), fg='black')
-        btn9 = Button(inguessframe, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=9:horobutton(m))
-        lbl9 = Label(inguessframe, text="Scorpio", font=("Arial", 15), fg='black')
-        btn10 = Button(inguessframe, text = "Taurus", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=10:horobutton(m))
-        lbl10 = Label(inguessframe, text="Taurus", font=("Arial", 15), fg='black')
-        btn11 = Button(inguessframe, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=11:horobutton(m))
-        lbl11 = Label(inguessframe, text="Virgo", font=("Arial", 15), fg='black')
+        btn0 = Button(inguessframe, text = "Aquarius", font = ("Arial", 17), bg='white', fg='black', command=lambda m=0:horobutton(m))
+        lbl0 = Label(inguessframe, text="Aquarius", font=("Arial", 20), fg='black')
+        btn1 = Button(inguessframe, text = "Aries", font = ("Arial", 17), bg='white', fg='black', command=lambda m=1:horobutton(m))
+        lbl1 = Label(inguessframe, text="Aries", font=("Arial", 20), fg='black')
+        btn2 = Button(inguessframe, text = "Cancer", font = ("Arial", 17), bg='white', fg='black',command=lambda m=2:horobutton(m))
+        lbl2 = Label(inguessframe, text="Cancer", font=("Arial", 20), fg='black')
+        btn3 = Button(inguessframe, text = "Capricorn", font = ("Arial", 17), bg='white', fg='black',command=lambda m=3:horobutton(m))
+        lbl3 = Label(inguessframe, text="Capricorn", font=("Arial", 20), fg='black')
+        btn4 = Button(inguessframe, text = "Gemini", font = ("Arial", 17), bg='white', fg='black',command=lambda m=4:horobutton(m))
+        lbl4 = Label(inguessframe, text="Gemini", font=("Arial", 20), fg='black')
+        btn5 = Button(inguessframe, text = "Leo", font = ("Arial", 17), bg='white', fg='black',command=lambda m=5:horobutton(m))
+        lbl5 = Label(inguessframe, text="Leo", font=("Arial", 20), fg='black')
+        btn6 = Button(inguessframe, text = "Libra", font = ("Arial", 17), bg='white', fg='black',command=lambda m=6:horobutton(m))
+        lbl6 = Label(inguessframe, text="Libra", font=("Arial", 20), fg='black')
+        btn7 = Button(inguessframe, text = "Pisces", font = ("Arial", 17), bg='white', fg='black',command=lambda m=7:horobutton(m))
+        lbl7 = Label(inguessframe, text="Pisces", font=("Arial", 20),fg='black')
+        btn8 = Button(inguessframe, text = "Sagittarius", font = ("Arial", 17), bg='white', fg='black',command=lambda m=8:horobutton(m))
+        lbl8 = Label(inguessframe, text="Sagittarius", font=("Arial", 20), fg='black')
+        btn9 = Button(inguessframe, text = "Scorpio", font = ("Arial", 17), bg='white', fg='black',command=lambda m=9:horobutton(m))
+        lbl9 = Label(inguessframe, text="Scorpio", font=("Arial", 20), fg='black')
+        btn10 = Button(inguessframe, text = "Taurus", font = ("Arial", 17), bg='white', fg='black',command=lambda m=10:horobutton(m))
+        lbl10 = Label(inguessframe, text="Taurus", font=("Arial", 20), fg='black')
+        btn11 = Button(inguessframe, text = "Virgo", font = ("Arial", 17), bg='white', fg='black',command=lambda m=11:horobutton(m))
+        lbl11 = Label(inguessframe, text="Virgo", font=("Arial", 20), fg='black')
 
 btn0.grid(row=0, column=0)
 lbl0.grid(row=1, column=0)
@@ -503,8 +505,8 @@ for i in range(0, 12):
     myImage = Image.open(path)
     myImage = myImage.resize((100, 100))
     loadImage = ImageTk.PhotoImage(myImage)
-    widthx = 114
-    heightx = 126
+    widthx = 179
+    heightx = 196
     if i == 0:
         btn0.image = loadImage
         btn0.config(image = loadImage, width=widthx, height=heightx)
@@ -556,13 +558,13 @@ resetbtn.grid(row=1, column=2)
 scorename = Label(inguessframe2, text="Score", font=('Arial', 25)) 
 scorename.grid(row=2, column=2)
 
-scoreresults = Label(inguessframe2, text=str(score), font=('Arial', 20))
+scoreresults = Label(inguessframe2, text=str(score), font=('Arial', 25))
 scoreresults.grid(row=3, column=2)
 
-youwin = Label(inguessframe2, text="Press Start Game to Start", font=('Arial', 12))
+youwin = Label(inguessframe2, text="Press Start Game to Start", font=('Arial', 20))
 youwin.grid(row=4, column=2)
 
-quote = Label(inguessframe2, text="", font=('Arial', 12), wraplength=300)
+quote = Label(inguessframe2, text="", font=('Arial', 18), wraplength=500)
 quote.grid(row=5, column=2)
 
 
@@ -694,7 +696,7 @@ clicked.set(whos)  #this refers to month
 clickeds.set(who.day) #this refers to date
 
 #Header
-lucktitle = Label(luckframe, text="What's Your Luck?", font=('Arial', 30))
+lucktitle = Label(luckframe, text="What's Your Luck?", font=('Arial', 35))
 lucktitle.grid(row=0, columnspan=4)
 
 #This is for dropdown button
@@ -704,26 +706,26 @@ frame0.grid(row=1, columnspan=3)
 # Create Dropdown menu for month
 drop = OptionMenu(frame0, clicked , *options )
 drop.grid(row=1, column=0)
-drop.config(bg="#ffe4f2", fg="BLACK", activebackground="#ffb3c6", activeforeground="black", width=30)
-drop["menu"].config(bg="#e18aaa", fg="black", activebackground="#ffb3c6", activeforeground="BLACK")
+drop.config(bg="#ffe4f2", fg="BLACK", activebackground="#ffb3c6", activeforeground="black", height=2, width=30, font=('Arial',15))
+drop["menu"].config(bg="#e18aaa", fg="black", activebackground="#ffb3c6", activeforeground="BLACK", font=('Arial',15))
 
 # Create Dropdown menu for date
 drops = OptionMenu(frame0, clickeds , *optionss )
 drops.grid(row=1, column=1)
-drops.config(bg="#ffc2d1", fg="black", activebackground="#ffb7b2", activeforeground="black", width=30)
-drops["menu"].config(bg="#ff9aa2", fg="black", activebackground="#ffb7b2", activeforeground="black")
+drops.config(bg="#ffc2d1", fg="black", activebackground="#ffb7b2", activeforeground="black", height=2, width=30, font=('Arial',15))
+drops["menu"].config(bg="#ff9aa2", fg="black", activebackground="#ffb7b2", activeforeground="black", font=('Arial',15))
 
 #Create a Button to handle the update Image event
-button= Button(frame0, text= "Enter", command= change_img,  bg="#ff8fab", fg="black", width=30)
+button= Button(frame0, text= "Enter", command= change_img,  bg="#ff8fab", fg="black", height=2, width=30, font=('Arial',15))
 button.grid(row=1, column=2)
 
 #Text
-title= Label (luckframe, text="How lucky are you today?", font=('100px'), width=30)
+title= Label (luckframe, text="How lucky are you today?", font=('Arial', 25))
 title.grid(row=2, columnspan=3)
 
 
 #Create a Label widget
-label= Label(luckframe, image='', text="Input your date of birth and click on the 'Enter' button.", font=('100px'))
+label= Label(luckframe, image='', text="Input your date of birth and click on the 'Enter' button.", font=('Arial', 25))
 label.grid(row=3, columnspan=3)
 
 name = -1
@@ -731,7 +733,7 @@ luckpath = "motivationalquotes/luckmain.png"
 myImages = Image.open(luckpath)
 luckyImages = ImageTk.PhotoImage(myImages)
 luckpic = Label(luckframe, image=luckyImages)
-luckpic.grid(row=4, column=0)
+luckpic.grid(row=4, columnspan=3)
 
 #Pop up for scissors paper stone
 frame1 = Frame(luckframe)
@@ -739,8 +741,8 @@ frame1.grid(row=4, column=0)
 frame1.grid_forget()
 
 #pop up title (scissors paper stone)
-label2 = Label(frame1, text = "", font='20px')
-label2.grid(row=0, columnspan=3)
+label2 = Label(frame1, text = "", font=('Arial', 20))
+label2.grid(row=0, columnspan=4)
 
 paths = os.path.abspath('scissors paper stone pics') +'\\scissors.png'
 file = paths.replace('\\','/')
@@ -765,7 +767,7 @@ label5 = Button(frame1, image = img3, command=lambda m=3:game(m))
 label5.grid(row=1, column=2)
 
 #preview image of what i have chosen for scissors paper stone
-previewtitle = Label(luckframe, text="", font=('Arial', 15))
+previewtitle = Label(luckframe, text="", font=('Arial', 20))
 previewtitle.grid(row=2, column=3)
 previewtitle.grid_forget()
 imageLabel = Label(luckframe, bg = 'white', width = 30, height = 15)

@@ -217,7 +217,7 @@ def button(c):
             if quoteno >= len(quotelist)-1:
                 quoteno = -1
             quoteno=quoteno+1
-            quote.config(text=quotelist[quoteno])
+            quote.config(text=quotelist[quoteno], bg='white')
             prevent2 = [0]
             if prevent == [2]:
                 number = 18 #restart
@@ -279,7 +279,7 @@ def button(c):
                     quoteno = -1
                 quoteno=quoteno+1
                 prevent3 = 1
-                quote.config(text=quotelist[quoteno])
+                quote.config(text=quotelist[quoteno], bg='white')
             if prevent2 == [0]:
                 number = 18
                 guess()
@@ -482,7 +482,7 @@ scoreresults.grid(row=3, column=2)
 youwin = Label(frame2, text="Press Start Game to Start", font=('Arial', 12))
 youwin.grid(row=4, column=2)
 
-quote = Label(frame2, text="",bg='white', font=('Arial', 12), wraplength=300)
+quote = Label(frame2, text="", font=('Arial', 12), wraplength=300)
 quote.grid(row=5, column=2)
 
 main.mainloop()  #for the window to stay
