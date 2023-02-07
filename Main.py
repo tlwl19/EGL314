@@ -874,7 +874,7 @@ def Reset(label):
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 3:
-            icons = ['Ferrari', 'Mazda', 'Mitsubishi', 'Rolls Royce', 'Honda', 'Mercedes']
+            icons = ['Ferrari', 'Hyundai', 'Mitsubishi', 'Rolls Royce', 'Honda', 'Mercedes']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         else:
