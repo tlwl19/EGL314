@@ -130,6 +130,10 @@ def startgame():
         lbl9.grid_forget()
         lbl10.grid_forget()
         lbl11.grid_forget()
+    elif number == 18:
+        youwin.config(text="Press any button to continue ", font=('Arial',10))
+        youwin.grid(row=4, column=2)
+
 
 #The function is for reset game
 def restartgame():

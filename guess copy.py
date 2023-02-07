@@ -32,18 +32,18 @@ def startgame():
     prevent2 = 0
     if number == 15: # before starting the game
         score = 0
-        btn0.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) #Show blue colour
-        btn1.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn2.config(bg='#b0c8ed', fg="white", image='', width=10, height=5)
-        btn3.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn4.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn5.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn6.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn7.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn8.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn9.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn10.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
-        btn11.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn0.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) #Show blue colour
+        btn1.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn2.config(bg='#C3B1E1', fg="black", image='', width=10, height=5)
+        btn3.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn4.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn5.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn6.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn7.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn8.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn9.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn10.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
+        btn11.config(bg='#C3B1E1', fg="black", image='', width=10, height=5) 
         scoreresults.config(text=str(score),font=('Arial',20))  #It will show 0 when press "Start game"
         number = 12 #to signal that user has pressed the start game btn n to ensure that when user click on the 3x4 grids bef guess btn, it will show press guess btn
         guess()
@@ -59,12 +59,16 @@ def startgame():
         lbl9.grid_forget()
         lbl10.grid_forget()
         lbl11.grid_forget()
+    elif number == 18:
+        youwin.config(text="Press any button to continue ", font=('Arial',10))
+        youwin.grid(row=4, column=2)
+
 
 #The function is for reset game
 def restartgame():
     global score, prevent, number, prevent2
     prevent = []  
-    prevent2 = 0
+    #prevent2 = 0
     if number == 13 or number == 14 or number == 17 or number == 18: #restart
         for i in range(0, 12):
             paths = "horo/" + str(i) + ".png"
@@ -161,18 +165,18 @@ def guess():
             numberxlist = [numberx]
             print(numberxlist)
             show_Image(numberx) #send to polariser the number
-        btn0.config(bg='#b0c8ed', fg="white")
-        btn1.config(bg='#b0c8ed', fg="white") 
-        btn2.config(bg='#b0c8ed', fg="white") 
-        btn3.config(bg='#b0c8ed', fg="white") 
-        btn4.config(bg='#b0c8ed', fg="white") 
-        btn5.config(bg='#b0c8ed', fg="white") 
-        btn6.config(bg='#b0c8ed', fg="white") 
-        btn7.config(bg='#b0c8ed', fg="white") 
-        btn8.config(bg='#b0c8ed', fg="white") 
-        btn9.config(bg='#b0c8ed', fg="white") 
-        btn10.config(bg='#b0c8ed', fg="white")
-        btn11.config(bg='#b0c8ed', fg="white") 
+        btn0.config(bg='#C3B1E1', fg="black")
+        btn1.config(bg='#C3B1E1', fg="black") 
+        btn2.config(bg='#C3B1E1', fg="black") 
+        btn3.config(bg='#C3B1E1', fg="black") 
+        btn4.config(bg='#C3B1E1', fg="black") 
+        btn5.config(bg='#C3B1E1', fg="black") 
+        btn6.config(bg='#C3B1E1', fg="black") 
+        btn7.config(bg='#C3B1E1', fg="black") 
+        btn8.config(bg='#C3B1E1', fg="black") 
+        btn9.config(bg='#C3B1E1', fg="black") 
+        btn10.config(bg='#C3B1E1', fg="black")
+        btn11.config(bg='#C3B1E1', fg="black") 
     elif number == 13 or number == 17 or number == 14: # restart
         youwin.config(text="Press Reset Game to Reset", font=('Arial',12))
     elif number == 15: 
@@ -461,10 +465,10 @@ for i in range(0, 12):
 frame2 = Frame(main)
 frame2.grid(row=1, column=2)
 
-startbtn = Button(frame2, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
+startbtn = Button(frame2, text="START GAME", font=('Arial', 20), bg='#E0B0FF', command=startgame)
 startbtn.grid(row=0, column=2)
 
-resetbtn = Button(frame2, text="RESET GAME", font=('Arial', 20), bg='pink', command=restartgame)
+resetbtn = Button(frame2, text="RESET GAME", font=('Arial', 20), bg='#B47EE5', command=restartgame)
 resetbtn.grid(row=1, column=2)
 
 scorename = Label(frame2, text="Score", font=('Arial', 25)) 
