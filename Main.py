@@ -870,7 +870,7 @@ def Reset(label):
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 2:
-            icons = ['Puma', 'Adidas', 'Fila', 'Nike', 'Under Armour', 'Reebok']
+            icons = ['Puma', 'Converse', 'Fila', 'Nike', 'Under Armour', 'Reebok']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 3:
