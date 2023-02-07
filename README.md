@@ -472,7 +472,7 @@ The game will generate rock, paper or scissors on the polariser. That will deter
 
 <br>
 
-The game has ended after playing rock, paper or scissors. You can choose to play again by entering another date of birth or click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the home page. Or you can click on the bottom navigation button to play other games.
+The game will end after playing rock, paper, scissors. You can choose to play again by entering another date of birth or click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on the top of the window to return to the home page. Or you can click on the bottom navigation buttons to play other games.
 
 ![](Demo%20Pics/LuckBack.png)
 *Navigate to home or other games page*
@@ -483,7 +483,7 @@ The game has ended after playing rock, paper or scissors. You can choose to play
 
 # **ICONcentrate**
 
-ICONcentrate is a game that trains user's call-back memory.It is also built to test your concentration by seeing how fast you can react to guessing common brands that we see in our daily life.
+ICONcentrate is a game that trains the user's callback memory. It is also built to test your concentration by seeing how fast you can react to guessing common brands that we see in our daily lives.
 
 <br>
 
@@ -506,7 +506,7 @@ You will then be redirected to the ICONcentrate game page
 Click on the instructions button to learn how to play the game.
 
 ![](Demo%20Pics/IconInstructions.png)
-*Press on 'Instruction' button to read the instructions of the game*
+*Press on 'Instructions' button to read the instructions of the game*
 
 <br>
 
