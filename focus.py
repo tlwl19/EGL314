@@ -7,6 +7,7 @@ from tkinter import messagebox, simpledialog
 
 counter = 0   #Time starts from 0
 running = False  #Timer is not running
+global naming
 
 def show_Image(choice):
     global icons
@@ -101,15 +102,15 @@ def Reset(label):
         label['text']='Welcome!'
         level['text']='Level '+ str(Lno)
         if Lno == 1:
-            icons = ['KFC', 'Jollibee', 'McDonalds', 'Pizza Hut', 'Mos Burger', 'Texas Chicken']
+            icons = ['KFC', 'Jollibee', 'Mos Burger', 'Pizza Hut', 'Popeyes', 'Texas Chicken']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 2:
-            icons = ['Puma', 'A&W', 'Fila', 'BMW', 'Subway', 'Ferrari']
+            icons = ['Puma', 'Converse', 'Fila', 'Nike', 'Under Armour', 'Reebok']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 3:
-            icons = ['Hawkeye', 'Hulk', 'Nissan', 'Rolls Royce', 'Burger King', 'Dominos']
+            icons = ['Ferrari', 'Rolls Royce', 'Honda', 'Mitsubishi', 'Mercedes', 'Hyundai']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         else:
@@ -143,10 +144,7 @@ def counter_label(label):
     count()
 
 main = Tk()
-main.title('ICONCENTRATE')
-
-#Define geometry of the window
-#main.geometry("1000x300")     
+main.title('ICONCENTRATE')    
 
 numberxlist = []
 Lno = 0
@@ -174,6 +172,23 @@ timer.grid(row=2, column=1, padx=100)
 start = Button(middleframe, text='Start', font=('Arial', 15), command=lambda:Start(timer))
 start.grid(row=2, column=2, ipadx=30)
 
+#For image to loop
+naming = -1
+focuspath = "motivationalquotes/focusquote.png"
+focusImage = Image.open(focuspath)
+luckyyImage = ImageTk.PhotoImage(focusImage)
+focuspic = Label(main, image=luckyyImage)
+focuspic.grid(row=3, column=0)
+
+focuspiclist = ["come","conquer","control","hang","happy","important","living","openup","tough","turnout","focusquote"]
+naming = naming+1
+if naming > len(focuspiclist)-1:
+    naming = 0
+path = "motivationalquotes/" + focuspiclist[naming] + ".png"
+focusImages = Image.open(path)
+loadImage = ImageTk.PhotoImage(focusImages)
+focuspic.image = loadImage
+focuspic.config(image = loadImage)
 
 #Answer btn
 frame1 = Frame(main)
