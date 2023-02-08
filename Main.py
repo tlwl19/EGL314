@@ -253,11 +253,11 @@ def guess():
         btn10.config(bg='#C3B1E1', fg="black")
         btn11.config(bg='#C3B1E1', fg="black") 
     elif number == 13 or number == 17 or number == 14: # restart
-        youwin.config(text="Press Reset Game to Reset", font=('Arial',12))
+        youwin.config(text="Press Reset Game to Reset", font=('Arial',20))
     elif number == 15: 
-        youwin.config(text="Press Start Game to Start", font=('Arial',12))
+        youwin.config(text="Press Start Game to Start", font=('Arial',20))
     else:
-        youwin.config(text="Select one horoscope!", font=('Arial',12))
+        youwin.config(text="Select one horoscope!", font=('Arial',20))
 
 def horobutton(c):
     global number, score, prevent, numberx, prevent2, quoteno, quotelist, prevent3
@@ -275,17 +275,17 @@ def horobutton(c):
      "'Nothing can dim the light that shines from within.' — Maya Angelou"]
    #quotelist = ['1']
     if number == 15:
-        youwin.config(text="Press Start Game to Start", font=('Arial',12))
+        youwin.config(text="Press Start Game to Start", font=('Arial',20))
     elif number == 17: #after game ended 
-        youwin.config(text="Press Reset Game to Reset", font=('Arial',12))
+        youwin.config(text="Press Reset Game to Reset", font=('Arial',20))
     elif number == 14:
         scoreresults.config(text='YOU WIN', font=('Arial',20))
-        youwin.config(text="Press Reset Game to Reset", font=('Arial',12))
+        youwin.config(text="Press Reset Game to Reset", font=('Arial',20))
         youwin.grid(row=4, column=2)
     elif number == 13:
-        youwin.config(text="Press Start Game to Start", font=('Arial',12))
-    elif number == 12:
-        youwin.config(text="Press Guess to Start Guessing", font=('Arial',10))
+        youwin.config(text="Press Start Game to Start", font=('Arial',20))
+    #elif number == 12:
+    #    youwin.config(text="Press Guess to Start Guessing", font=('Arial',10))
     else: #number = 16 guess is pressed
         if c == numberx:
             if quoteno >= len(quotelist)-1:
@@ -635,7 +635,7 @@ def change_img():
             print(randomnolist[randomno])
 
     else:
-        label.config(text = "Please input a valid date of birth.", image='', font=('50px'))
+        label.config(text = "Please input a valid date of birth.", image='', font=('Arial', 25))
 
 def preview_Image(choice):
     global imageLabel
