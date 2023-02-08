@@ -607,9 +607,9 @@ def change_img():
         randomnolist = [7,75,100]
         if randomnolist[randomno] == 75 or randomnolist[randomno] == 100:  #when randomly generated number is 3 or 4, will show 75% or 99%, and activate game
             label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
-            frame1.grid(row=4, column=0)  #For the selection of scissors,paper,stone
+            frame1.grid(row=4, columnspan=3)  #For the selection of scissors,paper,stone
             show_Image_luck(randomnolist[randomno])
-            imageLabel.config(image="", width = 30, height = 15)
+            imageLabel.config(image="", width = 35, height = 18)
             previewtitle.config(text="")
             previewtitle.grid(row=2, column=3)
             imageLabel.grid(row=4, column=3)
@@ -647,10 +647,10 @@ def preview_Image(choice):
         choice = "stone"
     path = "scissors paper stone pics/" + str(choice) + ".png"
     myImages = Image.open(path)
-    myImages = myImages.resize((250, 250))
+    myImages = myImages.resize((300, 300))
     loadImage = ImageTk.PhotoImage(myImages)
     imageLabel.image = loadImage
-    imageLabel.config(image = loadImage, width = 250, height = 250)
+    imageLabel.config(image = loadImage, width = 300, height = 300)
     previewtitle.config(text="You have chosen " + choice)
 
 def game(m):
@@ -742,28 +742,31 @@ frame1.grid_forget()
 
 #pop up title (scissors paper stone)
 label2 = Label(frame1, text = "", font=('Arial', 20))
-label2.grid(row=0, columnspan=4)
+label2.grid(row=0, columnspan=3)
 
-paths = os.path.abspath('scissors paper stone pics') +'\\scissors.png'
-file = paths.replace('\\','/')
-img1= ImageTk.PhotoImage(Image.open(file))
+paths0 = 'scissors paper stone pics/scissors.png'
+file0 = Image.open(paths0)
+Images0 = file0.resize((300, 300))
+img1= ImageTk.PhotoImage(Images0)
 
-paths = os.path.abspath('scissors paper stone pics') +'\\paper.png'
-file = paths.replace('\\','/')
-img2= ImageTk.PhotoImage(Image.open(file))
+paths1 = 'scissors paper stone pics/paper.png'
+file1 = Image.open(paths1)
+Images1 = file1.resize((300, 300))
+img2= ImageTk.PhotoImage(Images1)
 
-paths = os.path.abspath('scissors paper stone pics') +'\\stone.png'
-file = paths.replace('\\','/')
-img3= ImageTk.PhotoImage(Image.open(file))
+paths2 = 'scissors paper stone pics/stone.png'
+file2 = Image.open(paths2)
+Images2 = file2.resize((300, 300))
+img3= ImageTk.PhotoImage(Images2)
 
 #Scissor paper stone pop up button
-label3 = Button(frame1, image = img1, command=lambda m=1:game(m))
+label3 = Button(frame1, image = img1, command=lambda m=1:game(m), width=300, height=200)
 label3.grid(row=1, column=0)
 
-label4 = Button(frame1, image = img2, command=lambda m=2:game(m))
+label4 = Button(frame1, image = img2, command=lambda m=2:game(m), width=300, height=200)
 label4.grid(row=1, column=1)
 
-label5 = Button(frame1, image = img3, command=lambda m=3:game(m))
+label5 = Button(frame1, image = img3, command=lambda m=3:game(m), width=300, height=200)
 label5.grid(row=1, column=2)
 
 #preview image of what i have chosen for scissors paper stone
@@ -794,7 +797,7 @@ def show_Image_focus(choice3):
     myImage = Image.open("cartoon.png")
 
 def getinstruction():
-    messagebox.showinfo("Instructions", "1. Click on the 'START' button to begin.\n2. Click on the correct button corresponding to the image shown on the polariser.\n3. You will proceed on to the next level if you select the correct answer.\n4. The game will reset if you select the incorrect answer.")
+    messagebox.showinfo("Instructions", "1. Click on the 'START' button to begin.\n2. Click on the correct button corresponding to the image shown on the polariser.\n3. You will proceed on to the next level if you select the correct answer.\n4. Click on the 'START' button again to play the next level.\n5. The game will reset if you select the incorrect answer.")
 
 
 def click():
@@ -818,13 +821,13 @@ def getname():
 def correctbox():
     global storetime
     name = getname()
-    messagebox.showinfo("Congrats {}".format(name)+" !","You're 100% focus! You've completed in {} s".format(storetime)+" !")
+    messagebox.showinfo("Congrats {}".format(name)+" !","You're 100% focused! You've completed in {} s".format(storetime)+" !")
 
 def wrongbox():
     messagebox.showinfo("Try Again!", "You need to improve on your focus!")
 
 def timeup():
-    messagebox.showinfo("TIMES UP!!", "TIMESS UPP!!, You need to improve on your concentration")
+    messagebox.showinfo("TIME'S UP!!", "TIME'S UP!!, You need to improve on your concentration.")
     
 
 # start function of the stopwatch
@@ -943,26 +946,26 @@ Lno = 0
 storetime = 0
 
 #Header for the game
-headername = Label(focusframe, text="ICONcentrate", font=('Arial', 30), fg='#4542fb') 
+headername = Label(focusframe, text="ICONcentrate", font=('Arial', 40), fg='#4542fb') 
 headername.grid(row=0, column=0)
 
 #Instructions
-instrubtn = Button(focusframe, text='Instructions', font=('Arial', 15), bg = '#a4c6eb', fg='black', command=getinstruction)
-instrubtn.grid(row=1, column=0)
+instrubtn = Button(focusframe, text='Instructions', font=('Arial', 25), bg = '#a4c6eb', fg='black', command=getinstruction)
+instrubtn.grid(row=1, column=0, ipadx=25, ipady=10)
 
 midframe = Frame(focusframe)
 midframe.grid(row=2, columnspan=6)
 
 #Level
-level = Label(midframe, text='Level '+ str(Lno), font=('Arial', 15))
+level = Label(midframe, text='Level '+ str(Lno), font=('Arial', 20))
 level.grid(row=2, column=0)
 
 #Timer
-timer = Label(midframe, text='Welcome', font=('Arial', 15))
+timer = Label(midframe, text='Welcome', font=('Arial', 20))
 timer.grid(row=2, column=1, padx=100)
 
-start = Button(midframe, text='Start', bg='#d4fafa', fg='black', activebackground='#80e2ff', font=('Arial', 15), command=lambda:Start(timer))
-start.grid(row=2, column=2, ipadx=30)
+start = Button(midframe, text='Start', bg='#d4fafa', fg='black', activebackground='#80e2ff', font=('Arial', 20), command=lambda:Start(timer))
+start.grid(row=2, column=2, ipadx=30, ipady=5)
 
 #Answer btn
 frameone = Frame(focusframe)
@@ -972,7 +975,8 @@ icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']  #L
 btn = [i for i in range(len(icons))]  #defining the number of buttons
 
 for i in range (0, 6):  #Assigning array values into btn 
-    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m), wraplength=130) #so that texaschicken text can fully show on the button
+    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15),
+     activebackground='#80e2ff', command=lambda m=i:Stop(m), wraplength=130) #so that texaschicken text can fully show on the button
     btn[i].grid(row=0, column=i)
 
 #For image to loop
@@ -1023,7 +1027,7 @@ def colour_picker(r, c):
 def sendbtn():
   global value
   print(value)
-  #pubpic(value)
+  pubpic(value)
 
 
 def allwht():
@@ -1199,39 +1203,39 @@ for r in range (32):
     button[r][c].grid(row=r, column=c)
 
 #shades button
-white = Button(shadeframe, text="White", font=("Calibri, 10"), bg='grey99', width=13, height=2, command=lambda m=0:choose_colour(m))
+white = Button(shadeframe, text="White", font=("Calibri, 15"), bg='grey99', width=13, height=2, command=lambda m=0:choose_colour(m))
 white.grid(row=1, column=0)
-grey1 = Button(shadeframe, text="Grey1", font=("Calibri, 10"), bg='grey88', width=13, height=2, command=lambda m=20:choose_colour(m))
+grey1 = Button(shadeframe, text="Grey1", font=("Calibri, 15"), bg='grey88', width=13, height=2, command=lambda m=20:choose_colour(m))
 grey1.grid(row=2, column=0)
-grey2 = Button(shadeframe, text="Grey2", font=("Calibri, 10"), bg='grey77', width=13, height=2, command=lambda m=30:choose_colour(m))
+grey2 = Button(shadeframe, text="Grey2", font=("Calibri, 15"), bg='grey77', width=13, height=2, command=lambda m=30:choose_colour(m))
 grey2.grid(row=3, column=0)
-grey3 = Button(shadeframe, text="Grey3", font=("Calibri, 10"), bg='grey66', width=13, height=2, command=lambda m=40:choose_colour(m))
+grey3 = Button(shadeframe, text="Grey3", font=("Calibri, 15"), bg='grey66', width=13, height=2, command=lambda m=40:choose_colour(m))
 grey3.grid(row=4, column=0)
-grey4 = Button(shadeframe, text="Grey4", font=("Calibri, 10"), bg='grey44', width=13, height=2, command=lambda m=50:choose_colour(m))
+grey4 = Button(shadeframe, text="Grey4", font=("Calibri, 15"), bg='grey44', width=13, height=2, command=lambda m=50:choose_colour(m))
 grey4.grid(row=5, column=0)
-grey5 = Button(shadeframe, text="Grey5", font=("Calibri, 10"), bg='grey33', fg='white', width=13, height=2, command=lambda m=60:choose_colour(m))
+grey5 = Button(shadeframe, text="Grey5", font=("Calibri, 15"), bg='grey33', fg='white', width=13, height=2, command=lambda m=60:choose_colour(m))
 grey5.grid(row=6, column=0)
-grey6 = Button(shadeframe, text="Grey6", font=("Calibri, 10"), bg='grey11', fg='white', width=13, height=2, command=lambda m=70:choose_colour(m))
+grey6 = Button(shadeframe, text="Grey6", font=("Calibri, 15"), bg='grey11', fg='white', width=13, height=2, command=lambda m=70:choose_colour(m))
 grey6.grid(row=7, column=0)
-black = Button(shadeframe, text="Black", font=("Calibri, 10"), bg='grey1', fg='white', width=13, height=2, command=lambda m=90:choose_colour(m))
+black = Button(shadeframe, text="Black", font=("Calibri, 15"), bg='grey1', fg='white', width=13, height=2, command=lambda m=90:choose_colour(m))
 black.grid(row=8, column=0)
 
 #save button
-savebtn = Button(shadeframe, text="Save", font=("Calibri, 10"), bg='#ece75f', fg='black', width=13, height=2, command=savecanvas)
+savebtn = Button(shadeframe, text="Save", font=("Calibri, 15"), bg='#ece75f', fg='black', width=13, height=2, command=savecanvas)
 savebtn.grid(row=9, column=0)
 
 #colour button
-allwhite = Button(colourframe, text="All White",font=("Calibri, 12"), bg='white', width=13, height=2, command=allwht)
+allwhite = Button(colourframe, text="All White",font=("Calibri, 15"), bg='white', width=13, height=2, command=allwht)
 allwhite.grid(row=0, column=0)
 
-allblack = Button(colourframe, text="All Black",font=("Calibri, 12"), bg='black', fg='white', width=13, height=2, command=allblk)
+allblack = Button(colourframe, text="All Black",font=("Calibri, 15"), bg='black', fg='white', width=13, height=2, command=allblk)
 allblack.grid(row=0, column=1)
 
-clear = Button(colourframe, text="Clear",font=("Calibri, 12"), bg='#e6cc00', width=13, height=2, command=clearbtn)
+clear = Button(colourframe, text="Clear",font=("Calibri, 15"), bg='#e6cc00', width=13, height=2, command=clearbtn)
 clear.grid(row=0, column=2)
 
 #send btn
-send = Button(colourframe, text="Send Image!", font=("Calibri, 12"), width=13, height=2, command=lambda :sendbtn())
+send = Button(colourframe, text="Send Image!", font=("Calibri, 15"), width=13, height=2, command=lambda :sendbtn())
 send.grid(row=0, column=3)
 
 
