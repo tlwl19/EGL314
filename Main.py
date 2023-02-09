@@ -1,5 +1,5 @@
 from tkinter import *   #import tkinter library
-import os 
+#import os 
 from PIL import Image, ImageTk, ImageOps
 import cartoon
 import random
@@ -760,13 +760,13 @@ Images2 = file2.resize((300, 300))
 img3= ImageTk.PhotoImage(Images2)
 
 #Scissor paper stone pop up button
-label3 = Button(frame1, image = img1, command=lambda m=1:game(m), width=300, height=200)
+label3 = Button(frame1, image = img1, command=lambda m=1:game(m), width=300, height=300)
 label3.grid(row=1, column=0)
 
-label4 = Button(frame1, image = img2, command=lambda m=2:game(m), width=300, height=200)
+label4 = Button(frame1, image = img2, command=lambda m=2:game(m), width=300, height=300)
 label4.grid(row=1, column=1)
 
-label5 = Button(frame1, image = img3, command=lambda m=3:game(m), width=300, height=200)
+label5 = Button(frame1, image = img3, command=lambda m=3:game(m), width=300, height=300)
 label5.grid(row=1, column=2)
 
 #preview image of what i have chosen for scissors paper stone
