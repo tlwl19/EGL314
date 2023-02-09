@@ -225,7 +225,6 @@ These are the libraries that we need to import in order to run `luck.py`
 ```
 from tkinter import *
 import random
-import os 
 from datetime import *
 from PIL import Image, ImageTk, ImageOps
 import cartoon
@@ -346,35 +345,35 @@ For example, if the polariser shows Cancer, click on the Cancer button on the GU
 
 <br>
 
-If you have chosen the correct horocsope, your answer will be lighlighted green and you gain a point.
+If you have chosen the correct horocsope, your answer will be highlighted in green and you gain a point. A motivational quote will appear to give motivation.
 
 ![](Demo%20Pics/HoroCorrect.png)
 *Correct answer*
 
 <br>
 
-However, if you have chosen the wrong horoscope, your answer will be highlighted red and you lose a point.
+However, if you have chosen the wrong horoscope, your answer will be highlighted in red and you lose a point. A motivational quote will also appear to give motivation.
 
 ![](Demo%20Pics/HoroWrong.png)
 *Wrong answer*
 
 <br>
 
-You can continue guessing until you get the correct answer
+In cases where you are unable to guess on the correct guess in your first try, you can continue guessing until you get the correct answer
 
 ![](Demo%20Pics/HoroGuessing.png)
 *Keep trying until you get it*
 
 <br>
 
-If you acheive a score of 4, 'YOU WIN' will appear and the game will end.
+If you acheive a score of 4, 'YOU WIN' will appear together with a motivational quote. This also indicate that the game has ended.
 
 ![](Demo%20Pics/HoroWin.png)
 *Win the game with a maximum of 4 points*
 
 <br>
 
-You can click on the Reset Game button to start over.
+You can click on the "Reset Game" to start over.
 
 ![](Demo%20Pics/HoroWinReset.png)
 *Reset game*
@@ -394,7 +393,7 @@ You can click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on
 
 Next, we will proceed on with "What's Your Luck?" game.
 <br>
-The luck game gives the user a surge of dopamine and it plays a part in controlling the movement a person makes, as well as their emotional response.
+The luck game gives the user a surge of dopamine and it plays a part in controlling the movement a person makes, as well as their emotional response. And having the right balance of dopamine is important for both physical and mental well-being.
 
 <br>
 
@@ -434,14 +433,14 @@ The luck percentages are as follows:
 
 <br>
 
-If the polariser displays genie lamp, it means your luck is 50%. You can choose to try again by entering another date of birth.
+If the polariser displays genie lamp, it means your luck is 50%. You can also choose to try again by entering another date of birth.
 
 ![Alt text](polariser%20pics/genie.jpg)
 *Genie lamp shown on polariser*
 
-Your UI will also display a random quote.
+Your GUI will also display a random quote.
 ![](Demo%20Pics/Luck50.png)
-*If you get a genie lamp on the polarizer, your UI will display a quote*
+*If you get a genie lamp on the polarizer, your GUI will display a quote*
 
 <br>
 
@@ -482,7 +481,7 @@ The game will end after playing rock, paper, scissors. You can choose to play ag
 
 # **ICONcentrate**
 
-ICONcentrate is a game that trains the user's callback memory. It is also built to test your concentration by seeing how fast you can react to guessing common brands that we see in our daily lives.
+ICONcentrate is a game that trains the user's callback memory. It is also built to test your concentration by seeing how fast you can react to guessing common brands that we see in our daily lives within the given time limit.
 
 <br>
 
@@ -539,6 +538,7 @@ You will have 20 seconds to guess the icon from the selection of choices below.
 Once 20 seconds has passed, the game will end.
 
 ![](Demo%20Pics/IconGameOver.png)
+
 *Time's Up*
 
 <br>
@@ -550,14 +550,14 @@ If you guessed the wrong icon, a message box will appear to notify you that you 
 
 <br>
 
-If you guessed a correct icon, you will move on to the next level, and you can click the start button to display the next icon on the polariser. A random quote will also appear below.
+If you guessed a correct icon, you will move on to the next level. Click on the start button to display the next icon on the polariser. A random quote will also appear below.
 
 ![](Demo%20Pics/IconNext.png)
 *Next level*
 
 <br>
 
-In order to beat the game, you have to guess the correct icon through 4 levels, with each level progressing with higher difficulty where lesser-known brands are displayed or where some brand icons are harder to distinguish. You only have one attempt.
+In order to beat the game, you have to guess the correct icon through 4 levels, with each level progressing with higher difficulty where lesser-known brands are displayed or where some brand icons are harder to distinguish. However, you only have one attempt.
 
 ![](Demo%20Pics/IconLastLv.png)
 *Final level*
@@ -575,6 +575,7 @@ Once you have beaten all 4 levels, you will be prompted to enter your name
 Once you have entered your name, a messaage box with your name will appear to notify you that you have beaten the game and the time taken to beat the game.
 
 ![](Demo%20Pics/IconWin.png)
+
 *Total time taken to complete the game*
 
 <br>
@@ -590,7 +591,7 @@ You can click on the "Fun Ways to Approach MENTAL WELLNESS" navigation button on
 
 # **Express Yourself**
 
-The main objective of this game is to help user express their feelings through drawing. As some people may be afraid to voice out their inner thoughts, instead they can draw it out.
+Drawing is an form of art which can help in releasing stress and anxiety. It can be a form of expressing one's feelings, as some may be afraid to voice out their inner thoughts.
 
 <br>
 
@@ -748,6 +749,14 @@ If you want to clear your canvas or grid, you can press the clear button.
 
 <br>
 
+To set a fixed height for the middle frame so that the height in all pages are the same.
+```
+main.rowconfigure(1, weight=1)
+main.columnconfigure(0, weight=1)
+```
+
+<br>
+
 Header frame:
 
 To be used for the top of the window
@@ -798,13 +807,14 @@ headertitle.grid(row=0, column=0)
 
 <br>
 
-![](markdown%20imgs/MainFrame.png)
+![](Demo%20Pics/Main%20Page.png)
 *Main Page GUI*
 
 <br>
 
 ### **Creating the Functions Used**
 **Main Page Function:**
+
 <br>
 
 To navigate to Main Page :
@@ -816,6 +826,8 @@ def mainappear():
     drawingframe.grid_forget()
     mainframe.grid(row=0, column=0)
 ```
+
+<br>
 
 Creating own font for header and quote :
 ```
@@ -2633,7 +2645,7 @@ cd /Directory
 
 Example:
 ```
-cd /home/pi/Documents/EGL314/
+cd /home/pi/Documents/egl314/
 ```
 
 <br>
