@@ -1027,7 +1027,7 @@ def colour_picker(r, c):
 def sendbtn():
   global value
   print(value)
-  pubpic(value)
+  #pubpic(value)
 
 
 def allwht():
