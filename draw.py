@@ -207,39 +207,39 @@ for r in range (32):
     button[r][c].grid(row=r, column=c)
 
 #shades button
-white = Button(shadeframe, text="White", font=("Calibri, 10"), bg='grey99', width=13, height=2, command=lambda m=0:choose_colour(m))
+white = Button(shadeframe, text="White", font=("Calibri, 15"), bg='grey99', width=13, height=2, command=lambda m=0:choose_colour(m))
 white.grid(row=1, column=0)
-grey1 = Button(shadeframe, text="Grey1", font=("Calibri, 10"), bg='grey88', width=13, height=2, command=lambda m=20:choose_colour(m))
+grey1 = Button(shadeframe, text="Grey1", font=("Calibri, 15"), bg='grey88', width=13, height=2, command=lambda m=20:choose_colour(m))
 grey1.grid(row=2, column=0)
-grey2 = Button(shadeframe, text="Grey2", font=("Calibri, 10"), bg='grey77', width=13, height=2, command=lambda m=30:choose_colour(m))
+grey2 = Button(shadeframe, text="Grey2", font=("Calibri, 15"), bg='grey77', width=13, height=2, command=lambda m=30:choose_colour(m))
 grey2.grid(row=3, column=0)
-grey3 = Button(shadeframe, text="Grey3", font=("Calibri, 10"), bg='grey66', width=13, height=2, command=lambda m=40:choose_colour(m))
+grey3 = Button(shadeframe, text="Grey3", font=("Calibri, 15"), bg='grey66', width=13, height=2, command=lambda m=40:choose_colour(m))
 grey3.grid(row=4, column=0)
-grey4 = Button(shadeframe, text="Grey4", font=("Calibri, 10"), bg='grey44', width=13, height=2, command=lambda m=50:choose_colour(m))
+grey4 = Button(shadeframe, text="Grey4", font=("Calibri, 15"), bg='grey44', width=13, height=2, command=lambda m=50:choose_colour(m))
 grey4.grid(row=5, column=0)
-grey5 = Button(shadeframe, text="Grey5", font=("Calibri, 10"), bg='grey33', fg='white', width=13, height=2, command=lambda m=60:choose_colour(m))
+grey5 = Button(shadeframe, text="Grey5", font=("Calibri, 15"), bg='grey33', fg='white', width=13, height=2, command=lambda m=60:choose_colour(m))
 grey5.grid(row=6, column=0)
-grey6 = Button(shadeframe, text="Grey6", font=("Calibri, 10"), bg='grey11', fg='white', width=13, height=2, command=lambda m=70:choose_colour(m))
+grey6 = Button(shadeframe, text="Grey6", font=("Calibri, 15"), bg='grey11', fg='white', width=13, height=2, command=lambda m=70:choose_colour(m))
 grey6.grid(row=7, column=0)
-black = Button(shadeframe, text="Black", font=("Calibri, 10"), bg='grey1', fg='white', width=13, height=2, command=lambda m=90:choose_colour(m))
+black = Button(shadeframe, text="Black", font=("Calibri, 15"), bg='grey1', fg='white', width=13, height=2, command=lambda m=90:choose_colour(m))
 black.grid(row=8, column=0)
 
 #save button
-savebtn = Button(shadeframe, text="Save", font=("Calibri, 10"), bg='light blue', fg='black', width=13, height=2, command=savecanvas)
+savebtn = Button(shadeframe, text="Save", font=("Calibri, 15"), bg='light blue', fg='black', width=13, height=2, command=savecanvas)
 savebtn.grid(row=9, column=0)
 
 #colour button
-allwhite = Button(colourframe, text="All White",font=("Calibri, 12"), bg='white', width=13, height=2, command=allwht)
+allwhite = Button(colourframe, text="All White",font=("Calibri, 15"), bg='white', width=13, height=2, command=allwht)
 allwhite.grid(row=0, column=0)
 
-allblack = Button(colourframe, text="All Black",font=("Calibri, 12"), bg='black', fg='white', width=13, height=2, command=allblk)
+allblack = Button(colourframe, text="All Black",font=("Calibri, 15"), bg='black', fg='white', width=13, height=2, command=allblk)
 allblack.grid(row=0, column=1)
 
-clear = Button(colourframe, text="Clear",font=("Calibri, 12"), bg='gold', width=13, height=2, command=clearbtn)
+clear = Button(colourframe, text="Clear",font=("Calibri, 15"), bg='gold', width=13, height=2, command=clearbtn)
 clear.grid(row=0, column=2)
 
 #send btn
-send = Button(colourframe, text="Send Image!", font=("Calibri, 12"), width=13, height=2, command=lambda :sendbtn())
+send = Button(colourframe, text="Send Image!", font=("Calibri, 15"), width=13, height=2, command=lambda :sendbtn())
 send.grid(row=0, column=3)
 
 

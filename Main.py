@@ -784,6 +784,7 @@ main.bind("<Return>", change_img)
 # ################### FOCUS FUNCTION #################
 counter = 0   #Time starts from 0
 running = False  #Timer is not running
+global naming
 
 def show_Image_focus(choice3):
     global icons
@@ -920,7 +921,7 @@ def counter_label(label):
             # Delays by 1000ms=1 seconds and call count again.
             timer.after(1000, count) 
             counter += 1
-            #print(counter)
+
             if counter > 20:
                 Stop(10)
            
@@ -1027,7 +1028,7 @@ def colour_picker(r, c):
 def sendbtn():
   global value
   print(value)
-  #pubpic(value)
+  pubpic(value)
 
 
 def allwht():
@@ -1237,7 +1238,6 @@ clear.grid(row=0, column=2)
 #send btn
 send = Button(colourframe, text="Send Image!", font=("Calibri, 15"), width=13, height=2, command=lambda :sendbtn())
 send.grid(row=0, column=3)
-
 
 
 #MODE FRAME

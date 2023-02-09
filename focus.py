@@ -9,9 +9,9 @@ counter = 0   #Time starts from 0
 running = False  #Timer is not running
 global naming
 
-def show_Image(choice):
+def show_Image(choice3):
     global icons
-    path2 = "icons/" + str(icons[choice]) + ".png"
+    path2 = "icons/" + str(icons[choice3]) + ".png"
     myImage = Image.open(path2)
 
     #sending to cartoon.py
@@ -21,8 +21,7 @@ def show_Image(choice):
     myImage = Image.open("cartoon.png")
 
 def getinstruction():
-    messagebox.showinfo("Instructions", "1. Press on 'START' button to begin the game.\n2. Select the correct button corresponding to the image shown on the polariser.\n3. You will proceed on to the next level if you choose the correct button\n4. Game will reset if you choose wrongly")
-
+    messagebox.showinfo("Instructions", "1. Click on the 'START' button to begin.\n2. Click on the correct button corresponding to the image shown on the polariser.\n3. You will proceed on to the next level if you select the correct answer.\n4. Click on the 'START' button again to play the next level.\n5. The game will reset if you select the incorrect answer.")
 
 
 def click():
@@ -102,7 +101,7 @@ def Reset(label):
         label['text']='Welcome!'
         level['text']='Level '+ str(Lno)
         if Lno == 1:
-            icons = ['KFC', 'Jollibee', 'Mos Burger', 'Pizza Hut', 'Popeyes', 'Texas Chicken']
+            icons = ['KFC', 'Jollibee', 'Popeyes', 'Pizza Hut', 'Mos Burger', 'Texas Chicken']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 2:
@@ -110,11 +109,11 @@ def Reset(label):
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 3:
-            icons = ['Ferrari', 'Rolls Royce', 'Honda', 'Mitsubishi', 'Mercedes', 'Hyundai']
+            icons = ['Ferrari', 'Hyundai', 'Mitsubishi', 'Rolls Royce', 'Honda', 'Mercedes']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         else:
-            icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']  #Level 0
+            icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']  #Level 0
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
 
@@ -146,7 +145,6 @@ def counter_label(label):
             # Delays by 1000ms=1 seconds and call count again.
             timer.after(1000, count) 
             counter += 1
-            #print(counter)
             if counter > 20:
                 Stop(10)
            
@@ -161,26 +159,26 @@ Lno = 0
 storetime = 0
 
 #Header for the game
-headername = Label(text="ICONcentrate", font=('Arial', 30), fg='#4542fb') 
+headername = Label(text="ICONcentrate", font=('Arial', 40), fg='#4542fb') 
 headername.grid(row=0, column=0)
 
 #Instructions
-instrubtn = Button(main, text='Instruction', font=('Arial', 15), bg = '#a4c6eb', fg='black', command=getinstruction)
-instrubtn.grid(row=1, column=0)
+instrubtn = Button(main, text='Instruction', font=('Arial', 25), bg = '#a4c6eb', fg='black', command=getinstruction)
+instrubtn.grid(row=1, column=0, ipadx=25, ipady=10)
 
 middleframe = Frame(main)
 middleframe.grid(row=2, columnspan=6)
 
 #Level
-level = Label(middleframe, text='Level '+ str(Lno), font=('Arial', 15))
+level = Label(middleframe, text='Level '+ str(Lno), font=('Arial', 20))
 level.grid(row=2, column=0)
 
 #Timer
-timer = Label(middleframe, text='Welcome', font=('Arial', 15))
+timer = Label(middleframe, text='Welcome', font=('Arial', 20))
 timer.grid(row=2, column=1, padx=100)
 
-start = Button(middleframe, text='Start',  bg='#d4fafa', fg='black', activebackground='#80e2ff', font=('Arial', 15), command=lambda:Start(timer))
-start.grid(row=2, column=2, ipadx=30)
+start = Button(middleframe, text='Start',  bg='#d4fafa', fg='black', activebackground='#80e2ff', font=('Arial', 20), command=lambda:Start(timer))
+start.grid(row=2, column=2, ipadx=30, ipady=5)
 
 #Answer btn
 frame1 = Frame(main)
@@ -190,7 +188,7 @@ icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']  #L
 btn = [i for i in range(len(icons))]  #defining the number of buttons
 
 for i in range (0, 6):  #Assigning array values into btn 
-    btn[i] = Button(frame1, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m), wraplength=130)
+    btn[i] = Button(frame1, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), activebackground='#80e2ff', command=lambda m=i:Stop(m), wraplength=130)
     btn[i].grid(row=0, column=i)
 
 #For image to loop
@@ -198,8 +196,7 @@ naming = -1
 focuspath = "motivationalquotes/focusquote.png"
 focusImage = Image.open(focuspath)
 luckyyImage = ImageTk.PhotoImage(focusImage)
-focuspic = Label(main, image=luckyyImage)
-focuspic.grid(row=4, column=0)
-
+focuspic = Label(frame1, image=luckyyImage)
+focuspic.grid(row=1, columnspan=6)
 
 main.mainloop()
