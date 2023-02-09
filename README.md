@@ -799,7 +799,7 @@ headertitle.grid(row=0, column=0)
 
 <br>
 
-![](markdown%20imgs/MainFrame.png)
+![](Demo%20Pics/Main%20Page.png)
 *Main Page GUI*
 
 <br>
@@ -882,15 +882,12 @@ mentalpic.grid(row=2, column=0)
 <br>
 
 ### **Creating the Functions Used**
-<br>
-
 **Guess the Horoscope Function:**
-
 <br>
 
 To send images in the game to the polariser:
 ```
-def show_Image_guess(choice1):
+def show_Image_guess(choice1):   #To send to polariser
     path2 = "horo/" + str(choice1) + ".png"
     myImage = Image.open(path2)
     cartoon.pixelised(path = path2)
@@ -905,25 +902,24 @@ To start the game :
 def startgame():
     global score, prevent, number, prevent2
     prevent = []
-    widthx = 15
-    heightx = 8
+    prevent2 = 0
     if number == 15:
         score = 0
-        btn0.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx)
-        btn1.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
-        btn2.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx)
-        btn3.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
-        btn4.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
-        btn5.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
-        btn6.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
-        btn7.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
-        btn8.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
-        btn9.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
-        btn10.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
-        btn11.config(bg='#C3B1E1', fg="black", image='', width=widthx, height=heightx) 
-        scoreresults.config(text=str(score),font=('Arial',20))
-        number = 12 
-        guess()
+        btn0.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn1.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn2.config(bg='#b0c8ed', fg="white", image='', width=10, height=5)
+        btn3.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn4.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn5.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn6.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn7.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn8.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn9.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn10.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        btn11.config(bg='#b0c8ed', fg="white", image='', width=10, height=5) 
+        scoreresults.config(text=str(score),font=('Arial',20))  
+        number = 12
+        youwin.grid_forget()
         lbl0.grid_forget()
         lbl1.grid_forget()
         lbl2.grid_forget()
@@ -936,10 +932,6 @@ def startgame():
         lbl9.grid_forget()
         lbl10.grid_forget()
         lbl11.grid_forget()
-        startbtn['state']='disabled'
-    elif number == 18:
-        youwin.config(text="Press any button to continue ", font=('Arial',10))
-        youwin.grid(row=4, column=2)
 
 ```
 
@@ -949,10 +941,9 @@ To reset game :
 ```
 def restartgame():
     global score, prevent, number, prevent2
-    prevent = []  
-    widthx = 184
-    heightx = 196
-    if number == 13 or number == 14 or number == 17 or number == 18:
+    prevent = []
+    prevent2 = 0
+    if number == 13 or number == 14: 
         for i in range(0, 12):
             paths = "horo/" + str(i) + ".png"
             myImages = Image.open(paths)
@@ -996,9 +987,8 @@ def restartgame():
             else:
                 btn11.image = loadImages
                 btn11.config(image = loadImages, width=widthy, height=heighty, bg='white')
-        scoreresults.config(text="Press Start Game to Start",font=('Arial',12)) 
+        scoreresults.config(text="Press Start Game to Start",font=('Arial',12))  
         number = 15
-        startbtn['state']='normal'
         youwin.grid_forget()
         btn0.grid(row=0, column=0)
         lbl0.grid(row=1, column=0)
@@ -1026,6 +1016,7 @@ def restartgame():
         lbl10.grid(row=5, column=2)
         btn11.grid(row=4, column=3)
         lbl11.grid(row=5, column=3)
+
 ```
 
 <br>
@@ -1033,202 +1024,150 @@ def restartgame():
 For the guess button to generate a random horoscope, with no duplicates and to send it to the polariser :
 ```
 def guess():
-    global number, prevent, numberx, numberxlist, prevent2, prevent3
+    global number, prevent, numberx, numberxlist, prevent2
+    youwin.grid_forget()
     prevent = []  
-    prevent2 = [2]
-    prevent3 = 0
-    if number == 12 or number == 18:
-        number = 16
-        youwin.config(text="Guess the horoscope!", font=('Arial',20))
-        numberx = random.randint(0,11) 
-        while len(numberxlist) == 12:
-            numberxlist = []
-        if len(numberxlist) >= 1: 
-            while numberx in numberxlist: 
+    if btn0.cget('bg') == '#7fff00' or btn0.cget('bg') == '#FF0800' or btn0.cget('bg') == '#b0c8ed':
+        if btn0.cget('bg') != '#FF0800':
+            if prevent2 == 0:  
                 numberx = random.randint(0,11) 
-            else:
-                numberxlist.append(numberx)
-                print(numberxlist)
-                show_Image(numberx)
+                if len(numberxlist) >= 1: 
+                    while numberx in numberxlist:  
+                        numberx = random.randint(0,11) 
+                    else:
+                        numberxlist[0] = numberx
+                        print(numberx)
+                        show_Image_guess(numberx) 
+                else:
+                    numberxlist = [numberx]
+                    print(numberxlist[0])
+                    show_Image_guess(numberx) 
+                number = 0
+                btn0.config(bg='#b0c8ed', fg="white")
+                btn1.config(bg='#b0c8ed', fg="white") 
+                btn2.config(bg='#b0c8ed', fg="white") 
+                btn3.config(bg='#b0c8ed', fg="white") 
+                btn4.config(bg='#b0c8ed', fg="white") 
+                btn5.config(bg='#b0c8ed', fg="white") 
+                btn6.config(bg='#b0c8ed', fg="white") 
+                btn7.config(bg='#b0c8ed', fg="white") 
+                btn8.config(bg='#b0c8ed', fg="white") 
+                btn9.config(bg='#b0c8ed', fg="white") 
+                btn10.config(bg='#b0c8ed', fg="white")
+                btn11.config(bg='#b0c8ed', fg="white") 
+                prevent2 = 1
+                print(prevent2)
         else:
-            numberxlist = [numberx]
-            print(numberxlist)
-            show_Image(numberx)
-        btn0.config(bg='#C3B1E1', fg="black")
-        btn1.config(bg='#C3B1E1', fg="black") 
-        btn2.config(bg='#C3B1E1', fg="black") 
-        btn3.config(bg='#C3B1E1', fg="black") 
-        btn4.config(bg='#C3B1E1', fg="black") 
-        btn5.config(bg='#C3B1E1', fg="black") 
-        btn6.config(bg='#C3B1E1', fg="black") 
-        btn7.config(bg='#C3B1E1', fg="black") 
-        btn8.config(bg='#C3B1E1', fg="black") 
-        btn9.config(bg='#C3B1E1', fg="black") 
-        btn10.config(bg='#C3B1E1', fg="black")
-        btn11.config(bg='#C3B1E1', fg="black") 
-    elif number == 13 or number == 17 or number == 14:
-        youwin.config(text="Press Reset Game to Reset", font=('Arial',20))
-    elif number == 15: 
-        youwin.config(text="Press Start Game to Start", font=('Arial',20))
-    else:
-        youwin.config(text="Select one horoscope!", font=('Arial',20))
+            scoreresults.config(text="Try Again", font=('Arial',15))
+    elif btn0.cget('bg') == '#a58fbe': 
+        scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
+        number = 15
+    elif number == 13:
+        scoreresults.config(text="Press Reset Game to Reset", font=('Arial',10))
+    else: 
+        scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
+
 ```
 
 <br>
 
-To check if the game has started and if it has started, it needs to check if player choice is correct and will indicate if the player has guessed correctly or not. If the game has not started or the game has already ended, it will prompt the player to reset and start the game again.
+To check if the game has started and if it has started, to check if player choice is correct and indicate if the player has guessed correctly or not. If game has not started or the game has already ended, it will prompt the player to reset and start the game again.
 ```
 def horobutton(c): 
-    global number, score, prevent, numberx, prevent2, quoteno, quotelist, prevent3
-    quotelist = ["'You don’t have to control your thoughts. You just have to stop letting them control you.' — Dan Millman",
-     "'There is a crack in everything, that’s how the light gets in.' ― Leonard Cohen",
-     "'Deep breathing is our nervous system’s love language.' — Dr. Lauren Fogel Mersy",
-     "'You are not your illness. You have an individual story to tell. You have a name, a history, a personality. Staying yourself is part of the battle.' — Julian Seifter",
-     "'Happiness can be found even in the darkest of times, if one only remembers to turn on the light.' — Albus Dumbledore",
-     "'Vulnerability sounds like truth and feels like courage. Truth and courage aren’t always comfortable, but they're never weakness.' — Brené Brown",
-     "'Promise me you’ll always remember: You’re braver than you believe, and stronger than you seem, and smarter than you think.' — Christopher Robin from Winnie the Pooh",
-     "'Just because no one else can heal or do your inner work for you doesn’t mean you can, should, or need to do it alone.' – Lisa Olivera",
-     "'There is hope, even when your brain tells you there isn’t.' — John Green",
-     "'There is no normal life that is free of pain. It's the very wrestling with our problems that can be the impetus for our growth.' — Fred Rogers",
-     "'You don’t have to be positive all the time. It’s perfectly okay to feel sad, angry, annoyed, frustrated, scared and anxious. Having feelings doesn’t make you a negative person. It makes you human.' — Lori Deschene",
-     "'Nothing can dim the light that shines from within.' — Maya Angelou"]
-   #quotelist = ['1']
-    if number == 15:
-        youwin.config(text="Press Start Game to Start", font=('Arial',20))
-    elif number == 17: 
-        youwin.config(text="Press Reset Game to Reset", font=('Arial',20))
-    elif number == 14:
-        scoreresults.config(text='YOU WIN', font=('Arial',20))
-        youwin.config(text="Press Reset Game to Reset", font=('Arial',20))
-        youwin.grid(row=4, column=2)
-    elif number == 13:
-        youwin.config(text="Press Start Game to Start", font=('Arial',20))
-
-    else: 
-        if c == numberx:
-            if quoteno >= len(quotelist)-1:
-                quoteno = -1
-            quoteno=quoteno+1
-            quote.config(text=quotelist[quoteno],bg='white')
-            prevent2 = [0]
+    global number, score, prevent, numberx, prevent2
+    youwin.grid_forget()
+    if btn0.cget('bg') == 'white':
+        if number == 15:
+            scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
+        else:
+            scoreresults.config(text="Press Reset Game to Reset", font=('Arial',10))
+    elif btn0.cget('bg') == '#a58fbe' : 
+        scoreresults.config(text="Press Start Game to Start", font=('Arial',12))
+    elif number == 12:
+        scoreresults.config(text="Press Guess to Start Guessing", font=('Arial',10))
+    else :
+        if c == numberx: 
             if prevent == [2]:
-                number = 18
-                guess()
-            else:
-                if c == 0:
-                    btn0.config(bg="#7fff00")
-                elif c == 1:
-                    btn1.config(bg="#7fff00")
-                elif c == 2:
-                    btn2.config(bg="#7fff00")
-                elif c == 3:
-                    btn3.config(bg="#7fff00")
-                elif c == 4:
-                    btn4.config(bg="#7fff00")
-                elif c == 5:
-                    btn5.config(bg="#7fff00")
-                elif c == 6:
-                    btn6.config(bg="#7fff00")
-                elif c == 7:
-                    btn7.config(bg="#7fff00")
-                elif c == 8:
-                    btn8.config(bg="#7fff00")
-                elif c == 9:
-                    btn9.config(bg="#7fff00")
-                elif c == 10:
-                    btn10.config(bg="#7fff00")
+                if score >= 1:
+                    scoreresults.config(text=str(score), font=('Arial',20))
                 else:
-                    btn11.config(bg="#7fff00")
+                    number = 13 
+                    scoreresults.config(text=str(score), font=('Arial',20))
+            else:
+                btn0.config(bg='#7fff00') 
+                btn1.config(bg='#7fff00') 
+                btn2.config(bg='#7fff00') 
+                btn3.config(bg='#7fff00') 
+                btn4.config(bg='#7fff00') 
+                btn5.config(bg='#7fff00') 
+                btn6.config(bg='#7fff00') 
+                btn7.config(bg='#7fff00') 
+                btn8.config(bg='#7fff00') 
+                btn9.config(bg='#7fff00') 
+                btn10.config(bg='#7fff00')
+                btn11.config(bg='#7fff00') 
                 score = score+1
+                number = 13
                 prevent = [2]
-                number = 18
+                prevent2 = 0
                 print(prevent)
                 if score >= 4:
                     scoreresults.config(text='YOU WIN', font=('Arial',20))
-                    youwin.config(text="Press Reset Game to Reset", font=('Arial',12))
                     youwin.grid(row=4, column=2)
-                    number = 14
-                    color = '#cbc3e3'
-                    btn0.config(bg=color, fg='black')
-                    btn1.config(bg=color, fg='black')
-                    btn2.config(bg=color, fg='black')
-                    btn3.config(bg=color, fg='black')
-                    btn4.config(bg=color, fg='black')
-                    btn5.config(bg=color, fg='black')
-                    btn6.config(bg=color, fg='black')
-                    btn7.config(bg=color, fg='black')
-                    btn8.config(bg=color, fg='black')
-                    btn9.config(bg=color, fg='black')
-                    btn10.config(bg=color, fg='black')
-                    btn11.config(bg=color, fg='black')
+                    number = 13
+                    btn0.config(bg='white', fg='black')
+                    btn1.config(bg='white', fg='black')
+                    btn2.config(bg='white', fg='black')
+                    btn3.config(bg='white', fg='black')
+                    btn4.config(bg='white', fg='black')
+                    btn5.config(bg='white', fg='black')
+                    btn6.config(bg='white', fg='black')
+                    btn7.config(bg='white', fg='black')
+                    btn8.config(bg='white', fg='black')
+                    btn9.config(bg='white', fg='black')
+                    btn10.config(bg='white', fg='black')
+                    btn11.config(bg='white', fg='black')
+                elif score <= 0:
+                    scoreresults.config(text=str(score), font=('Arial',20))
                 else:
                     scoreresults.config(text=str(score), font=('Arial',20))
-                    youwin.config(text="Press any button to continue ", font=('Arial',20))
-                    youwin.grid(row=4, column=2)
+        elif btn0.cget('bg') == '#7fff00':
+            prevent.append(0)
+            scoreresults.config(text=str(score), font=('Arial',20))
         else:
-            if prevent3 == 0:
-                if quoteno >= len(quotelist)-1:
-                    quoteno = -1
-                quoteno=quoteno+1
-                prevent3 = 1
-                quote.config(text=quotelist[quoteno],bg='white')
-            if prevent2 == [0]:
-                number = 18
-                guess()
-            else:
-                if c == 0:
-                    btn0.config(bg="#FF0800")
-                    prevent2 = [4]
-                    prevent3 = 1
-                elif c == 1:
-                    btn1.config(bg="#FF0800")
-                    prevent2 = [4]
-                    prevent3 = 1
-                elif c == 2:
-                    btn2.config(bg="#FF0800")
-                    prevent2 = [4]
-                    prevent3 = 1
-                elif c == 3:
-                    btn3.config(bg="#FF0800")
-                    prevent2 = [4]
-                    prevent3 = 1
-                elif c == 4:
-                    btn4.config(bg="#FF0800")
-                    prevent2 = [4]
-                    prevent3 = 1
-                elif c == 5:
-                    btn5.config(bg="#FF0800")
-                    prevent2 = [4]
-                    prevent3 = 1
-                elif c == 6:
-                    btn6.config(bg="#FF0800")
-                    prevent2 = [4]
-                    prevent3 = 1
-                elif c == 7:
-                    btn7.config(bg="#FF0800")
-                    prevent2 = [4]
-                    prevent3 = 1
-                elif c == 8:
-                    btn8.config(bg="#FF0800")
-                    prevent2 = [4]
-                    prevent3 = 1
-                elif c == 9:
-                    btn9.config(bg="#FF0800")
-                    prevent2 = [4]
-                    prevent3 = 1
-                elif c == 10:
-                    btn10.config(bg="#FF0800")
-                    prevent2 = [4]
-                    prevent3 = 1
-                else:
-                    btn11.config(bg="#FF0800")
-                    prevent3 = 1
-                    prevent2 = [4]
-
-                if prevent2 == [4] or prevent3 == 1:
-                    quoteno = quoteno
-                    youwin.config(text="Choose another horoscope", font=('Arial',20))
+            btn0.config(bg='#FF0800')  
+            btn1.config(bg='#FF0800')
+            btn2.config(bg='#FF0800')
+            btn3.config(bg='#FF0800')
+            btn4.config(bg='#FF0800')
+            btn5.config(bg='#FF0800')
+            btn6.config(bg='#FF0800')
+            btn7.config(bg='#FF0800')
+            btn8.config(bg='#FF0800')
+            btn9.config(bg='#FF0800')
+            btn10.config(bg='#FF0800')
+            btn11.config(bg='#FF0800')
+            score = score-1
+            scoreresults.config(text=str(score), font=('Arial',20))
             print(score)
+            if score <= 0:
+                scoreresults.config(text=str(score), font=('Arial',15))
+                if score < -2:
+                    scoreresults.config(text='GAME OVER', font=('Arial',20))
+                    number = 13
+                    btn0.config(bg='white', fg='black')
+                    btn1.config(bg='white', fg='black')
+                    btn2.config(bg='white', fg='black')
+                    btn3.config(bg='white', fg='black')
+                    btn4.config(bg='white', fg='black')
+                    btn5.config(bg='white', fg='black')
+                    btn6.config(bg='white', fg='black')
+                    btn7.config(bg='white', fg='black')
+                    btn8.config(bg='white', fg='black')
+                    btn9.config(bg='white', fg='black')
+                    btn10.config(bg='white', fg='black')
+                    btn11.config(bg='white', fg='black')
+
 ```
 
 <br>
@@ -1267,17 +1206,25 @@ imageFrame.grid(row=0, column=1)
 
 <br>
 
-Next, we will create the second frame, which is for the START button, RESET button, and SCORE.
+Next, we will create the second frame, which is for the GUESS button.
 ```
 inguessframe2 = Frame(guessframe)
-inguessframe2.grid(row=1, column=2)
+inguessframe2.grid(row=1, column=1)
+```
+
+<br>
+
+Lastly, we will need to create the third frame, which is for the START button, RESET button, and SCORE.
+```
+inguessframe3 = Frame(guessframe)
+inguessframe3.grid(row=1, column=2)
 ```
 
 <br>
 
 Guess the Horoscope game title :
 ```
-headername = Label(guessframe, text="Guess the Horoscope", font=('Arial', 40)) 
+headername = Label(guessframe, text="Guess the Horoscope", font=('Arial', 30)) 
 headername.grid(row=0, columnspan=3)
 ```
 
@@ -1294,31 +1241,31 @@ inputcolumn = 4
 
 for r in range(inputrow):
     for c in range(inputcolumn):
-        # Button Section
-        btn0 = Button(inguessframe, text = "Aquarius", font = ("Arial", 17), bg='white', fg='black', command=lambda m=0:horobutton(m))
-        lbl0 = Label(inguessframe, text="Aquarius", font=("Arial", 20), fg='black')
-        btn1 = Button(inguessframe, text = "Aries", font = ("Arial", 17), bg='white', fg='black', command=lambda m=1:horobutton(m))
-        lbl1 = Label(inguessframe, text="Aries", font=("Arial", 20), fg='black')
-        btn2 = Button(inguessframe, text = "Cancer", font = ("Arial", 17), bg='white', fg='black',command=lambda m=2:horobutton(m))
-        lbl2 = Label(inguessframe, text="Cancer", font=("Arial", 20), fg='black')
-        btn3 = Button(inguessframe, text = "Capricorn", font = ("Arial", 17), bg='white', fg='black',command=lambda m=3:horobutton(m))
-        lbl3 = Label(inguessframe, text="Capricorn", font=("Arial", 20), fg='black')
-        btn4 = Button(inguessframe, text = "Gemini", font = ("Arial", 17), bg='white', fg='black',command=lambda m=4:horobutton(m))
-        lbl4 = Label(inguessframe, text="Gemini", font=("Arial", 20), fg='black')
-        btn5 = Button(inguessframe, text = "Leo", font = ("Arial", 17), bg='white', fg='black',command=lambda m=5:horobutton(m))
-        lbl5 = Label(inguessframe, text="Leo", font=("Arial", 20), fg='black')
-        btn6 = Button(inguessframe, text = "Libra", font = ("Arial", 17), bg='white', fg='black',command=lambda m=6:horobutton(m))
-        lbl6 = Label(inguessframe, text="Libra", font=("Arial", 20), fg='black')
-        btn7 = Button(inguessframe, text = "Pisces", font = ("Arial", 17), bg='white', fg='black',command=lambda m=7:horobutton(m))
-        lbl7 = Label(inguessframe, text="Pisces", font=("Arial", 20),fg='black')
-        btn8 = Button(inguessframe, text = "Sagittarius", font = ("Arial", 17), bg='white', fg='black',command=lambda m=8:horobutton(m))
-        lbl8 = Label(inguessframe, text="Sagittarius", font=("Arial", 20), fg='black')
-        btn9 = Button(inguessframe, text = "Scorpio", font = ("Arial", 17), bg='white', fg='black',command=lambda m=9:horobutton(m))
-        lbl9 = Label(inguessframe, text="Scorpio", font=("Arial", 20), fg='black')
-        btn10 = Button(inguessframe, text = "Taurus", font = ("Arial", 17), bg='white', fg='black',command=lambda m=10:horobutton(m))
-        lbl10 = Label(inguessframe, text="Taurus", font=("Arial", 20), fg='black')
-        btn11 = Button(inguessframe, text = "Virgo", font = ("Arial", 17), bg='white', fg='black',command=lambda m=11:horobutton(m))
-        lbl11 = Label(inguessframe, text="Virgo", font=("Arial", 20), fg='black')
+        
+        btn0 = Button(inguessframe, text = "Aquarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=0:horobutton(m))
+        lbl0 = Label(inguessframe, text="Aquarius", font=("Arial", 15), fg='black')
+        btn1 = Button(inguessframe, text = "Aries", font = ("Arial", 15), height=5, width=10, bg='white', fg='black', command=lambda m=1:horobutton(m))
+        lbl1 = Label(inguessframe, text="Aries", font=("Arial", 15), fg='black')
+        btn2 = Button(inguessframe, text = "Cancer", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=2:horobutton(m))
+        lbl2 = Label(inguessframe, text="Cancer", font=("Arial", 15), fg='black')
+        btn3 = Button(inguessframe, text = "Capricorn", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=3:horobutton(m))
+        lbl3 = Label(inguessframe, text="Capricorn", font=("Arial", 15), fg='black')
+        btn4 = Button(inguessframe, text = "Gemini", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=4:horobutton(m))
+        lbl4 = Label(inguessframe, text="Gemini", font=("Arial", 15), fg='black')
+        btn5 = Button(inguessframe, text = "Leo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=5:horobutton(m))
+        lbl5 = Label(inguessframe, text="Leo", font=("Arial", 15), fg='black')
+        btn6 = Button(inguessframe, text = "Libra", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=6:horobutton(m))
+        lbl6 = Label(inguessframe, text="Libra", font=("Arial", 15), fg='black')
+        btn7 = Button(inguessframe, text = "Pisces", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=7:horobutton(m))
+        lbl7 = Label(inguessframe, text="Pisces", font=("Arial", 15),fg='black')
+        btn8 = Button(inguessframe, text = "Sagittarius", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=8:horobutton(m))
+        lbl8 = Label(inguessframe, text="Sagittarius", font=("Arial", 15), fg='black')
+        btn9 = Button(inguessframe, text = "Scorpio", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=9:horobutton(m))
+        lbl9 = Label(inguessframe, text="Scorpio", font=("Arial", 15), fg='black')
+        btn10 = Button(inguessframe, text = "Taurus", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=10:horobutton(m))
+        lbl10 = Label(inguessframe, text="Taurus", font=("Arial", 15), fg='black')
+        btn11 = Button(inguessframe, text = "Virgo", font = ("Arial", 15), height=5, width=10, bg='white', fg='black',command=lambda m=11:horobutton(m))
+        lbl11 = Label(inguessframe, text="Virgo", font=("Arial", 15), fg='black')
 
 btn0.grid(row=0, column=0)
 lbl0.grid(row=1, column=0)
@@ -1356,8 +1303,8 @@ for i in range(0, 12):
     myImage = Image.open(path)
     myImage = myImage.resize((100, 100))
     loadImage = ImageTk.PhotoImage(myImage)
-    widthx = 179
-    heightx = 196
+    widthx = 114
+    heightx = 126
     if i == 0:
         btn0.image = loadImage
         btn0.config(image = loadImage, width=widthx, height=heightx)
@@ -1402,18 +1349,20 @@ for i in range(0, 12):
 
 <br>
 
+<br>
+
 After which, we'll need to create buttons/labels for start, reset, score and result.
 ```
-startbtn = Button(inguessframe2, text="START GAME", font=('Arial', 20), bg='#E0B0FF', command=startgame)
+startbtn = Button(inguessframe3, text="START GAME", font=('Arial', 20), bg='yellow', command=startgame)
 startbtn.grid(row=0, column=2)
 
-resetbtn = Button(inguessframe2, text="RESET GAME", font=('Arial', 20), bg='#B47EE5', command=restartgame)
+resetbtn = Button(inguessframe3, text="RESET GAME", font=('Arial', 20), bg='pink', command=restartgame)
 resetbtn.grid(row=1, column=2)
 
-scorename = Label(inguessframe2, text="Score", font=('Arial', 25)) 
+scorename = Label(inguessframe3, text="Score", font=('Arial', 25)) 
 scorename.grid(row=2, column=2)
 
-scoreresults = Label(inguessframe2, text=str(score), font=('Arial', 25))
+scoreresults = Label(inguessframe3, text=str(score), font=('Arial', 20))
 scoreresults.grid(row=3, column=2)
 ```
 
@@ -1425,22 +1374,20 @@ scoreresults.grid(row=3, column=2)
 
 <br>
 
-After which, we'll need to create the label for the prompt to start the game.
-
+After which, we'll need to create the label for the prompt on reset game.
 ```
-youwin = Label(inguessframe2, text="Press Start Game to Start", font=('Arial', 20))
+youwin = Label(inguessframe3, text="Press Reset Game to Reset", font=('Arial', 12))
 youwin.grid(row=4, column=2)
 ```
 
-![Alt text](markdown%20imgs/HoroStartGame.png)
+<br>
+
+![](markdown%20imgs/HoroResetPrompt.png)
+*YOU WIN label will be shown*
 
 <br>
 
-*Prompt to tell the user to Start Game*
-
-<br>
-
-After which, we'll need to remove the reset prompt at intial boot. This appears only when triggered.
+After which, we'll need to remove the reset prompt at intial boot(appear only when triggered)
 ```
 youwin.grid_forget()
 ```
@@ -1458,9 +1405,6 @@ youwin.grid_forget()
 <br>
 
 ### **Creating the Function Used**
-
-<br>
-
 **What's Your Luck? Function:**
 <br>
 
@@ -1480,8 +1424,9 @@ def show_Image_luck(choice2):
 
 <br>
 
-To change the images :
+To change the images:
 
+To generate random luck percentage and to check for valid DoB input :
 ```
 def change_img(): 
     for i in range(len(options)) : 
@@ -1496,52 +1441,45 @@ def change_img():
                     test3 = True
             else:
                 test3 = True
-
-```
-
-To generate random luck percentage and to check for valid DoB input :
-
-```
-    if test3 == True:   
-        label.config(text="Input your date of birth and click on the 'Enter' button.")
-        randomno = random.randint(0, 2) 
-        randomnolist = [7,75,100]
-        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100:  
+                
+    if test3 == True:  
+        label.config(text="Input your DoB and Press the 'Enter' button.")
+        randomno = random.randint(0, 4) #randomly generate a number 0-4
+        randomnolist = [0,25,50,75,100]
+        if randomnolist[randomno] == 75 or randomnolist[randomno] == 100: #when randomly generated number is 3 or 4, will show 75% or 99%, and activate game
             label2.config(text='Would you like to play a game with me? Scissors, Paper, Stone!')
-            frame1.grid(row=4, columnspan=3)  
+            frame1.grid(row=4, column=1)
             show_Image_luck(randomnolist[randomno])
-            imageLabel.config(image="", width = 35, height = 18)
+            imageLabel.config(image="", width = 30, height = 15)
             previewtitle.config(text="")
             previewtitle.grid(row=2, column=3)
-            imageLabel.grid(row=4, column=3)
-            luckpic.config(image = "")
+            imageLabel.grid(rowspan=2, column=3)
             print(randomnolist[randomno])
-
-        else: 
+            
+        elif randomnolist[randomno] == 0 or randomnolist[randomno] == 25:
             label2.config(text='')
+            frame1.grid_forget()
+            show_Image_luck(7)
+            previewtitle.grid_forget()
+            imageLabel.grid_forget()
+            print(randomnolist[randomno])
+            
+        else: 
+            label2.config(text='') 
             frame1.grid_forget()
             previewtitle.grid_forget()
             imageLabel.grid_forget()
-            luckpic.grid(row=4, column=0)
-            luckpiclist = ["come","conquer","control","hang","happy","important","living","openup","tough","turnout","luckmain"]
-            name = name+1
-            if name > len(luckpiclist)-1:
-                name = 0
-            path = "motivationalquotes/" + luckpiclist[name] + ".png"
-            myImages = Image.open(path)
-            loadImage = ImageTk.PhotoImage(myImages)
-            luckpic.image = loadImage
-            luckpic.config(image = loadImage)
             show_Image_luck(randomnolist[randomno])
             print(randomnolist[randomno])
-
     else:
-        label.config(text = "Please input a valid date of birth.", image='', font=('Arial', 25))
+        label.config(text = "Please input a valid DoB", image='', font=('50px'))
 ```
 
 <br>
 
-To preview users' choice on GUI and to show the choice the player has made :
+To preview users' choice on GUI
+
+To show the choice the player has made :
 ```
 def preview_Image(choice): 
     global imageLabel
@@ -1553,10 +1491,10 @@ def preview_Image(choice):
         choice = "stone"
     path = "scissors paper stone pics/" + str(choice) + ".png"
     myImages = Image.open(path)
-    myImages = myImages.resize((300, 300))
+    myImages = myImages.resize((250, 250))
     loadImage = ImageTk.PhotoImage(myImages)
     imageLabel.image = loadImage
-    imageLabel.config(image = loadImage, width = 300, height = 300)
+    imageLabel.config(image = loadImage, width = 250, height = 250)
     previewtitle.config(text="You have chosen " + choice)
 ```
 
@@ -1570,7 +1508,7 @@ Output:
 
 <br>
 
-**Send random images to the polariser**
+Send random images to the polariser
 
 To send the choice the game has made to the polariser :
 ```
@@ -1600,12 +1538,9 @@ def luckappear():
 ```
 
 ### **Creating the Layout**
-
-<br>
-
 **What's Your Luck Frame:**
 
-This will be the frame structure we will be using for our "What's Your Luck?" game.
+This will be the frame structure we will be using for our "What;s Your Luck?" game.
 ```
 luckframe = Frame(middleframe)
 ```
@@ -1637,7 +1572,7 @@ frame1.grid_forget()
 
 Here, we set the title to 'What's Your Luck?'. You can change the title to your preference.
 ```
-lucktitle = Label(luckframe, text="What's Your Luck?", font=('Arial', 35))
+lucktitle = Label(luckframe, text="What's Your Luck?", font=('Arial', 30))
 lucktitle.grid(row=0, columnspan=4)
 ```
 
@@ -1680,8 +1615,8 @@ To create the dropdown menu for Month :
 ```
 drop = OptionMenu(frame0, clicked , *options )
 drop.grid(row=1, column=0)
-drop.config(bg="#ffe4f2", fg="BLACK", activebackground="#ffb3c6", activeforeground="black", height=2, width=30, font=('Arial',15))
-drop["menu"].config(bg="#e18aaa", fg="black", activebackground="#ffb3c6", activeforeground="BLACK", font=('Arial',15))
+drop.config(bg="#ffe4f2", fg="BLACK", activebackground="#e54ed0", activeforeground="WHITE", width=30)
+drop["menu"].config(bg="#e54ed0", fg="WHITE", activebackground="#ffe4f2", activeforeground="BLACK")
 ```
 
 <br>
@@ -1698,8 +1633,8 @@ To create the dropdown menu for Date:
 ```
 drops = OptionMenu(frame0, clickeds , *optionss )
 drops.grid(row=1, column=1)
-drops.config(bg="#ffc2d1", fg="black", activebackground="#ffb7b2", activeforeground="black", height=2, width=30, font=('Arial',15))
-drops["menu"].config(bg="#ff9aa2", fg="black", activebackground="#ffb7b2", activeforeground="black", font=('Arial',15))
+drops.config(bg="#9f45b0", fg="WHITE", activebackground="#44008b", activeforeground="WHITE", width=30)
+drops["menu"].config(bg="#44008b", fg="WHITE", activebackground="#9f45b0", activeforeground="WHITE")
 ```
 
 <br>
@@ -1714,8 +1649,8 @@ Output:
 
 To create an enter button :
 ```
-button= Button(frame0, text= "Enter", command= change_img,  bg="#ff8fab", fg="black", height=2, width=30, font=('Arial',15))
-button.grid(row=1, column=2)
+enterbtn= Button(frame0, text= "Enter", command=change_img,  bg="#00076f", fg="WHITE", width=30)
+enterbtn.grid(row=1, column=2)
 ```
 
 <br>
@@ -1733,20 +1668,20 @@ Creating the instructions and the Scissors, Paper, Stone game:
 
 We will need to create two label for two instructions :
 ```
-title= Label (luckframe, text="How lucky are you today?", font=('Arial', 25))
+title= Label (luckframe, text="How lucky are you today?", font=('100px'), bg='white', width=30)
 title.grid(row=2, columnspan=3)
 ```
 
 ```
-label= Label(luckframe, image='', text="Input your date of birth and click on the 'Enter' button.", font=('Arial', 25))
+label= Label(luckframe, image='', text="Input your date of birth and click on the 'Enter' button.", font=('100px'), bg='white')
 label.grid(row=3, columnspan=3)
 ```
 
 <br>
 
-We will need to create a prompt to notify users to play Scissors, Paper, Stone: 
+We will need to create a prompt to notify users to play scissors, paper, stone: 
 ```
-label2 = Label(frame1, text = "", font=('Arial', 20))
+label2 = Label(frame1, text = "", font='20px')
 label2.grid(row=0, columnspan=3)
 ```
 
@@ -1754,33 +1689,30 @@ label2.grid(row=0, columnspan=3)
 
 After that, we will create each of the scissors, paper, and stone pictures on the GUI.
 ```
-paths0 = 'scissors paper stone pics/scissors.png'
-file0 = Image.open(paths0)
-Images0 = file0.resize((300, 300))
-img1= ImageTk.PhotoImage(Images0)
+paths = os.path.abspath('scissors paper stone pics') +'\\scissors.png'
+file = paths.replace('\\','/')
+img1= ImageTk.PhotoImage(Image.open(file))
 
-paths1 = 'scissors paper stone pics/paper.png'
-file1 = Image.open(paths1)
-Images1 = file1.resize((300, 300))
-img2= ImageTk.PhotoImage(Images1)
+paths = os.path.abspath('scissors paper stone pics') +'\\paper.png'
+file = paths.replace('\\','/')
+img2= ImageTk.PhotoImage(Image.open(file))
 
-paths2 = 'scissors paper stone pics/stone.png'
-file2 = Image.open(paths2)
-Images2 = file2.resize((300, 300))
-img3= ImageTk.PhotoImage(Images2)
+paths = os.path.abspath('scissors paper stone pics') +'\\stone.png'
+file = paths.replace('\\','/')
+img3= ImageTk.PhotoImage(Image.open(file))
 ```
 
 <br>
 
 Scissors, Paper, Stone buttons for user to input their choice :
 ```
-label3 = Button(frame1, image = img1, command=lambda m=1:game(m), width=300, height=300)
+label3 = Button(frame1, image = img1, command=lambda m=1:game(m))
 label3.grid(row=1, column=0)
 
-label4 = Button(frame1, image = img2, command=lambda m=2:game(m), width=300, height=300)
+label4 = Button(frame1, image = img2, command=lambda m=2:game(m))
 label4.grid(row=1, column=1)
 
-label5 = Button(frame1, image = img3, command=lambda m=3:game(m), width=300, height=300)
+label5 = Button(frame1, image = img3, command=lambda m=3:game(m))
 label5.grid(row=1, column=2)
 ```
 
@@ -1798,7 +1730,7 @@ Next, we will create a preview of what the user has chosen :
 
 Preview Text 
 ```
-previewtitle = Label(luckframe, text="", font=('Arial', 20))
+previewtitle = Label(luckframe, text="", font=('Arial', 15))
 previewtitle.grid(row=2, column=3)
 ```
 
@@ -1814,7 +1746,7 @@ previewtitle.grid_forget()
 Preview Image :
 ```
 imageLabel = Label(luckframe, bg = 'white', width = 30, height = 15)
-imageLabel.grid(row=4, column=3)
+imageLabel.grid(rowspan=2, column=3)
 ```
 
 <br>
@@ -1838,7 +1770,7 @@ main.bind("<Return>", change_img)
 
 <br>
 
-![](markdown%20imgs/iconSS.png)
+![](Demo%20Pics/Icon.png)
 *Test Your Concentration GUI*
 
 <br>
@@ -1868,7 +1800,7 @@ def getinstruction():
 
 Output:
 
-![Alt text](focusbutton%20pics/instructions.png)
+![Alt text](focusbutton%20pics/Instructions.png)
 <br>
 
 *Message Box for instructions*
