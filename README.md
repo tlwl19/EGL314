@@ -2245,8 +2245,7 @@ icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
 btn = [i for i in range(len(icons))]  
 
 for i in range (0, 6):  #Assigning array values into btn 
-    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15),
-     activebackground='#80e2ff', command=lambda m=i:Stop(m), wraplength=130) #so that texaschicken text can fully show on the button
+    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), activebackground='#80e2ff', command=lambda m=i:Stop(m), wraplength=130) 
     btn[i].grid(row=0, column=i)
 ```
 
@@ -2272,7 +2271,7 @@ focuspic.grid(row=1, columnspan=6)
 
 <br>
 
-# **Creating Express Yourself**
+## **Creating Express Yourself**
 ---
 
 <br>
@@ -2282,7 +2281,11 @@ focuspic.grid(row=1, columnspan=6)
 
 <br>
 
-# **Express Yourself Function:**
+### **Creating the Function Used**
+
+<br>
+
+**Express Yourself Function:**
 <br>
 
 This is to change the color value according to the selected shades of grey :
@@ -2326,7 +2329,7 @@ def colour_picker(r, c):
 
 <br>
 
-This is to save and convert what's on canvas to be shown on grid :
+This is to save the colour that is drawn on the canvas:
 ```
 def save_draw_colour(list): 
   global value
@@ -2356,7 +2359,12 @@ def save_draw_colour(list):
       else: 
         button[c][r].config(bg='grey1')
         value[c][r] = 90
+```
 
+<br>
+
+This is to save the drawing on the canvas:
+```
 def savecanvas():  
   global value, list4 
   list3 = []  
@@ -2369,7 +2377,12 @@ def savecanvas():
     list4.append(list3)       
   save_draw_colour(list4)
   print(list4)
+```
 
+<br>
+
+This is to get 32x32 row and column :
+```
 def f0(x, y): 
   global list0
   list0 = []  
@@ -2379,20 +2392,26 @@ def f0(x, y):
   freq = min(set(list0), key = list0.count)
   return freq  
 ```
+
+<br>
+
 This is to get the coordinates of the canvas :
 ```
 def get_x_and_y(event): 
    global getx, gety
    getx, gety = event.x, event.y
 ```
+
+<br>
+
 This is to create the line drawn onto the canvas :
 ```
 def paint(event):   
     global getx, gety, value
     if getx >= 0 and getx <= 799 and gety >= 0 and gety <= 799:
       if colour == 0: 
-          canvas.create_line((getx,gety, event.x, event.y),fill='grey99',width=4)  #event.x is the position of the mouse relative to the widget
-          canvasdraw[getx][gety] = 0   #store position in canvasdraw
+          canvas.create_line((getx,gety, event.x, event.y),fill='grey99',width=4)  
+          canvasdraw[getx][gety] = 0  
       elif colour == 20:
           canvas.create_line((getx,gety, event.x, event.y),fill='grey88',width=4)
           canvasdraw[getx][gety] = 20
@@ -2416,6 +2435,7 @@ def paint(event):
           canvasdraw[getx][gety] = 90
       get_x_and_y(event)
 ```
+
 <br>
 
 This is to make both the canvas and grid to all white :
@@ -2564,27 +2584,28 @@ for r in range (32):
 Output:
 
 ![](drawbutton%20pics/grid.png)
+
 *32x32 Grid*
 
 <br>
 
 Shades Button :
 ```
-white = Button(shadeframe, text="White", font=("Calibri, 10"), bg='grey99', width=13, height=2, command=lambda m=0:choose_colour(m))
+white = Button(shadeframe, text="White", font=("Calibri, 15"), bg='grey99', width=13, height=2, command=lambda m=0:choose_colour(m))
 white.grid(row=1, column=0)
-grey1 = Button(shadeframe, text="Grey1", font=("Calibri, 10"), bg='grey88', width=13, height=2, command=lambda m=20:choose_colour(m))
+grey1 = Button(shadeframe, text="Grey1", font=("Calibri, 15"), bg='grey88', width=13, height=2, command=lambda m=20:choose_colour(m))
 grey1.grid(row=2, column=0)
-grey2 = Button(shadeframe, text="Grey2", font=("Calibri, 10"), bg='grey77', width=13, height=2, command=lambda m=30:choose_colour(m))
+grey2 = Button(shadeframe, text="Grey2", font=("Calibri, 15"), bg='grey77', width=13, height=2, command=lambda m=30:choose_colour(m))
 grey2.grid(row=3, column=0)
-grey3 = Button(shadeframe, text="Grey3", font=("Calibri, 10"), bg='grey66', width=13, height=2, command=lambda m=40:choose_colour(m))
+grey3 = Button(shadeframe, text="Grey3", font=("Calibri, 15"), bg='grey66', width=13, height=2, command=lambda m=40:choose_colour(m))
 grey3.grid(row=4, column=0)
-grey4 = Button(shadeframe, text="Grey4", font=("Calibri, 10"), bg='grey44', width=13, height=2, command=lambda m=50:choose_colour(m))
+grey4 = Button(shadeframe, text="Grey4", font=("Calibri, 15"), bg='grey44', width=13, height=2, command=lambda m=50:choose_colour(m))
 grey4.grid(row=5, column=0)
-grey5 = Button(shadeframe, text="Grey5", font=("Calibri, 10"), bg='grey33', fg='white', width=13, height=2, command=lambda m=60:choose_colour(m))
+grey5 = Button(shadeframe, text="Grey5", font=("Calibri, 15"), bg='grey33', fg='white', width=13, height=2, command=lambda m=60:choose_colour(m))
 grey5.grid(row=6, column=0)
-grey6 = Button(shadeframe, text="Grey6", font=("Calibri, 10"), bg='grey11', fg='white', width=13, height=2, command=lambda m=70:choose_colour(m))
+grey6 = Button(shadeframe, text="Grey6", font=("Calibri, 15"), bg='grey11', fg='white', width=13, height=2, command=lambda m=70:choose_colour(m))
 grey6.grid(row=7, column=0)
-black = Button(shadeframe, text="Black", font=("Calibri, 10"), bg='grey1', fg='white', width=13, height=2, command=lambda m=90:choose_colour(m))
+black = Button(shadeframe, text="Black", font=("Calibri, 15"), bg='grey1', fg='white', width=13, height=2, command=lambda m=90:choose_colour(m))
 black.grid(row=8, column=0)
 ```
 
@@ -2592,7 +2613,7 @@ black.grid(row=8, column=0)
 
 Save Button :
 ```
-savebtn = Button(shadeframe, text="Save", font=("Calibri, 10"), bg='light blue', fg='black', width=13, height=2, command=savecanvas)
+savebtn = Button(shadeframe, text="Save", font=("Calibri, 15"), bg='#ece75f', fg='black', width=13, height=2, command=savecanvas)
 savebtn.grid(row=9, column=0)
 ```
 
@@ -2608,10 +2629,10 @@ Output:
 
 Color Selection Button :
 ```
-allwhite = Button(colourframe, text="All White",font=("Calibri, 12"), bg='white', width=13, height=2, command=allwht)
+allwhite = Button(colourframe, text="All White",font=("Calibri, 15"), bg='white', width=13, height=2, command=allwht)
 allwhite.grid(row=0, column=0)
 
-allblack = Button(colourframe, text="All Black",font=("Calibri, 12"), bg='black', fg='white', width=13, height=2, command=allblk)
+allblack = Button(colourframe, text="All Black",font=("Calibri, 15"), bg='black', fg='white', width=13, height=2, command=allblk)
 allblack.grid(row=0, column=1)
 ```
 
@@ -2620,7 +2641,7 @@ allblack.grid(row=0, column=1)
 
 Clear Button :
 ```
-clear = Button(colourframe, text="Clear",font=("Calibri, 12"), bg='gold', width=13, height=2, command=clearbtn)
+clear = Button(colourframe, text="Clear",font=("Calibri, 15"), bg='#e6cc00', width=13, height=2, command=clearbtn)
 clear.grid(row=0, column=2)
 ```
 
@@ -2628,7 +2649,7 @@ clear.grid(row=0, column=2)
 
 Send Button :
 ```
-send = Button(colourframe, text="Send Image!", font=("Calibri, 12"), width=13, height=2, command=lambda :sendbtn())
+send = Button(colourframe, text="Send Image!", font=("Calibri, 15"), width=13, height=2, command=lambda :sendbtn())
 send.grid(row=0, column=3)
 ```
 

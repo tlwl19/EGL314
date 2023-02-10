@@ -974,8 +974,7 @@ icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']  #L
 btn = [i for i in range(len(icons))]  #defining the number of buttons
 
 for i in range (0, 6):  #Assigning array values into btn 
-    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15),
-     activebackground='#80e2ff', command=lambda m=i:Stop(m), wraplength=130) #so that texaschicken text can fully show on the button
+    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), activebackground='#80e2ff', command=lambda m=i:Stop(m), wraplength=130) #so that texaschicken text can fully show on the button
     btn[i].grid(row=0, column=i)
 
 #For image to loop
