@@ -15,10 +15,10 @@ The Mental Wellness GUI approaches different ways to improve one's positive stat
 
 The Mental Wellness GUI provides the following features:
 
-- <a href="https://github.com/tlwl19/EGL314#guess-the-horoscope">Guess the Horoscope</a>
-- <a href="https://github.com/tlwl19/EGL314#whats-your-luck">What's Your Luck?</a>
-- <a href="https://github.com/tlwl19/EGL314#iconcentrate">Test Your Concentration</a>
-- <a href="https://github.com/tlwl19/EGL314#express-yourself">Express Yourself</a>
+- [Guess the Horoscope](#guess-the-horoscope-1)</a>
+- [What's Your Luck?](#whats-your-luck-1)</a>
+- [Test Your Concentration](#iconcentrate-1)</a>
+- [Express Yourself](#express-yourself-1)</a>
 
 Upon clicking on any of the buttons they will be directed to each respective game, where more details will be given.
 
@@ -1087,7 +1087,8 @@ def guess():
 
 <br>
 
-To check if the game has started and if it has started, it needs to check if player choice is correct and will indicate if the player has guessed correctly or not. If the game has not started or the game has already ended, it will prompt the player to reset and start the game again.
+To check if the game has started and if it has started, it needs to check if player choice is correct and will indicate if the player has guessed correctly or not. The quote will appear as a form of motivation when player gets the answer wrong or correct. If the game has not started or the game has already ended, it will prompt the player to reset and start the game again.
+
 ```
 def horobutton(c): 
     global number, score, prevent, numberx, prevent2, quoteno, quotelist, prevent3
@@ -1103,7 +1104,7 @@ def horobutton(c):
      "'There is no normal life that is free of pain. It's the very wrestling with our problems that can be the impetus for our growth.' — Fred Rogers",
      "'You don’t have to be positive all the time. It’s perfectly okay to feel sad, angry, annoyed, frustrated, scared and anxious. Having feelings doesn’t make you a negative person. It makes you human.' — Lori Deschene",
      "'Nothing can dim the light that shines from within.' — Maya Angelou"]
-   #quotelist = ['1']
+
     if number == 15:
         youwin.config(text="Press Start Game to Start", font=('Arial',20))
     elif number == 17: 
@@ -1278,7 +1279,7 @@ imageFrame.grid(row=0, column=1)
 
 <br>
 
-Next, we will create the second frame, which is for the START button, RESET button, and SCORE.
+Next, we will create the second frame, which is for the START button, RESET button, SCORE label and QUOTE label.
 ```
 inguessframe2 = Frame(guessframe)
 inguessframe2.grid(row=1, column=2)
@@ -1290,6 +1291,18 @@ Guess the Horoscope game title :
 ```
 headername = Label(guessframe, text="Guess the Horoscope", font=('Arial', 40)) 
 headername.grid(row=0, columnspan=3)
+```
+
+<br>
+
+Variable Declaration:
+```
+score = 0
+number = 15
+numberxlist = []
+prevent = [0]
+prevent2 = [2]
+quoteno = -1
 ```
 
 <br>
@@ -1413,7 +1426,7 @@ for i in range(0, 12):
 
 <br>
 
-After which, we'll need to create buttons/labels for start, reset, score and result.
+After which, we'll need to create buttons/labels for start, reset, score, result and quote.
 ```
 startbtn = Button(inguessframe2, text="START GAME", font=('Arial', 20), bg='#E0B0FF', command=startgame)
 startbtn.grid(row=0, column=2)
@@ -1426,13 +1439,15 @@ scorename.grid(row=2, column=2)
 
 scoreresults = Label(inguessframe2, text=str(score), font=('Arial', 25))
 scoreresults.grid(row=3, column=2)
+
+quote = Label(inguessframe2, text="", font=('Arial', 18), wraplength=500)
+quote.grid(row=5, column=2)
 ```
 
 <br>
 
 ![](markdown%20imgs/HoroLBL.png)
-
-*Start game, Reset game and Score*
+*Start game, Reset, Score and Quote*
 
 <br>
 
@@ -1448,13 +1463,6 @@ youwin.grid(row=4, column=2)
 <br>
 
 *Prompt to tell the user to Start Game*
-
-<br>
-
-After which, we'll need to remove the reset prompt at intial boot. This appears only when triggered.
-```
-youwin.grid_forget()
-```
 
 <br>
 

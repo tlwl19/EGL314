@@ -284,8 +284,6 @@ def horobutton(c):
         youwin.grid(row=4, column=2)
     elif number == 13:
         youwin.config(text="Press Start Game to Start", font=('Arial',20))
-    #elif number == 12:
-    #    youwin.config(text="Press Guess to Start Guessing", font=('Arial',10))
     else: #number = 16 guess is pressed
         if c == numberx:
             if quoteno >= len(quotelist)-1:
