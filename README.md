@@ -1870,12 +1870,21 @@ main.bind("<Return>", change_img)
 
 <br>
 
-![](markdown%20imgs/iconSS.png)
+![](Demo%20Pics/Icon.png)
 *Test Your Concentration GUI*
 
 <br>
 
 ## **Test Your Concentration Function:**
+<br>
+
+Declare variables:
+```
+counter = 0   
+running = False  
+global naming
+```
+
 <br>
 
 To send images in the game to the polariser :
@@ -1893,7 +1902,7 @@ def show_Image_focus(choice3):
 We will have to create a message box for the user to read the instructions and understand how the game works.
 ```
 def getinstruction():
-    messagebox.showinfo("Instructions", "1. Click on the 'START' button to begin.\n2. Click on the correct button corresponding to the image shown on the polariser.\n3. You will proceed on to the next level if you select the correct answer.\n4. The game will reset if you select the incorrect answer.")
+    messagebox.showinfo("Instructions", "1. Click on the 'START' button to begin.\n2. Click on the correct button corresponding to the image shown on the polariser.\n3. You will proceed on to the next level if you select the correct answer.\n4. Click on the 'START' button again to play the next level.\n5. The game will reset if you select the incorrect answer.")
 ```
 
 <br>
@@ -1901,7 +1910,6 @@ def getinstruction():
 Output:
 
 ![Alt text](focusbutton%20pics/instructions.png)
-<br>
 
 *Message Box for instructions*
 
@@ -1932,15 +1940,13 @@ def counter_label(label):
             string = tt.strftime("00:00:%S")
             display=string
             label['text']=display
-   
-           
+      
             timer.after(1000, count) 
             counter += 1
             
             if counter > 20:
                 Stop(10)
-           
-   
+             
     count()
 ```
 
@@ -1952,7 +1958,7 @@ def click():
     global numberxlist
     numberx = random.randint(0,5) 
     if len(numberxlist) >= 1:  
-        while numberx == numberxlist[0]: #To check if the random int is the same as the previous random generate int
+        while numberx == numberxlist[0]: 
             numberx = random.randint(0,5)
         else:
             numberxlist[0] = numberx 
@@ -1965,7 +1971,7 @@ def click():
 
 <br>
 
-To create the Selection Buttons :
+When user click on the selection buttons, timer will stop and execute messagebox :
 ```
 def Stop(m):
     global running, numberxlist, Lno, counter, storetime, display
@@ -1995,31 +2001,30 @@ def Stop(m):
 
 <br>
 
-Set icons for each level :
+In each level, the selection buttons will change according to what we have set :
 ```
 def Reset(label):
-    global counter, Lno, icons, storetime
+    global counter, Lno, icons, storetime, naming
     counter=0
    
-  
-    if running==False: 
+    if running==False:  #When timer is not running
         start['state']='normal'      
         label['text']='Welcome!'
         level['text']='Level '+ str(Lno)
         if Lno == 1:
-            icons = ['KFC', 'Jollibee', 'McDonalds', 'Pizza Hut', 'Mos Burger', 'Texas Chicken']
+            icons = ['KFC', 'Jollibee', 'Popeyes', 'Pizza Hut', 'Mos Burger', 'Texas Chicken']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 2:
-            icons = ['Puma', 'A&W', 'Fila', 'BMW', 'Subway', 'Ferrari']
+            icons = ['Puma', 'Converse', 'Fila', 'Nike', 'Under Armour', 'Reebok']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         elif Lno == 3:
-            icons = ['Hawkeye', 'Hulk', 'Nissan', 'Rolls Royce', 'Burger King', 'Dominos']
+            icons = ['Ferrari', 'Hyundai', 'Mitsubishi', 'Rolls Royce', 'Honda', 'Mercedes']
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
         else:
-            icons = ['Netflix', 'Tiktok', 'Youtube', 'Twitter', 'Instagram', 'Facebook']  
+            icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']  #Level 0
             for i in range (0, 6):
                 btn[i]['text']=icons[i]
 ```
@@ -2033,7 +2038,22 @@ Sample Output:
 
 <br>
 
-For user to enter their name at the end of the game :
+The motivational quote of image will loop when user click on the selection button.
+```
+    focuspiclist = ["come","conquer","control","hang","happy","important","living","openup","tough","turnout","focusquote"]
+    naming = naming+1
+    if naming > len(focuspiclist)-1:
+        naming = 0
+    path = "motivationalquotes/" + focuspiclist[naming] + ".png"
+    focusImages = Image.open(path)
+    loadImage = ImageTk.PhotoImage(focusImages)
+    focuspic.image = loadImage
+    focuspic.config(image = loadImage)
+```
+
+<br>
+
+Get the name of the user when they win the game :
 ```
 def getname():
     name = simpledialog.askstring("Test", "What's your Name?:")
@@ -2050,7 +2070,7 @@ Output:
 
 <br>
 
-Creating a message box to display the name player has entered and after the player has won the game :
+Creating a message box to display the player name and time taken when they win the game :
 ```
 def correctbox():
     global storetime
@@ -2123,7 +2143,7 @@ focusframe = Frame(middleframe)
 
 <br>
 
-The main focus frame :
+The midframe contains Timer, Label and Start button :
 ```
 midframe = Frame(focusframe)
 midframe.grid(row=2, columnspan=6)
@@ -2131,7 +2151,7 @@ midframe.grid(row=2, columnspan=6)
 
 <br>
 
-The buttons frame :
+The frameone contains the selection buttons:
 ```
 frameone = Frame(focusframe)
 frameone.grid(row=3, column=0)
@@ -2141,7 +2161,7 @@ frameone.grid(row=3, column=0)
 
 Firstly, we set the title to 'ICONcentrate'. You can change the title to your preference.
 ```
-headername = Label(focusframe, text="ICONcentrate", font=('Arial', 30), fg='#96DED1') 
+headername = Label(focusframe, text="ICONcentrate", font=('Arial', 40), fg='#4542fb') 
 headername.grid(row=0, column=0)
 ```
 
@@ -2149,8 +2169,8 @@ headername.grid(row=0, column=0)
 
 Next, we created the **Instructions** button for the game, in which the user would need to click on the button so that a pop-up window would appear and show them the instructions.
 ```
-instrubtn = Button(focusframe, text='Instructions', font=('Arial', 15), bg = '#b0c8ed', fg='white', command=getinstruction)
-instrubtn.grid(row=1, column=0)
+instrubtn = Button(focusframe, text='Instructions', font=('Arial', 25), bg = '#a4c6eb', fg='black', command=getinstruction)
+instrubtn.grid(row=1, column=0, ipadx=25, ipady=10)
 ```
 
 <br>
@@ -2173,7 +2193,7 @@ storetime = 0
 
 Level :
 ```
-level = Label(midframe, text='Level '+ str(Lno), font=('Arial', 15))
+level = Label(midframe, text='Level '+ str(Lno), font=('Arial', 20))
 level.grid(row=2, column=0)
 ```
 
@@ -2189,7 +2209,7 @@ Output:
 
 Timer :
 ```
-timer = Label(midframe, text='Welcome', font=('Arial', 15))
+timer = Label(midframe, text='Welcome', font=('Arial', 20))
 timer.grid(row=2, column=1, padx=100)
 ```
 
@@ -2205,8 +2225,8 @@ Output:
 
 Start Button :
 ```
-start = Button(midframe, text='Start', font=('Arial', 15), command=lambda:Start(timer))
-start.grid(row=2, column=2, ipadx=30)
+start = Button(midframe, text='Start', bg='#d4fafa', fg='black', activebackground='#80e2ff', font=('Arial', 20), command=lambda:Start(timer))
+start.grid(row=2, column=2, ipadx=30, ipady=5)
 ```
 
 <br>
@@ -2221,11 +2241,12 @@ Output:
 
 Selection Buttons :
 ```
-icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix']
-btn = [i for i in range(len(icons))] 
+icons = ['Facebook', 'Instagram', 'Twitter', 'Youtube', 'Tiktok', 'Netflix'] 
+btn = [i for i in range(len(icons))]  
 
-for i in range (0, 6):
-    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15), command=lambda m=i:Stop(m), wraplength=130)
+for i in range (0, 6):  #Assigning array values into btn 
+    btn[i] = Button(frameone, text=icons[i], state='disabled', width=10, height=2, font=("Courier", 15),
+     activebackground='#80e2ff', command=lambda m=i:Stop(m), wraplength=130) #so that texaschicken text can fully show on the button
     btn[i].grid(row=0, column=i)
 ```
 
@@ -2236,6 +2257,18 @@ Output:
 ![Alt text](focusbutton%20pics/game.png)
 
 *Selection Buttons*
+
+<br>
+
+Motivational image quotes :
+```
+naming = -1
+focuspath = "motivationalquotes/focusquote.png"
+focusImage = Image.open(focuspath)
+luckyyImage = ImageTk.PhotoImage(focusImage)
+focuspic = Label(frameone, image=luckyyImage)
+focuspic.grid(row=1, columnspan=6)
+```
 
 <br>
 
