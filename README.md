@@ -1503,6 +1503,7 @@ To change the images :
 
 ```
 def change_img(): 
+    global name
     for i in range(len(options)) : 
         if options[i] == clicked.get():
             i = i+1
@@ -1759,6 +1760,18 @@ title.grid(row=2, columnspan=3)
 ```
 label= Label(luckframe, image='', text="Input your date of birth and click on the 'Enter' button.", font=('Arial', 25))
 label.grid(row=3, columnspan=3)
+```
+
+<br>
+
+Insert Motivational quote image :
+```
+name = -1
+luckpath = "motivationalquotes/luckmain.png"
+myImages = Image.open(luckpath)
+luckyImages = ImageTk.PhotoImage(myImages)
+luckpic = Label(luckframe, image=luckyImages)
+luckpic.grid(row=4, columnspan=3)
 ```
 
 <br>
