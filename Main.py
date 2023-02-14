@@ -147,10 +147,10 @@ def restartgame():
         for i in range(0, 12):
             paths = "horo/" + str(i) + ".png"
             myImages = Image.open(paths)
-            myImages = myImages.resize((90, 90))
-            loadImages = ImageTk.PhotoImage(myImages)
-            widthy = 114
-            heighty = 126
+            myImagess = myImages.resize((100, 100))
+            loadImages = ImageTk.PhotoImage(myImagess)
+            widthy = 179
+            heighty = 196
             if i == 0:
                 btn0.image = loadImages
                 btn0.config(image = loadImages, width=widthy, height=heighty, bg='white')
