@@ -654,9 +654,9 @@ def preview_Image(choice):
 def game(m):
     frame1.grid_forget()  
     randoms = random.randint(1,3)
-    if randoms == 1:
+    if m == 3:
         o = "scissors"
-    elif randoms == 2:
+    elif m == 1:
         o = "paper"
     else:
         o = "stone"

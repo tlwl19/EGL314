@@ -91,12 +91,15 @@ def preview_Image(choice):
 def game(m):
     frame1.grid_forget()  
     randoms = random.randint(1,3)
-    if randoms == 1:
-        o = "scissors"
-    elif randoms == 2:
-        o = "paper"
+    while randoms == m:
+        randoms = random.randint(1,3)
     else:
-        o = "stone"
+        if randoms == 1:
+            o = "scissors"
+        elif randoms == 2:
+            o = "paper"
+        else:
+            o = "stone"
     show_Image_luck(o) #send to polariser
     preview_Image(m) #for game preview at the side (what user has chosen)
 
